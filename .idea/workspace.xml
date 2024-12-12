@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ef93ece1-6459-436e-82df-488c4a8b6900" name="Changes" comment="Client update">
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/QuotesNG2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/QuotesNG2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/src/test/java/com/sts/testautomation/CreateNewQuoteBuilding.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/src/test/java/com/sts/testautomation/CreateNewQuoteBuilding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/Hollard Sapiens Automation Testing on Windows Controller/Create New Quote Building.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/Hollard Sapiens Automation Testing on Windows Controller/Create New Quote Building.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/Hollard Sapiens Automation Testing on Windows Controller/Create New Quote Building.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/Hollard Sapiens Automation Testing on Windows Controller/Create New Quote Building.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/emailable-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/junitreports/TEST-com.sts.testautomation.CreateNewQuoteBuilding.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/junitreports/TEST-com.sts.testautomation.CreateNewQuoteBuilding.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/methods-alphabetical.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/methods-alphabetical.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/methods.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/methods.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Building/test-output/testng-results.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/src/test/java/com/sts/testautomation/CreateNewQuoteCarsRegression2.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/src/test/java/com/sts/testautomation/CreateNewQuoteCarsRegression2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/src/test/java/com/sts/testautomation/CreateNewQuoteCarsRegressionMultipleCars.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/src/test/java/com/sts/testautomation/CreateNewQuoteCarsRegressionMultipleCars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/src/test/java/com/sts/testautomation/CreateNewQuoteCarsRegressionMultipleCars2.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/src/test/java/com/sts/testautomation/CreateNewQuoteCarsRegressionMultipleCars2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote Regression Parallel.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote Regression Parallel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote Regression Parallel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote Regression Parallel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote Regression.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote Regression.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote Regression.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote Regression.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/Car Quote.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/testng-failed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/Hollard Sapiens Automation Testing on Windows Controller/testng-failed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/emailable-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/emailable-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/junitreports/TEST-com.sts.testautomation.CreateNewQuoteCarsRegression2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/junitreports/TEST-com.sts.testautomation.CreateNewQuoteCarsRegression2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/junitreports/TEST-com.sts.testautomation.CreateNewQuoteCarsRegressionMultipleCars2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/junitreports/TEST-com.sts.testautomation.CreateNewQuoteCarsRegressionMultipleCars2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/classes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/methods-alphabetical.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/methods-alphabetical.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/methods.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/methods.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/testng.xml.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/testng.xml.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/toc.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/Hollard Sapiens Automation Testing on Windows Controller/toc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/old/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/testng-failed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/testng-failed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/testng-results.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_Cars/test-output/testng-results.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_PortablePossessions/PortablePossessionsNG.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_PortablePossessions/PortablePossessionsNG.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_PortablePossessions/src/test/java/com/sts/testautomation/CreateNewQuotePortablePossessions.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_PortablePossessions/src/test/java/com/sts/testautomation/CreateNewQuotePortablePossessions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_WaterCraft/WatercraftNG.xml" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_WaterCraft/WatercraftNG.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QuotesPoliciesAndClaims_WaterCraft/src/test/java/com/sts/testautomation/CreateNewQuoteWatercraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuotesPoliciesAndClaims_WaterCraft/src/test/java/com/sts/testautomation/CreateNewQuoteWatercraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SapiensSharedClasses/src/test/java/com/sts/testautomation/pages/web/CreateQuotePortablePossessions.java" beforeDir="false" afterPath="$PROJECT_DIR$/SapiensSharedClasses/src/test/java/com/sts/testautomation/pages/web/CreateQuotePortablePossessions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SapiensSharedClasses/src/test/java/com/sts/testautomation/pages/web/CreateQuoteWaterCraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/SapiensSharedClasses/src/test/java/com/sts/testautomation/pages/web/CreateQuoteWaterCraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2Copy.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2Copy.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2Copy2.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2Copy2.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2_Buildings.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2_Buildings.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2_allRisks.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Hollard_Sapiens v2_allRisks.xlsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2Cc3vpAAFe4OvwZ34U4rCQk50u2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "TestNG.C:/Users/terencem/Documents/GitHub/qa_automation_hollard_sapiens_game_on/Clients/ClientNG.xml.executor": "Run",
+    "TestNG.C:/Users/terencem/IdeaProjects/qa_automation_hollard_sapiens_game_on/Clients/ClientNG.xml.executor": "Run",
+    "TestNG.C:/Users/terencem/IdeaProjects/qa_automation_hollard_sapiens_game_on/QuotesPoliciesAndClaims_Building/QuotesNG.xml.executor": "Run",
+    "TestNG.CreateJuristicPerson.executor": "Run",
+    "TestNG.CreateNaturalPerson.executor": "Run",
+    "git-widget-placeholder": "Brad__WorkingBranch2",
+    "jdk.selected.JAVA_MODULE": "16",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/BradlyS/git/Nimbis-Web-AutomationBradBranch",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "vcs.Git"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\terencem\IdeaProjects\qa_automation_hollard_sapiens_game_on\src\data" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sts.testautomation.pages.web" />
+      <recent name="com.sts.testautomation" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="SapiensSharedClasses" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="SapiensSharedClasses" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C:/Users/terencem/Documents/GitHub/qa_automation_hollard_sapiens_game_on/Clients/ClientNG.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Clients" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/Clients/ClientNG.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.C:/Users/terencem/Documents/GitHub/qa_automation_hollard_sapiens_game_on/Clients/ClientNG.xml" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef93ece1-6459-436e-82df-488c4a8b6900" name="Changes" comment="" />
+      <created>1659088280118</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659088280118</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Client update">
+      <option name="closed" value="true" />
+      <created>1702550530727</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702550530727</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Client update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Client update" />
+  </component>
+</project>

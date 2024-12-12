@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="QuotesPoliciesAndClaims_HomeContents" />
+        <module name="QuotesPoliciesAndClaims_Building" />
+        <module name="QuotesPoliciesAndClaims_PersonalAccidents" />
+        <module name="Dashboard" />
+        <module name="QuotesPoliciesAndClaims_CyberInsurance" />
+        <module name="Login" />
+        <module name="ForgotPassword" />
+        <module name="Clients" />
+        <module name="QuotesPoliciesAndClaims_TrailerAndCaravans" />
+        <module name="BrokerageDetails" />
+        <module name="U_Management" />
+        <module name="QuotesPoliciesAndClaims_Legal" />
+        <module name="QuotesPoliciesAndClaims_NonRoadVehicles" />
+        <module name="com.sts.testautomation.ContactUsPageJava" />
+        <module name="QuotesPoliciesAndClaims_Motorbike" />
+        <module name="QuotesPoliciesAndClaims_PortablePossessions" />
+        <module name="QuotesPoliciesAndClaims_Cars" />
+        <module name="QuotesPoliciesAndClaims" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hotgeerre" target="16" />
+      <module name="qa_automation_hollard_sapiens_game_on" target="16" />
+      <module name="QuotesPoliciesAndClaims_MotorBike" target="16" />
+      <module name="QuotesPoliciesAndClaims_Motorbike2" target="16" />
+      <module name="QuotesPoliciesAndClaims_Motorbike22" target="16" />
+      <module name="QuotesPoliciesAndClaims_MotorBike_" target="16" />
+      <module name="QuotesPoliciesAndClaims_Regression" target="16" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

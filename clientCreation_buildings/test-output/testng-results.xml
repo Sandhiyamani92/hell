@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="3" total="5" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-12-03T16:11:59 SAST" name="Hollard Nimbis Automation Testing on Windows Controller" finished-at="2024-12-03T16:13:49 SAST" duration-ms="110079">
+    <groups>
+    </groups>
+    <test started-at="2024-12-03T16:11:59 SAST" name="Client creation and buildings" finished-at="2024-12-03T16:13:49 SAST" duration-ms="110079">
+      <class name="com.sts.testautomation.CreateMotorNewQuote">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.sts.testautomation.CreateMotorNewQuote@681aad3b]" started-at="2024-12-03T16:11:59 SAST" name="setup" description="Initialize Grid" finished-at="2024-12-03T16:11:59 SAST" duration-ms="32" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="setupTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.sts.testautomation.CreateMotorNewQuote@681aad3b]" started-at="2024-12-03T16:11:59 SAST" name="setupTest" description="Instantiate Grid" finished-at="2024-12-03T16:12:09 SAST" duration-ms="9103" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://uat.nimbis.co.za]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[../src/data/Hollard Nimbis Buildings.xlsx]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupTest -->
+        <test-method signature="Login()[pri:0, instance:com.sts.testautomation.CreateMotorNewQuote@681aad3b]" started-at="2024-12-03T16:12:09 SAST" name="Login" description="Login to Nimbis" finished-at="2024-12-03T16:12:10 SAST" duration-ms="1582" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="rateExistingClient()[pri:2, instance:com.sts.testautomation.CreateMotorNewQuote@681aad3b]" started-at="2024-12-03T16:12:10 SAST" name="rateExistingClient" description="Find existing quote and rerate" finished-at="2024-12-03T16:13:49 SAST" duration-ms="99315" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rateExistingClient -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.sts.testautomation.CreateMotorNewQuote@681aad3b]" started-at="2024-12-03T16:13:49 SAST" name="closeBrowser" finished-at="2024-12-03T16:13:49 SAST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.sts.testautomation.CreateMotorNewQuote -->
+    </test> <!-- Client creation and buildings -->
+  </suite> <!-- Hollard Nimbis Automation Testing on Windows Controller -->
+</testng-results>
