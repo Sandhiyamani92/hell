@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>NIMBIS_Client</artifactId>
+    <artifactId>NIMBIS_Prestige_Client</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

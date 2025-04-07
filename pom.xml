@@ -250,7 +250,7 @@
     <module>Tial_Buildings_Prestige</module>
 
       <module>Module</module>
-      <module>NIMBIS_Client</module>
+      <module>NIMBIS_Prestige_Client</module>
   </modules>
 
     <description> </description>
