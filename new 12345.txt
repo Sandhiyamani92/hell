@@ -1,0 +1,119 @@
+@Test(priority=7,description="DriverInfo in to MMX")
+	public void MotorVehicles_DriverInfo()
+	{
+		try
+		{
+			//Loop runs through all the Nodes in the Grid and performs the tests on them
+			for(Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet())
+			{
+				if(currentNode.getKey().equals(Device))
+				{
+					//Android
+					if(currentNode.getValue() instanceof AndroidNode)
+					{
+						try
+						{
+							
+						}
+						catch(Exception e)
+						{
+							e.printStackTrace();
+							Assert.fail();
+							System.out.println(e.getMessage());
+							testA.quit();
+							
+						}
+						
+					}
+					
+					//iOS
+					else if(currentNode.getValue() instanceof IOSNode)
+					{
+						try
+						{
+							
+							
+						}
+						catch(Exception e)
+						{
+							e.printStackTrace();
+							Assert.fail();  
+							
+							
+							
+						}
+						
+						
+					}
+					
+					//Browsers
+					else if(currentNode.getValue() instanceof BrowserNode)
+					{
+						try
+						{
+							
+							Thread.sleep(5000);
+							elementFunctionality.captureScreenshotOnDevice("DriverInfo");
+						
+							
+							PolicyDetails_Nav.clickDriverOwnerInfo();
+							motorVehicles_DriverInfo.selectRegularDriverRelation_dd("Policyholder");
+							motorVehicles_DriverInfo.selectAdvancedDriver_dd("No");
+							motorVehicles_DriverInfo.selectDriverPolicyHolder_dd("Yes");
+							motorVehicles_DriverInfo.enterDriverName_txt("Brad Brown");
+							motorVehicles_DriverInfo.enterDriverIdNumber_txt("8106049099085");
+							motorVehicles_DriverInfo.enterDriverBirthDate_txt("04/06/1981");
+							motorVehicles_DriverInfo.selectDriverGender_dd(EH.getCellValue("136", "Driver gender"));
+							motorVehicles_DriverInfo.selectDriverMaritualStatus_dd(EH.getCellValue("136", "Driver marital status"));
+							motorVehicles_DriverInfo.selectDriverOccupation_dd("Call Centre");
+							motorVehicles_DriverInfo.selectLicenceCode_dd(EH.getCellValue("136","Licence Code"));
+							//motorVehicles_DriverInfo.enterLicenceYear_txt("2014");
+						
+							PolicyDetails_Nav.clickCoverInfo();
+							
+							Thread.sleep(5000);
+							
+							elementFunctionality.captureScreenshotOnDevice("clickCoverTap");
+							
+							Thread.sleep(5000);
+							PolicyDetails_Nav.clickRate();
+									
+							
+							PolicyDetails_Nav.clickRatingInfo();
+							
+							Thread.sleep(5000);
+							
+							elementFunctionality.captureScreenshotOnDevice("clickRatingInfo");
+						
+							
+							PolicyDetails_Nav.clickFileButton();
+						}
+						catch(Exception e)
+						{
+							e.printStackTrace();
+							Assert.fail();
+							
+							
+						}
+						
+					}
+					
+				}
+			}
+			
+			
+		}
+		
+		
+		
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			Assert.fail();
+			
+			
+		}
+		
+	}
+	
+	
