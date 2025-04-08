@@ -34,5 +34,44 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//button[@class='rwzButton rwzNext']")
     private WebElement nextBtn ;
 
+    @FindBy(xpath = "//button[@class='rwzButton rwzNext']")
+    private WebElement openQuoteBtn ;
+
+
+
+    //METHODS
+
+    public void clickQuotation_DD() {
+
+        if (verifyElement.verifyBrowserElementValue(Quotation_DD, "Quotation Drop Down") == 0) {
+            verifyElement.clickElement(Quotation_DD,"Quotation Drop Down");
+        }
+    }
+    public void clickAddNewQuote_DD() {
+
+        if (verifyElement.verifyBrowserElementValue(addNewQuote_DD, "Add New Quote") == 0) {
+            verifyElement.clickElement(addNewQuote_DD,"Add New Quote");
+        }
+    }
+    public void clickPrestigeV2_Chkbox() {
+
+        if (verifyElement.verifyBrowserElementValue(prestigeV2_Chkbox, "Prestige V2") == 0) {
+            verifyElement.clickElement(prestigeV2_Chkbox,"Prestige V2");
+        }
+    }
+    public void clickPolicyFrequency_DD() {
+
+        if (verifyElement.verifyBrowserElementValue(policyFrequency_DD, "Policy Frequency") == 0) {
+            verifyElement.clickElement(policyFrequency_DD,"Policy Frequency");
+        }
+    }
+    public void clickNextBtn() {
+
+        if (verifyElement.verifyBrowserElementValue(nextBtn, "Next") == 0) {
+            verifyElement.clickElement(nextBtn,"Next");
+        }
+    }
+
+
 
 }
