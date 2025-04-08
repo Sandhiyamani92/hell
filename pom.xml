@@ -247,10 +247,10 @@
   
   <modules>
 	<module>NIMBISSharedClasses</module>
-    <module>Tial_Buildings_Prestige</module>
 
       <module>Module</module>
       <module>NIMBIS_Prestige_Client</module>
+      <module>NIMBIS_Prestige_AssetsSpecified</module>
   </modules>
 
     <description> </description>

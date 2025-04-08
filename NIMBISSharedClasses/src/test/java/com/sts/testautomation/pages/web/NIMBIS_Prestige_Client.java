@@ -19,7 +19,7 @@ public class NIMBIS_Prestige_Client {
     }
 
 
-    // CLIENT DETAILS
+    // CLIENT DETAILS PAGE OBJECTS
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_cmbClientType_Input']")
     private WebElement clientType_DD ;
@@ -48,7 +48,7 @@ public class NIMBIS_Prestige_Client {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_email']")
     private WebElement email3Address_Txt;
 
-    //ADDRESS DETAILS
+    //ADDRESS DETAILS PAGE OBJECTS
 
     @FindBy(xpath = "ctl00_ContentPlaceHolder1_ucAddress_txtLine1")
     private WebElement postalCode_Txt;

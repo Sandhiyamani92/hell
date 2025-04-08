@@ -4,16 +4,69 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10bf6cf3-ded4-49bf-b5a9-1f32d01cac84" name="Changes" comment="" />
+    <list default="true" id="10bf6cf3-ded4-49bf-b5a9-1f32d01cac84" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_AssetsSpecified.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2vOMF3n4Ljp3qFAuAFBP2bUgrNT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "NathanielSmith__Branch",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="NIMBIS" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="NIMBIS" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="10bf6cf3-ded4-49bf-b5a9-1f32d01cac84" name="Changes" comment="" />
+      <created>1744011559410</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744011559410</updated>
+    </task>
     <servers />
   </component>
 </project>

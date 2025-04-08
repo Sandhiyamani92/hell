@@ -3,11 +3,19 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="NIMBIS_Prestige_Client" />
+        <module name="Module" />
+        <module name="NIMBISSharedClasses" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="NIMBIS_Client" target="1.7" />
       <module name="NimbisSharedClasses" target="1.8" />
       <module name="Sapiens" target="1.7" />
+      <module name="Tial_Buildings_Prestige" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

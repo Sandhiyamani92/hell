@@ -34,9 +34,18 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//button[@class='rwzButton rwzNext']")
     private WebElement nextBtn ;
 
-    @FindBy(xpath = "//button[@class='rwzButton rwzNext']")
+    @FindBy(xpath = "//span[contains(text(),'Open Quote')]")
     private WebElement openQuoteBtn ;
 
+    @FindBy(xpath = "//li//span[contains(text(),'Cover')]")
+    private WebElement coverBtn ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Add New Item')]")
+    private WebElement addNewItemBtn ;
+
+    // RISK COVERS
+    @FindBy(xpath = "//li//span[contains(text(),'Assets Specified')]")
+    private WebElement assetsSpecifiedCover ;
 
 
     //METHODS
@@ -69,6 +78,27 @@ public class NIMBIS_UserNavigation {
 
         if (verifyElement.verifyBrowserElementValue(nextBtn, "Next") == 0) {
             verifyElement.clickElement(nextBtn,"Next");
+        }
+    }
+    public void clickCoverBtn() {
+
+        if (verifyElement.verifyBrowserElementValue(coverBtn, "Cover") == 0) {
+            verifyElement.clickElement(coverBtn,"Cover");
+        }
+    }
+    public void clickAddNewItemBtn() {
+
+        if (verifyElement.verifyBrowserElementValue(addNewItemBtn, "Add New Item") == 0) {
+            verifyElement.clickElement(addNewItemBtn,"Add New Item");
+        }
+    }
+
+    //RISK COVERS METHODS
+
+    public void clickAssetsSpecifiedCover() {
+
+        if (verifyElement.verifyBrowserElementValue(assetsSpecifiedCover, "Assets Specified Cover") == 0) {
+            verifyElement.clickElement(assetsSpecifiedCover,"Assets Specified Cover");
         }
     }
 
