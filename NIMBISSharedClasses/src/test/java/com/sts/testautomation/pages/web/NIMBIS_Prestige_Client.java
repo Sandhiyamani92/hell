@@ -39,18 +39,33 @@ public class NIMBIS_Prestige_Client {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_gender_Input']")
     private WebElement gender_DD;
 
-    @FindBy(xpath = "ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_title_Input")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_title_Input']")
     private WebElement title_DD;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_maritalstatus_ClientState']")
     private WebElement maritalStatus_DD;
 
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_36']")
+    private WebElement client_ITCPermission;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_38']")
+    private WebElement client_Sequestration;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_40']")
+    private WebElement client_PreviousInsurance;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_37']")
+    private WebElement client_CriminalOffenceConvictions;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_39']")
+    private WebElement client_PreviousInsuranceCancelled;
+
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_email']")
-    private WebElement email3Address_Txt;
+    private WebElement emailAddress_Txt;
 
     //ADDRESS DETAILS PAGE OBJECTS
 
-    @FindBy(xpath = "ctl00_ContentPlaceHolder1_ucAddress_txtLine1")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_ucAddress_lstSuburb_Input']")
     private WebElement postalCode_Txt;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_ucAddress_txtStreet']")
@@ -103,6 +118,12 @@ public class NIMBIS_Prestige_Client {
             verifyElement.sendKeys(identification_Txt, "Identification Number", idNum);
         }
     }
+    public void enterEmailAddress(String email) {
+
+        if (verifyElement.verifyBrowserElementValue(emailAddress_Txt, "Email Address") == 0) {
+            verifyElement.sendKeys(emailAddress_Txt, "Email Address",  email);
+        }
+    }
     public void clickGender() {
 
         if (verifyElement.verifyBrowserElementValue(gender_DD, "Gender") == 0) {
@@ -121,6 +142,52 @@ public class NIMBIS_Prestige_Client {
             verifyElement.clickElement(maritalStatus_DD,"Marital Status");
         }
     }
+
+    public void selectITCPermission(String selection) {
+
+        if (verifyElement.verifyBrowserElementValue(client_ITCPermission, "ITC Permission") == 0) {
+            if (selection.equalsIgnoreCase("Yes")){
+                verifyElement.clickElement(client_ITCPermission,"ITC Permission");
+            }
+        }
+    }
+
+    public void selectSequestration(String selection) {
+
+        if (verifyElement.verifyBrowserElementValue(client_Sequestration, "Sequestration") == 0) {
+            if (selection.equalsIgnoreCase("Yes")){
+                verifyElement.clickElement(client_Sequestration,"Sequestration");
+            }
+        }
+    }
+
+    public void selectPreviousInsurance(String selection) {
+
+        if (verifyElement.verifyBrowserElementValue(client_PreviousInsurance, "Previous Insurance") == 0) {
+            if (selection.equalsIgnoreCase("Yes")){
+                verifyElement.clickElement(client_PreviousInsurance,"Previous Insurance");
+            }
+        }
+    }
+    public void selectCriminalOffenceConvictions(String selection) {
+
+        if (verifyElement.verifyBrowserElementValue(client_CriminalOffenceConvictions, "Criminal Offence Convictions") == 0) {
+            if (selection.equalsIgnoreCase("Yes")){
+                verifyElement.clickElement(client_CriminalOffenceConvictions,"Criminal Offence Convictions");
+            }
+        }
+    }
+    public void selectPreviousInsuranceCancelled(String selection) {
+
+        if (verifyElement.verifyBrowserElementValue(client_PreviousInsuranceCancelled, "Previous Insurance Cancelled") == 0) {
+            if (selection.equalsIgnoreCase("Yes")){
+                verifyElement.clickElement(client_PreviousInsuranceCancelled,"Previous Insurance Cancelled");
+            }
+        }
+    }
+
+
+
 
     //CLIENT ADDRESS DETAILS METHODS
 

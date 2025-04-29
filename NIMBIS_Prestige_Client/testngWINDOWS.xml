@@ -12,7 +12,7 @@
        <parameter name="URL" value="https://core.nimbis.co.za"/>
 
   <classes>
-    <class name="com.sts.testautomation.steps.CreateClient"/>
+    <class name="com.sts.testautomation.steps.CreateClient_NIMBIS"/>
     </classes> 
   </test> 
  

@@ -25,7 +25,7 @@ public class NIMBIS_Login {
     @FindBy(xpath = "//input[@id='ContentLogin_ucLoginForm_LoginUser_btnGetAuthType']")
     private WebElement continueBtn ;
 
-    @FindBy(xpath = "//input[@id='ctl00$ContentLogin$ucLoginForm$LoginUser$Password']")
+    @FindBy(xpath = "//input[@id='ContentLogin_ucLoginForm_LoginUser_Password']")
     private WebElement Password_Txt ;
 
     @FindBy(xpath = "//input[@id='ContentLogin_ucLoginForm_LoginUser_btnLogin']")

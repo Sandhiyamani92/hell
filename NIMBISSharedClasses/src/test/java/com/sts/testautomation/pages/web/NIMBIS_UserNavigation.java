@@ -1,5 +1,6 @@
 package com.sts.testautomation.pages.web;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,6 +47,9 @@ public class NIMBIS_UserNavigation {
     // RISK COVERS
     @FindBy(xpath = "//li//span[contains(text(),'Assets Specified')]")
     private WebElement assetsSpecifiedCover ;
+
+
+
 
 
     //METHODS
@@ -99,6 +103,20 @@ public class NIMBIS_UserNavigation {
 
         if (verifyElement.verifyBrowserElementValue(assetsSpecifiedCover, "Assets Specified Cover") == 0) {
             verifyElement.clickElement(assetsSpecifiedCover,"Assets Specified Cover");
+        }
+    }
+
+
+    public void selectOption(String option){
+        WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(text(),'" + option +"')]"));;
+        if(verifyElement.verifyBrowserElementValue(item, option) == 0)
+        {
+
+            verifyElement.clickElement(item, option);
+        }
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
         }
     }
 
