@@ -8,6 +8,7 @@ import com.sts.testautomation.pages.web.NIMBIS_Login;
 import com.sts.testautomation.pages.web.NIMBIS_Prestige_Client;
 import com.sts.testautomation.pages.web.NIMBIS_UserNavigation;
 import com.sts.testautomation.utilities.ElementFunctionality;
+import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,6 +23,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.Map;
+
 import java.util.concurrent.TimeUnit;
 
 
@@ -32,6 +34,8 @@ private NIMBIS_Login nimbisLogin;
 private NIMBIS_Prestige_Client nimbisPrestigeClient;
 private NIMBIS_UserNavigation nimbisUserNavigation;
 private ElementFunctionality elementFunctionality;
+private ExcelHandler EH;
+
 
 
     @Parameters({"URL", "Device"})
@@ -133,53 +137,58 @@ private ElementFunctionality elementFunctionality;
 
     @Parameters({"URL"})
     @Test(priority = 1, description = "Create Client")
-    public void CreateClient(String URL) throws InterruptedException {
+    public void CreateClient(String URL) throws Exception {
         url = URL;
+
 
         nimbisLogin = new NIMBIS_Login(testB,Device);
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB,Device);
         nimbisUserNavigation = new NIMBIS_UserNavigation(testB,Device);
         elementFunctionality = new ElementFunctionality(testB,Device);
+   //     EH = new ExcelHandler("C:\\Users\\NathanielS\\Documents\\GitHub\\Hollard_Earnix_Tial\\src\\Tial_FrontEnd Fields.xlsx", "Clients Test Cases", 0, 0);
+
 
         //  testB.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
+        for (int i = 0 ; i < 2 ; i++){
+            nimbisUserNavigation.clickQuotation_DD();
+            nimbisUserNavigation.clickAddNewQuote_DD();
+            nimbisUserNavigation.clickPrestigeV2_Chkbox();
+            nimbisUserNavigation.clickNextBtn();
+            nimbisUserNavigation.clickNextBtn();
 
-        nimbisUserNavigation.clickQuotation_DD();
-        nimbisUserNavigation.clickAddNewQuote_DD();
-        nimbisUserNavigation.clickPrestigeV2_Chkbox();
-        nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickNextBtn();
+            nimbisPrestigeClient.enterFirstName("Mark");
+            nimbisPrestigeClient.enterLastName("Delap");
 
-        nimbisPrestigeClient.enterFirstName("Mark");
-        nimbisPrestigeClient.enterLastName("Delap");
+            nimbisPrestigeClient.enterIdentificationNumber("9208148266182");
+            JavascriptExecutor js = (JavascriptExecutor) testB;
+            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 
-        nimbisPrestigeClient.enterIdentificationNumber("9208148266182");
-        JavascriptExecutor js = (JavascriptExecutor) testB;
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+            nimbisPrestigeClient.clickTitle();
+            nimbisUserNavigation.selectOption("Mr");
 
-        nimbisPrestigeClient.clickTitle();
-        nimbisUserNavigation.selectOption("Mr");
+            nimbisPrestigeClient.selectITCPermission("Yes");
+            nimbisPrestigeClient.selectSequestration("Yes");
+            nimbisPrestigeClient.selectPreviousInsurance("Yes");
+            nimbisPrestigeClient.selectCriminalOffenceConvictions("Yes");
+            nimbisPrestigeClient.selectPreviousInsuranceCancelled("Yes");
 
-        nimbisPrestigeClient.selectITCPermission("Yes");
-        nimbisPrestigeClient.selectSequestration("Yes");
-        nimbisPrestigeClient.selectPreviousInsurance("Yes");
-        nimbisPrestigeClient.selectCriminalOffenceConvictions("Yes");
-        nimbisPrestigeClient.selectPreviousInsuranceCancelled("Yes");
+            nimbisPrestigeClient.enterEmailAddress("testingemail@email.com");
 
-        nimbisPrestigeClient.enterEmailAddress("testingemail@email.com");
+            nimbisUserNavigation.clickNextBtn();
+            Thread.sleep(3000);
+            nimbisPrestigeClient.enterPostalCode("Lenasia");
+            nimbisUserNavigation.selectOption("Lenasia");
 
-        nimbisUserNavigation.clickNextBtn();
-        Thread.sleep(3000);
-        nimbisPrestigeClient.enterPostalCode("Lenasia");
-        nimbisUserNavigation.selectOption("Lenasia");
+            nimbisPrestigeClient.enterStreet("Protea Street");
+            nimbisPrestigeClient.enterBuilding("13567");
 
-        nimbisPrestigeClient.enterStreet("Protea Street");
-        nimbisPrestigeClient.enterBuilding("13567");
-
-        nimbisUserNavigation.clickNextBtn();
+            nimbisUserNavigation.clickNextBtn();
 
 
 
+
+        }
 
 
     }
