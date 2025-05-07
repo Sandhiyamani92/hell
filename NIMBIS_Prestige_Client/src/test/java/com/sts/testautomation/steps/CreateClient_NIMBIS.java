@@ -145,7 +145,7 @@ private ExcelHandler EH;
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB,Device);
         nimbisUserNavigation = new NIMBIS_UserNavigation(testB,Device);
         elementFunctionality = new ElementFunctionality(testB,Device);
-   //     EH = new ExcelHandler("C:\\Users\\NathanielS\\Documents\\GitHub\\Hollard_Earnix_Tial\\src\\Tial_FrontEnd Fields.xlsx", "Clients Test Cases", 0, 0);
+     //   EH = new ExcelHandler("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS.xlsx", " Client Test cases", 0, 0);
 
 
         //  testB.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -157,10 +157,10 @@ private ExcelHandler EH;
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickNextBtn();
 
-            nimbisPrestigeClient.enterFirstName("Mark");
-            nimbisPrestigeClient.enterLastName("Delap");
+            nimbisPrestigeClient.enterFirstName("Nareft");
+            nimbisPrestigeClient.enterLastName("ujuj");
 
-            nimbisPrestigeClient.enterIdentificationNumber("9208148266182");
+            nimbisPrestigeClient.enterIdentificationNumber("7507050835088");
             JavascriptExecutor js = (JavascriptExecutor) testB;
             js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 

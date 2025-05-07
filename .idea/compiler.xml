@@ -7,7 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="NIMBIS_Prestige_Home" />
         <module name="NIMBIS_Prestige_Client" />
+        <module name="NIMBIS_Prestige_Contents" />
         <module name="Module" />
         <module name="NIMBISSharedClasses" />
         <module name="NIMBIS_Prestige_AssetsSpecified" />

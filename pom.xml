@@ -197,13 +197,23 @@
             <artifactId>poi</artifactId>
             <version>5.2.3</version>
         </dependency>
+<!--
 
-        <!-- For .xlsx files -->
+        &lt;!&ndash; For .xlsx files &ndash;&gt;
         <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>5.2.3</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.20.0</version> &lt;!&ndash; use latest stable version &ndash;&gt;
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
+-->
+
         
     <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
@@ -264,6 +274,8 @@
       <module>Module</module>
       <module>NIMBIS_Prestige_Client</module>
       <module>NIMBIS_Prestige_AssetsSpecified</module>
+      <module>NIMBIS_Prestige_Home</module>
+      <module>NIMBIS_Prestige_Contents</module>
   </modules>
 
     <description> </description>
