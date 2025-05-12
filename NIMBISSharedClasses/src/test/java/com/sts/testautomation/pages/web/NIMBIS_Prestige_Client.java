@@ -42,7 +42,7 @@ public class NIMBIS_Prestige_Client {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_title_Input']")
     private WebElement title_DD;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_maritalstatus_ClientState']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_maritalstatus_Input']")
     private WebElement maritalStatus_DD;
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_36']")
@@ -62,6 +62,14 @@ public class NIMBIS_Prestige_Client {
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_email']")
     private WebElement emailAddress_Txt;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_employmentstatus_Input']")
+    private WebElement employmentStatus_DD;
+
+
+
+
+
 
     //ADDRESS DETAILS PAGE OBJECTS
 
@@ -185,6 +193,15 @@ public class NIMBIS_Prestige_Client {
             }
         }
     }
+
+    public void clickEmploymentStatusDropDown() {
+
+        if (verifyElement.verifyBrowserElementValue(employmentStatus_DD, "Employment Status") == 0) {
+          verifyElement.clickElement(employmentStatus_DD,"Employment Status");
+        }
+    }
+
+
 
 
 

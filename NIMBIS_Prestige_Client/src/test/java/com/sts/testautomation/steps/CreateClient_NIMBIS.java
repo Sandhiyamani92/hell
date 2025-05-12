@@ -21,6 +21,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+
+
 import java.time.Duration;
 import java.util.Map;
 
@@ -29,24 +31,25 @@ import java.util.concurrent.TimeUnit;
 
 
 public class CreateClient_NIMBIS extends BaseTest {
-
 private NIMBIS_Login nimbisLogin;
 private NIMBIS_Prestige_Client nimbisPrestigeClient;
 private NIMBIS_UserNavigation nimbisUserNavigation;
 private ElementFunctionality elementFunctionality;
 private ExcelHandler EH;
+    private String Sheet;
 
 
 
-    @Parameters({"URL", "Device"})
+    @Parameters({"URL", "Device","NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
-    public void setupTest(String URL, String device) {
+    public void setupTest(String URL, String device, String datasheet) {
         try {
             HashSetup.SetUpBrowser();
 
             System.out.println("Instantiating Nodes");
             url = URL;
             Device = device;
+            Sheet = datasheet ;
 
             //Loop runs through all the Nodes in the Grid and performs the tests on them
             for (Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet()) {
@@ -119,7 +122,7 @@ private ExcelHandler EH;
 
     @Parameters({"URL"})
     @Test(priority = 0, description = "Logging in to NIMBIS")
-    public void Login(String URL) throws InterruptedException {
+    public void Login(String URL) throws Exception {
         url = URL;
 
         nimbisLogin = new NIMBIS_Login(testB,Device);
@@ -127,11 +130,13 @@ private ExcelHandler EH;
         //  testB.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 
-        nimbisLogin.enterUsername("nathaniel.smith");
+        EH = new ExcelHandler(Sheet, "LoginDetails", 0, 0);
+        nimbisLogin.enterUsername(EH.getCellValueSpecific(1,"Username"));
         nimbisLogin.clickContinueBtn();
-        nimbisLogin.enterPassword("9c)i[3m#080LsPA");
+        nimbisLogin.enterPassword(EH.getCellValueSpecific(1,"Password"));
         nimbisLogin.clickSignInBtn();
         Thread.sleep(6000);
+
 
     }
 
@@ -145,7 +150,8 @@ private ExcelHandler EH;
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB,Device);
         nimbisUserNavigation = new NIMBIS_UserNavigation(testB,Device);
         elementFunctionality = new ElementFunctionality(testB,Device);
-     //   EH = new ExcelHandler("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS.xlsx", " Client Test cases", 0, 0);
+        EH = new ExcelHandler(Sheet, " Client Test cases", 0, 0);
+      //     EH = new ExcelHandler("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS.xlsx", " Client Test cases", 0, 0);
 
 
         //  testB.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -157,15 +163,21 @@ private ExcelHandler EH;
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickNextBtn();
 
-            nimbisPrestigeClient.enterFirstName("Nareft");
-            nimbisPrestigeClient.enterLastName("ujuj");
+            nimbisPrestigeClient.enterFirstName("Naousee");
+            nimbisPrestigeClient.enterLastName("bridgt");
 
-            nimbisPrestigeClient.enterIdentificationNumber("7507050835088");
+            nimbisPrestigeClient.enterIdentificationNumber("0401018622084");
             JavascriptExecutor js = (JavascriptExecutor) testB;
             js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 
             nimbisPrestigeClient.clickTitle();
             nimbisUserNavigation.selectOption("Mr");
+
+            nimbisPrestigeClient.clickEmploymentStatusDropDown();
+            nimbisUserNavigation.selectOption("Employed");
+
+            nimbisPrestigeClient.clickMaritalStatus();
+            nimbisUserNavigation.selectOption("Single");
 
             nimbisPrestigeClient.selectITCPermission("Yes");
             nimbisPrestigeClient.selectSequestration("Yes");

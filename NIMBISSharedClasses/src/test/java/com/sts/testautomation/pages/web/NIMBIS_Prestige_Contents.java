@@ -4,6 +4,7 @@ import com.sts.testautomation.utilities.ElementFunctionality;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class NIMBIS_Prestige_Contents {
 
@@ -11,11 +12,17 @@ public class NIMBIS_Prestige_Contents {
     public ElementFunctionality verifyElement;
     public String Device;
 
+    public NIMBIS_Prestige_Contents(WebDriver browserDriver, String Device)
+    {
+        BrowserDriver = browserDriver;
+        this.Device=Device; verifyElement = new ElementFunctionality(BrowserDriver, Device);
+        PageFactory.initElements(BrowserDriver, this);
+    }
 
     //COVER DETAILS
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_BuildingValue']")
-    private WebElement homeSumInsured_Txt ;
+    private WebElement contentsSumInsured_Txt ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7245_Input']")
     private WebElement  coverType_DD ;
@@ -151,9 +158,9 @@ public class NIMBIS_Prestige_Contents {
 
     //COVER DETAILS METHODS
 
-    public void  enterHomeSumInsured( String amount) {
-        if (verifyElement.verifyBrowserElementValue(homeSumInsured_Txt, "Home Sum Insured") == 0) {
-            verifyElement.sendKeys(homeSumInsured_Txt,"Home Sum Insured",amount);
+    public void  enterContentsSumInsured( String amount) {
+        if (verifyElement.verifyBrowserElementValue(contentsSumInsured_Txt, "Home Sum Insured") == 0) {
+            verifyElement.sendKeys(contentsSumInsured_Txt,"Home Sum Insured",amount);
         }
     }
 
@@ -376,7 +383,7 @@ public class NIMBIS_Prestige_Contents {
 
     //EXTENSIONS METHODS
 
-    \public void clickItemsOutAndAbout(){
+    public void clickItemsOutAndAbout(){
         if (verifyElement.verifyBrowserElementValue(itemsOutAndAbout, "Items Out And About") == 0){
             verifyElement.clickElement(itemsOutAndAbout,"Items Out And About");
         }

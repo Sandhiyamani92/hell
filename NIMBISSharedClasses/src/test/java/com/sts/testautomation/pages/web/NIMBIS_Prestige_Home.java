@@ -14,6 +14,13 @@ public class NIMBIS_Prestige_Home {
     public ElementFunctionality verifyElement;
     public String Device;
 
+    public NIMBIS_Prestige_Home(WebDriver browserDriver, String Device)
+    {
+        BrowserDriver = browserDriver;
+        this.Device=Device; verifyElement = new ElementFunctionality(BrowserDriver, Device);
+        PageFactory.initElements(BrowserDriver, this);
+    }
+
 
     //COVER DETAILS
 
@@ -160,6 +167,12 @@ public class NIMBIS_Prestige_Home {
 
     @FindBy(xpath = "//button[@id='chkExtension5664']")
     private WebElement subsidenceLandslipOrGroundHeaveExtendedCover ;
+
+    @FindBy(xpath = "//input[@id='5661lstExtensionSumInsured5661_Input']")
+    private WebElement powerSurgeSumInsured_DD;
+
+    @FindBy(xpath = "//input[@id='5663lstExtensionSumInsured5663_Input']")
+    private WebElement gardenAndLandscapingSumInsured_DD;
 
     //COVER DETAILS METHODS
 
@@ -440,7 +453,19 @@ public class NIMBIS_Prestige_Home {
             verifyElement.clickElement(subsidenceLandslipOrGroundHeaveExtendedCover,"Subsidence, landslip or ground heave - extended cover");
         }
     }
+    public void clickPowerSurgeSumInsuredDropDown() {
 
+        if (verifyElement.verifyBrowserElementValue(powerSurgeSumInsured_DD, "Power Surge Sum Insured") == 0) {
+            verifyElement.clickElement(powerSurgeSumInsured_DD,"Power Surge Sum Insured");
+        }
+    }
+
+    public void clickGardenAndLandscapingSumInsuredDropDown() {
+
+        if (verifyElement.verifyBrowserElementValue(gardenAndLandscapingSumInsured_DD, "Garden and landscaping - extended cover Sum Insured") == 0) {
+            verifyElement.clickElement(gardenAndLandscapingSumInsured_DD,"Garden and landscaping - extended cover Sum Insured");
+        }
+    }
 
 
 

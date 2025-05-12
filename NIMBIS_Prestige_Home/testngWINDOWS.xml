@@ -10,9 +10,11 @@
    <test name="Test on Chrome" preserve-order="false">
   <parameter name="Device" value="Chrome"/>
        <parameter name="URL" value="https://core.nimbis.co.za"/>
+       <parameter name="NIMBIS" value="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>
 
-  <classes>
-    <class name="com.sts.testautomation.steps.CreateClient_NIMBIS"/>
+
+       <classes>
+    <class name="com.sts.testautomation.steps.Home_FieldValidation"/>
     </classes> 
   </test> 
  

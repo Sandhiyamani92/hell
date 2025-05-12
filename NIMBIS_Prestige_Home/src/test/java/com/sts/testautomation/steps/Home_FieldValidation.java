@@ -12,24 +12,17 @@ import com.sts.testautomation.pages.web.NIMBIS_UserNavigation;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.math3.stat.descriptive.moment.SemiVariance;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.remote.server.handler.interactions.touch.Down;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
 import java.util.Map;
-
 import java.util.concurrent.TimeUnit;
-public class Home extends BaseTest {
+
+public class Home_FieldValidation extends BaseTest {
     private NIMBIS_Login nimbisLogin;
     private NIMBIS_Prestige_Client nimbisPrestigeClient;
     private NIMBIS_UserNavigation nimbisUserNavigation;
@@ -152,7 +145,7 @@ public class Home extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB,Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
 
-        for(int i = 1 ; i < EH.numRows ; i ++){
+        for(int i = 1 ; i < 2 ; i ++){
             nimbisUserNavigation.enterSearchText("Vukani Shembe ");
             nimbisUserNavigation.clickSearchBtn();
 
@@ -211,7 +204,7 @@ public class Home extends BaseTest {
             nimbisPrestigeHome.clickUseOfPremisesDropDown();
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Use of premises"));
             // elementFunctionality.scrollToElementBrowser(testB.findElement(By.xpath("")));
-
+            captureTestCaseScreenshotCoverDetail( i);
 
             Thread.sleep(1000);
             nimbisPrestigeHome.enterNoOfElectricGeyser(EH.getCellValueSpecific(i,"No. of electric geysers"));
@@ -255,7 +248,7 @@ public class Home extends BaseTest {
             if(EH.getCellValueSpecific(i,"Within 100m of a water body").equalsIgnoreCase("Yes")){
                 nimbisPrestigeHome.clickWithin100mOfaWaterBody();
             }
-
+            captureTestCaseScreenshotDisclosures(i);
 
 
 
@@ -296,7 +289,8 @@ public class Home extends BaseTest {
             if(EH.getCellValueSpecific(i,"Laser beams in garden").equalsIgnoreCase("Yes")){
                 nimbisPrestigeHome.clickLaserBeamsInGarden();
             }
-
+            captureTestCaseScreenshotSecurity(i);
+            Thread.sleep(1000);
 
 
             js.executeScript("window.scrollTo(20, document.body.scrollHeight);");
@@ -311,6 +305,8 @@ public class Home extends BaseTest {
             Thread.sleep(1000);
             nimbisUserNavigation.selectOptionExcess(EH.getCellValueSpecific(i,"Basic Excess"));
 
+            captureTestCaseScreenshotExcess(i,"Basic Excess", "Basic Excess");
+
             if(EH.getCellValueSpecific(i,"Power surge").equalsIgnoreCase("Yes")){
                 nimbisPrestigeHome.clickPowerSurge();
                 nimbisPrestigeHome.clickPowerSurgeSumInsuredDropDown();
@@ -319,11 +315,15 @@ public class Home extends BaseTest {
             if(EH.getCellValueSpecific(i,"Power surge").equalsIgnoreCase("Yes")){
                 nimbisPrestigeHome.clickPowerSurgeMainCoverSumInsured();
             }
+            captureTestCaseScreenshotPowerSurge(i, "Power surge", "Power surge Sum Insured");
             if(EH.getCellValueSpecific(i,"Garden and landscaping - extended cover").equalsIgnoreCase("Yes")){
                 nimbisPrestigeHome.clickGardenAndLandscapingExtendedCover();
                 nimbisPrestigeHome.clickGardenAndLandscapingSumInsuredDropDown();
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Garden and landscaping - extended cover Sum Insured"));
             }
+            Thread.sleep(1000);
+            captureTestCaseScreenshotLandScaping(i, "Garden and landscaping - extended cover", "Garden and landscaping - extended cover Sum Insured");
+            Thread.sleep(1000);
             if(EH.getCellValueSpecific(i,"Subsidence, landslip or ground heave - extended cover").equalsIgnoreCase("Yes")){
                 nimbisPrestigeHome.clickSubsidenceLandslipOrGroundHeaveExtendedCove();
             }
@@ -357,14 +357,72 @@ public class Home extends BaseTest {
 
         }
 
-    public void captureTestCaseScreenshot(int i, String value) {
-        String[] RatingInfoFields = new String[]{"Security Items","Endorsement ","UW Questions ","Geyser Type"};
+    public void captureTestCaseScreenshotCoverDetail(int i) {
+        String[] RatingInfoFields = new String[]{"Type of Home", "Unoccupied for more than 90 days", "Type of roof construction", "Fire retardant (SABS)", "Residence Type", "Type of wall construction", "Lightning Conductor (SABS)", "Surge Protection (SANS)", "Use of premises","No. of electric geysers","No. of heat pump geysers","No. of gas geysers","No. of solar geysers"};
         for (String RatingInfoField : RatingInfoFields) {
-            if (EH.getCellValue(Integer.toString(i), "TC OBJECTIVE").equalsIgnoreCase(RatingInfoField)) {
-              //  elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + " - " + value + " " + ", Selected option : " + EH1.getCellValue(Integer.toString(i), value));
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + ", Selected option : " + EH.getCellValue(Integer.toString(i), RatingInfoField));
                 break;
             }
         }
     }
+
+    public void captureTestCaseScreenshotDisclosures(int i) {
+        String[] RatingInfoFields = new String[]{"Thatch or non-standard structure more than 15% of main building ", "NCB", "Plot, smallholding or farm", "Commune", "Renewable energy equipment", "Increased risk business type", "Within 100m of a water body"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + ", Selected option : " + EH.getCellValue(Integer.toString(i), RatingInfoField));
+                break;
+            }
+        }
+    }
+
+    public void captureTestCaseScreenshotSecurity(int i) {
+        String[] RatingInfoFields = new String[]{"Burglar bars on all opening windows", "Electric fence", "Access controlled area", "Perimeter protection", "CCTV camera", "Alarm linked to armed response", "24 hour security guard","All doors protected by security gates","High-security estate/complex","Laser beams in garden"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + ", Selected option : " + EH.getCellValue(Integer.toString(i), RatingInfoField));
+                break;
+            }
+        }
+    }
+    public void captureTestCaseScreenshotDetails(int i) {
+        String[] RatingInfoFields = new String[]{"Number of Building claims in the last 12 months,  geyser damage", "Number of Buildings claims in the last 25 to 36 months, excluding geyser damage", "Number of Building claims in the last 13 to 24 months, excluding geyser damage", "Subsidence, landslip or ground heave - extended cover"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + ", Selected option : " + EH.getCellValue(Integer.toString(i), RatingInfoField));
+                break;
+            }
+        }
+
+    }
+    public void captureTestCaseScreenshotExcess(int i, String cover, String sumInsured) {
+        String[] RatingInfoFields = new String[]{"Basic Excess"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + " - " + cover + " " + ", Selected option : " + EH.getCellValue(Integer.toString(i),sumInsured));
+                break;
+            }
+        }
+    }
+    public void captureTestCaseScreenshotLandScaping(int i, String cover, String sumInsured) {
+        String[] RatingInfoFields = new String[]{"Garden and landscaping - extended cover"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + " - " + cover + " " + ", Selected option : " + EH.getCellValue(Integer.toString(i),sumInsured));
+                break;
+            }
+        }
+    }
+    public void captureTestCaseScreenshotPowerSurge(int i, String cover, String sumInsured) {
+        String[] RatingInfoFields = new String[]{"Power surge"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + " - " + cover + " " + ", Selected option : " + EH.getCellValue(Integer.toString(i),sumInsured));
+                break;
+            }
+        }
+    }
+
     }
 

@@ -1,8 +1,23 @@
 package com.sts.testautomation.steps;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -28,6 +43,11 @@ public class BaseTest
 	public WebDriver testB;
 	public 	AndroidDriver<MobileElement> testA;
 	public IOSDriver<MobileElement> testI;
+
+	public String Sheet;
+	public int currentTestCase;
+	public static int stopTestCase;
+	public static int currentRow;
 	
     public WebDriver getDriver() 
     {
@@ -67,8 +87,33 @@ public class BaseTest
 		
         
     }
+	public static String getExcelData(int rownum, int cellnum, int sheetnum) throws IOException, IOException {
+		FileInputStream fis = new FileInputStream("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheetAt(sheetnum);
 
-    public AndroidDriver<MobileElement> returnAndoridDriver()
+		String Text = sheet.getRow(rownum).getCell(cellnum).getStringCellValue();
+		return Text;
+	}
+
+	public static String setExcelData(String sheetPath, int rowNum, int cellNum, String sheetName, String text)throws IOException {
+		FileInputStream fis = new FileInputStream(sheetPath);
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheet(sheetName);
+		XSSFCell cellToWrite = sheet.getRow(rowNum).getCell(cellNum);
+		if(cellToWrite == null || cellToWrite.getCellType() == CellType.BLANK) {
+			cellToWrite = sheet.getRow(rowNum).createCell(cellNum);
+		}
+		cellToWrite.setCellValue(text);
+		FileOutputStream fileOutputStream = new FileOutputStream(sheetPath);
+		workbook.write(fileOutputStream);
+		fileOutputStream.close();
+
+		return sheet.getRow(rowNum).getCell(cellNum).getStringCellValue();
+	}
+
+
+	public AndroidDriver<MobileElement> returnAndoridDriver()
     {
     	return testA;
     }
