@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Hollard Automation Testing on Windows Controller" parallel="tests" thread-count="15" verbose="5">
+  <listeners>
+        <listener class-name="com.sts.testautomation.listeners.TestListener"/>
+        <listener class-name="com.sts.testautomation.listeners.AnnotationTransformer"/>
+    </listeners>
+  
+  
+   <test name="Test on Chrome" preserve-order="false">
+  <parameter name="Device" value="Chrome"/>
+       <parameter name="URL" value="https://core.nimbis.co.za"/>
+       <parameter name="NIMBIS" value="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>
+
+
+       <classes>
+    <class name="com.sts.testautomation.steps.Home_FieldValidation"/>
+    </classes> 
+  </test> 
+ 
+</suite>   

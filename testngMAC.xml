@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CellCPreProd Automation Testing on MAC Controller" parallel="tests" thread-count="15" verbose="5">
+   <!-- <test name="Test on iPhone 6 " preserve-order="false">
+  <parameter name="Device" value="iPhone 6"/>
+    <classes>
+      <class name="com.sts.testautomation.steps.LoginTestNG"/>
+    </classes>
+  </test>
+  
+  <test name="Test on iPad Pro" preserve-order="false">
+  <parameter name="Device" value="iPad Pro"/>
+  <parameter name="URL" value="https://www.discovery.co.za/"/>
+  <parameter name="Username" value="techno"/>
+  <parameter name="Password" value="sts12345"/>
+    <classes>
+      <class name="com.sts.testautomation.steps.LoginTestNG"/>
+    </classes>
+  </test> -->
+  
+  <test name="Test on Safari" preserve-order="false">
+  <parameter name="Device" value="Safari"/>
+ <parameter name="URL" value="https://www.discovery.co.za/"/>
+  <parameter name="Username" value="techno"/>
+  <parameter name="Password" value="sts12345"/>
+    <classes>
+   <!--  <class name="com.sts.testautomation.steps.NavigateToCellCBlackApp"/>
+    	<class name="com.sts.testautomation.steps.ViewNavigationBar"/>
+    	
+    	 <class name="com.sts.testautomation.steps.ViewFooterLinks"/> 
+        <class name="com.sts.testautomation.steps.Login"/> -->
+    <class name="com.sts.testautomation.steps.SelectNavigationLinks"/>
+    </classes> 
+  </test> 
+
+</suite>
