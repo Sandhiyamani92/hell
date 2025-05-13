@@ -1,6 +1,7 @@
 package com.sts.testautomation.pages.web;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -74,8 +75,17 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']/ul/li[2]")
     WebElement saveBtn;
 
+
+
+    @FindBy(xpath = "//span[@class='rwCommandButton rwCloseButton']")
+    WebElement closeBtn;
+
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement mainWindow;
+
+    public  void clickCloseBtn(){
+        verifyElement.clickElement(closeBtn,"Close Button");
+    }
 
     public void changeFocusToBrowser() {
 
@@ -242,11 +252,12 @@ public class NIMBIS_UserNavigation {
 
 
     public void selectOption(String option){
-        WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(text(),'" + option +"')]"));;
+        WebElement item = BrowserDriver.findElement(By.xpath("//li[text()= '" + option +"']"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
+            ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
 
-            verifyElement.clickElement(item, option);
+           // verifyElement.clickElement(item, option);
         }
         else
         {
