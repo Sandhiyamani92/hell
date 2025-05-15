@@ -27,7 +27,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//a[contains(text(),'Add a new Quote')]")
     private WebElement addNewQuote_DD ;
 
-    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i2']//input")
+    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i1']//input")
     private WebElement prestigeV2_Chkbox ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_cmbPolicyFrequency_Input']")
@@ -72,7 +72,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//li//span[contains(text(),'Calculate Premium')]")
     WebElement calculatePremiumBtn;
 
-    @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']/ul/li[2]")
+    @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']/ul/li[1]")
     WebElement saveBtn;
 
 
@@ -255,9 +255,9 @@ public class NIMBIS_UserNavigation {
         WebElement item = BrowserDriver.findElement(By.xpath("//li[text()= '" + option +"']"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
-            ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+           // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
 
-           // verifyElement.clickElement(item, option);
+            verifyElement.clickElement(item, option);
         }
         else
         {
@@ -265,11 +265,13 @@ public class NIMBIS_UserNavigation {
         }
     }
     public void selectOptionExcess(String option){
-        WebElement item = BrowserDriver.findElement(By.xpath("//div[@class='rcbScroll rcbWidth']//ul[@class='rcbList']//li[contains(text(),'"+option+"')]"));;
+        WebElement item = BrowserDriver.findElement(By.xpath("//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7215_DropDown']//ul//li[text()= '"+option+"']"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
+           // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
 
-            verifyElement.clickElement(item, option);
+           verifyElement.clickElement(item, option);
+
         }
         else
         {

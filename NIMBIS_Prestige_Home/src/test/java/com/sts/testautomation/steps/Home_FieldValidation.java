@@ -1,10 +1,12 @@
 package com.sts.testautomation.steps;
 
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+import com.sts.testautomation.extentReports.ExtentTestManager;
 import com.sts.testautomation.pages.web.NIMBIS_Login;
 import com.sts.testautomation.pages.web.NIMBIS_Prestige_Client;
 import com.sts.testautomation.pages.web.NIMBIS_Prestige_Home;
@@ -145,7 +147,7 @@ public class Home_FieldValidation extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB,Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
 
-        for(int i = 1 ; i < 100 ; i ++){
+        for(int i = 1 ; i <= 157 ; i ++){
             try {
                 Thread.sleep(2000);
                 nimbisUserNavigation.enterSearchText("Vukani Shembe ");
@@ -158,9 +160,12 @@ public class Home_FieldValidation extends BaseTest {
                 nimbisUserNavigation.clickPrestigeV2_Chkbox();
                 nimbisUserNavigation.clickNextBtn();
                 nimbisUserNavigation.clickNextBtn();
+                Thread.sleep(2000);
                 nimbisUserNavigation.clickPopUpOkBtn();
                 JavascriptExecutor js = (JavascriptExecutor) testB;
+               // elementFunctionality.scrollBottomToTop();
                 //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+                Thread.sleep(2000);
                 nimbisUserNavigation.clickNextBtn();
                 nimbisUserNavigation.clickOpenQuote();
                 Thread.sleep(2000);
@@ -177,6 +182,10 @@ public class Home_FieldValidation extends BaseTest {
 
                 nimbisPrestigeHome.clickTypeOfHomeDropDown();
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of Home"));
+                Thread.sleep(1000);
+
+                nimbisPrestigeHome.enterDescription("Home");
+                Thread.sleep(1000);
 
                 if(EH.getCellValueSpecific(i,"Type of Cover").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickDaysUnoccupied90Days();
@@ -208,21 +217,11 @@ public class Home_FieldValidation extends BaseTest {
                 nimbisPrestigeHome.clickUseOfPremisesDropDown();
                 Thread.sleep(1000);
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Use of premises"));
+                Thread.sleep(1000);
                 // elementFunctionality.scrollToElementBrowser(testB.findElement(By.xpath("")));
                 captureTestCaseScreenshotCoverDetail( i);
 
                 Thread.sleep(1000);
-                nimbisPrestigeHome.enterNoOfElectricGeyser(EH.getCellValueSpecific(i,"No. of electric geysers"));
-                Thread.sleep(1000);
-                nimbisPrestigeHome.enterNoOfGasGeysers(EH.getCellValueSpecific(i,"No. of heat pump geysers"));
-                Thread.sleep(1000);
-                nimbisPrestigeHome.enterNoOfHeatPumpGeysers(EH.getCellValueSpecific(i,"No. of gas geysers"));
-                Thread.sleep(1000);
-                nimbisPrestigeHome.enterNoOfSolarGeysers(EH.getCellValueSpecific(i,"No. of solar geysers"));
-
-                // elementFunctionality.scrollToElementBrowser(testB.findElement(By.xpath("//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7224']")));
-                // elementFunctionality.scrollByPercentage(30.0, "DOWN");
-                Thread.sleep(3000);
 
                 if(EH.getCellValueSpecific(i,"Thatch or non-standard structure more than 15% of main building ").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickThatch15OfMainBuilding();
@@ -255,6 +254,12 @@ public class Home_FieldValidation extends BaseTest {
                     nimbisPrestigeHome.clickWithin100mOfaWaterBody();
                 }
                 captureTestCaseScreenshotDisclosures(i);
+
+                Thread.sleep(1000);
+
+                // elementFunctionality.scrollToElementBrowser(testB.findElement(By.xpath("//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7224']")));
+                // elementFunctionality.scrollByPercentage(30.0, "DOWN");
+
 
 
 
@@ -300,28 +305,42 @@ public class Home_FieldValidation extends BaseTest {
                 Thread.sleep(1000);
 
 
-                js.executeScript("window.scrollTo(20, document.body.scrollHeight);");
+              //  js.executeScript("window.scrollTo(20, document.body.scrollHeight);");
                 Thread.sleep(3000);
                 nimbisPrestigeHome.enterNumberOfClaimsLast12month(EH.getCellValueSpecific(i,"Number of Building claims in the last 12 months, excluding geyser damage"));
                 nimbisPrestigeHome.enterNumberOfClaimsLast24month(EH.getCellValueSpecific(i,"Number of Buildings claims in the last 25 to 36 months, excluding geyser damage"));
                 nimbisPrestigeHome.enterNumberOfClaimsLast36month(EH.getCellValueSpecific(i,"Number of Building claims in the last 13 to 24 months, excluding geyser damage"));
+                Thread.sleep(1000);
+                captureTestCaseScreenshotClaimsDetails( i);
+                Thread.sleep(1000);
 
                 nimbisPrestigeHome.enterAdditionalExcess_Txt("0");
-
+                Thread.sleep(1000);
                 nimbisPrestigeHome.clickBasicExcessDropDown();
                 Thread.sleep(1000);
-                nimbisUserNavigation.selectOptionExcess(EH.getCellValueSpecific(i,"Basic Excess"));
+             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Basic Excess"));
+                Thread.sleep(1000);
 
                 captureTestCaseScreenshotExcess(i,"Basic Excess", "Basic Excess");
+
+                Thread.sleep(1000);
+                nimbisPrestigeHome.enterNoOfElectricGeyser(EH.getCellValueSpecific(i,"No. of electric geysers"));
+                Thread.sleep(1000);
+                nimbisPrestigeHome.enterNoOfGasGeysers(EH.getCellValueSpecific(i,"No. of heat pump geysers"));
+                Thread.sleep(1000);
+                nimbisPrestigeHome.enterNoOfHeatPumpGeysers(EH.getCellValueSpecific(i,"No. of gas geysers"));
+                Thread.sleep(1000);
+                nimbisPrestigeHome.enterNoOfSolarGeysers(EH.getCellValueSpecific(i,"No. of solar geysers"));
+                Thread.sleep(1000);
+                captureTestCaseScreenshotGeyser( i);
+                Thread.sleep(1000);
 
                 if(EH.getCellValueSpecific(i,"Power surge").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickPowerSurge();
                     nimbisPrestigeHome.clickPowerSurgeSumInsuredDropDown();
                     nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Power surge Sum Insured"));
                 }
-                if(EH.getCellValueSpecific(i,"Power surge").equalsIgnoreCase("Yes")){
-                    nimbisPrestigeHome.clickPowerSurgeMainCoverSumInsured();
-                }
+
                 captureTestCaseScreenshotPowerSurge(i, "Power surge", "Power surge Sum Insured");
                 if(EH.getCellValueSpecific(i,"Garden and landscaping - extended cover").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickGardenAndLandscapingExtendedCover();
@@ -335,10 +354,10 @@ public class Home_FieldValidation extends BaseTest {
                     nimbisPrestigeHome.clickSubsidenceLandslipOrGroundHeaveExtendedCove();
                 }
 
-                nimbisUserNavigation.clickCalculatePremiumBtn();
+               // nimbisUserNavigation.clickCalculatePremiumBtn();
                 Thread.sleep(7000);
                 // nimbisUserNavigation.changeFocusToAlert();
-                nimbisUserNavigation.clickPopUpOkRateBtn();
+               // nimbisUserNavigation.clickPopUpOkRateBtn();
                 Thread.sleep(1000);
                 // nimbisUserNavigation.changeFocus2();
                 Thread.sleep(1000);
@@ -346,14 +365,20 @@ public class Home_FieldValidation extends BaseTest {
 
                 nimbisUserNavigation.changeFocusToBrowser();
                 Thread.sleep(3000);
-                System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
+                System.err.println("TEST CASE " + i + " Passed");
             }
             catch (Exception e){
+                nimbisUserNavigation.changeFocusToBrowser();
+                System.out.println(e.toString());
+                Thread.sleep(1000);
                 nimbisUserNavigation.clickCloseBtn();
                 Thread.sleep(1000);
                 nimbisUserNavigation.changeFocusToBrowser();
                 Thread.sleep(3000);
                 System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE " + i + "Failed");
+                System.err.println("TEST CASE " + i + " Failed");
             }
 
         }
@@ -383,6 +408,15 @@ public class Home_FieldValidation extends BaseTest {
             }
         }
     }
+    public void captureTestCaseScreenshotGeyser(int i) {
+        String[] RatingInfoFields = new String[]{"No. of electric geysers","No. of heat pump geysers","No. of gas geysers","No. of solar geysers"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValueSpecific(i, "Test objective") + ", Selected option : " + EH.getCellValueSpecific(i, RatingInfoField));
+                break;
+            }
+        }
+    }
 
     public void captureTestCaseScreenshotDisclosures(int i) {
         String[] RatingInfoFields = new String[]{"Thatch or non-standard structure more than 15% of main building ", "NCB", "Plot, smallholding or farm", "Commune", "Renewable energy equipment", "Increased risk business type", "Within 100m of a water body"};
@@ -403,7 +437,7 @@ public class Home_FieldValidation extends BaseTest {
             }
         }
     }
-    public void captureTestCaseScreenshotDetails(int i) {
+    public void captureTestCaseScreenshotClaimsDetails(int i) {
         String[] RatingInfoFields = new String[]{"Number of Building claims in the last 12 months,  geyser damage", "Number of Buildings claims in the last 25 to 36 months, excluding geyser damage", "Number of Building claims in the last 13 to 24 months, excluding geyser damage", "Subsidence, landslip or ground heave - extended cover"};
         for (String RatingInfoField : RatingInfoFields) {
             if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {

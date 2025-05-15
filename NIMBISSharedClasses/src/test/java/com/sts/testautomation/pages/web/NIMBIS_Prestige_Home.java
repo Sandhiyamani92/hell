@@ -58,6 +58,10 @@ public class NIMBIS_Prestige_Home {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10551_Input']")
     private WebElement useOfPremises_DD ;
 
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_Description']")
+    private WebElement description;
+
+
     //GEYSER DETAILS
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7221']")
     private WebElement noOfElectricGeyser_Txt ;
@@ -168,7 +172,7 @@ public class NIMBIS_Prestige_Home {
     @FindBy(xpath = "//button[@id='chkExtension5664']")
     private WebElement subsidenceLandslipOrGroundHeaveExtendedCover ;
 
-    @FindBy(xpath = "//input[@id='5661lstExtensionSumInsured5661_Input']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_ucSectionExtensions_rptExtensionGroup_ctl00_rptExtensionDetail_ctl00_ucDynamicQuestions_NonStandard_11046_Input']")
     private WebElement powerSurgeSumInsured_DD;
 
     @FindBy(xpath = "//input[@id='5663lstExtensionSumInsured5663_Input']")
@@ -241,6 +245,12 @@ public class NIMBIS_Prestige_Home {
     public void clickUseOfPremisesDropDown(){
         if (verifyElement.verifyBrowserElementValue(useOfPremises_DD, "Use Of Premises") == 0){
             verifyElement.clickElement(useOfPremises_DD,"Use Of Premises");
+        }
+    }
+
+    public void  enterDescription( String descrip) {
+        if (verifyElement.verifyBrowserElementValue(description, "Description") == 0) {
+            verifyElement.sendKeys(description,"Description",descrip);
         }
     }
 
@@ -425,6 +435,12 @@ public class NIMBIS_Prestige_Home {
     public void clickBasicExcessDropDown(){
         if (verifyElement.verifyBrowserElementValue(basicExcess_DD, "Basic Excess") == 0){
             verifyElement.clickElement(basicExcess_DD,"Basic Excess");
+        }
+    }
+    public void clickBasicExcessDropDown2(String input){
+        if (verifyElement.verifyBrowserElementValue(basicExcess_DD, "Basic Excess") == 0){
+            // verifyElement.clickElement(basicExcess_DD,"Basic Excess");
+            verifyElement.sendKeys(basicExcess_DD,"", input);
         }
     }
 
