@@ -15,7 +15,7 @@
 
 
        <classes>
-    <class name="com.sts.testautomation.steps.Home_FieldValidation"/>
+    <class name="com.sts.testautomation.steps.Home_UWRuleTesting"/>
     </classes> 
   </test> 
  

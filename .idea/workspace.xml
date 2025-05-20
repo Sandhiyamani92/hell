@@ -5,37 +5,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10bf6cf3-ded4-49bf-b5a9-1f32d01cac84" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Contents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Home.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home_UWRuleTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/src/test/java/com/sts/testautomation/steps/CreateClient_NIMBIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/src/test/java/com/sts/testautomation/steps/CreateClient_NIMBIS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/target/test-classes/com/sts/testautomation/steps/CreateClient_NIMBIS.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/target/test-classes/com/sts/testautomation/steps/CreateClient_NIMBIS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data(1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2(1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2Copy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1) - Copy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1)2.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1r).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (h1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Motor Prestige V2 Underwriting Rules Test Data .xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test Data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test DataCopy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test DataCopy1.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields (1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields (2).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields2.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/utilities/ElementFunctionality.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/utilities/ElementFunctionality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 05.05.2025 08.25.32.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 05.05.2025 09.11.15.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 05.05.2025 09.11.44.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 05.05.2025 09.21.50.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 05.05.2025 15.51.37.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 05.05.2025 15.55.51.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 06.04.2025 20.10.06.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 06.04.2025 20.34.16.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 06.04.2025 20.35.37.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 07.04.2025 08.32.55.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 22.04.2025 10.21.05.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 09.54.20.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 10.32.31.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 10.35.32.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 10.38.17.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 10.41.02.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 10.56.38.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 11.04.48.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 11.05.52.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 11.11.27.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 11.20.32.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 11.24.35.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 11.26.36.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 14.51.52.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 14.54.15.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 24.04.2025 14.56.24.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 08.18.19.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.27.54.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.38.53.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.39.52.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.41.25.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.44.39.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.45.55.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.48.24.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.51.07.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 09.52.53.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 16.12.15.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 16.13.37.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 29.04.2025 17.26.27.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 30.04.2025 09.54.59.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 30.04.2025 09.57.01.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 30.04.2025 10.03.18.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 30.04.2025 10.05.45.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 30.04.2025 11.21.42.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/ExtentReports/TestCase_136_Extent 30.04.2025 15.01.31.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home_FieldValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home_FieldValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Home/target/test-classes/com/sts/testautomation/steps/Home_FieldValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/target/test-classes/com/sts/testautomation/steps/Home_FieldValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NIMBIS.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NIMBIS.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,31 +85,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.NIMBIS [clean].executor": "Run",
-    "Maven.NIMBIS [install].executor": "Run",
-    "Maven.NIMBIS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.NIMBISSharedClasses [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.NIMBIS_Prestige_Client [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml.executor": "Run",
-    "git-widget-placeholder": "NathanielSmith__Branch",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home",
-    "onboarding.tips.debug.path": "C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/src/main/java/NIMBIS/Main.java",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.NIMBIS [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBISSharedClasses [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS_Prestige_Client [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;NathanielSmith__Branch&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/src/test/java&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/src/main/java/NIMBIS/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Contents\src\test\java" />
+      <recent name="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Contents" />
       <recent name="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Home" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sts.testautomation.steps" />
       <recent name="com.sts.testautomation.pages.web" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="NIMBIS" />
       <method v="2">
@@ -111,8 +138,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_Contents" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Contents/testngWINDOWS.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_Home" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml" />
       </list>
     </recent_temporary>
@@ -140,6 +189,11 @@
           <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/main/java/NIMBIS/Main.java</url>
           <line>13</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home.java</url>
+          <line>331</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -39,6 +39,10 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//span[contains(text(),'Open Quote')]")
     private WebElement openQuoteBtn ;
 
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_ucCover_RiskGrid.ascx_userControl_lstItemsOnQuote_ctl00_ctl04_btnEdit']")
+    private WebElement editQuoteIcon ;
+
+
     @FindBy(xpath = "//li//span[contains(text(),'Cover')]")
     private WebElement coverBtn ;
 
@@ -60,6 +64,9 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//a[@class='rwPopupButton']")
     private WebElement popUpOkBtn ;
 
+    @FindBy(xpath = "//td//a[@class='rwPopupButton']")
+    private WebElement OkBtn ;
+
     @FindBy(xpath = "//td[@class='rwWindowContent']//a//span[contains(text(),'OK')]")
     private WebElement popUpOkRateBtn ;
 
@@ -69,11 +76,51 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement collectionWindow2;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Calculate Premium')]")
+
+    @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='GenericPopup']")
+    WebElement collectionWindow3;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Calculate Coverage Premium')]")
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']/ul/li[1]")
     WebElement saveBtn;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_btnSave']")
+    WebElement saveBtn2;
+
+    @FindBy(xpath = "//li//span[text()='Blackbox Log']")
+    WebElement blackBoxLogBtn;
+
+    @FindBy(xpath = "//div[@id='ContentPlaceHolder1_BlackBoxInput']//li//span[text()='Raw View']")
+    WebElement blackBoxRawViewIn;
+
+
+    @FindBy(xpath = "//div[@id='ContentPlaceHolder1_BlackBoxOutput']//li//span[text()='Raw View']")
+    WebElement blackBoxRawViewOut;
+
+
+    @FindBy(xpath = "//li//span[text()='BlackBox Input']")
+    WebElement blackBoxInput;
+
+
+    @FindBy(xpath = "//li//span[text()='BlackBox Output']")
+    WebElement blackBoxOutput;
+
+    public  void clickBlackBoxOutput(){
+        verifyElement.clickElement(blackBoxOutput,"blackBoxOutput");
+    }
+    public  void clickBlackBoxRawViewOut(){
+        verifyElement.clickElement(blackBoxRawViewOut,"blackBoxRawViewOut");
+    }
+    public  void clickBlackBoxInput(){
+        verifyElement.clickElement(blackBoxInput,"blackBoxRawViewOut");
+    }
+    public  void clickBlackBoxRawViewIn(){
+        verifyElement.clickElement(blackBoxRawViewIn,"blackBoxRawViewIn");
+    }
+
+
 
 
 
@@ -137,6 +184,12 @@ public class NIMBIS_UserNavigation {
             verifyElement.clickElement(prestigeV2_Chkbox,"Prestige V2");
         }
     }
+    public void clickEditQuoteIcon() {
+
+        if (verifyElement.verifyBrowserElementValue(editQuoteIcon, "Edit Quote Icon") == 0) {
+            verifyElement.clickElement(editQuoteIcon,"Edit Quote Icon");
+        }
+    }
     public void clickPolicyFrequency_DD() {
 
         if (verifyElement.verifyBrowserElementValue(policyFrequency_DD, "Policy Frequency") == 0) {
@@ -147,6 +200,12 @@ public class NIMBIS_UserNavigation {
 
         if (verifyElement.verifyBrowserElementValue(nextBtn, "Next") == 0) {
             verifyElement.clickElement(nextBtn,"Next");
+        }
+    }
+    public void clickOkBtn() {
+
+        if (verifyElement.verifyBrowserElementValue(OkBtn, "Ok") == 0) {
+            verifyElement.clickElement(OkBtn,"Ok");
         }
     }
     public void clickCoverBtn() {
@@ -217,10 +276,24 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public void clickSaveBtn2() {
+
+        if (verifyElement.verifyBrowserElementValue(saveBtn2, "Save") == 0) {
+            verifyElement.clickElement(saveBtn2, "Save");
+        }
+    }
+
     public void clickOpenQuote() {
 
         if (verifyElement.verifyBrowserElementValue(openQuoteBtn, "Open Quote") == 0) {
             verifyElement.clickElement(openQuoteBtn, "Open Quote");
+        }
+    }
+
+    public void clickBlackBoxLogBtn() {
+
+        if (verifyElement.verifyBrowserElementValue(blackBoxLogBtn, "blackBoxLogBtn") == 0) {
+            verifyElement.clickElement(blackBoxLogBtn, "blackBoxLogBtn");
         }
     }
 
@@ -282,6 +355,11 @@ public class NIMBIS_UserNavigation {
     public void changeFocus2() {
 
         verifyElement.switchToBrowserFrame(collectionWindow2,  "Switch focus to pop up frame");
+
+    }
+    public void changeFocus3() {
+
+        verifyElement.switchToBrowserFrame(collectionWindow3,  "Switch focus to pop up frame");
 
     }
 

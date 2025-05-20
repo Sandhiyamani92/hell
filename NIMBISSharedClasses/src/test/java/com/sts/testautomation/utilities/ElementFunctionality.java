@@ -245,13 +245,13 @@ public class ElementFunctionality extends TestListener
 			//Thread.sleep(3000);
 			element.click();
 			System.out.println(Name+" was clicked on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, Name+" was clicked on " + Device);
+		//	ExtentTestManager.getTest().log(LogStatus.PASS, Name+" was clicked on " + Device);
 
 		}
 		catch (NoSuchElementException e)
 		{
 			Assert.fail(Name + " element could not be clicked on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name+" element could not be clicked on " + Device);
+		//	ExtentTestManager.getTest().log(LogStatus.FAIL, Name+" element could not be clicked on " + Device);
 
 			captureScreenshotOnDevice("");
 			e.printStackTrace();
@@ -591,7 +591,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				AndroidDriver.getKeyboard().sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+			//	ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 			}
 
@@ -600,7 +600,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+				//ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 			}
 
@@ -609,7 +609,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+				//ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 			}
 
 
@@ -757,7 +757,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+			//	ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 			}
 
@@ -766,7 +766,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+			//	ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 			}
 
@@ -775,7 +775,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+			//	ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 			}
 
 

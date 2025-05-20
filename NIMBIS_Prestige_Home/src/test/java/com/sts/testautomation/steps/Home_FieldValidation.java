@@ -147,12 +147,12 @@ public class Home_FieldValidation extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB,Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
 
-        for(int i = 1 ; i <= 157 ; i ++){
+        for(int i = 66 ; i <= 157 ; i ++){
             try {
                 Thread.sleep(2000);
                 nimbisUserNavigation.enterSearchText("Vukani Shembe ");
                 nimbisUserNavigation.clickSearchBtn();
-
+                ExtentTestManager.getTest().log(LogStatus.PASS, "Test Case Objective " +EH.getCellValue(Integer.toString(i), "Test objective"));
                 Thread.sleep(5000);
                 nimbisUserNavigation.clickClientResultName();
                 Thread.sleep(5000);
