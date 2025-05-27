@@ -35,18 +35,21 @@ public class Contents extends BaseTest{
     private ElementFunctionality elementFunctionality;
     private NIMBIS_Prestige_Home nimbisPrestigeHome;
     private NIMBIS_Prestige_Contents nimbisPrestigeContents;
+    private ExcelHandler EH;
+    private String Sheet;
 
 
 
-    @Parameters({"URL", "Device"})
+    @Parameters({"URL", "Device","NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
-    public void setupTest(String URL, String device) {
+    public void setupTest(String URL, String device,String datasheet) {
         try {
             HashSetup.SetUpBrowser();
 
             System.out.println("Instantiating Nodes");
             url = URL;
             Device = device;
+            Sheet = datasheet ;
 
     for (Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet()) {
         if (currentNode.getKey().equals(Device)) {
@@ -84,7 +87,7 @@ public class Contents extends BaseTest{
             else if (currentNode.getValue() instanceof BrowserNode) {
                 try {
                     BrowserNode bNode = ((BrowserNode) currentNode.getValue());
-                    System.out.println("Tial Test started on " + currentNode.getKey());
+                    System.out.println("NIMBIS Test started on " + currentNode.getKey());
 
 
 
@@ -118,28 +121,28 @@ public class Contents extends BaseTest{
 
 @Parameters({"URL"})
 @Test(priority = 0, description = "Logging in to NIMBIS")
-public void Login(String URL) throws InterruptedException {
-    url = URL;
+public void Login(String URL) throws Exception {
+   // url = URL;
 
     nimbisLogin = new NIMBIS_Login(testB,Device);
 
     //  testB.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-
-    nimbisLogin.enterUsername("nathaniel.smith");
+    EH = new ExcelHandler(Sheet, "LoginDetails", 0, 0);
+    nimbisLogin.enterUsername(EH.getCellValueSpecific(1,"Username"));
     nimbisLogin.clickContinueBtn();
-    nimbisLogin.enterPassword("9c)i[3m#080LsPA");
+    nimbisLogin.enterPassword(EH.getCellValueSpecific(1,"Password"));
     nimbisLogin.clickSignInBtn();
     Thread.sleep(6000);
 }
 
 
     @Parameters({"URL"})
-    @Test(priority = 1, description = "Create Client")
+    @Test(priority = 1, description = "Search Client")
     public void CreateClient(String URL) throws Exception {
         url = URL;
 
-
+        EH = new ExcelHandler(Sheet, "Content Test Cases", 0, 0);
         nimbisLogin = new NIMBIS_Login(testB,Device);
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB,Device);
         nimbisUserNavigation = new NIMBIS_UserNavigation(testB,Device);
@@ -161,7 +164,7 @@ public void Login(String URL) throws InterruptedException {
        // JavascriptExecutor js = (JavascriptExecutor) testB;
         //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
         nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickOpenQuote();
+       nimbisUserNavigation.clickOpenQuote();
         Thread.sleep(2000);
         nimbisUserNavigation.clickCoverBtn();
         nimbisUserNavigation.clickContentsCover();
@@ -170,22 +173,25 @@ public void Login(String URL) throws InterruptedException {
 
         Thread.sleep(6000);
         nimbisUserNavigation.changeFocus2();
-
-        nimbisPrestigeContents.enterContentsSumInsured("10000");
+nimbisPrestigeContents.enterContentsSumInsured(EH.getCellValueSpecific(1,"Sum insured"));
+        //nimbisPrestigeContents.enterContentsSumInsured("10000");
 
         nimbisPrestigeContents.clickCoverTypeDropDown();
-        nimbisUserNavigation.selectOption("Full Cover");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"cover details"));
+       // nimbisUserNavigation.selectOption("Full Cover");
 
         nimbisPrestigeContents.clickTypeOfHomeDropDown();
-        nimbisUserNavigation.selectOption("Flat Above Ground");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"Type of home"));
 
-        nimbisPrestigeContents.clickDaysUnoccupied90Days();
+        if(EH.getCellValueSpecific(1,"cover details").equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickDaysUnoccupied90Days();
+        }
 
         nimbisPrestigeContents.clickTypeOfRoofConstructionDropDown();
-        nimbisUserNavigation.selectOption("Standard");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"cover details"));
 
         nimbisPrestigeContents.clickTypeOfWallConstructionDropDown();
-        nimbisUserNavigation.selectOption("Standard");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"cover details"));
 
         nimbisPrestigeContents.clickLightningConductorSABS();
 
@@ -194,14 +200,14 @@ public void Login(String URL) throws InterruptedException {
         nimbisPrestigeContents.clickSurgeProtectionSANS();
 
         nimbisPrestigeContents.clickResidenceTypeDropDown();
-        nimbisUserNavigation.selectOption("Main Residence");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"cover details"));
 
         nimbisPrestigeContents.clickUseOfPremisesDropDown();
-        nimbisUserNavigation.selectOption("Residential only");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"cover details"));
 
 
         nimbisPrestigeContents.clickNCB_DropDown();
-        nimbisUserNavigation.selectOption("0");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"cover details"));
 
         nimbisPrestigeContents.clickIncreasedRiskBusinessType();
 
@@ -209,14 +215,19 @@ public void Login(String URL) throws InterruptedException {
 
         nimbisPrestigeContents.clickRenewableEnergyEquipment();
 
+        //add prvious uninterupted,commune,adjoining land
+
+
       //  nimbisPrestigeContents.enter
 
         nimbisPrestigeContents.clickPlotSmallHoldingOrFarm();
 
         nimbisPrestigeContents.clickWithin100mOfaWaterBody();
 
+
+        //security
         nimbisPrestigeContents.clickElectricFence_DropDown();
-        nimbisUserNavigation.selectOption("None");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"cover details"));
 
         nimbisPrestigeContents.clickBurglarBarsOpeningWindows();
 
@@ -229,7 +240,7 @@ public void Login(String URL) throws InterruptedException {
         nimbisPrestigeContents.clickAllDoorsProtectedBySecurityGates();
 
         nimbisPrestigeContents.clickPerimeterProtection_DropDown();
-        nimbisUserNavigation.selectOption("Wire fence");
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"cover details"));
 
         nimbisPrestigeContents.clickHighSecurityEstateComplex();
 
@@ -237,11 +248,15 @@ public void Login(String URL) throws InterruptedException {
 
         nimbisPrestigeContents.clickLaserBeamsInGarden();
 
+        //claims
+
         nimbisPrestigeContents.enterNumberOfClaimsLast12month("0");
 
         nimbisPrestigeContents.enterNumberOfClaimsLast24month("0");
 
         nimbisPrestigeContents.enterNumberOfClaimsLast36month("0");
+
+        //excess options
 
       //  nimbisPrestigeContents.clickBasicExcessDropDown();
         //nimbisUserNavigation.selectOption("1 000");

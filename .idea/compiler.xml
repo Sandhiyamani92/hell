@@ -10,8 +10,9 @@
         <module name="NIMBIS_Prestige_Home" />
         <module name="NIMBIS_Prestige_Client" />
         <module name="NIMBIS_Prestige_Contents" />
-        <module name="Module" />
         <module name="NIMBISSharedClasses" />
+        <module name="Module" />
+        <module name="NIMBIS_Prestige_Cyber_Insurances" />
         <module name="NIMBIS_Prestige_AssetsSpecified" />
       </profile>
     </annotationProcessing>
@@ -19,6 +20,7 @@
       <module name="NimbisSharedClasses" target="1.8" />
       <module name="Sapiens" target="1.7" />
       <module name="Tial_Buildings_Prestige" target="1.7" />
+      <module name="untitled" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

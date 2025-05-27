@@ -295,6 +295,7 @@
       <module>NIMBIS_Prestige_AssetsSpecified</module>
       <module>NIMBIS_Prestige_Home</module>
       <module>NIMBIS_Prestige_Contents</module>
+      <module>NIMBIS_Prestige_Cyber_Insurances</module>
   </modules>
 
     <description> </description>

@@ -26,7 +26,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//a[contains(text(),'Add a new Quote')]")
     private WebElement addNewQuote_DD ;
 
-    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i2']//input")
+    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i1']//input")
     private WebElement prestigeV2_Chkbox ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_cmbPolicyFrequency_Input']")
@@ -38,7 +38,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//span[contains(text(),'Open Quote')]")
     private WebElement openQuoteBtn ;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Cover')]")
+    @FindBy(xpath = "//li//span[text()='Cover']")
     private WebElement coverBtn ;
 
     @FindBy(xpath = "//li//span[contains(text(),'Add New Item')]")
@@ -102,6 +102,9 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//li//span[contains(text(),'Contents')]")
     private WebElement contentsCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Cyber Insurance')]")
+    private WebElement cyberinsuranceCover ;
 
 
 
@@ -240,6 +243,12 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public void clickCyberinsuranceCover() {
+
+        if (verifyElement.verifyBrowserElementValue(cyberinsuranceCover, "Cyber Insurance Cover") == 0) {
+            verifyElement.clickElement(cyberinsuranceCover,"Cyber Insurance Cover");
+        }
+    }
 
     public void selectOption(String option){
         WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(text(),'" + option +"')]"));;
