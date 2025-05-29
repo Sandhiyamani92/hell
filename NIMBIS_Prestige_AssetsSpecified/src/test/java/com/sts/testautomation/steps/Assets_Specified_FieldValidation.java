@@ -149,7 +149,7 @@ public class Assets_Specified_FieldValidation extends BaseTest {
         commonFunctions = new common_functions1(testB, Device);
         nimbisPrestigeAssetsSpecified = new NIMBIS_Prestige_AssetsSpecified(testB, Device);
 
-        for (int i = 1; i < 2; i++) {
+
             nimbisUserNavigation.enterSearchText("Vukani Shembe ");
             nimbisUserNavigation.clickSearchBtn();
 
@@ -167,7 +167,9 @@ public class Assets_Specified_FieldValidation extends BaseTest {
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickOpenQuote();
             Thread.sleep(2000);
+        for (int i = 1; i < 2; i++) {
             nimbisUserNavigation.clickCoverBtn();
+            Thread.sleep(2000);
             nimbisUserNavigation.clickAssetsSpecifiedCover();
             Thread.sleep(2000);
             nimbisUserNavigation.clickAddNewItemBtn();

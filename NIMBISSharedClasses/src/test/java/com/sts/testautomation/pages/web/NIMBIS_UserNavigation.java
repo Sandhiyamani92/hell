@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.sts.testautomation.utilities.ElementFunctionality;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 public class NIMBIS_UserNavigation {
 
     public WebDriver BrowserDriver;
@@ -68,10 +71,10 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement collectionWindow2;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Calculate Premium')]")
+    @FindBy(xpath = "//li//span[contains(text(),'Calculate Coverage Premiums')]")
     WebElement calculatePremiumBtn;
 
-    @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[2]")
+    @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[1]")
     WebElement saveBtn;
 
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
@@ -261,6 +264,21 @@ public class NIMBIS_UserNavigation {
 
     public void selectOption(String option){
         WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(text(),'" + option +"')]"));;
+   //     WebDriverWait wait = new WebDriverWait(BrowserDriver, 200);
+     //   wait.until(ExpectedConditions.elementToBeClickable(item));
+        if(verifyElement.verifyBrowserElementValue(item, option) == 0)
+        {
+
+            verifyElement.clickElement(item, option);
+        }
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
+        }
+    }
+
+    public void selectOptionradiobox(String option){
+        WebElement item = BrowserDriver.findElement(By.xpath("//label[contains(text(),'" + option +"')]"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
 

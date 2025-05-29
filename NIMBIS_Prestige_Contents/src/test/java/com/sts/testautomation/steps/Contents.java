@@ -137,8 +137,6 @@ public class Contents extends BaseTest {
     @Parameters({"URL"})
     @Test(priority = 1, description = "Search Client")
     public void CreateClient(String URL) throws Exception {
-        url = URL;
-
         EH = new ExcelHandler(Sheet, "Content Test Cases", 0, 0);
         nimbisLogin = new NIMBIS_Login(testB, Device);
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB, Device);
@@ -146,10 +144,14 @@ public class Contents extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB, Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
         nimbisPrestigeContents = new NIMBIS_Prestige_Contents(testB, Device);
-        for (int i = 1; i < EH.numRows; i++) {
 
-            nimbisUserNavigation.enterSearchText("Vukani Shembe ");
-            nimbisUserNavigation.clickSearchBtn();
+
+        nimbisUserNavigation.enterSearchText("Vukani Shembe ");
+        nimbisUserNavigation.clickSearchBtn();
+        try {
+            url = URL;
+
+
 
             Thread.sleep(5000);
             nimbisUserNavigation.clickClientResultName();
@@ -164,123 +166,148 @@ public class Contents extends BaseTest {
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickOpenQuote();
             Thread.sleep(2000);
-            nimbisUserNavigation.clickCoverBtn();
-            nimbisUserNavigation.clickContentsCover();
-            Thread.sleep(2000);
-            nimbisUserNavigation.clickAddNewItemBtn();
+            for (int i = 1; i < EH.numRows; i++) {
+                nimbisUserNavigation.clickCoverBtn();
+                Thread.sleep(2000);
+                nimbisUserNavigation.clickContentsCover();
+                Thread.sleep(2000);
+                nimbisUserNavigation.clickAddNewItemBtn();
 
-            Thread.sleep(6000);
-            nimbisUserNavigation.changeFocus2();
-            nimbisPrestigeContents.enterContentsSumInsured(EH.getCellValueSpecific(i, "Sum insured"));
-            //nimbisPrestigeContents.enterContentsSumInsured("10000");
+                Thread.sleep(6000);
+                nimbisUserNavigation.changeFocus2();
+                nimbisPrestigeContents.enterContentsSumInsured(EH.getCellValueSpecific(i, "Sum insured"));
+                //nimbisPrestigeContents.enterContentsSumInsured("10000");
 
-            nimbisPrestigeContents.clickCoverTypeDropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "cover details"));
-            // nimbisUserNavigation.selectOption("Full Cover");
+                nimbisPrestigeContents.clickCoverTypeDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "cover details"));
+                // nimbisUserNavigation.selectOption("Full Cover");
 
-            nimbisPrestigeContents.clickTypeOfHomeDropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Type of home"));
+                nimbisPrestigeContents.clickTypeOfHomeDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Type of home"));
 
-            if (EH.getCellValueSpecific(i, "cover details").equalsIgnoreCase("Yes")) {
-                nimbisPrestigeHome.clickDaysUnoccupied90Days();
+                if (EH.getCellValueSpecific(i, "cover details").equalsIgnoreCase("Yes")) {
+                    nimbisPrestigeHome.clickDaysUnoccupied90Days();
+                }
+
+                nimbisPrestigeContents.clickTypeOfRoofConstructionDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Roof type"));
+                //   JavascriptExecutor js = (JavascriptExecutor) testB;
+                //  js.executeScript("window.scrollTo(0,nimbisPrestigeContents.clickResidenceTypeDropDown();");
+                nimbisPrestigeContents.clickTypeOfWallConstructionDropDown();
+
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Wall type"));
+
+                nimbisPrestigeContents.clickLightningConductorSABS();
+
+                nimbisPrestigeContents.clickFireRetardantSABS();
+
+                nimbisPrestigeContents.clickSurgeProtectionSANS();
+
+                nimbisPrestigeContents.clickResidenceTypeDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Residence type"));
+
+                nimbisPrestigeContents.clickUseOfPremisesDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Use of premises"));
+
+
+                nimbisPrestigeContents.clickNCB_DropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "NCB"));
+
+                nimbisPrestigeContents.clickIncreasedRiskBusinessType();
+
+                nimbisPrestigeContents.clickThatch15OfMainBuilding();
+
+                nimbisPrestigeContents.clickRenewableEnergyEquipment();
+
+                //add prvious uninterupted,commune,adjoining land
+                nimbisPrestigeContents.clickPreviousUninterruptedBuildingsInsurance(EH.getCellValueSpecific(i, "Years of previous uninterrupted contents insurance cover"));
+
+                nimbisPrestigeContents.clickUseOfAdjoiningLandDropDown();
+                nimbisUserNavigation.selectOptionradiobox(EH.getCellValueSpecific(i, "Use of adjoining land"));
+                //  nimbisPrestigeContents.enter
+
+                nimbisPrestigeContents.clickPlotSmallHoldingOrFarm();
+
+                //  nimbisPrestigeContents.clickWithin100mOfaWaterBody();
+
+
+                //security
+                nimbisPrestigeContents.clickElectricFence_DropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Electric Fence"));
+
+                nimbisPrestigeContents.clickBurglarBarsOpeningWindows();
+
+                nimbisPrestigeContents.clickAlarmLinkedToArmedResponse();
+
+
+                nimbisPrestigeContents.clickTwentyFourHourSecurityGuard();
+
+                nimbisPrestigeContents.clickAccessControlledArea();
+
+                nimbisPrestigeContents.clickAllDoorsProtectedBySecurityGates();
+
+                nimbisPrestigeContents.clickpermiterProtection_DD();
+                Thread.sleep(3000);
+
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Perimeter protection"));
+
+                nimbisPrestigeContents.clickHighSecurityEstateComplex();
+
+                nimbisPrestigeContents.clickCCTVCamera();
+
+                nimbisPrestigeContents.clickLaserBeamsInGarden();
+
+                //claims
+
+                nimbisPrestigeContents.enterNumberOfClaimsLast12month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 12 months"));
+
+                nimbisPrestigeContents.enterNumberOfClaimsLast24month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 13 to 24 months"));
+
+                nimbisPrestigeContents.enterNumberOfClaimsLast36month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 25 to 36 months"));
+
+                //excess options
+
+                //  nimbisPrestigeContents.clickBasicExcessDropDown();
+                //nimbisUserNavigation.selectOption("1 000");
+
+                nimbisPrestigeContents.clickBedAndBreakfast();
+                nimbisPrestigeContents.clickItemsOutAndAbout();
+                nimbisPrestigeContents.clickBusinessContentsExtendedCover();
+                nimbisPrestigeContents.clickMarqueeHire();
+                nimbisPrestigeContents.clickGardenAndOutdoorItemsExtendedCover();
+                nimbisUserNavigation.clickSaveBtn();
+                Thread.sleep(500);
+                nimbisUserNavigation.clickCalculatePremiumBtn();
+                Thread.sleep(500);
+                // nimbisUserNavigation.changeFocusToAlert();
+                nimbisUserNavigation.clickPopUpOkRateBtn();
+                Thread.sleep(1000);
+                // nimbisUserNavigation.changeFocus2();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickSaveBtn();
+
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(3000);
+                ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
+                System.err.println("TEST CASE " + i + " Passed");
+            }
+        }
+            catch(Exception e){
+                nimbisUserNavigation.changeFocusToBrowser();
+                System.out.println(e.toString());
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(3000);
+                System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE " + i + "Failed");
+                System.err.println("TEST CASE " + i + " Failed");
             }
 
-            nimbisPrestigeContents.clickTypeOfRoofConstructionDropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Roof type"));
-
-            nimbisPrestigeContents.clickTypeOfWallConstructionDropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Wall type"));
-
-            nimbisPrestigeContents.clickLightningConductorSABS();
-
-            nimbisPrestigeContents.clickFireRetardantSABS();
-
-            nimbisPrestigeContents.clickSurgeProtectionSANS();
-
-            nimbisPrestigeContents.clickResidenceTypeDropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Residence type"));
-
-            nimbisPrestigeContents.clickUseOfPremisesDropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Use of premises"));
-
-
-            nimbisPrestigeContents.clickNCB_DropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "NCB"));
-
-            nimbisPrestigeContents.clickIncreasedRiskBusinessType();
-
-            nimbisPrestigeContents.clickThatch15OfMainBuilding();
-
-            nimbisPrestigeContents.clickRenewableEnergyEquipment();
-
-            //add prvious uninterupted,commune,adjoining land
-            nimbisPrestigeContents.clickPreviousUninterruptedBuildingsInsurance();
-
-
-            //  nimbisPrestigeContents.enter
-
-            nimbisPrestigeContents.clickPlotSmallHoldingOrFarm();
-
-            nimbisPrestigeContents.clickWithin100mOfaWaterBody();
-
-
-            //security
-            nimbisPrestigeContents.clickElectricFence_DropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Electric Fence"));
-
-            nimbisPrestigeContents.clickBurglarBarsOpeningWindows();
-
-            nimbisPrestigeContents.clickAlarmLinkedToArmedResponse();
-
-
-            nimbisPrestigeContents.clickTwentyFourHourSecurityGuard();
-
-            nimbisPrestigeContents.clickAccessControlledArea();
-
-            nimbisPrestigeContents.clickAllDoorsProtectedBySecurityGates();
-
-
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Perimeter protection"));
-
-            nimbisPrestigeContents.clickHighSecurityEstateComplex();
-
-            nimbisPrestigeContents.clickCCTVCamera();
-
-            nimbisPrestigeContents.clickLaserBeamsInGarden();
-
-            //claims
-
-            nimbisPrestigeContents.enterNumberOfClaimsLast12month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 12 months"));
-
-            nimbisPrestigeContents.enterNumberOfClaimsLast24month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 13 to 24 months"));
-
-            nimbisPrestigeContents.enterNumberOfClaimsLast36month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 25 to 36 months"));
-
-            //excess options
-
-            //  nimbisPrestigeContents.clickBasicExcessDropDown();
-            //nimbisUserNavigation.selectOption("1 000");
-
-            nimbisPrestigeContents.clickBedAndBreakfast();
-            nimbisPrestigeContents.clickBusinessContentsExtendedCover();
-            nimbisPrestigeContents.clickMarqueeHire();
-            nimbisPrestigeContents.clickGardenAndOutdoorItemsExtendedCover();
-            nimbisUserNavigation.clickSaveBtn();
-            Thread.sleep(500);
-            nimbisUserNavigation.clickCalculatePremiumBtn();
-            Thread.sleep(500);
-            // nimbisUserNavigation.changeFocusToAlert();
-            nimbisUserNavigation.clickPopUpOkRateBtn();
-            Thread.sleep(1000);
-            // nimbisUserNavigation.changeFocus2();
-            Thread.sleep(1000);
-            nimbisUserNavigation.clickSaveBtn();
-
-            nimbisUserNavigation.changeFocusToBrowser();
-            Thread.sleep(3000);
 
         }
     }
 
 
-}
+

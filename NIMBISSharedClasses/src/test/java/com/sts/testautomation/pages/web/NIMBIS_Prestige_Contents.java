@@ -48,7 +48,7 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_WallType_DropDown']//li")
     public List<WebElement> allWallTypeOptions;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_RoofType_Input")
+    @FindBy(xpath = "//div[@id='ContentPlaceHolder1_DynamicQuestions1_content_RoofType")
     private WebElement  typeOfRoofConstruction_DD ;
 
     @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_RoofType_DropDown']//li")
@@ -408,6 +408,12 @@ public class NIMBIS_Prestige_Contents {
     public void clickHighSecurityEstateComplex(){
         if (verifyElement.verifyBrowserElementValue(highSecurityEstateComplex, "High Security Estate Complex") == 0){
             verifyElement.clickElement(highSecurityEstateComplex,"High Security Estate Complex");
+        }
+    }
+
+    public void clickpermiterProtection_DD(){
+        if (verifyElement.verifyBrowserElementValue(perimeterProtection_DD, "Permiter protection") == 0){
+            verifyElement.clickElement(perimeterProtection_DD,"Permiter protection");
         }
     }
 
