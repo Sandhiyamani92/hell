@@ -10,8 +10,9 @@
         <module name="NIMBIS_Prestige_Home" />
         <module name="NIMBIS_Prestige_Client" />
         <module name="NIMBIS_Prestige_Contents" />
-        <module name="Module" />
         <module name="NIMBISSharedClasses" />
+        <module name="Module" />
+        <module name="NIMBIS_Prestige_Motor" />
         <module name="NIMBIS_Prestige_AssetsSpecified" />
       </profile>
     </annotationProcessing>

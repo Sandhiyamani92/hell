@@ -194,7 +194,7 @@ public class Home_UWRuleTesting extends BaseTest {
                 nimbisPrestigeHome.enterDescription("Home");
                 Thread.sleep(1000);
 
-                if(EH.getCellValueSpecific(i,"Type of Cover").equalsIgnoreCase("Yes")){
+                if(EH.getCellValueSpecific(i,"Unoccupied for more than 90 days").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickDaysUnoccupied90Days();
                 }
                 Thread.sleep(1000);

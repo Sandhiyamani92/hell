@@ -80,7 +80,13 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='GenericPopup']")
     WebElement collectionWindow3;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Calculate Coverage Premium')]")
+    @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectVehicle']")
+    WebElement vehicleIframe;
+
+    @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectPerson']")
+    WebElement driverIframe;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Calculate Premium')]")
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']/ul/li[1]")
@@ -159,6 +165,9 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//li//span[contains(text(),'Contents')]")
     private WebElement contentsCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Motor Vehicle')]")
+    private WebElement motorCover ;
 
 
 
@@ -322,13 +331,20 @@ public class NIMBIS_UserNavigation {
             verifyElement.clickElement(contentsCover,"Content Cover");
         }
     }
+    public void clickMotorCover() {
+
+        if (verifyElement.verifyBrowserElementValue(motorCover, "Motor Vehicle Cover") == 0) {
+            verifyElement.clickElement(motorCover,"Motor Vehicle Cover");
+        }
+    }
 
 
-    public void selectOption(String option){
-        WebElement item = BrowserDriver.findElement(By.xpath("//li[text()= '" + option +"']"));;
+    public void selectOption(String option) throws InterruptedException {
+        WebElement item = BrowserDriver.findElement(By.xpath("//li[text()= '"+option+"']"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
 
             verifyElement.clickElement(item, option);
         }
@@ -362,6 +378,19 @@ public class NIMBIS_UserNavigation {
         verifyElement.switchToBrowserFrame(collectionWindow3,  "Switch focus to pop up frame");
 
     }
+
+    public void changeFocusVehicle() {
+
+        verifyElement.switchToBrowserFrame(vehicleIframe,  "Switch focus to pop up frame");
+
+    }
+
+    public void changeFocusDriver() {
+
+        verifyElement.switchToBrowserFrame(driverIframe,  "Switch focus to pop up frame");
+
+    }
+
 
 
 
