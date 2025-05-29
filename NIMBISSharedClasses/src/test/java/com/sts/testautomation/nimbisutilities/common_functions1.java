@@ -157,7 +157,7 @@ public class common_functions1 extends BaseTest {
 
             for (WebElement element : elements) {
                 if (element != null && element.isDisplayed()) {
-                    String text = element.getText().trim();
+                    String text = element.getText();
                     if (!text.isEmpty()) {
                         textValues.add(text);
                     }

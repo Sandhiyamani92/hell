@@ -71,11 +71,14 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//li//span[contains(text(),'Calculate Premium')]")
     WebElement calculatePremiumBtn;
 
-    @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']/ul/li[2]")
+    @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[2]")
     WebElement saveBtn;
 
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement mainWindow;
+
+    @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_btnSave']")
+    WebElement premiumsaveBtn;
 
     public void changeFocusToBrowser() {
 
@@ -207,6 +210,12 @@ public class NIMBIS_UserNavigation {
 
         if (verifyElement.verifyBrowserElementValue(saveBtn, "Save") == 0) {
             verifyElement.clickElement(saveBtn, "Save");
+        }
+    }
+
+    public void clickpremiumsaveBtn(){
+        if (verifyElement.verifyBrowserElementValue(premiumsaveBtn, "Save") == 0) {
+            verifyElement.clickElement(premiumsaveBtn, "Save");
         }
     }
 

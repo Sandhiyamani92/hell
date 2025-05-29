@@ -27,7 +27,7 @@ public class NIMBIS_Prestige_AssetsSpecified {
 
     //RISK DETAILS
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_AllRiskType_Input']")
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11084']")
     private WebElement assetsSpecifiedCategory_DD ;
 
     @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11084_DropDown']//li")
@@ -56,6 +56,20 @@ public class NIMBIS_Prestige_AssetsSpecified {
 
         if (verifyElement.verifyBrowserElementValue( sumInsured_Txt, "Sum Insured") == 0) {
             verifyElement.sendKeys( sumInsured_Txt, "Sum Insured", sumInsured);
+        }
+    }
+
+    public void entermanufacturer(String manufacturer) {
+
+        if (verifyElement.verifyBrowserElementValue( manufacturer_Txt, "manufacturer") == 0) {
+            verifyElement.sendKeys( manufacturer_Txt, "manufacturer", manufacturer);
+        }
+    }
+
+    public void enterserialnum(String serialnum) {
+
+        if (verifyElement.verifyBrowserElementValue( serialNumber_Txt, "serialnum") == 0) {
+            verifyElement.sendKeys( serialNumber_Txt, "serialnum", serialnum);
         }
     }
 

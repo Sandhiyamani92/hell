@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class NIMBIS_Cyber_Insurance {
 
     public WebDriver BrowserDriver;
@@ -21,8 +23,11 @@ public class NIMBIS_Cyber_Insurance {
 
     //COVER DETAILS
 
-    @FindBy(xpath = "//input[@id='ctl00$ContentPlaceHolder1$DynamicQuestions1$NonStandard_11050']")
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11050']")
     private WebElement cyberinsurancecoveroption_DD ;
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11050_DropDown']//li")
+    public List<WebElement> allCyberinsuranceCoverOptions;
 
     @FindBy(xpath = "//button[@id='ContentPlaceHolder1_DynamicQuestions1_content_NonStandard_11048']")
     private WebElement coverforpartner_toggle ;
@@ -36,6 +41,10 @@ public class NIMBIS_Cyber_Insurance {
         if (verifyElement.verifyBrowserElementValue(cyberinsurancecoveroption_DD, "Cyber Insurance Cover Option") == 0){
             verifyElement.clickElement(cyberinsurancecoveroption_DD,"Cyber Insurance Cover Option");
         }
+    }
+
+    public List<WebElement> getAllCyberinsuranceCoverOptions() {
+        return allCyberinsuranceCoverOptions;
     }
 
     public void clickCoverForPartnerToggleButton(){

@@ -13,7 +13,7 @@
        <parameter name="NIMBIS" value="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>
 
   <classes>
-    <class name="com.sts.testautomation.steps.Contents_FieldValidation"/>
+    <class name="com.sts.testautomation.steps.Contents"/>
     </classes> 
   </test>
 

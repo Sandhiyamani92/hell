@@ -74,6 +74,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml.executor": "Run",
     "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml.executor": "Run",
     "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml.executor": "Run",
     "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml.executor": "Run",
     "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml.executor": "Run",
@@ -128,6 +129,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_AssetsSpecified" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NIMBIS_Prestige_Contents" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Contents/testngWINDOWS.xml" />
@@ -158,31 +169,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Contents.Login" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NIMBIS_Prestige_Contents" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sts.testautomation.steps.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sts.testautomation.steps" />
-      <option name="MAIN_CLASS_NAME" value="com.sts.testautomation.steps.Contents" />
-      <option name="METHOD_NAME" value="Login" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml" />
-        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml" />
-        <item itemvalue="TestNG.Contents.Login" />
       </list>
     </recent_temporary>
   </component>

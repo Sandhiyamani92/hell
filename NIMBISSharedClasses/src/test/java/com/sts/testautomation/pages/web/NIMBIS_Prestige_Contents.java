@@ -23,7 +23,7 @@ public class NIMBIS_Prestige_Contents {
 
     //COVER DETAILS
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_BuildingValue']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_PropertySumInsured']")
     private WebElement contentsSumInsured_Txt ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7245_Input']")
@@ -48,7 +48,7 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_WallType_DropDown']//li")
     public List<WebElement> allWallTypeOptions;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_RoofType_Input']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_RoofType_Input")
     private WebElement  typeOfRoofConstruction_DD ;
 
     @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_RoofType_DropDown']//li")
@@ -85,6 +85,8 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10557']")
     private WebElement thatch15OfMainBuilding ;
 
+
+
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NCB_Input']")
     private WebElement ncb_DD ;
 
@@ -115,6 +117,8 @@ public class NIMBIS_Prestige_Contents {
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10577']")
     private WebElement within100mOfaWaterBody ;
+
+    //add survey
 
     //SECURITY
 

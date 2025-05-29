@@ -5,20 +5,24 @@ import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+import com.sts.testautomation.nimbisutilities.common_functions1;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.Map;
 
 import java.util.concurrent.TimeUnit;
+
 public class Cyber_Insurances extends BaseTest {
     private NIMBIS_Login nimbisLogin;
     private NIMBIS_Prestige_Client nimbisPrestigeClient;
@@ -26,12 +30,12 @@ public class Cyber_Insurances extends BaseTest {
     private ElementFunctionality elementFunctionality;
     private NIMBIS_Prestige_Home nimbisPrestigeHome;
     private NIMBIS_Cyber_Insurance nimbisCyberInsurance;
+    private common_functions1 commonFunctions;
     private ExcelHandler EH;
     private String Sheet;
 
 
-
-    @Parameters({"URL", "Device","NIMBIS"})
+    @Parameters({"URL", "Device", "NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
     public void setupTest(String URL, String device, String datasheet) {
         try {
@@ -40,7 +44,7 @@ public class Cyber_Insurances extends BaseTest {
             System.out.println("Instantiating Nodes");
             url = URL;
             Device = device;
-            Sheet = datasheet ;
+            Sheet = datasheet;
 
             //Loop runs through all the Nodes in the Grid and performs the tests on them
             for (Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet()) {
@@ -82,8 +86,6 @@ public class Cyber_Insurances extends BaseTest {
                             System.out.println("Tial Test started on " + currentNode.getKey());
 
 
-
-
                             WebDriverManager.edgedriver().setup();
                             testB = new EdgeDriver();
                             testB.get(URL);
@@ -116,15 +118,15 @@ public class Cyber_Insurances extends BaseTest {
     public void Login(String URL) throws Exception {
         url = URL;
 
-        nimbisLogin = new NIMBIS_Login(testB,Device);
+        nimbisLogin = new NIMBIS_Login(testB, Device);
 
         //  testB.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 
         EH = new ExcelHandler(Sheet, "LoginDetails", 0, 0);
-        nimbisLogin.enterUsername(EH.getCellValueSpecific(1,"Username"));
+        nimbisLogin.enterUsername(EH.getCellValueSpecific(1, "Username"));
         nimbisLogin.clickContinueBtn();
-        nimbisLogin.enterPassword(EH.getCellValueSpecific(1,"Password"));
+        nimbisLogin.enterPassword(EH.getCellValueSpecific(1, "Password"));
         nimbisLogin.clickSignInBtn();
         Thread.sleep(6000);
 
@@ -137,13 +139,14 @@ public class Cyber_Insurances extends BaseTest {
 
         EH = new ExcelHandler(Sheet, "Cyber Insurance Test Cases", 0, 0);
 
-        nimbisLogin = new NIMBIS_Login(testB,Device);
-        nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB,Device);
-        nimbisUserNavigation = new NIMBIS_UserNavigation(testB,Device);
-        elementFunctionality = new ElementFunctionality(testB,Device);
-        nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
-        nimbisCyberInsurance= new NIMBIS_Cyber_Insurance(testB,Device);
-        for(int i = 1 ; i < EH.numRows ; i ++){
+        nimbisLogin = new NIMBIS_Login(testB, Device);
+        nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB, Device);
+        nimbisUserNavigation = new NIMBIS_UserNavigation(testB, Device);
+        elementFunctionality = new ElementFunctionality(testB, Device);
+        nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
+        nimbisCyberInsurance = new NIMBIS_Cyber_Insurance(testB, Device);
+        commonFunctions=new common_functions1(testB,Device);
+        for (int i = 1; i < EH.numRows; i++) {
             nimbisUserNavigation.enterSearchText("Vukani Shembe ");
             nimbisUserNavigation.clickSearchBtn();
 
@@ -155,7 +158,7 @@ public class Cyber_Insurances extends BaseTest {
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickPopUpOkBtn();
-           JavascriptExecutor js = (JavascriptExecutor) testB;
+            JavascriptExecutor js = (JavascriptExecutor) testB;
             //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickOpenQuote();
@@ -169,57 +172,42 @@ public class Cyber_Insurances extends BaseTest {
             nimbisUserNavigation.changeFocus2();
             nimbisCyberInsurance.clickCyberInsuranceCoverDropDown();
             Thread.sleep(500);
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Cyber insurance cover option"));
+
+            List<String> expectedTypeOfWallValues = commonFunctions.getExpectedValuesFromExcel(EH,"Cyber insurance cover option","Cyber insurance cover option");
+            List<WebElement> cyberoptionsValues = nimbisCyberInsurance.getAllCyberinsuranceCoverOptions();
+            commonFunctions.validateDropdownWithElements(expectedTypeOfWallValues, cyberoptionsValues, "Cyber insurance cover option");
 
 
+            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Cyber insurance cover option"));
 
 
-
-            if(EH.getCellValueSpecific(i,"Cover for partner").equalsIgnoreCase("Yes")){
+            if (EH.getCellValueSpecific(i, "Cover for partner").equalsIgnoreCase("Yes")) {
                 nimbisCyberInsurance.clickCoverForPartnerToggleButton();
             }
-            if(EH.getCellValueSpecific(i,"Cover for children").equalsIgnoreCase("Yes")){
+            if (EH.getCellValueSpecific(i, "Cover for children").equalsIgnoreCase("Yes")) {
                 nimbisCyberInsurance.clickCoverForChilderToggleButton();
             }
 
 
+            // nimbisUserNavigation.changeFocus2();
+            //  Thread.sleep(1000);
+            //  nimbisUserNavigation.clickSaveBtn();
 
-
-
-
-
-
-           // nimbisUserNavigation.changeFocus2();
-            Thread.sleep(1000);
-            nimbisUserNavigation.clickSaveBtn();
-
-            nimbisUserNavigation.changeFocusToBrowser();
-            Thread.sleep(3000);
+            //  nimbisUserNavigation.changeFocusToBrowser();
+            //  Thread.sleep(3000);
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        }
+    }
 
     public void captureTestCaseScreenshot(int i, String value) {
-        String[] RatingInfoFields = new String[]{"Security Items","Endorsement ","UW Questions ","Geyser Type"};
+        String[] RatingInfoFields = new String[]{"Security Items", "Endorsement ", "UW Questions ", "Geyser Type"};
         for (String RatingInfoField : RatingInfoFields) {
             if (EH.getCellValue(Integer.toString(i), "TC OBJECTIVE").equalsIgnoreCase(RatingInfoField)) {
-              //  elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + " - " + value + " " + ", Selected option : " + EH1.getCellValue(Integer.toString(i), value));
+                //  elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValue(Integer.toString(i), "TC OBJECTIVE") + " - " + value + " " + ", Selected option : " + EH1.getCellValue(Integer.toString(i), value));
                 break;
             }
         }
     }
-    }
+}
 
