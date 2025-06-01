@@ -63,49 +63,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.NIMBIS [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.NIMBIS [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.NIMBIS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.NIMBISSharedClasses [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.NIMBIS_Prestige_Client [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
-    &quot;TestNG.Contents.Login.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;sandhiya__Finearts__frontend&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/src&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/src/main/java/NIMBIS/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.32988507&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
+    "Maven.NIMBIS [clean].executor": "Run",
+    "Maven.NIMBIS [install].executor": "Run",
+    "Maven.NIMBIS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.NIMBISSharedClasses [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.NIMBIS_Prestige_Client [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml.executor": "Debug",
+    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml.executor": "Run",
+    "TestNG.Contents.Login.executor": "Run",
+    "git-widget-placeholder": "sandhiya__Finearts__frontend",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn",
+    "onboarding.tips.debug.path": "C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/src/main/java/NIMBIS/Main.java",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.32988507",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Caravn" />
+      <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Trailer" />
+      <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus" />
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_AssetsSpecified\src" />
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Cyber_Insurances" />
-      <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Cyber_Insurance" />
-      <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus" />
-      <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\Module\NIMBIS_Prestige_Cyber_Insurance" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus" />
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\Module" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sts.testautomation.steps" />
       <recent name="com.sts.testautomation.pages.web" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml">
+  <component name="RunManager" selected="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="NIMBIS" />
       <method v="2">
@@ -119,9 +121,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NIMBIS_Prestige_Cyber_Insurance" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml" />
+    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_AssetsSpecified" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -129,9 +131,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NIMBIS_Prestige_AssetsSpecified" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
+    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_Caravn" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/testngWINDOWS.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -171,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml" />
-        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -234,6 +236,16 @@
           <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home.java</url>
           <line>44</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents.java</url>
+          <line>300</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan.java</url>
+          <line>169</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

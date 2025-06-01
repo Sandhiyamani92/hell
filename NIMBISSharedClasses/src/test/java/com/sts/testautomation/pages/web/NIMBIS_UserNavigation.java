@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.sts.testautomation.utilities.ElementFunctionality;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NIMBIS_UserNavigation {
 
@@ -71,7 +69,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement collectionWindow2;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Calculate Coverage Premiums')]")
+    @FindBy(xpath = "(//li//span[@title='Calculate Premium'])[1]")
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[1]")
@@ -82,6 +80,10 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_btnSave']")
     WebElement premiumsaveBtn;
+
+    @FindBy(xpath = "//*[@id='RadWindowWrapper_ctl00_GenericPopup']//span[@title='Close']")
+    WebElement closebtn;
+
 
     public void changeFocusToBrowser() {
 
@@ -111,6 +113,12 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//li//span[contains(text(),'Cyber Insurance')]")
     private WebElement cyberinsuranceCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Trailer')]")
+    private WebElement trailerCover ;
+
+    @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Caravan')]")
+    private WebElement caravanCover ;
 
 
 
@@ -146,6 +154,12 @@ public class NIMBIS_UserNavigation {
 
         if (verifyElement.verifyBrowserElementValue(nextBtn, "Next") == 0) {
             verifyElement.clickElement(nextBtn,"Next");
+        }
+    }
+
+    public void clickCloseBtn(){
+        if (verifyElement.verifyBrowserElementValue(closebtn, "Close button") == 0) {
+            verifyElement.clickElement(closebtn,"Close button");
         }
     }
     public void clickCoverBtn() {
@@ -232,6 +246,8 @@ public class NIMBIS_UserNavigation {
 
 
 
+
+
     //RISK COVERS METHODS
 
     public void clickAssetsSpecifiedCover() {
@@ -259,6 +275,21 @@ public class NIMBIS_UserNavigation {
 
         if (verifyElement.verifyBrowserElementValue(cyberinsuranceCover, "Cyber Insurance Cover") == 0) {
             verifyElement.clickElement(cyberinsuranceCover,"Cyber Insurance Cover");
+        }
+    }
+
+    public Object clickCaravanCover() {
+
+        if (verifyElement.verifyBrowserElementValue(caravanCover, "Caravan Cover") == 0) {
+            verifyElement.clickElement(caravanCover,"Caravan Cover");
+        }
+        return null;
+    }
+
+    public void clickTrailerCover() {
+
+        if (verifyElement.verifyBrowserElementValue(trailerCover, "Trailer Cover") == 0) {
+            verifyElement.clickElement(trailerCover,"Trailer Cover");
         }
     }
 

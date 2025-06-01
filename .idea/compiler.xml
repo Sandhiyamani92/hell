@@ -10,9 +10,11 @@
         <module name="NIMBIS_Prestige_Home" />
         <module name="NIMBIS_Prestige_Client" />
         <module name="NIMBIS_Prestige_Contents" />
+        <module name="NIMBIS_Prestige_Caravn" />
         <module name="NIMBISSharedClasses" />
         <module name="Module" />
         <module name="NIMBIS_Prestige_Cyber_Insurances" />
+        <module name="NIMBIS_Prestige_Trailer" />
         <module name="NIMBIS_Prestige_AssetsSpecified" />
       </profile>
     </annotationProcessing>
