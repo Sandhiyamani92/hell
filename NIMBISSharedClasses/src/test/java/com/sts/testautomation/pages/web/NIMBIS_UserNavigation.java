@@ -69,6 +69,12 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement collectionWindow2;
 
+    @FindBy(xpath = "//iframe[@name='alert1748804661282']")
+    WebElement warningFrame;
+
+    @FindBy(xpath = "//div[@id='alert1748804661282_message']")
+    WebElement warningmsg;
+
     @FindBy(xpath = "(//li//span[@title='Calculate Premium'])[1]")
     WebElement calculatePremiumBtn;
 
@@ -336,6 +342,12 @@ public class NIMBIS_UserNavigation {
     public void changeFocus2() {
 
         verifyElement.switchToBrowserFrame(collectionWindow2,  "Switch focus to pop up frame");
+
+    }
+
+    public void changeWarningFrame() {
+
+        verifyElement.switchToBrowserFrame(warningFrame,  "Switch focus to pop up frame");
 
     }
 

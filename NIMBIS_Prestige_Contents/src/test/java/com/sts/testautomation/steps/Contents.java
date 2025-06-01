@@ -230,7 +230,7 @@ public class Contents extends BaseTest {
 
                 nimbisPrestigeContents.clickPlotSmallHoldingOrFarm();
 
-                //  nimbisPrestigeContents.clickWithin100mOfaWaterBody();
+
 
 
                 //security
