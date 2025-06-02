@@ -1,10 +1,12 @@
 package com.sts.testautomation.steps;
 
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+import com.sts.testautomation.extentReports.ExtentTestManager;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
@@ -27,7 +29,7 @@ import java.util.Map;
 
 import java.util.concurrent.TimeUnit;
 
-public class Contents extends BaseTest{
+public class Contents extends BaseTest {
 
     private NIMBIS_Login nimbisLogin;
     private NIMBIS_Prestige_Client nimbisPrestigeClient;
@@ -35,120 +37,122 @@ public class Contents extends BaseTest{
     private ElementFunctionality elementFunctionality;
     private NIMBIS_Prestige_Home nimbisPrestigeHome;
     private NIMBIS_Prestige_Contents nimbisPrestigeContents;
+    private ExcelHandler EH;
+    private String Sheet;
 
 
-
-    @Parameters({"URL", "Device"})
+    @Parameters({"URL", "Device", "NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
-    public void setupTest(String URL, String device) {
+    public void setupTest(String URL, String device, String datasheet) {
         try {
             HashSetup.SetUpBrowser();
 
             System.out.println("Instantiating Nodes");
             url = URL;
             Device = device;
+            Sheet = datasheet;
 
-    for (Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet()) {
-        if (currentNode.getKey().equals(Device)) {
-            //Android
-            if (currentNode.getValue() instanceof AndroidNode) {
-                try {
+            for (Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet()) {
+                if (currentNode.getKey().equals(Device)) {
+                    //Android
+                    if (currentNode.getValue() instanceof AndroidNode) {
+                        try {
 
-                    //Focus here
+                            //Focus here
 
-                } catch (Exception e) {
-                    Assert.fail();
-                    e.printStackTrace();
+                        } catch (Exception e) {
+                            Assert.fail();
+                            e.printStackTrace();
+
+                        }
+
+                    }
+
+                    //iOS
+                    else if (currentNode.getValue() instanceof IOSNode) {
+                        try {
+
+                        }    //Here
+
+                        catch (Exception e) {
+                            e.printStackTrace();
+                            Assert.fail();
+
+
+                        }
+
+
+                    }
+
+                    //Browsers
+                    else if (currentNode.getValue() instanceof BrowserNode) {
+                        try {
+                            BrowserNode bNode = ((BrowserNode) currentNode.getValue());
+                            System.out.println("NIMBIS Test started on " + currentNode.getKey());
+
+
+                            WebDriverManager.edgedriver().setup();
+                            testB = new EdgeDriver();
+                            testB.get(URL);
+                            testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                            testB.manage().window().maximize();
+
+
+                        } catch (Exception e) {
+                            Assert.fail();
+                            e.printStackTrace();
+
+                        }
+
+                    }
 
                 }
-
             }
 
-            //iOS
-            else if (currentNode.getValue() instanceof IOSNode) {
-                try {
 
-                }    //Here
-
-                catch (Exception e) {
-                    e.printStackTrace();
-                    Assert.fail();
-
-
-                }
-
-
-            }
-
-            //Browsers
-            else if (currentNode.getValue() instanceof BrowserNode) {
-                try {
-                    BrowserNode bNode = ((BrowserNode) currentNode.getValue());
-                    System.out.println("Tial Test started on " + currentNode.getKey());
-
-
-
-
-                    WebDriverManager.edgedriver().setup();
-                    testB = new EdgeDriver();
-                    testB.get(URL);
-                    testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                    testB.manage().window().maximize();
-
-
-                } catch (Exception e) {
-                    Assert.fail();
-                    e.printStackTrace();
-
-                }
-
-            }
-
-        }
-    }
-
-
-} catch (Exception e) {
-        Assert.fail();
+        } catch (Exception e) {
+            Assert.fail();
             e.printStackTrace();
 
         }
 
-                }
+    }
 
-@Parameters({"URL"})
-@Test(priority = 0, description = "Logging in to NIMBIS")
-public void Login(String URL) throws InterruptedException {
-    url = URL;
+    @Parameters({"URL"})
+    @Test(priority = 0, description = "Logging in to NIMBIS")
+    public void Login(String URL) throws Exception {
+        // url = URL;
 
-    nimbisLogin = new NIMBIS_Login(testB,Device);
+        nimbisLogin = new NIMBIS_Login(testB, Device);
 
-    //  testB.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        //  testB.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-
-    nimbisLogin.enterUsername("nathaniel.smith");
-    nimbisLogin.clickContinueBtn();
-    nimbisLogin.enterPassword("9c)i[3m#080LsPA");
-    nimbisLogin.clickSignInBtn();
-    Thread.sleep(6000);
-}
+        EH = new ExcelHandler(Sheet, "LoginDetails", 0, 0);
+        nimbisLogin.enterUsername(EH.getCellValueSpecific(1, "Username"));
+        nimbisLogin.clickContinueBtn();
+        nimbisLogin.enterPassword(EH.getCellValueSpecific(1, "Password"));
+        nimbisLogin.clickSignInBtn();
+        Thread.sleep(6000);
+    }
 
 
     @Parameters({"URL"})
-    @Test(priority = 1, description = "Create Client")
+    @Test(priority = 1, description = "Search Client")
     public void CreateClient(String URL) throws Exception {
-        url = URL;
+        EH = new ExcelHandler(Sheet, "Content Test Cases", 0, 0);
+        nimbisLogin = new NIMBIS_Login(testB, Device);
+        nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB, Device);
+        nimbisUserNavigation = new NIMBIS_UserNavigation(testB, Device);
+        elementFunctionality = new ElementFunctionality(testB, Device);
+        nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
+        nimbisPrestigeContents = new NIMBIS_Prestige_Contents(testB, Device);
 
-
-        nimbisLogin = new NIMBIS_Login(testB,Device);
-        nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB,Device);
-        nimbisUserNavigation = new NIMBIS_UserNavigation(testB,Device);
-        elementFunctionality = new ElementFunctionality(testB,Device);
-        nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
-        nimbisPrestigeContents = new NIMBIS_Prestige_Contents(testB,Device);
 
         nimbisUserNavigation.enterSearchText("Vukani Shembe ");
         nimbisUserNavigation.clickSearchBtn();
+
+        url = URL;
+
 
         Thread.sleep(5000);
         nimbisUserNavigation.clickClientResultName();
@@ -158,101 +162,153 @@ public void Login(String URL) throws InterruptedException {
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickPopUpOkBtn();
-       // JavascriptExecutor js = (JavascriptExecutor) testB;
+        // JavascriptExecutor js = (JavascriptExecutor) testB;
         //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickOpenQuote();
         Thread.sleep(2000);
-        nimbisUserNavigation.clickCoverBtn();
-        nimbisUserNavigation.clickContentsCover();
-        Thread.sleep(2000);
-        nimbisUserNavigation.clickAddNewItemBtn();
+        for (int i = 1; i < EH.numRows; i++) {
+            try {
+                nimbisUserNavigation.clickCoverBtn();
+                Thread.sleep(2000);
+                nimbisUserNavigation.clickContentsCover();
+                Thread.sleep(2000);
+                nimbisUserNavigation.clickAddNewItemBtn();
 
-        Thread.sleep(6000);
-        nimbisUserNavigation.changeFocus2();
+                Thread.sleep(6000);
+                nimbisUserNavigation.changeFocus2();
+                nimbisPrestigeContents.enterContentsSumInsured(EH.getCellValueSpecific(i, "Sum insured"));
+                //nimbisPrestigeContents.enterContentsSumInsured("10000");
 
-        nimbisPrestigeContents.enterContentsSumInsured("10000");
+                nimbisPrestigeContents.clickCoverTypeDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "cover details"));
+                // nimbisUserNavigation.selectOption("Full Cover");
 
-        nimbisPrestigeContents.clickCoverTypeDropDown();
-        nimbisUserNavigation.selectOption("Full Cover");
+                nimbisPrestigeContents.clickTypeOfHomeDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Type of home"));
 
-        nimbisPrestigeContents.clickTypeOfHomeDropDown();
-        nimbisUserNavigation.selectOption("Flat Above Ground");
+                if (EH.getCellValueSpecific(i, "cover details").equalsIgnoreCase("Yes")) {
+                    nimbisPrestigeHome.clickDaysUnoccupied90Days();
+                }
 
-        nimbisPrestigeContents.clickDaysUnoccupied90Days();
+                nimbisPrestigeContents.clickTypeOfRoofConstructionDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Roof type"));
+                //   JavascriptExecutor js = (JavascriptExecutor) testB;
+                //  js.executeScript("window.scrollTo(0,nimbisPrestigeContents.clickResidenceTypeDropDown();");
+                nimbisPrestigeContents.clickTypeOfWallConstructionDropDown();
 
-        nimbisPrestigeContents.clickTypeOfRoofConstructionDropDown();
-        nimbisUserNavigation.selectOption("Standard");
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Wall type"));
 
-        nimbisPrestigeContents.clickTypeOfWallConstructionDropDown();
-        nimbisUserNavigation.selectOption("Standard");
+                nimbisPrestigeContents.clickLightningConductorSABS();
 
-        nimbisPrestigeContents.clickLightningConductorSABS();
+                nimbisPrestigeContents.clickFireRetardantSABS();
 
-        nimbisPrestigeContents.clickFireRetardantSABS();
+                nimbisPrestigeContents.clickSurgeProtectionSANS();
 
-        nimbisPrestigeContents.clickSurgeProtectionSANS();
+                nimbisPrestigeContents.clickResidenceTypeDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Residence type"));
 
-        nimbisPrestigeContents.clickResidenceTypeDropDown();
-        nimbisUserNavigation.selectOption("Main Residence");
-
-        nimbisPrestigeContents.clickUseOfPremisesDropDown();
-        nimbisUserNavigation.selectOption("Residential only");
+                nimbisPrestigeContents.clickUseOfPremisesDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Use of premises"));
 
 
-        nimbisPrestigeContents.clickNCB_DropDown();
-        nimbisUserNavigation.selectOption("0");
+                nimbisPrestigeContents.clickNCB_DropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "NCB"));
 
-        nimbisPrestigeContents.clickIncreasedRiskBusinessType();
+                nimbisPrestigeContents.clickIncreasedRiskBusinessType();
 
-        nimbisPrestigeContents.clickThatch15OfMainBuilding();
+                nimbisPrestigeContents.clickThatch15OfMainBuilding();
 
-        nimbisPrestigeContents.clickRenewableEnergyEquipment();
+                nimbisPrestigeContents.clickRenewableEnergyEquipment();
 
-      //  nimbisPrestigeContents.enter
+                //add prvious uninterupted,commune,adjoining land
+                nimbisPrestigeContents.clickPreviousUninterruptedBuildingsInsurance(EH.getCellValueSpecific(i, "Years of previous uninterrupted contents insurance cover"));
 
-        nimbisPrestigeContents.clickPlotSmallHoldingOrFarm();
+                nimbisPrestigeContents.clickUseOfAdjoiningLandDropDown();
+                nimbisUserNavigation.selectOptionradiobox(EH.getCellValueSpecific(i, "Use of adjoining land"));
+                //  nimbisPrestigeContents.enter
 
-        nimbisPrestigeContents.clickWithin100mOfaWaterBody();
+                nimbisPrestigeContents.clickPlotSmallHoldingOrFarm();
 
-        nimbisPrestigeContents.clickElectricFence_DropDown();
-        nimbisUserNavigation.selectOption("None");
 
-        nimbisPrestigeContents.clickBurglarBarsOpeningWindows();
 
-        nimbisPrestigeContents.clickAlarmLinkedToArmedResponse();
 
-        nimbisPrestigeContents.clickTwentyFourHourSecurityGuard();
+                //security
+                nimbisPrestigeContents.clickElectricFence_DropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Electric Fence"));
 
-        nimbisPrestigeContents.clickAccessControlledArea();
+                nimbisPrestigeContents.clickBurglarBarsOpeningWindows();
 
-        nimbisPrestigeContents.clickAllDoorsProtectedBySecurityGates();
+                nimbisPrestigeContents.clickAlarmLinkedToArmedResponse();
 
-        nimbisPrestigeContents.clickPerimeterProtection_DropDown();
-        nimbisUserNavigation.selectOption("Wire fence");
 
-        nimbisPrestigeContents.clickHighSecurityEstateComplex();
+                nimbisPrestigeContents.clickTwentyFourHourSecurityGuard();
 
-        nimbisPrestigeContents.clickCCTVCamera();
+                nimbisPrestigeContents.clickAccessControlledArea();
 
-        nimbisPrestigeContents.clickLaserBeamsInGarden();
+                nimbisPrestigeContents.clickAllDoorsProtectedBySecurityGates();
 
-        nimbisPrestigeContents.enterNumberOfClaimsLast12month("0");
+                nimbisPrestigeContents.clickpermiterProtection_DD();
+                Thread.sleep(3000);
 
-        nimbisPrestigeContents.enterNumberOfClaimsLast24month("0");
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Perimeter protection"));
 
-        nimbisPrestigeContents.enterNumberOfClaimsLast36month("0");
+                nimbisPrestigeContents.clickHighSecurityEstateComplex();
 
-      //  nimbisPrestigeContents.clickBasicExcessDropDown();
-        //nimbisUserNavigation.selectOption("1 000");
+                nimbisPrestigeContents.clickCCTVCamera();
 
-        nimbisPrestigeContents.clickBedAndBreakfast();
-        nimbisPrestigeContents.clickBusinessContentsExtendedCover();
-        nimbisPrestigeContents.clickMarqueeHire();
-        nimbisPrestigeContents.clickGardenAndOutdoorItemsExtendedCover();
+                nimbisPrestigeContents.clickLaserBeamsInGarden();
+
+                //claims
+
+                nimbisPrestigeContents.enterNumberOfClaimsLast12month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 12 months"));
+
+                nimbisPrestigeContents.enterNumberOfClaimsLast24month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 13 to 24 months"));
+
+                nimbisPrestigeContents.enterNumberOfClaimsLast36month(EH.getCellValueSpecific(i, "Number of Contents claims in the last 25 to 36 months"));
+
+                //excess options
+
+                //  nimbisPrestigeContents.clickBasicExcessDropDown();
+                //nimbisUserNavigation.selectOption("1 000");
+
+                nimbisPrestigeContents.clickBedAndBreakfast();
+                nimbisPrestigeContents.clickItemsOutAndAbout();
+                nimbisPrestigeContents.clickBusinessContentsExtendedCover();
+                nimbisPrestigeContents.clickMarqueeHire();
+                nimbisPrestigeContents.clickGardenAndOutdoorItemsExtendedCover();
+                nimbisUserNavigation.clickSaveBtn();
+                Thread.sleep(500);
+                nimbisUserNavigation.clickCalculatePremiumBtn();
+                Thread.sleep(500);
+                // nimbisUserNavigation.changeFocusToAlert();
+                nimbisUserNavigation.clickPopUpOkRateBtn();
+                Thread.sleep(1000);
+                // nimbisUserNavigation.changeFocus2();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickSaveBtn();
+
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(3000);
+                ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
+                System.err.println("TEST CASE " + i + " Passed");
+            } catch (Exception e) {
+                nimbisUserNavigation.changeFocusToBrowser();
+                System.out.println(e.toString());
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(3000);
+                System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE " + i + "Failed");
+                System.err.println("TEST CASE " + i + " Failed");
+            }
+        }
+
 
     }
-
-
-
 }
+
+
+

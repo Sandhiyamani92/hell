@@ -5,6 +5,8 @@
     <file url="file://$PROJECT_DIR$/All_Risks_Private/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/C360_Login/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/C360_Login/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Legal_Cost/untitled/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Legal_Cost/untitled/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MMX_CaravansPrivate/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MMX_CaravansPrivate/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/MMX_CombinedMotor_Private/src/main/java" charset="UTF-8" />
@@ -35,12 +37,18 @@
     <file url="file://$PROJECT_DIR$/Module/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Client/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Home/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Home/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Trailer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NIMBIS_Prestige_Trailer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TialBuildingsPrestige/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TialBuildingsPrestige/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/TialMotorVehiclePrestige/src/test/java/com/sts/testautomation/steps/MotorVehiclePrestige.java" charset="windows-1252" />

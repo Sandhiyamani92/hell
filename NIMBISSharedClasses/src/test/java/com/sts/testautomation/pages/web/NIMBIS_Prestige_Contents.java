@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class NIMBIS_Prestige_Contents {
 
     public WebDriver BrowserDriver;
@@ -21,15 +23,21 @@ public class NIMBIS_Prestige_Contents {
 
     //COVER DETAILS
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_BuildingValue']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_PropertySumInsured']")
     private WebElement contentsSumInsured_Txt ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7245_Input']")
     private WebElement  coverType_DD ;
 
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7245_DropDown']//li")
+    public List<WebElement> allCoverTypeOptions;
+
     //RISK DETAILS
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_PropertyType_Input']")
     private WebElement  typeOfHome_DD ;
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_PropertyType_DropDown']//li")
+    public List<WebElement> allHomeTypeOptions;
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7244']")
     private WebElement daysUnoccupied90Days ;
@@ -37,8 +45,14 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_WallType']")
     private WebElement  typeOfWallConstruction_DD ;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_RoofType_Input']")
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_WallType_DropDown']//li")
+    public List<WebElement> allWallTypeOptions;
+
+    @FindBy(xpath = "//div[@id='ContentPlaceHolder1_DynamicQuestions1_content_RoofType")
     private WebElement  typeOfRoofConstruction_DD ;
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_RoofType_DropDown']//li")
+    public List<WebElement> allRoofTypeOptions;
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_HasLightningRod']")
     private WebElement lightningConductorSABS ;
@@ -52,8 +66,16 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10554_Input']")
     private WebElement residenceType_DD ;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10554_Input']")
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10554_DropDown']//li")
+    public List<WebElement> allResidenceTypeOptions;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10555_Input']")
     private WebElement useOfPremises_DD ;
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10555_DropDown']//li")
+    public List<WebElement> premisesTypeOptions;
+
+
 
 
 
@@ -63,8 +85,13 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10557']")
     private WebElement thatch15OfMainBuilding ;
 
+
+
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NCB_Input']")
     private WebElement ncb_DD ;
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NCB_DropDown']//li")
+    public List<WebElement> ncbOptions;
 
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10558']")
@@ -85,8 +112,13 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10563_Input']")
     private WebElement useOfAdjoiningLand_DD ;
 
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10563_DropDown']//li")
+    public List<WebElement> useOfAdjoiningLandOptions_DD;
+
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10577']")
     private WebElement within100mOfaWaterBody ;
+
+    //add survey
 
     //SECURITY
 
@@ -99,6 +131,9 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7243_Input']")
     private WebElement electricFence_DD ;
 
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7243_DropDown']//li")
+    public List<WebElement> electricFenceOptions_DD;
+
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10569']")
     private WebElement twentyFourHourSecurityGuard ;
 
@@ -110,6 +145,9 @@ public class NIMBIS_Prestige_Contents {
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10572_Input']")
     private WebElement perimeterProtection_DD  ;
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10572_DropDown']//li")
+    public List<WebElement> permiterProtectionOptions_DD;
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10573']")
     private WebElement highSecurityEstateComplex ;
@@ -139,6 +177,9 @@ public class NIMBIS_Prestige_Contents {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7240_Input']")
     private WebElement basicExcess_DD ;
 
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7240_DropDown']//li")
+    public List<WebElement> basicExcessOptions_DD;
+
     //EXTENSIONS
 
     @FindBy(xpath = "//button[@id='chkExtension3183']")
@@ -164,11 +205,14 @@ public class NIMBIS_Prestige_Contents {
         }
     }
 
-    public void clickCoverTypeDropDown(){
+    public WebElement clickCoverTypeDropDown(){
         if (verifyElement.verifyBrowserElementValue(coverType_DD, "Cover Type") == 0){
             verifyElement.clickElement(coverType_DD,"Cover Type");
         }
+        return null;
     }
+
+
 
     //RISK DETAILS METHODS
 
@@ -176,6 +220,10 @@ public class NIMBIS_Prestige_Contents {
         if (verifyElement.verifyBrowserElementValue(typeOfHome_DD, "Type Of Home") == 0){
             verifyElement.clickElement(typeOfHome_DD,"Type Of Home");
         }
+    }
+
+    public List<WebElement> getAllHomeTypeOptionsptions() {
+        return allHomeTypeOptions;
     }
 
     public void clickDaysUnoccupied90Days(){
@@ -190,10 +238,18 @@ public class NIMBIS_Prestige_Contents {
         }
     }
 
+    public List<WebElement> getAllRoofTypeOptions() {
+        return allRoofTypeOptions;
+    }
+
     public void clickTypeOfWallConstructionDropDown(){
         if (verifyElement.verifyBrowserElementValue(typeOfWallConstruction_DD, "Type of wall construction") == 0){
             verifyElement.clickElement(typeOfWallConstruction_DD,"Type of wall construction");
         }
+    }
+
+    public List<WebElement> getAllWallTypeOptions() {
+        return allWallTypeOptions;
     }
 
     public void clickLightningConductorSABS(){
@@ -220,10 +276,18 @@ public class NIMBIS_Prestige_Contents {
         }
     }
 
+    public List<WebElement> getAllResidenceTypeOptions() {
+        return allResidenceTypeOptions;
+    }
+
     public void clickUseOfPremisesDropDown(){
         if (verifyElement.verifyBrowserElementValue(useOfPremises_DD, "Use Of Premises") == 0){
             verifyElement.clickElement(useOfPremises_DD,"Use Of Premises");
         }
+    }
+
+    public List<WebElement> getPremisesTypeOptions() {
+        return premisesTypeOptions;
     }
 
 
@@ -241,6 +305,10 @@ public class NIMBIS_Prestige_Contents {
         if (verifyElement.verifyBrowserElementValue(ncb_DD, "NCB") == 0){
             verifyElement.clickElement(ncb_DD,"NCB");
         }
+    }
+
+    public List<WebElement> getNcbOptions() {
+        return ncbOptions;
     }
 
     public void clickRenewableEnergyEquipment(){
@@ -305,6 +373,10 @@ public class NIMBIS_Prestige_Contents {
         }
     }
 
+    public List<WebElement> getElectricFenceOptions_DD() {
+        return electricFenceOptions_DD;
+    }
+
     public void clickTwentyFourHourSecurityGuard(){
         if (verifyElement.verifyBrowserElementValue(twentyFourHourSecurityGuard, "24 hour security guard") == 0){
             verifyElement.clickElement(twentyFourHourSecurityGuard,"24 hour security guard");
@@ -329,9 +401,19 @@ public class NIMBIS_Prestige_Contents {
         }
     }
 
+    public List<WebElement> getPermiterProtectionOptions_DD() {
+        return permiterProtectionOptions_DD;
+    }
+
     public void clickHighSecurityEstateComplex(){
         if (verifyElement.verifyBrowserElementValue(highSecurityEstateComplex, "High Security Estate Complex") == 0){
             verifyElement.clickElement(highSecurityEstateComplex,"High Security Estate Complex");
+        }
+    }
+
+    public void clickpermiterProtection_DD(){
+        if (verifyElement.verifyBrowserElementValue(perimeterProtection_DD, "Permiter protection") == 0){
+            verifyElement.clickElement(perimeterProtection_DD,"Permiter protection");
         }
     }
 
@@ -381,6 +463,10 @@ public class NIMBIS_Prestige_Contents {
         }
     }
 
+    public List<WebElement> getBasicExcessOptions_DD() {
+        return basicExcessOptions_DD;
+    }
+
     //EXTENSIONS METHODS
 
     public void clickItemsOutAndAbout(){
@@ -413,7 +499,8 @@ public class NIMBIS_Prestige_Contents {
         }
     }
 
-
-
+    public List<WebElement> getAllCoverTypeOptions() {
+        return allCoverTypeOptions;
+    }
 
 }

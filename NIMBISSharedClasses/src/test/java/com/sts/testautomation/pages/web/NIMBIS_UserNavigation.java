@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.sts.testautomation.utilities.ElementFunctionality;
+
 public class NIMBIS_UserNavigation {
 
     public WebDriver BrowserDriver;
@@ -26,7 +27,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//a[contains(text(),'Add a new Quote')]")
     private WebElement addNewQuote_DD ;
 
-    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i2']//input")
+    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i1']//input")
     private WebElement prestigeV2_Chkbox ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_cmbPolicyFrequency_Input']")
@@ -38,7 +39,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//span[contains(text(),'Open Quote')]")
     private WebElement openQuoteBtn ;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Cover')]")
+    @FindBy(xpath = "//li//span[text()='Cover']")
     private WebElement coverBtn ;
 
     @FindBy(xpath = "//li//span[contains(text(),'Add New Item')]")
@@ -68,14 +69,27 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement collectionWindow2;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Calculate Premium')]")
+    @FindBy(xpath = "//iframe[@name='alert1748804661282']")
+    WebElement warningFrame;
+
+    @FindBy(xpath = "//div[@id='alert1748804661282_message']")
+    WebElement warningmsg;
+
+    @FindBy(xpath = "(//li//span[@title='Calculate Premium'])[1]")
     WebElement calculatePremiumBtn;
 
-    @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']/ul/li[2]")
+    @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[1]")
     WebElement saveBtn;
 
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement mainWindow;
+
+    @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_btnSave']")
+    WebElement premiumsaveBtn;
+
+    @FindBy(xpath = "//*[@id='RadWindowWrapper_ctl00_GenericPopup']//span[@title='Close']")
+    WebElement closebtn;
+
 
     public void changeFocusToBrowser() {
 
@@ -102,6 +116,15 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//li//span[contains(text(),'Contents')]")
     private WebElement contentsCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Cyber Insurance')]")
+    private WebElement cyberinsuranceCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Trailer')]")
+    private WebElement trailerCover ;
+
+    @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Caravan')]")
+    private WebElement caravanCover ;
 
 
 
@@ -137,6 +160,12 @@ public class NIMBIS_UserNavigation {
 
         if (verifyElement.verifyBrowserElementValue(nextBtn, "Next") == 0) {
             verifyElement.clickElement(nextBtn,"Next");
+        }
+    }
+
+    public void clickCloseBtn(){
+        if (verifyElement.verifyBrowserElementValue(closebtn, "Close button") == 0) {
+            verifyElement.clickElement(closebtn,"Close button");
         }
     }
     public void clickCoverBtn() {
@@ -207,12 +236,20 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public void clickpremiumsaveBtn(){
+        if (verifyElement.verifyBrowserElementValue(premiumsaveBtn, "Save") == 0) {
+            verifyElement.clickElement(premiumsaveBtn, "Save");
+        }
+    }
+
     public void clickOpenQuote() {
 
         if (verifyElement.verifyBrowserElementValue(openQuoteBtn, "Open Quote") == 0) {
             verifyElement.clickElement(openQuoteBtn, "Open Quote");
         }
     }
+
+
 
 
 
@@ -240,9 +277,45 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public void clickCyberinsuranceCover() {
+
+        if (verifyElement.verifyBrowserElementValue(cyberinsuranceCover, "Cyber Insurance Cover") == 0) {
+            verifyElement.clickElement(cyberinsuranceCover,"Cyber Insurance Cover");
+        }
+    }
+
+    public Object clickCaravanCover() {
+
+        if (verifyElement.verifyBrowserElementValue(caravanCover, "Caravan Cover") == 0) {
+            verifyElement.clickElement(caravanCover,"Caravan Cover");
+        }
+        return null;
+    }
+
+    public void clickTrailerCover() {
+
+        if (verifyElement.verifyBrowserElementValue(trailerCover, "Trailer Cover") == 0) {
+            verifyElement.clickElement(trailerCover,"Trailer Cover");
+        }
+    }
 
     public void selectOption(String option){
         WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(text(),'" + option +"')]"));;
+   //     WebDriverWait wait = new WebDriverWait(BrowserDriver, 200);
+     //   wait.until(ExpectedConditions.elementToBeClickable(item));
+        if(verifyElement.verifyBrowserElementValue(item, option) == 0)
+        {
+
+            verifyElement.clickElement(item, option);
+        }
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
+        }
+    }
+
+    public void selectOptionradiobox(String option){
+        WebElement item = BrowserDriver.findElement(By.xpath("//label[contains(text(),'" + option +"')]"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
 
@@ -269,6 +342,12 @@ public class NIMBIS_UserNavigation {
     public void changeFocus2() {
 
         verifyElement.switchToBrowserFrame(collectionWindow2,  "Switch focus to pop up frame");
+
+    }
+
+    public void changeWarningFrame() {
+
+        verifyElement.switchToBrowserFrame(warningFrame,  "Switch focus to pop up frame");
 
     }
 
