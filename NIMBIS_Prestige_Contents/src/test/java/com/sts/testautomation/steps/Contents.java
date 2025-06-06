@@ -16,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.server.handler.interactions.touch.Down;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,6 +26,8 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 import java.util.concurrent.TimeUnit;
@@ -91,11 +94,18 @@ public class Contents extends BaseTest {
                             System.out.println("NIMBIS Test started on " + currentNode.getKey());
 
 
+                         //   WebDriverManager.edgedriver().setup();
+                          //  testB = new EdgeDriver();
+                          //  testB.get(URL);
+                          //  testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                         //   testB.manage().window().maximize();
+
                             WebDriverManager.edgedriver().setup();
-                            testB = new EdgeDriver();
+                            Map<String, Object> edgeOptionsMap = new HashMap<>();
+                          //  edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
+                            EdgeOptions options = new EdgeOptions();options.setCapability("ms:edgeOptions", edgeOptionsMap);
+                            testB = new EdgeDriver(options);
                             testB.get(URL);
-                            testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                            testB.manage().window().maximize();
 
 
                         } catch (Exception e) {

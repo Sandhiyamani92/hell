@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="NIMBIS_Prestige_Home" />
         <module name="NIMBIS_Prestige_Client" />
+        <module name="NIMBIS_Prestige_Vintage" />
         <module name="NIMBIS_Prestige_Contents" />
         <module name="NIMBIS_Prestige_Caravn" />
         <module name="NIMBISSharedClasses" />

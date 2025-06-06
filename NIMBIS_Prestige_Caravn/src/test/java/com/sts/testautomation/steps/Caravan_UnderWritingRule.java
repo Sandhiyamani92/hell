@@ -245,37 +245,27 @@ public class Caravan_UnderWritingRule extends BaseTest {
 
         Thread.sleep(6000);
         nimbisUserNavigation.changeFocus2();
-        nimbisPrestigeContents.enterContentsSumInsured(EH.getCellValueSpecific(1, "Sum insured"));
-        nimbisPrestigeContents.clickCoverTypeDropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "cover details"));
-        nimbisPrestigeContents.clickUseOfPremisesDropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(48, "Use of premises"));
+        nimbisCaravn.enterCaravanValue(EH.getCellValueSpecific(1, "Caravan Value"));
 
-        nimbisPrestigeContents.clickNCB_DropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "NCB"));
-        nimbisPrestigeContents.clickPreviousUninterruptedBuildingsInsurance(EH.getCellValueSpecific(1, "Years of previous uninterrupted contents insurance cover"));
-        nimbisPrestigeContents.clickUseOfAdjoiningLandDropDown();
-        nimbisUserNavigation.selectOptionradiobox(EH.getCellValueSpecific(1, "Use of adjoining land"));
-
-        nimbisPrestigeContents.clickElectricFence_DropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "Electric Fence"));
-        nimbisPrestigeContents.clickpermiterProtection_DD();
-        Thread.sleep(3000);
-
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "Perimeter protection"));
-
+//Vehicle
+        nimbisCaravn.enterCaravanMake(EH.getCellValueSpecific(1, "Make"));
+        nimbisCaravn.enterCaravanModel(EH.getCellValueSpecific(1, "Model"));
+        nimbisCaravn.enterCaravanYear(EH.getCellValueSpecific(1, "Year"));
+        nimbisCaravn.enterRegisterNumber(EH.getCellValueSpecific(1, "Registeration Number"));
         //claims
+        nimbisCaravn.enterCaravanClaim012Months(EH.getCellValueSpecific(1, "Number of Caravan claims in the last 0 - 12 months, excluding glass damage"));
+        nimbisCaravn.enterCaravanClaim1324Months(EH.getCellValueSpecific(16, "Number of Caravan claims in the last 13 - 24 months, excluding glass damage"));
+        nimbisCaravn.enterCaravanClaim2536Months(EH.getCellValueSpecific(1, "Number of Caravan claims in the last 25 - 36 months, excluding glass damage"));
+//extensions
+        nimbisCaravn.clickExtension();
+        nimbisCaravn.enterExtensionSum(EH.getCellValueSpecific(1, "sum insured"));
 
-        nimbisPrestigeContents.enterNumberOfClaimsLast12month(EH.getCellValueSpecific(1, "Number of Contents claims in the last 12 months"));
-
-        nimbisPrestigeContents.enterNumberOfClaimsLast24month(EH.getCellValueSpecific(1, "Number of Contents claims in the last 13 to 24 months"));
-
-        nimbisPrestigeContents.enterNumberOfClaimsLast36month(EH.getCellValueSpecific(1, "Number of Contents claims in the last 25 to 36 months"));
         nimbisUserNavigation.clickSaveBtn();
         Thread.sleep(500);
         nimbisUserNavigation.changeWarningFrame();
         String warningmsg=   testB.findElement(By.xpath("//div[@id='alert1748804661282_message']")).getText();
         warningmsg.equalsIgnoreCase("The combined sum insured of all the vehicles at one address exceeds the RAL limit. The cover request must be approved by Hollard.");
+        elementFunctionality.captureScreenshotOnDevice("UR654-Motor accumulation per risk address exceeds RAL-for the UW rule");
         nimbisUserNavigation.clickPopUpOkBtn();
         nimbisUserNavigation.clickCloseBtn();
 
