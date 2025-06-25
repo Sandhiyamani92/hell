@@ -61,7 +61,7 @@ public class NIMBIS_Prestige_Motor {
 
     // OVERNIGHT PARKING
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_OvernightParking_Input']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11109_Input']")
     private WebElement overnightParking_DD ;
 
     // COVER DETAILS
@@ -158,7 +158,7 @@ public class NIMBIS_Prestige_Motor {
     @FindBy(xpath = "(//tr[@class='rgEditRow']//td//div[@class='RadComboBox RadComboBox_Default']//input)[1]")
     private WebElement specifiedAccessoriesName ;
 
-    @FindBy(xpath = "/html/body/form/div[14]/div/div[2]/div[2]/div[1]/div[22]/div[7]/div/table/thead/tr[3]/td[4]/div/input[1]")
+    @FindBy(xpath = "(//tr[@class='rgEditRow']//td//div[@class='RadInput RadInput_Default']//input)[1]")
     private WebElement specifiedAccessoriesValue ;
 
     @FindBy(xpath = "//tr[@class='rgEditRow']//input[@title='Insert']")
@@ -208,6 +208,9 @@ public class NIMBIS_Prestige_Motor {
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_ucVehicleLookup_txtSearch']")
     private WebElement vehicleSearch_Txt ;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_VehicleSumInsured']")
+    private WebElement vehicleValue_Txt ;
 
     @FindBy(xpath = "//input[@id='ContentPlaceHolder1_ucVehicleLookup_btnSearch']")
     private WebElement searchBtn ;
@@ -439,6 +442,7 @@ public class NIMBIS_Prestige_Motor {
     }
     public void enterSpecifiedAccessoriesValue(String number){
         if (verifyElement.verifyBrowserElementValue(specifiedAccessoriesValue, "Specified Accessories Value") == 0){
+          //  verifyElement.sendKeysWithClear(specifiedAccessoriesValue,"Specified Accessories Value",number);
             verifyElement.sendKeys(specifiedAccessoriesValue,"Specified Accessories Value",number);
         }
     }
@@ -522,6 +526,11 @@ public class NIMBIS_Prestige_Motor {
     public void clickSearchBtn(){
         if (verifyElement.verifyBrowserElementValue(searchBtn, "Search Btn") == 0){
             verifyElement.clickElement(searchBtn,"Search Btn");
+        }
+    }
+    public void enterVehicleValue(String number){
+        if (verifyElement.verifyBrowserElementValue(vehicleValue_Txt, "vehicle Value") == 0){
+            verifyElement.sendKeys(vehicleValue_Txt,"vehicle Value",number);
         }
     }
     public void clickCarMenufactureYear(){

@@ -98,7 +98,7 @@ public class NIMBIS_Prestige_Home {
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10550']")
     private WebElement plotSmallHoldingOrFarm ;
 
-    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10552']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10552_Input']")
     private WebElement increasedRiskBusinessType ;
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10553']")

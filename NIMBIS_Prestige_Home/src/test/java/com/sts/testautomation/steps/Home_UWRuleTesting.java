@@ -14,11 +14,14 @@ import com.sts.testautomation.pages.web.NIMBIS_UserNavigation;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.*;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.List;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -31,6 +34,8 @@ import java.awt.datatransfer.DataFlavor;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
+import static com.sts.testautomation.utilities.ExcelHandler.ExcelWBook;
+
 public class Home_UWRuleTesting extends BaseTest {
     private NIMBIS_Login nimbisLogin;
     private NIMBIS_Prestige_Client nimbisPrestigeClient;
@@ -38,6 +43,10 @@ public class Home_UWRuleTesting extends BaseTest {
     private ElementFunctionality elementFunctionality;
     private NIMBIS_Prestige_Home nimbisPrestigeHome;
     private ExcelHandler EH;
+    private static XSSFSheet ExcelWSheet;
+    private static XSSFWorkbook ExcelWBook;
+
+
     private String Sheet;
 
 
@@ -146,7 +155,7 @@ public class Home_UWRuleTesting extends BaseTest {
     public void CreateClient(String URL) throws Exception {
         url = URL;
 
-        EH = new ExcelHandler(Sheet, "Home Test Cases", 0, 0);
+        EH = new ExcelHandler(Sheet, "Home", 0, 0);
 
         nimbisLogin = new NIMBIS_Login(testB,Device);
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB,Device);
@@ -154,11 +163,12 @@ public class Home_UWRuleTesting extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB,Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
 
-        for(int i = 1 ; i <= 1 ; i ++){
+        for(int i = 38 ; i <= 38 ; i ++){
             try {
                 Thread.sleep(2000);
                 nimbisUserNavigation.enterSearchText("Vukani Shembe ");
                 nimbisUserNavigation.clickSearchBtn();
+                System.out.println(EH.getCellValueSpecific(i,"TC Objectives"));
                 ExtentTestManager.getTest().log(LogStatus.PASS, "Test Case Objective " +EH.getCellValue(Integer.toString(i), "Test objective"));
                 Thread.sleep(5000);
                 nimbisUserNavigation.clickClientResultName();
@@ -191,7 +201,7 @@ public class Home_UWRuleTesting extends BaseTest {
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of Home"));
                 Thread.sleep(1000);
 
-                nimbisPrestigeHome.enterDescription("Home");
+                //nimbisPrestigeHome.enterDescription("Home");
                 Thread.sleep(1000);
 
                 if(EH.getCellValueSpecific(i,"Unoccupied for more than 90 days").equalsIgnoreCase("Yes")){
@@ -225,6 +235,7 @@ public class Home_UWRuleTesting extends BaseTest {
                 Thread.sleep(1000);
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Use of premises"));
                 Thread.sleep(1000);
+
                 // elementFunctionality.scrollToElementBrowser(testB.findElement(By.xpath("")));
 
                 Thread.sleep(1000);
@@ -232,6 +243,7 @@ public class Home_UWRuleTesting extends BaseTest {
                 if(EH.getCellValueSpecific(i,"Thatch or non-standard structure more than 15% of main building ").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickThatch15OfMainBuilding();
                 }
+
 
                 //nimbisPrestigeHome.clickIsFinanced();
 
@@ -249,6 +261,11 @@ public class Home_UWRuleTesting extends BaseTest {
 
                 if(EH.getCellValueSpecific(i,"Increased risk business type").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickIncreasedRiskBusinessType();
+                    nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Increased risk business type"));
+                }
+                if(EH.getCellValueSpecific(i,"Use of premises").equals("Residential and business")){
+                    nimbisPrestigeHome.clickIncreasedRiskBusinessType();
+                    nimbisUserNavigation.selectOption("No");
                 }
                 if(EH.getCellValueSpecific(i,"Plot, smallholding or farm").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickPlotSmallHoldingOrFarm();
@@ -359,51 +376,81 @@ public class Home_UWRuleTesting extends BaseTest {
                 // nimbisUserNavigation.changeFocus2();
                 Thread.sleep(1000);
                 nimbisUserNavigation.clickSaveBtn();
-                Thread.sleep(6000);
-                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(7000);
+               elementFunctionality.switchOutOfBrowserFrame();
                 Thread.sleep(3000);
                 nimbisUserNavigation.clickCalculatePremiumBtn();
                 Thread.sleep(6000);
                 nimbisUserNavigation.changeFocus2();
 
+                List<WebElement> textAreas = testB.findElements(By.xpath("//td//div[@class='rwDialogText']"));
+                String messageToWrite = "No Message is Displayed"; // default
 
-                Actions actions = new Actions(testB);
-                WebElement textArea = testB.findElement(By.xpath("//td//div[@class='rwDialogText']"));
+                if (!textAreas.isEmpty()) {
+                    WebElement textArea = textAreas.get(0);
 
+                    if (textArea.isDisplayed()) {
+                        List<WebElement> listItems = textArea.findElements(By.tagName("li"));
+                        StringBuilder combinedText = new StringBuilder();
 
-                List<WebElement> listItems = textArea.findElements(By.tagName("li"));
+                        for (WebElement item : listItems) {
+                            System.out.println(item.getText());
+                            combinedText.append(item.getText()).append(", ");
+                        }
 
-                for (WebElement item : listItems) {
-                    System.out.println(item.getText());
+                        if (combinedText.length() > 0) {
+                            combinedText.setLength(combinedText.length() - 2); // remove last comma
+                            messageToWrite = combinedText.toString();
+                        }
+                        nimbisUserNavigation.clickOkBtn();
+                    }
                 }
 
-                nimbisUserNavigation.clickOkBtn();
+                write_Extracted_rule_to_Sheet(
+                        "C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx",
+                        "Home", i, 4, messageToWrite
+                );
 
-                nimbisUserNavigation.clickSaveBtn2();
+
+
+
+
+
+
+
+              //  nimbisUserNavigation.changeFocus2();
+
+            //   nimbisUserNavigation.clickSaveBtn2();
+
+           //     nimbisUserNavigation.clickOkBtnMesseagePopup();
+
+              //
+                Thread.sleep(3000);
+                nimbisUserNavigation.changeFocusToBrowser();
+
+                nimbisUserNavigation.clickCloseBtn();
+
+
                 Thread.sleep(1000);
-
                 nimbisUserNavigation.changeFocusToBrowser();
                 Thread.sleep(1000);
-
-                nimbisUserNavigation.clickHomeCover();
+                nimbisUserNavigation.clickLogsTabBtn();
                 Thread.sleep(1000);
+                nimbisUserNavigation.clickPremiumBlackBoxTabBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickLogsViewFirstDetails();
 
-                nimbisUserNavigation.clickEditQuoteIcon();
+
                 Thread.sleep(1000);
 
                 nimbisUserNavigation.changeFocus2();
-                Thread.sleep(1000);
-
-
-                nimbisUserNavigation.clickBlackBoxLogBtn();
-                Thread.sleep(1000);
-
-                nimbisUserNavigation.changeFocus3();
                 Thread.sleep(1000);
                 nimbisUserNavigation.clickBlackBoxInput();
                 Thread.sleep(1000);
                String textIn =  testB.findElement(By.id("ContentPlaceHolder1_txtBBXMLInput")).getAttribute("value");
                 System.out.println(textIn);
+                write_Extracted_rule_to_Sheet("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx","Home",i ,5,textIn);
+
 
                 nimbisUserNavigation.clickBlackBoxRawViewIn();
                 Thread.sleep(1000);
@@ -414,12 +461,20 @@ public class Home_UWRuleTesting extends BaseTest {
 
                 String textOut =  testB.findElement(By.id("ContentPlaceHolder1_txtBBXMLOutput")).getAttribute("value");
                 System.out.println(textOut);
+                write_Extracted_rule_to_Sheet("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx","Home",i ,6,textOut);
+
 
 
 
 
                 ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
                 System.err.println("TEST CASE " + i + " Passed");
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
             }
             catch (Exception e){
                 nimbisUserNavigation.changeFocusToBrowser();
@@ -439,7 +494,42 @@ public class Home_UWRuleTesting extends BaseTest {
 
         }
 
+    public void write_Extracted_rule_to_Sheet(String FilePath, String SheetName, int rowNum, int colNum, String element) throws Exception {
+
+        try {
+
+
+            FileInputStream ExcelFile = new FileInputStream(FilePath);
+
+            // Access the required test data sheet
+
+            ExcelWBook = new XSSFWorkbook(ExcelFile);
+
+            ExcelWSheet = ExcelWBook.getSheet(SheetName);
+
+            int numRows = ExcelWSheet.getLastRowNum() + 1;
+
+            ExcelWSheet.getRow(rowNum).createCell(colNum).setCellValue(element);
+
+            ExcelWBook.write(new FileOutputStream(FilePath));
+
+            FileOutputStream fileOut = new FileOutputStream(FilePath);
+            ExcelWBook.write(fileOut);
+            fileOut.close();
+            ExcelWBook.close();
+            System.out.println("Completed writing extracted rule");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong");
+        }
 
 
     }
+
+
+
+
+}
 

@@ -21,7 +21,7 @@ public class NIMBIS_Prestige_Contents {
 
     //COVER DETAILS
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_BuildingValue']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_PropertySumInsured']")
     private WebElement contentsSumInsured_Txt ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7245_Input']")

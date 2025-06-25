@@ -17,7 +17,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ExcelHandler
 {
 	private static XSSFSheet ExcelWSheet;
-	private static XSSFWorkbook ExcelWBook;
+	public static XSSFWorkbook ExcelWBook;
 	private static XSSFCell Cell;
 	private static XSSFRow Row;
 

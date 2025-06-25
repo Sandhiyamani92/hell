@@ -180,7 +180,7 @@ public class Home extends BaseTest {
             nimbisPrestigeHome.clickTypeOfHomeDropDown();
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Type of Home"));
 
-            if (EH.getCellValueSpecific(i, "Type of Cover").equalsIgnoreCase("Yes")) {
+            if (EH.getCellValueSpecific(i, "Unoccupied for more than 90 days").equalsIgnoreCase("Yes")) {
                 nimbisPrestigeHome.clickDaysUnoccupied90Days();
             }
 

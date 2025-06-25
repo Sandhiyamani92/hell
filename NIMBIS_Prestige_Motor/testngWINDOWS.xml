@@ -15,7 +15,7 @@
 
 
        <classes>
-    <class name="com.sts.testautomation.steps.Motor"/>
+    <class name="com.sts.testautomation.steps.Motor_FronEndValidation"/>
     </classes> 
   </test> 
  

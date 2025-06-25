@@ -70,6 +70,40 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//td[@class='rwWindowContent']//a//span[contains(text(),'OK')]")
     private WebElement popUpOkRateBtn ;
 
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_btnOK']")
+    private WebElement OkBtnMesseagePopup ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Logs')]")
+    private WebElement logsTabBtn;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Premium Black Box')]")
+    private WebElement  premiumBlackBoxTabBtn;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_ucLogs_ucBlackboxLogs_BlackBoxLogList_ctl00_ctl04_ViewDetails']")
+    private WebElement  logsViewFirstDetails;
+    public  void clickOkBtnMesseagePopup(){
+        if (verifyElement.verifyBrowserElementValue(OkBtnMesseagePopup, "OkBtnMesseagePopup") == 0) {
+            verifyElement.clickElement(OkBtnMesseagePopup,"OkBtnMesseagePopup");
+        }
+    }
+    public  void clickLogsTabBtn(){
+        if (verifyElement.verifyBrowserElementValue(logsTabBtn, "logsTabBtn") == 0) {
+            verifyElement.clickElement(logsTabBtn,"logsTabBtn");
+        }
+    }
+    public  void clickPremiumBlackBoxTabBtn(){
+        if (verifyElement.verifyBrowserElementValue(premiumBlackBoxTabBtn, "premiumBlackBoxTabBtn") == 0) {
+            verifyElement.clickElement(premiumBlackBoxTabBtn,"premiumBlackBoxTabBtn");
+        }
+    }
+    public  void clickLogsViewFirstDetails(){
+        if (verifyElement.verifyBrowserElementValue(logsViewFirstDetails, "logsViewFirstDetails") == 0) {
+            verifyElement.clickElement(logsViewFirstDetails,"logsViewFirstDetails");
+        }
+    }
+
+
+
 
 
 
@@ -80,13 +114,16 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='GenericPopup']")
     WebElement collectionWindow3;
 
+    @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectEngine']")
+    WebElement collectionWindow4;
+
     @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectVehicle']")
     WebElement vehicleIframe;
 
     @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectPerson']")
     WebElement driverIframe;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Calculate Premium')]")
+    @FindBy(xpath = "//li//span[contains(text(),'Calculate Coverage Premiums')]")
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']/ul/li[1]")
@@ -94,6 +131,9 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_btnSave']")
     WebElement saveBtn2;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_btnSave']")
+    WebElement cancelBtn;
 
     @FindBy(xpath = "//li//span[text()='Blackbox Log']")
     WebElement blackBoxLogBtn;
@@ -140,6 +180,11 @@ public class NIMBIS_UserNavigation {
         verifyElement.clickElement(closeBtn,"Close Button");
     }
 
+    public  void clickCancelBtn(){
+        verifyElement.clickElement(cancelBtn,"cancelBtn");
+    }
+
+
     public void changeFocusToBrowser() {
 
         verifyElement.switchOutOfBrowserFrame();
@@ -168,6 +213,15 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//li//span[contains(text(),'Motor Vehicle')]")
     private WebElement motorCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Motorcycle')]")
+    private WebElement motorcycleCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Watercraft')]")
+    private WebElement watercraftCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Fine Arts')]")
+    private WebElement fineArtsCover ;
 
 
 
@@ -337,6 +391,24 @@ public class NIMBIS_UserNavigation {
             verifyElement.clickElement(motorCover,"Motor Vehicle Cover");
         }
     }
+    public void clickMotorcycleCover() {
+
+        if (verifyElement.verifyBrowserElementValue(motorcycleCover, "Motorcycle Cover") == 0) {
+            verifyElement.clickElement(motorcycleCover,"Motorcycle Cover");
+        }
+    }
+    public void clickWatercraftCover() {
+
+        if (verifyElement.verifyBrowserElementValue(watercraftCover, "Watercraft Cover") == 0) {
+            verifyElement.clickElement(watercraftCover,"Watercraft Cover");
+        }
+    }
+
+    public void clickFineArtsCover() {
+        if (verifyElement.verifyBrowserElementValue(fineArtsCover, "Fine Arts Cover") == 0) {
+            verifyElement.clickElement(fineArtsCover,"Fine Arts Cover");
+        }
+    }
 
 
     public void selectOption(String option) throws InterruptedException {
@@ -344,6 +416,34 @@ public class NIMBIS_UserNavigation {
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
+
+            verifyElement.clickElement(item, option);
+        }
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
+        }
+    }
+    public void selectOption2(String option) throws InterruptedException {
+        WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(text(), '"+option+"'))]"));;
+        if(verifyElement.verifyBrowserElementValue(item, option) == 0)
+        {
+            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
+
+            verifyElement.clickElement(item, option);
+        }
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
+        }
+    }
+    public void selectOptionWatercraft(String option) throws InterruptedException {
+        WebElement item = BrowserDriver.findElement(By.xpath("//li//label[text()='"+option+"']//input"));;
+        if(verifyElement.verifyBrowserElementValue(item, option) == 0)
+        {
+            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
             Thread.sleep(1500);
 
             verifyElement.clickElement(item, option);
@@ -378,7 +478,11 @@ public class NIMBIS_UserNavigation {
         verifyElement.switchToBrowserFrame(collectionWindow3,  "Switch focus to pop up frame");
 
     }
+    public void changeFocus4() {
 
+        verifyElement.switchToBrowserFrame(collectionWindow4,  "Switch focus to pop up frame");
+
+    }
     public void changeFocusVehicle() {
 
         verifyElement.switchToBrowserFrame(vehicleIframe,  "Switch focus to pop up frame");

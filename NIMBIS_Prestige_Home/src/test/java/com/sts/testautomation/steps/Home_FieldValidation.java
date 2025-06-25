@@ -147,7 +147,7 @@ public class Home_FieldValidation extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB,Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
 
-        for(int i = 66 ; i <= 157 ; i ++){
+        for(int i = 1 ; i <= 157 ; i ++){
             try {
                 Thread.sleep(2000);
                 nimbisUserNavigation.enterSearchText("Vukani Shembe ");
@@ -184,10 +184,10 @@ public class Home_FieldValidation extends BaseTest {
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of Home"));
                 Thread.sleep(1000);
 
-                nimbisPrestigeHome.enterDescription("Home");
-                Thread.sleep(1000);
+             //   nimbisPrestigeHome.enterDescription("Home");
+               // Thread.sleep(1000);
 
-                if(EH.getCellValueSpecific(i,"Type of Cover").equalsIgnoreCase("Yes")){
+                if(EH.getCellValueSpecific(i,"Unoccupied for more than 90 days").equalsIgnoreCase("Yes")){
                     nimbisPrestigeHome.clickDaysUnoccupied90Days();
                 }
                 Thread.sleep(1000);

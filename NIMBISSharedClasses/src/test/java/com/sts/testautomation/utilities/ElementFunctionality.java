@@ -240,11 +240,14 @@ public class ElementFunctionality extends TestListener
 	{
 		try
 		{
-			wait.until(ExpectedConditions.visibilityOf(element));
+			//wait.until(ExpectedConditions.visibilityOf(element));
+			wait.until(ExpectedConditions.elementToBeClickable(element));
 			assertTrue(element.getSize().getWidth()>0);
 			//Thread.sleep(3000);
 			element.click();
 			System.out.println(Name+" was clicked on " + Device);
+
+
 		//	ExtentTestManager.getTest().log(LogStatus.PASS, Name+" was clicked on " + Device);
 
 		}
