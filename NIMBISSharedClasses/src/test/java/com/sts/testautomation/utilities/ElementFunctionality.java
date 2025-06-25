@@ -31,7 +31,7 @@ import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.*;
 import org.seleniumhq.jetty9.util.IO;
 
-import com.relevantcodes.extentreports.LogStatus;
+
 import com.sts.testautomation.extentReports.ExtentTestManager;
 //import com.sts.testautomation.extentReports.ExtentTestManager;
 import com.sts.testautomation.listeners.TestListener;
@@ -89,12 +89,13 @@ public class ElementFunctionality extends TestListener
 			wait.until(ExpectedConditions.visibilityOf(element));
 			assertTrue(element.getSize().getWidth()>0);
 			System.out.println(Name+" displayed on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, Name+" displayed on " + Device);
+			ExtentTestManager.getTest().pass(Name + " displayed on " + Device);
+
 		}
 		catch(TimeoutException ex)
 		{
 			System.err.println(Name + " element could not be found on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name + " element could not be found on " + Device);
+			ExtentTestManager.getTest().fail( Name + " element could not be found on " + Device);
 		}
 
 	}
@@ -133,9 +134,11 @@ public class ElementFunctionality extends TestListener
 					 base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)BrowserDriver).getScreenshotAs(OutputType.BASE64);
 
 					//Extentreports log and screenshot operations for failed tests.
-				
-					 ExtentTestManager.getTest().log(LogStatus.FAIL,name);
-					ExtentTestManager.getTest().log(LogStatus.PASS, name+" is equals too: " + value ,	ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+
+					ExtentTestManager.getTest().fail(name);
+					ExtentTestManager.getTest()
+							.pass(name + " is equal to: " + value)
+							.addScreenCaptureFromBase64String(base64Screenshot, "Validation Screenshot");
 				
 
 				}else
@@ -143,8 +146,8 @@ public class ElementFunctionality extends TestListener
 					 base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)BrowserDriver).getScreenshotAs(OutputType.BASE64);
 					 System.out.println(name+" is not equals too: " + value);
 					//Extentreports log and screenshot operations for failed tests.
-					ExtentTestManager.getTest().log(LogStatus.FAIL,name);
-					ExtentTestManager.getTest().log(LogStatus.FAIL,name,ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+					ExtentTestManager.getTest().fail(name);
+					ExtentTestManager.getTest().fail(name).addScreenCaptureFromBase64String(base64Screenshot, "Validation Screenshot");
 				}
 				
 			}
@@ -152,7 +155,7 @@ public class ElementFunctionality extends TestListener
 		catch(TimeoutException ex)
 		{
 			System.err.println(name + " element could not be found on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, name + " element could not be found on " + Device);
+			ExtentTestManager.getTest().fail( name + " element could not be found on " + Device);
 		}
 	}
 	//Verification that an element is not visible
@@ -162,12 +165,12 @@ public class ElementFunctionality extends TestListener
 		{
 			wait.until(ExpectedConditions.invisibilityOf(element));
 			System.out.println(Name+" no longer visible on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, Name+" no longer visible ondisplayed on " + Device);
+			ExtentTestManager.getTest().pass( Name+" no longer visible ondisplayed on " + Device);
 		}
 		catch(TimeoutException ex)
 		{
 			Assert.fail(Name + " element is visible or the page is taking too long to load on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name + " element is visible or the page is taking too long to load on " + Device);
+			ExtentTestManager.getTest().fail( Name + " element is visible or the page is taking too long to load on " + Device);
 		}
 
 	}
@@ -211,12 +214,12 @@ public class ElementFunctionality extends TestListener
 			wait.until(ExpectedConditions.visibilityOf(element));
 			assertTrue(element.getSize().getWidth()>0);
 			System.out.println(Name+" displayed on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, Name+" displayed on " + Device);
+			ExtentTestManager.getTest().pass( Name+" displayed on " + Device);
 		}
 		catch(TimeoutException ex)
 		{
 			Assert.fail(Name + " element could not be found on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name + " element could not be found on " + Device);
+			ExtentTestManager.getTest().fail( Name + " element could not be found on " + Device);
 		}
 	}
 
@@ -227,7 +230,7 @@ public class ElementFunctionality extends TestListener
 			wait.until(ExpectedConditions.visibilityOf(element));
 			assertTrue(element.getSize().getWidth()>0);
 			System.out.println(Name+" displayed on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, Name+" displayed on " + Device);
+			ExtentTestManager.getTest().pass( Name+" displayed on " + Device);
 		}
 		catch(TimeoutException ex)
 		{
@@ -251,7 +254,7 @@ public class ElementFunctionality extends TestListener
 		catch (NoSuchElementException e)
 		{
 			Assert.fail(Name + " element could not be clicked on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name+" element could not be clicked on " + Device);
+			ExtentTestManager.getTest().fail( Name+" element could not be clicked on " + Device);
 			e.printStackTrace();
 		} 
 
@@ -271,13 +274,13 @@ public class ElementFunctionality extends TestListener
 			//Thread.sleep(3000);
 			element.click();
 			System.out.println(Name+" was clicked on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, Name+" was clicked on " + Device);
+			ExtentTestManager.getTest().pass( Name+" was clicked on " + Device);
 
 		}
 		catch (NoSuchElementException e)
 		{
 			Assert.fail(Name + " element could not be clicked on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name+" element could not be clicked on " + Device);
+			ExtentTestManager.getTest().fail( Name+" element could not be clicked on " + Device);
 			e.printStackTrace();
 		}
 
@@ -301,13 +304,13 @@ public class ElementFunctionality extends TestListener
 			act.doubleClick(element);
 
 			System.out.println(Name+" was clicked on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, Name+" was clicked on " + Device);
+			ExtentTestManager.getTest().pass( Name+" was clicked on " + Device);
 
 		}
 		catch (NoSuchElementException e)
 		{
 			Assert.fail(Name + " element could not be clicked on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name+" element could not be clicked on " + Device);
+			ExtentTestManager.getTest().fail( Name+" element could not be clicked on " + Device);
 			e.printStackTrace();
 		}
 
@@ -344,7 +347,7 @@ public class ElementFunctionality extends TestListener
 		catch (NoSuchElementException e)
 		{
 			Assert.fail(Name + " element could not be clicked on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name+" element could not be clicked on " + Device);
+			ExtentTestManager.getTest().fail( Name+" element could not be clicked on " + Device);
 			e.printStackTrace();
 		} 
 
@@ -376,7 +379,7 @@ public class ElementFunctionality extends TestListener
 		catch (NoSuchElementException e)
 		{
 			Assert.fail(element + " element could not be hovered on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, " element could not be hovered on " + Device);
+			ExtentTestManager.getTest().fail( " element could not be hovered on " + Device);
 			e.printStackTrace();
 		} 
 
@@ -385,7 +388,7 @@ public class ElementFunctionality extends TestListener
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Assert.fail(element + " element could not be hovered on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, " element could not be hovered on " + Device);
+			ExtentTestManager.getTest().fail( " element could not be hovered on " + Device);
 			e.printStackTrace();
 		} 
 
@@ -411,7 +414,7 @@ public class ElementFunctionality extends TestListener
 		{
 
 			Assert.fail(element + " element could not be hovered on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, " element could not be hovered on " + Device);
+			ExtentTestManager.getTest().fail( " element could not be hovered on " + Device);
 
 		} 
 
@@ -428,9 +431,8 @@ public class ElementFunctionality extends TestListener
 				String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)AndroidDriver).getScreenshotAs(OutputType.BASE64);
 
 				//Extentreports log and screenshot operations for screenshots taken
-				ExtentTestManager.getTest().log(LogStatus.INFO,fullMessage);
-				ExtentTestManager.getTest().log(LogStatus.INFO,fullMessage,
-						ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+				ExtentTestManager.getTest().info(fullMessage);
+				ExtentTestManager.getTest().info(fullMessage)	.addScreenCaptureFromBase64String(base64Screenshot, " Screenshot");
 			}
 
 			else if(IODriver != null)
@@ -439,9 +441,9 @@ public class ElementFunctionality extends TestListener
 				String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)IODriver).getScreenshotAs(OutputType.BASE64);
 
 				//Extentreports log and screenshot operations for screenshots taken
-				ExtentTestManager.getTest().log(LogStatus.INFO,fullMessage);
-				ExtentTestManager.getTest().log(LogStatus.INFO,fullMessage,
-						ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+				ExtentTestManager.getTest().info(fullMessage);
+				ExtentTestManager.getTest().info(fullMessage)
+						.addScreenCaptureFromBase64String(base64Screenshot, " Screenshot");
 			}
 
 			else
@@ -449,8 +451,8 @@ public class ElementFunctionality extends TestListener
 				String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)BrowserDriver).getScreenshotAs(OutputType.BASE64);
 
 				//Extentreports log and screenshot operations for screenshots taken
-				ExtentTestManager.getTest().log(LogStatus.INFO,fullMessage);
-				ExtentTestManager.getTest().log(LogStatus.INFO,fullMessage, ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+				ExtentTestManager.getTest().info(fullMessage);
+				ExtentTestManager.getTest().info(fullMessage).addScreenCaptureFromBase64String(base64Screenshot, " Screenshot");
 			}
 
 			System.out.println(fullMessage);
@@ -464,7 +466,7 @@ public class ElementFunctionality extends TestListener
 				String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)AndroidDriver).getScreenshotAs(OutputType.BASE64);
 
 				//Extentreports log and screenshot operations for screenshots taken
-				ExtentTestManager.getTest().log(LogStatus.INFO,ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+				ExtentTestManager.getTest().info("info").addScreenCaptureFromBase64String(base64Screenshot, " Screenshot");
 			}
 
 			else if(IODriver != null)
@@ -473,7 +475,7 @@ public class ElementFunctionality extends TestListener
 				String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)IODriver).getScreenshotAs(OutputType.BASE64);
 
 				//Extentreports log and screenshot operations for screenshots taken
-				ExtentTestManager.getTest().log(LogStatus.INFO,ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+				ExtentTestManager.getTest().info("info").addScreenCaptureFromBase64String(base64Screenshot, " Screenshot");
 			}
 
 			else
@@ -481,7 +483,8 @@ public class ElementFunctionality extends TestListener
 				String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)BrowserDriver).getScreenshotAs(OutputType.BASE64);
 
 				//Extentreports log and screenshot operations for screenshots taken
-				ExtentTestManager.getTest().log(LogStatus.INFO,ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+				ExtentTestManager.getTest().info("info").addScreenCaptureFromBase64String(base64Screenshot, " Screenshot");
+
 			}
 
 		}
@@ -518,13 +521,13 @@ public class ElementFunctionality extends TestListener
 			assertTrue(element.getSize().getWidth()>0);
 			action.moveToElement(element).build().perform();
 			System.out.println("Hovering over "+ Name +" on "+ Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, "Hovering over "+ Name +" on "+ Device);
+			ExtentTestManager.getTest().pass( "Hovering over "+ Name +" on "+ Device);
 
 		}
 		catch (NoSuchElementException e)
 		{
 			Assert.fail(element + " element could not be hovered on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, " element could not be hovered on " + Device);
+			ExtentTestManager.getTest().fail( " element could not be hovered on " + Device);
 			e.printStackTrace();
 		} 
 
@@ -540,7 +543,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				AndroidDriver.getKeyboard().sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+				ExtentTestManager.getTest().pass( "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 			}
 
@@ -549,7 +552,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+				ExtentTestManager.getTest().pass( "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 			}
 
@@ -558,7 +561,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+				ExtentTestManager.getTest().pass( "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 			}
 
 
@@ -566,13 +569,13 @@ public class ElementFunctionality extends TestListener
 		catch(TimeoutException ex)
 		{
 			Assert.fail("The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
+			ExtentTestManager.getTest().fail("The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
 		}
 
 		catch(Exception ex)
 		{
 			System.out.println(ex.getMessage());
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
+			ExtentTestManager.getTest().fail( "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
 		}
 
 	}
@@ -635,20 +638,20 @@ public class ElementFunctionality extends TestListener
 			element.click();
 			element.sendKeys(Keys.chord(Keys.COMMAND, "a"),Text,Keys.ENTER);
 			System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+			ExtentTestManager.getTest().pass("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 
 		}
 		catch(TimeoutException ex)
 		{
 			Assert.fail("The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
+			ExtentTestManager.getTest().fail( "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
 		}
 
 		catch(Exception ex)
 		{
 			System.out.println(ex.getMessage());
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
+			ExtentTestManager.getTest().fail( "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
 		}
 
 	}
@@ -662,20 +665,20 @@ public class ElementFunctionality extends TestListener
 			element.click();
 			element.sendKeys(Keys.chord(Keys.CONTROL, "a"),Text);
 			System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+			ExtentTestManager.getTest().pass( "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 
 		}
 		catch(TimeoutException ex)
 		{
 			Assert.fail("The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
+			ExtentTestManager.getTest().fail( "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
 		}
 
 		catch(Exception ex)
 		{
 			System.out.println(ex.getMessage());
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
+			ExtentTestManager.getTest().fail( "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
 		}
 
 	}
@@ -693,7 +696,7 @@ public class ElementFunctionality extends TestListener
 			dropdown.selectByVisibleText(option);
 
 			System.out.println("The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, "The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().pass( "The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
 
 
 
@@ -701,14 +704,14 @@ public class ElementFunctionality extends TestListener
 		catch(TimeoutException ex)
 		{
 			Assert.fail("The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().fail( "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
 		}
 
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
 			System.out.println("The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().fail( "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
 		}
 	}
 	
@@ -723,7 +726,7 @@ public class ElementFunctionality extends TestListener
 			dropdown.selectByVisibleText(option);
 
 			System.out.println("The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, "The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().pass( "The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
 
 
 
@@ -731,14 +734,14 @@ public class ElementFunctionality extends TestListener
 		catch(TimeoutException ex)
 		{
 			Assert.fail("The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().fail( "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
 		}
 
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
 			System.out.println("The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().fail( "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
 		}
 	}
 
@@ -754,7 +757,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+				ExtentTestManager.getTest().pass( "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 			}
 
@@ -763,7 +766,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+				ExtentTestManager.getTest().pass("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 
 			}
 
@@ -772,7 +775,7 @@ public class ElementFunctionality extends TestListener
 				element.click();
 				element.sendKeys(Text);
 				System.out.println("The text: '"+Text +"' was sent to "+ Name +" on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.PASS, "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
+				ExtentTestManager.getTest().pass( "The text: '"+Text +"' was sent to "+ Name +" on " + Device);
 			}
 
 
@@ -780,13 +783,13 @@ public class ElementFunctionality extends TestListener
 		catch(TimeoutException ex)
 		{
 			Assert.fail("The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
+			ExtentTestManager.getTest().fail( "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
 		}
 
 		catch(Exception ex)
 		{
 			System.out.println(ex.getMessage());
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
+			ExtentTestManager.getTest().fail( "The text: '"+Text +"' could not be sent to "+ Name + " on " + Device);
 		}
 
 	}
@@ -884,7 +887,7 @@ public class ElementFunctionality extends TestListener
 			{
 
 				System.out.println("'"+invalidValues.get(i).toString()+ "' is broken on " + Device);
-				ExtentTestManager.getTest().log(LogStatus.FAIL, "'"+invalidValues.get(i).toString()+ "' is broken on " + Device);
+				ExtentTestManager.getTest().fail( "'"+invalidValues.get(i).toString()+ "' is broken on " + Device);
 			}
 			//	Assert.fail("Links are invalid on " + Device);
 			System.err.println("Links are invalid on " + Device);
@@ -892,7 +895,8 @@ public class ElementFunctionality extends TestListener
 		}
 		else
 		{
-			ExtentTestManager.getTest().log(LogStatus.PASS, "All links valid on " + Device);
+			ExtentTestManager.getTest().pass("All links valid on " + Device);
+
 		}
 	}
 
@@ -1098,9 +1102,14 @@ public class ElementFunctionality extends TestListener
 			String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)AndroidDriver).getScreenshotAs(OutputType.BASE64);
 
 			//Extentreports log and screenshot operations for failed tests.
-			ExtentTestManager.getTest().log(LogStatus.FAIL,Message);
-			ExtentTestManager.getTest().log(LogStatus.FAIL,Message,
-					ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+			// First log the failure message
+			ExtentTestManager.getTest().fail(Message);
+
+// Then add the screenshot with a label
+			ExtentTestManager.getTest()
+					.fail("Screenshot:")
+					.addScreenCaptureFromBase64String(base64Screenshot, "Failure Screenshot");
+
 		}
 
 		else if(IODriver != null)
@@ -1109,9 +1118,10 @@ public class ElementFunctionality extends TestListener
 			String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)IODriver).getScreenshotAs(OutputType.BASE64);
 
 			//Extentreports log and screenshot operations for failed tests.
-			ExtentTestManager.getTest().log(LogStatus.FAIL,Message);
-			ExtentTestManager.getTest().log(LogStatus.FAIL,Message,
-					ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+			ExtentTestManager.getTest()
+					.fail(Message)
+					.addScreenCaptureFromBase64String(base64Screenshot, "Failure Screenshot");
+
 		}
 
 		else
@@ -1119,9 +1129,10 @@ public class ElementFunctionality extends TestListener
 			String base64Screenshot = "data:image/png;base64,"+((TakesScreenshot)BrowserDriver).getScreenshotAs(OutputType.BASE64);
 
 			//Extentreports log and screenshot operations for failed tests.
-			ExtentTestManager.getTest().log(LogStatus.FAIL,Message);
-			ExtentTestManager.getTest().log(LogStatus.FAIL,Message,
-					ExtentTestManager.getTest().addBase64ScreenShot(base64Screenshot));
+			ExtentTestManager.getTest()
+					.fail(Message)
+					.addScreenCaptureFromBase64String(base64Screenshot, "Failure Screenshot");
+
 		}
 
 		System.out.println(Message);
@@ -1130,14 +1141,14 @@ public class ElementFunctionality extends TestListener
 	//Method to add pass to a report
 	public void passTest(String Message)
 	{
-		ExtentTestManager.getTest().log(LogStatus.PASS, Message);
+		ExtentTestManager.getTest().pass( Message);
 		System.out.println(Message);
 	}
 
 	//Method to add information
 	public void logInformation(String Message)
 	{
-		ExtentTestManager.getTest().log(LogStatus.INFO, Message);
+		ExtentTestManager.getTest().info( Message);
 		System.out.println(Message);
 	}
 
@@ -1978,7 +1989,7 @@ public class ElementFunctionality extends TestListener
 			dropdown.selectByIndex(option);
 
 			System.out.println("The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.PASS, "The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().pass( "The option: '"+option +"' was selected from "+ dropdownName +" on " + Device);
 
 
 
@@ -1986,13 +1997,15 @@ public class ElementFunctionality extends TestListener
 		catch(TimeoutException ex)
 		{
 			Assert.fail("The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().fail("The option: '" + option + "' could not be selected from " + dropdownName + " on " + Device);
+
 		}
 
 		catch(Exception ex)
 		{
 			System.out.println("The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
-			ExtentTestManager.getTest().log(LogStatus.FAIL, "The option: '"+option +"' could not be selected from "+ dropdownName +" on " + Device);
+			ExtentTestManager.getTest().fail("The option: '" + option + "' could not be selected from " + dropdownName + " on " + Device);
+
 		}
 	}
 

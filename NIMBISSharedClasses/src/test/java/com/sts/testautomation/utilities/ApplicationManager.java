@@ -17,7 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.relevantcodes.extentreports.LogStatus;
+//import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
@@ -322,7 +322,8 @@ public class ApplicationManager extends TestListener
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			ExtentTestManager.getTest().log(LogStatus.FAIL, Name+" element could not be clicked on " + Device);
+			ExtentTestManager.getTest().fail(Name + " element could not be clicked on " + Device);
+
 		}
 		catch (Exception e)
 		{

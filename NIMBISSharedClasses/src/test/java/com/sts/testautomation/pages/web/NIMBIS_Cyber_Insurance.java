@@ -29,10 +29,10 @@ public class NIMBIS_Cyber_Insurance {
     @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11050_DropDown']//li")
     public List<WebElement> allCyberinsuranceCoverOptions;
 
-    @FindBy(xpath = "//button[@id='ContentPlaceHolder1_DynamicQuestions1_content_NonStandard_11048']")
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11048']")
     private WebElement coverforpartner_toggle ;
 
-    @FindBy(xpath = "//button[@id='ContentPlaceHolder1_DynamicQuestions1_content_NonStandard_11049']")
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11049']")
     private WebElement coverforchildren_toggle ;
 
     //COVER DETAILS METHODS

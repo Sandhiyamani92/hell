@@ -24,5 +24,14 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>NIMBISSharedClasses</groupId>
+            <artifactId>NIMBISSharedClasses</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>test-jar</type>
+            <!-- uncomment if needed in test scope only
+                 <scope>test</scope>
+            -->
+        </dependency>
     </dependencies>
 </project>

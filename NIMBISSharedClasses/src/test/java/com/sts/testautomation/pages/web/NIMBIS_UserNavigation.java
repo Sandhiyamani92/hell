@@ -126,6 +126,24 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Caravan')]")
     private WebElement caravanCover ;
 
+    @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Vintage')]")
+    private WebElement vintageCover ;
+
+    @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Non-road vehicle')]")
+    private WebElement nonRoadVehicleCover ;
+
+    @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Legal Cost')]")
+    private WebElement legalCostCover ;
+
+    @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Personal Liability')]")
+    private WebElement PersonalLiabilityCover ;
+
+    @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Personal Accident')]")
+    private WebElement PersonalAccidentCover ;
+
+   // @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Non-road vehicle')]")
+    //  private WebElement nonRoadVehicleCover ;
+
 
 
 
@@ -277,6 +295,13 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public void clickNonRoadVehicleCover() {
+
+        if (verifyElement.verifyBrowserElementValue(nonRoadVehicleCover, "Non Road Vehicle Cover") == 0) {
+            verifyElement.clickElement(nonRoadVehicleCover,"Non Road Vehicle Cover");
+        }
+    }
+
     public void clickCyberinsuranceCover() {
 
         if (verifyElement.verifyBrowserElementValue(cyberinsuranceCover, "Cyber Insurance Cover") == 0) {
@@ -296,6 +321,27 @@ public class NIMBIS_UserNavigation {
 
         if (verifyElement.verifyBrowserElementValue(trailerCover, "Trailer Cover") == 0) {
             verifyElement.clickElement(trailerCover,"Trailer Cover");
+        }
+    }
+
+    public void clickVintageCover() {
+
+        if (verifyElement.verifyBrowserElementValue(vintageCover, "Vintage Cover") == 0) {
+            verifyElement.clickElement(vintageCover,"Vintage Cover");
+        }
+    }
+
+    public void clickPersonalLiabilityCover() {
+
+        if (verifyElement.verifyBrowserElementValue(PersonalLiabilityCover, "Personal liability Cover") == 0) {
+            verifyElement.clickElement(PersonalLiabilityCover,"Personal liability Cover");
+        }
+    }
+
+    public void clickPersonalAccidentCover() {
+
+        if (verifyElement.verifyBrowserElementValue(PersonalAccidentCover, "Personal Accident Cover") == 0) {
+            verifyElement.clickElement(PersonalAccidentCover,"Personal Accident Cover");
         }
     }
 

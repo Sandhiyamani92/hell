@@ -1,7 +1,7 @@
 package com.sts.testautomation.steps;
 
 
-import com.relevantcodes.extentreports.LogStatus;
+
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
@@ -190,23 +190,20 @@ public class Caravan extends BaseTest {
                 nimbisCaravn.enterExtensionSum(EH.getCellValueSpecific(i, "sum insured"));
 
                 nimbisUserNavigation.clickSaveBtn();
-                Thread.sleep(2000);
-               // nimbisUserNavigation.changeFocus2();
-                WebElement premiumBtn=  testB.findElement(By.xpath("//span[@class='rtbText' and normalize-space()='Calculate Coverage Premiums']"));
-JavascriptExecutor js = (JavascriptExecutor) testB;
-                  js.executeScript("arguments[0].click();",premiumBtn);
-              //  nimbisUserNavigation.clickCalculatePremiumBtn();
+                Thread.sleep(500);
+                nimbisUserNavigation.clickCalculatePremiumBtn();
                 Thread.sleep(500);
                 // nimbisUserNavigation.changeFocusToAlert();
                 nimbisUserNavigation.clickPopUpOkRateBtn();
                 Thread.sleep(1000);
-
+                // nimbisUserNavigation.changeFocus2();
                 Thread.sleep(1000);
                 nimbisUserNavigation.clickSaveBtn();
 
+
                 nimbisUserNavigation.changeFocusToBrowser();
                 Thread.sleep(3000);
-                ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
+                ExtentTestManager.getTest().pass( "TEST CASE " + i + "Passed");
                 System.err.println("TEST CASE " + i + " Passed");
             } catch (Exception e) {
                 nimbisUserNavigation.changeFocusToBrowser();
@@ -217,7 +214,7 @@ JavascriptExecutor js = (JavascriptExecutor) testB;
                 nimbisUserNavigation.changeFocusToBrowser();
                 Thread.sleep(3000);
                 System.out.println("Test Case  : " + i);
-                ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE " + i + "Failed");
+                ExtentTestManager.getTest().fail( "TEST CASE " + i + "Failed");
                 System.err.println("TEST CASE " + i + " Failed");
             }
         }

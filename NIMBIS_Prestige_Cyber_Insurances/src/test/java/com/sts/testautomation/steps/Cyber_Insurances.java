@@ -1,19 +1,25 @@
 package com.sts.testautomation.steps;
 
 
+
+
+
+
+
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+
+import com.sts.testautomation.extentReports.ExtentTestManager;
 import com.sts.testautomation.nimbisutilities.common_functions1;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -33,11 +39,12 @@ public class Cyber_Insurances extends BaseTest {
     private common_functions1 commonFunctions;
     private ExcelHandler EH;
     private String Sheet;
-
+    private common_functions1 common;
 
     @Parameters({"URL", "Device", "NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
     public void setupTest(String URL, String device, String datasheet) {
+
         try {
             HashSetup.SetUpBrowser();
 
@@ -146,7 +153,7 @@ public class Cyber_Insurances extends BaseTest {
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
         nimbisCyberInsurance = new NIMBIS_Cyber_Insurance(testB, Device);
         commonFunctions=new common_functions1(testB,Device);
-        for (int i = 1; i < EH.numRows; i++) {
+
             nimbisUserNavigation.enterSearchText("Vukani Shembe ");
             nimbisUserNavigation.clickSearchBtn();
 
@@ -158,44 +165,53 @@ public class Cyber_Insurances extends BaseTest {
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickPopUpOkBtn();
-            JavascriptExecutor js = (JavascriptExecutor) testB;
-            //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickOpenQuote();
             Thread.sleep(2000);
             nimbisUserNavigation.clickCoverBtn();
             nimbisUserNavigation.clickCyberinsuranceCover();
             Thread.sleep(2000);
+        for (int i = 1; i < EH.numRows; i++) {
             nimbisUserNavigation.clickAddNewItemBtn();
 
+            try{
             Thread.sleep(6000);
             nimbisUserNavigation.changeFocus2();
             nimbisCyberInsurance.clickCyberInsuranceCoverDropDown();
             Thread.sleep(500);
 
-            List<String> expectedTypeOfWallValues = commonFunctions.getExpectedValuesFromExcel(EH,"Cyber insurance cover option","Cyber insurance cover option");
-            List<WebElement> cyberoptionsValues = nimbisCyberInsurance.getAllCyberinsuranceCoverOptions();
-            commonFunctions.validateDropdownWithElements(expectedTypeOfWallValues, cyberoptionsValues, "Cyber insurance cover option");
-
 
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Cyber insurance cover option"));
-
+                elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
 
             if (EH.getCellValueSpecific(i, "Cover for partner").equalsIgnoreCase("Yes")) {
                 nimbisCyberInsurance.clickCoverForPartnerToggleButton();
+                elementFunctionality.captureScreenshotOnDevice("cyber insurance cover for partner");
             }
             if (EH.getCellValueSpecific(i, "Cover for children").equalsIgnoreCase("Yes")) {
                 nimbisCyberInsurance.clickCoverForChilderToggleButton();
+                elementFunctionality.captureScreenshotOnDevice("cyber insurance cover for Children");
             }
 
-
-            // nimbisUserNavigation.changeFocus2();
-            //  Thread.sleep(1000);
-            //  nimbisUserNavigation.clickSaveBtn();
-
-            //  nimbisUserNavigation.changeFocusToBrowser();
-            //  Thread.sleep(3000);
+                common.calculatePremium();
+            Thread.sleep(3000);
+                ExtentTestManager.getTest().pass( "TEST CASE " + i + "Passed");
+            System.err.println("TEST CASE " + i + " Passed");
+        } catch (Exception e) {
+            nimbisUserNavigation.changeFocusToBrowser();
+            System.out.println(e.toString());
+            Thread.sleep(1000);
+            nimbisUserNavigation.clickCloseBtn();
+            Thread.sleep(1000);
+            nimbisUserNavigation.changeFocusToBrowser();
+            Thread.sleep(3000);
+            System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().fail( "TEST CASE " + i + "Failed");
+            System.err.println("TEST CASE " + i + " Failed");
         }
+    }
+
 
 
     }

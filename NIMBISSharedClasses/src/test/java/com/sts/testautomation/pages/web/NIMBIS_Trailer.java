@@ -22,7 +22,7 @@ public class NIMBIS_Trailer {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_FinanceDetails_dateInput']")
     private WebElement financeDate_Txt;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_QuoteRiskItemFinanceControl1_chkIsFinanced_ClientState']")
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_QuoteRiskItemFinanceControl1_chkIsFinanced']")
     private WebElement isFianced_Btn;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_QuoteRiskItemFinanceControl1_lstFinanceHouse_Input']")
@@ -30,6 +30,37 @@ public class NIMBIS_Trailer {
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_QuoteRiskItemFinanceControl1_txtPeriodOfFinance']")
     private WebElement periodOfFiance_Txt;
+
+    //claims
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11070']")
+    private WebElement trailerClaim012_Txt ;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11071']")
+    private WebElement trailerlaim1324_Txt ;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11072']")
+    private WebElement trailerClaim2536_Txt ;
+
+    //cover options
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7297")
+    private WebElement  typeOfVehicleliability_DD ;
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7298")
+    private WebElement  typeOfCover_DD ;
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7299")
+    private WebElement  classOfUse_DD ;
+
+    //extensions
+
+    //Extensions
+    @FindBy(xpath = "//button[@id='chkExtension3210']")
+    private WebElement trailerextension_Btn ;
+
+    @FindBy(xpath = "//input[@id='txtExtensionSumInsured3210']")
+    private WebElement TrailerextensionSum_Txt ;
 
     //Insured Value
 
@@ -62,6 +93,8 @@ public class NIMBIS_Trailer {
         }
     }
 
+
+
 //Insured Value
 
     public void enterTrailerSum(String amount){
@@ -70,4 +103,58 @@ public class NIMBIS_Trailer {
         }
     }
 
+
+    //claims
+
+    public void enterTrailerClaim012Months(String number){
+        if (verifyElement.verifyBrowserElementValue(trailerClaim012_Txt, "Trailer Claim 0-12") == 0){
+            verifyElement.sendKeys(trailerClaim012_Txt,"Trailer Claim 0-12",number);
+        }
+    }
+
+    public void enterTrailerClaim1324Months(String number){
+        if (verifyElement.verifyBrowserElementValue(trailerlaim1324_Txt, "Trailer Claim 13-24") == 0){
+            verifyElement.sendKeys(trailerlaim1324_Txt,"Trailer Claim 13-24",number);
+        }
+    }
+
+    public void enterTrailerClaim2536Months(String Number){
+        if (verifyElement.verifyBrowserElementValue(trailerClaim2536_Txt, "Caravan Claim 25-36") == 0){
+            verifyElement.sendKeys(trailerClaim2536_Txt,"Trailer Claim 25-36",Number);
+        }
+    }
+
+    //Extensions
+
+    public void clickTrailerExtension(){
+        if (verifyElement.verifyBrowserElementValue(trailerextension_Btn, "Extension for Trailer") == 0){
+            verifyElement.clickElement(trailerextension_Btn,"Extension for Trailer");
+        }
+    }
+
+    public void enterTrailerExtensionSum(String amount){
+        if (verifyElement.verifyBrowserElementValue(TrailerextensionSum_Txt, "Extension for sum") == 0){
+            verifyElement.sendKeys(TrailerextensionSum_Txt,"Extension for sum",amount);
+        }
+    }
+
+    //cover options
+
+    public void clickVehicleLiabilityDropDown(){
+        if (verifyElement.verifyBrowserElementValue(typeOfVehicleliability_DD, "Vehicle Liability") == 0){
+            verifyElement.clickElement(typeOfVehicleliability_DD,"Vehicle Liability");
+        }
+    }
+
+    public void clickTypeOfCoverDropDown(){
+        if (verifyElement.verifyBrowserElementValue(typeOfCover_DD, "Type of cover option") == 0){
+            verifyElement.clickElement(typeOfCover_DD,"Type of cover option");
+        }
+    }
+
+    public void clickClassOfUseDropDown(){
+        if (verifyElement.verifyBrowserElementValue(classOfUse_DD, "Type of class of use") == 0){
+            verifyElement.clickElement(classOfUse_DD,"Type of class of use");
+        }
+    }
 }
