@@ -78,7 +78,7 @@ public class NIMBIS_Prestige_Watercraft {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7271_Input']")
     private WebElement waterCraftLiability_DD ;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_VesselUsed_Input']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11114_Input']")
     private WebElement areaOfUse_DD ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10604_Input']")
@@ -86,6 +86,21 @@ public class NIMBIS_Prestige_Watercraft {
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10605']")
     private WebElement craftSurfLaunched ;
+
+    // ENGINE DETAILS
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_txtYearOfManufacture']")
+    private WebElement engineYearOfManufacture_Txt ;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_txtHorsePower']")
+    private WebElement engineHorsePower_Txt ;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_txtManufacturer']")
+    private WebElement engineManufacturer_Txt ;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_txtSerialNumber']")
+    private WebElement engineSerialNumber_Txt ;
+
 
     // ===== CRAFT MOTOR DETAILS =====
 
@@ -238,6 +253,30 @@ public class NIMBIS_Prestige_Watercraft {
     public void clickAddEngineBtn() {
         if (verifyElement.verifyBrowserElementValue(addEngineBtn, "Add Engine Button") == 0) {
             verifyElement.clickElement(addEngineBtn, "Add Engine Button");
+        }
+    }
+
+    public void enterEngineYearOfManufacture(String value) {
+        if (verifyElement.verifyBrowserElementValue(engineYearOfManufacture_Txt, "Engine Year Of Manufacture") == 0) {
+            verifyElement.sendKeys(engineYearOfManufacture_Txt, "Engine Year Of Manufacture", value);
+        }
+    }
+
+    public void enterEngineHorsePower(String value) {
+        if (verifyElement.verifyBrowserElementValue(engineHorsePower_Txt, "Engine Horse Power") == 0) {
+            verifyElement.sendKeys(engineHorsePower_Txt, "Engine Horse Power", value);
+        }
+    }
+
+    public void enterEngineManufacturer(String value) {
+        if (verifyElement.verifyBrowserElementValue(engineManufacturer_Txt, "Engine Manufacturer") == 0) {
+            verifyElement.sendKeys(engineManufacturer_Txt, "Engine Manufacturer", value);
+        }
+    }
+
+    public void enterEngineSerialNumber(String value) {
+        if (verifyElement.verifyBrowserElementValue(engineSerialNumber_Txt, "Engine Serial Number") == 0) {
+            verifyElement.sendKeys(engineSerialNumber_Txt, "Engine Serial Number", value);
         }
     }
 

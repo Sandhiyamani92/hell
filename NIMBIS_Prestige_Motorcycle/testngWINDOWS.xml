@@ -15,7 +15,7 @@
 
 
        <classes>
-    <class name="com.sts.testautomation.steps.Motorcycle_UWRuleTesting"/>
+    <class name="com.sts.testautomation.steps.Motorcycle_FrontEndValidation"/>
     </classes> 
   </test> 
  

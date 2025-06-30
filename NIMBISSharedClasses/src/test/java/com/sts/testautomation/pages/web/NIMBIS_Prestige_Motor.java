@@ -61,7 +61,7 @@ public class NIMBIS_Prestige_Motor {
 
     // OVERNIGHT PARKING
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11109_Input']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_OvernightParking_Input']")
     private WebElement overnightParking_DD ;
 
     // COVER DETAILS
@@ -209,7 +209,7 @@ public class NIMBIS_Prestige_Motor {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_ucVehicleLookup_txtSearch']")
     private WebElement vehicleSearch_Txt ;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_VehicleSumInsured']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_ucVehicleLookup_txtEnteredPrice']")
     private WebElement vehicleValue_Txt ;
 
     @FindBy(xpath = "//input[@id='ContentPlaceHolder1_ucVehicleLookup_btnSearch']")

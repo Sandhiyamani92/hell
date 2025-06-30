@@ -166,20 +166,29 @@ private ExcelHandler EH;
             nimbisPrestigeClient.enterFirstName("Naousee");
             nimbisPrestigeClient.enterLastName("bridgt");
 
-            nimbisPrestigeClient.enterIdentificationNumber("0401018622084");
-            JavascriptExecutor js = (JavascriptExecutor) testB;
-            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-
             nimbisPrestigeClient.clickTitle();
             nimbisUserNavigation.selectOption("Mr");
 
+            nimbisPrestigeClient.clickPolicyHolderType();
+            nimbisUserNavigation.selectOption("Natural person");
+
+            nimbisPrestigeClient.selectITCPermission("Yes");
+
             nimbisPrestigeClient.clickEmploymentStatusDropDown();
-            nimbisUserNavigation.selectOption("Employed");
+            nimbisUserNavigation.selectOption("Work for an employer");
+
+            nimbisPrestigeClient.enterIdentificationNumber("0401018622084");
+          //  JavascriptExecutor js = (JavascriptExecutor) testB;
+            //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+
+
+
+
 
             nimbisPrestigeClient.clickMaritalStatus();
             nimbisUserNavigation.selectOption("Single");
 
-            nimbisPrestigeClient.selectITCPermission("Yes");
+
             nimbisPrestigeClient.selectSequestration("Yes");
             nimbisPrestigeClient.selectPreviousInsurance("Yes");
             nimbisPrestigeClient.selectCriminalOffenceConvictions("Yes");
@@ -187,10 +196,14 @@ private ExcelHandler EH;
 
             nimbisPrestigeClient.enterEmailAddress("testingemail@email.com");
 
+            nimbisPrestigeClient.enterPhoneNumberTxt1("832");
+
+            nimbisPrestigeClient.enterPhoneNumberTxt2("987650");
+
             nimbisUserNavigation.clickNextBtn();
             Thread.sleep(3000);
-            nimbisPrestigeClient.enterPostalCode("Lenasia");
-            nimbisUserNavigation.selectOption("Lenasia");
+          //  nimbisPrestigeClient.enterPostalCode("Lenasia");
+        //    nimbisUserNavigation.selectOption("Lenasia");
 
             nimbisPrestigeClient.enterStreet("Protea Street");
             nimbisPrestigeClient.enterBuilding("13567");

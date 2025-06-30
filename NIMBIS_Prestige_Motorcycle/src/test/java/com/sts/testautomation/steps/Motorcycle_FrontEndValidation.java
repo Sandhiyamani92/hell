@@ -143,9 +143,9 @@ public class Motorcycle_FrontEndValidation extends BaseTest {
         EH = new ExcelHandler(Sheet, "Motorcycle Test Cases", 0, 0);
 
 
-        for(int i = 58 ; i <= EH.numRows;i++){
+        for(int i = 32 ; i <= EH.numRows;i++){
             try{
-                nimbisUserNavigation.enterSearchText("Vukani Shembe ");
+                nimbisUserNavigation.enterSearchText("9609137884085 ");
                 nimbisUserNavigation.clickSearchBtn();
                 ExtentTestManager.getTest().log(LogStatus.PASS, "Test Case Objective " +EH.getCellValue(Integer.toString(i), "Test objective"));
 

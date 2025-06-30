@@ -7,6 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.sts.testautomation.utilities.ElementFunctionality;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
 public class NIMBIS_UserNavigation {
 
     public WebDriver BrowserDriver;
@@ -55,7 +60,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//input[@id='btnSearch']")
     private WebElement searchBtn ;
 
-    @FindBy(xpath = "//a[@id='ctl00_ContentPlaceHolder1_lstResults_ctl00_ctl04_hpHeader']")
+    @FindBy(xpath = "//a[@id='ctl00_ContentPlaceHolder1_lstResults_ctl00_ctl06_hpHeader']")
     private WebElement clientResultName ;
 
     @FindBy(xpath = "(//span[@class='rtbButton'])[2]")
@@ -260,11 +265,12 @@ public class NIMBIS_UserNavigation {
         }
     }
     public void clickNextBtn() {
-
-        if (verifyElement.verifyBrowserElementValue(nextBtn, "Next") == 0) {
-            verifyElement.clickElement(nextBtn,"Next");
-        }
+        WebDriverWait wait = new WebDriverWait(BrowserDriver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(nextBtn));
+        ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].scrollIntoView(true);", nextBtn);
+        nextBtn.click();
     }
+
     public void clickOkBtn() {
 
         if (verifyElement.verifyBrowserElementValue(OkBtn, "Ok") == 0) {
@@ -319,11 +325,12 @@ public class NIMBIS_UserNavigation {
     }
 
     public void clickPopUpOkBtn() {
-
-        if (verifyElement.verifyBrowserElementValue(popUpOkBtn, "Pop Up Ok Btn") == 0) {
-            verifyElement.clickElement(popUpOkBtn, "Pop Up Ok Btn");
-        }
+        WebDriverWait wait = new WebDriverWait(BrowserDriver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(popUpOkBtn));
+        ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].scrollIntoView(true);", popUpOkBtn);
+        popUpOkBtn.click();
     }
+
 
     public void clickCalculatePremiumBtn() {
 

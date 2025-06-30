@@ -1,19 +1,28 @@
 package com.sts.testautomation.steps;
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+import com.sts.testautomation.extentReports.ExtentTestManager;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -25,9 +34,12 @@ public class Watercraft_UWRuleTesting extends BaseTest {
     private NIMBIS_UserNavigation nimbisUserNavigation;
     private ElementFunctionality elementFunctionality;
     private NIMBIS_Prestige_Motor nimbisPrestigeMotor;
+    private NIMBIS_Prestige_Home nimbisPrestigeHome;
     private  NIMBIS_Prestige_Watercraft nimbisPrestigeWatercraft;
     private ExcelHandler EH;
     private String Sheet;
+    private static XSSFSheet ExcelWSheet;
+    private static XSSFWorkbook ExcelWBook;
 
     @Parameters({"URL", "Device","NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
@@ -131,7 +143,7 @@ public class Watercraft_UWRuleTesting extends BaseTest {
 
     @Parameters({"URL"})
     @Test(priority = 1, description = "Add Watercraft Section")
-    public void addWatercraftSection(String URL) throws Exception {
+    public void CreateClient(String URL) throws Exception {
         url = URL;
         nimbisLogin = new NIMBIS_Login(testB, Device);
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB, Device);
@@ -140,114 +152,474 @@ public class Watercraft_UWRuleTesting extends BaseTest {
         nimbisPrestigeMotor = new NIMBIS_Prestige_Motor(testB,Device);
         nimbisPrestigeWatercraft = new NIMBIS_Prestige_Watercraft(testB,Device);
 
-        EH = new ExcelHandler(Sheet, "Motor Test Cases", 0, 0);
+        EH = new ExcelHandler(Sheet, "Watercraft", 0, 0);
 
-        nimbisUserNavigation.enterSearchText("Vukani Shembe ");
-        nimbisUserNavigation.clickSearchBtn();
+        for(int i = 1 ; i <= 1;i++){
+            try{
+                nimbisUserNavigation.enterSearchText("9609137884085 ");
+                nimbisUserNavigation.clickSearchBtn();
 
-        Thread.sleep(5000);
-        nimbisUserNavigation.clickClientResultName();
-        Thread.sleep(5000);
-        nimbisUserNavigation.clickAddNewQuote();
-        nimbisUserNavigation.clickPrestigeV2_Chkbox();
-        nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickPopUpOkBtn();
-        JavascriptExecutor js = (JavascriptExecutor) testB;
-        //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-        nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickOpenQuote();
-        Thread.sleep(2000);
-        nimbisUserNavigation.clickCoverBtn();
-        Thread.sleep(2000);
-        nimbisUserNavigation.clickWatercraftCover();
-        Thread.sleep(4000);
-        nimbisUserNavigation.clickAddNewItemBtn();
-        Thread.sleep(6000);
-        nimbisUserNavigation.changeFocus2();
-        // ===== CRAFT MOTOR DETAILS =====
+                Thread.sleep(5000);
+                nimbisUserNavigation.clickClientResultName();
+                Thread.sleep(5000);
+                nimbisUserNavigation.clickAddNewQuote();
+                nimbisUserNavigation.clickPrestigeV2_Chkbox();
+                nimbisUserNavigation.clickNextBtn();
+                nimbisUserNavigation.clickNextBtn();
+                nimbisUserNavigation.clickPopUpOkBtn();
+                JavascriptExecutor js = (JavascriptExecutor) testB;
+                //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+                nimbisUserNavigation.clickNextBtn();
+                nimbisUserNavigation.clickOpenQuote();
+                Thread.sleep(2000);
+                nimbisUserNavigation.clickCoverBtn();
+                Thread.sleep(2000);
 
-        nimbisPrestigeWatercraft.enterNumberOfMotor("1");
-        nimbisPrestigeWatercraft.clickMotorMake();
-        nimbisUserNavigation.selectOptionWatercraft("Honda");
-        // ===== FINANCE =====
-        nimbisPrestigeWatercraft.enterCreditShortfall("50");
-        // ===== VESSEL =====
-        nimbisPrestigeWatercraft.enterCraftMakeAndModel("MAKEMODEL");
-        nimbisPrestigeWatercraft.enterCraftName("UNITEDSTAND");
-        if("Yes".equals("Yes")){
-            nimbisPrestigeWatercraft.clickGlitterFinish();
+                if(EH.getCellValueSpecific(i,"Home").equals("Y")){
+                    addHomeSection(i);
+                }
+                Thread.sleep(4000);
+                Thread.sleep(2000);
+                nimbisUserNavigation.clickWatercraftCover();
+                Thread.sleep(4000);
+                nimbisUserNavigation.clickAddNewItemBtn();
+                Thread.sleep(6000);
+                nimbisUserNavigation.changeFocus2();
+                // ===== CRAFT MOTOR DETAILS =====
+
+
+                nimbisPrestigeWatercraft.enterSumInsured(EH.getCellValueSpecific(i,"Sum Insured"));
+
+                Thread.sleep(1000);
+
+                nimbisPrestigeWatercraft.enterNumberOfMotor(EH.getCellValueSpecific(i,"Number of Motors"));
+                //  nimbisPrestigeWatercraft.clickMotorMake();
+                // nimbisUserNavigation.selectOptionWatercraft(EH.getCellValueSpecific(i,"Motor Make"));
+                // ===== FINANCE =====
+                nimbisPrestigeWatercraft.enterCreditShortfall(EH.getCellValueSpecific(i,"Credit Shortfall"));
+                // ===== VESSEL =====
+                nimbisPrestigeWatercraft.enterCraftMakeAndModel(EH.getCellValueSpecific(i,"Craft Make and Model"));
+                nimbisPrestigeWatercraft.enterCraftName(EH.getCellValueSpecific(i,"Craft Name"));
+                if(EH.getCellValueSpecific(i,"Glitter Finish").equals("Yes")){
+                    nimbisPrestigeWatercraft.clickGlitterFinish();
+                }
+                nimbisPrestigeWatercraft.enterYearOfManufacture(EH.getCellValueSpecific(i,"Year of manufacture"));
+                nimbisPrestigeWatercraft.clickCraftType();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Craft Type"));
+                nimbisPrestigeWatercraft.clickHullConstruction();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Hull construction"));
+                nimbisPrestigeWatercraft.enterLengthOfVessel(EH.getCellValueSpecific(i,"Length of vessel"));
+                Thread.sleep(1000);
+
+
+                // ===== DISCLOSURES =====
+                if(EH.getCellValueSpecific(i,"Modifications").equals("Yes")){
+                    nimbisPrestigeWatercraft.clickModifications();
+                }
+                // ===== SITUATION =====
+                nimbisPrestigeWatercraft.clickUseOfCraft();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Use of craft"));
+                // ===== COVER OPTIONS =====
+                nimbisPrestigeWatercraft.clickTypeOfCover();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of cover"));
+
+                nimbisPrestigeWatercraft.clickWaterCraftLiability();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Watercraft liability"));
+
+                nimbisPrestigeWatercraft.clickAreaOfUse();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Area of use"));
+
+                nimbisPrestigeWatercraft.clickStorageMethod();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Storage method"));
+
+                if(EH.getCellValueSpecific(i,"Craft surf launched").equals("Yes")){
+                    nimbisPrestigeWatercraft.clickCraftSurfLaunched();
+                }
+
+                Thread.sleep(1000);
+
+
+                //SPECIFIED ACCESSORIES
+
+                if (EH.getCellValueSpecific(i,"Specified Accessories").equals("Yes")){
+
+                    Thread.sleep(1500);
+                    nimbisPrestigeMotor.clickAddSpecifiedAccessories();
+                    nimbisPrestigeMotor.clickSpecifiedAccessoriesName();
+                    nimbisUserNavigation.selectOption("Bluetooth Kit");
+                    Thread.sleep(1500);
+                    nimbisPrestigeMotor.enterSpecifiedAccessoriesValue("100");
+
+                    nimbisPrestigeMotor.clickSaveSpecifiedAccessories();
+                }
+
+                nimbisPrestigeWatercraft.clickAddEngineBtn();
+                Thread.sleep(2000);
+                nimbisUserNavigation.changeFocus4();
+                nimbisPrestigeWatercraft.clickEngineType();
+                nimbisUserNavigation.selectOption("Inboard");
+                nimbisPrestigeWatercraft.enterEngineManufacturer("Honda");
+                nimbisPrestigeWatercraft.enterEngineHorsePower("143");
+                nimbisPrestigeWatercraft.enterEngineSerialNumber("4Q4ZLXJYRD");
+                nimbisPrestigeWatercraft.enterEngineYearOfManufacture("2020");
+
+
+                nimbisPrestigeWatercraft.enterEngineSumInsured("0");
+                Thread.sleep(1000);
+
+                nimbisUserNavigation.clickSaveBtn2();
+                Thread.sleep(2000);
+                elementFunctionality.switchOutOfBrowserFrame();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocus2();
+
+
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickSaveBtn();
+                Thread.sleep(7000);
+                elementFunctionality.switchOutOfBrowserFrame();
+                Thread.sleep(3000);
+                nimbisUserNavigation.clickCalculatePremiumBtn();
+                Thread.sleep(6000);
+                nimbisUserNavigation.changeFocus2();
+
+                List<WebElement> textAreas = testB.findElements(By.xpath("//td//div[@class='rwDialogText']"));
+                String messageToWrite = "No Message is Displayed"; // default
+
+                if (!textAreas.isEmpty()) {
+                    WebElement textArea = textAreas.get(0);
+
+                    if (textArea.isDisplayed()) {
+                        List<WebElement> listItems = textArea.findElements(By.tagName("li"));
+                        StringBuilder combinedText = new StringBuilder();
+
+                        for (WebElement item : listItems) {
+                            System.out.println(item.getText());
+                            combinedText.append(item.getText()).append(", ");
+                        }
+
+                        if (combinedText.length() > 0) {
+                            combinedText.setLength(combinedText.length() - 2); // remove last comma
+                            messageToWrite = combinedText.toString();
+                        }
+                        nimbisUserNavigation.clickOkBtn();
+                    }
+                }
+
+                write_Extracted_rule_to_Sheet(
+                        "C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx",
+                        "Watercraft", i, 4, messageToWrite
+                );
+
+
+
+
+
+
+
+
+                //  nimbisUserNavigation.changeFocus2();
+
+                //   nimbisUserNavigation.clickSaveBtn2();
+
+                //     nimbisUserNavigation.clickOkBtnMesseagePopup();
+
+                //
+                Thread.sleep(3000);
+                nimbisUserNavigation.changeFocusToBrowser();
+
+                nimbisUserNavigation.clickCloseBtn();
+
+
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickLogsTabBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickPremiumBlackBoxTabBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickLogsViewFirstDetails();
+
+
+                Thread.sleep(1000);
+
+                nimbisUserNavigation.changeFocus2();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickBlackBoxInput();
+                Thread.sleep(1000);
+                String textIn =  testB.findElement(By.id("ContentPlaceHolder1_txtBBXMLInput")).getAttribute("value");
+                System.out.println(textIn);
+                write_Extracted_rule_to_Sheet("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx","Watercraft",i ,5,textIn);
+
+
+                nimbisUserNavigation.clickBlackBoxRawViewIn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickBlackBoxOutput();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickBlackBoxRawViewOut();
+                Thread.sleep(1000);
+
+                String textOut =  testB.findElement(By.id("ContentPlaceHolder1_txtBBXMLOutput")).getAttribute("value");
+                System.out.println(textOut);
+                write_Extracted_rule_to_Sheet("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx","Watercraft",i ,6,textOut);
+
+
+
+
+
+                ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
+                System.err.println("TEST CASE " + i + " Passed");
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+
+
+            }catch (Exception e) {
+                nimbisUserNavigation.changeFocusToBrowser();
+                System.out.println(e.toString());
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(3000);
+                System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE " + i + "Failed");
+                System.err.println("TEST CASE " + i + " Failed");
+            }
         }
-        nimbisPrestigeWatercraft.enterYearOfManufacture("2010");
-        nimbisPrestigeWatercraft.clickCraftType();
-        nimbisUserNavigation.selectOption("Canoe");
-        nimbisPrestigeWatercraft.clickHullConstruction();
-        nimbisUserNavigation.selectOption("Wood");
-        nimbisPrestigeWatercraft.enterSumInsured("1");
-        nimbisPrestigeWatercraft.enterLengthOfVessel("10");
-        // ===== DISCLOSURES =====
-        if("Yes".equals("Yes")){
-            nimbisPrestigeWatercraft.clickModifications();
-        }
-        // ===== SITUATION =====
-        nimbisPrestigeWatercraft.clickUseOfCraft();
-        nimbisUserNavigation.selectOption("Personal");
-        // ===== COVER OPTIONS =====
-        nimbisPrestigeWatercraft.clickTypeOfCover();
-        nimbisUserNavigation.selectOption("Comprehensive");
-
-        nimbisPrestigeWatercraft.clickWaterCraftLiability();
-        nimbisUserNavigation.selectOption("Yes");
-
-        nimbisPrestigeWatercraft.clickAreaOfUse();
-        nimbisUserNavigation.selectOption("Coastal");
-
-        nimbisPrestigeWatercraft.clickStorageMethod();
-        nimbisUserNavigation.selectOption("Boat club open air");
-
-        if("Yes".equals("Yes")){
-            nimbisPrestigeWatercraft.clickCraftSurfLaunched();
-        }
-
-        //SPECIFIED ACCESSORIES
-
-        if ("No".equals("Yes")){
-
-            Thread.sleep(1500);
-            nimbisPrestigeMotor.clickAddSpecifiedAccessories();
-            nimbisPrestigeMotor.clickSpecifiedAccessoriesName();
-            nimbisUserNavigation.selectOption("Bluetooth Kit");
-            Thread.sleep(1500);
-            nimbisPrestigeMotor.enterSpecifiedAccessoriesValue("100");
-
-            nimbisPrestigeMotor.clickSaveSpecifiedAccessories();
-        }
-
-        nimbisPrestigeWatercraft.clickAddEngineBtn();
-        Thread.sleep(2000);
-        nimbisUserNavigation.changeFocus4();
-        nimbisPrestigeWatercraft.clickEngineType();
-        nimbisUserNavigation.selectOption("Other");
-
-        nimbisPrestigeWatercraft.enterEngineSumInsured("10000");
-
-        nimbisUserNavigation.clickSaveBtn2();
-        Thread.sleep(2000);
-        elementFunctionality.switchOutOfBrowserFrame();
-        Thread.sleep(1000);
-        nimbisUserNavigation.changeFocus2();
-
-
-        Thread.sleep(1000);
-        nimbisUserNavigation.clickSaveBtn();
-        Thread.sleep(7000);
-        elementFunctionality.switchOutOfBrowserFrame();
-        Thread.sleep(3000);
-        nimbisUserNavigation.clickCalculatePremiumBtn();
-
 
 
     }
+
+    public void write_Extracted_rule_to_Sheet(String FilePath, String SheetName, int rowNum, int colNum, String element) throws Exception {
+
+        try {
+
+
+            FileInputStream ExcelFile = new FileInputStream(FilePath);
+
+            // Access the required test data sheet
+
+            ExcelWBook = new XSSFWorkbook(ExcelFile);
+
+            ExcelWSheet = ExcelWBook.getSheet(SheetName);
+
+            int numRows = ExcelWSheet.getLastRowNum() + 1;
+
+            ExcelWSheet.getRow(rowNum).createCell(colNum).setCellValue(element);
+
+            ExcelWBook.write(new FileOutputStream(FilePath));
+
+            FileOutputStream fileOut = new FileOutputStream(FilePath);
+            ExcelWBook.write(fileOut);
+            fileOut.close();
+            ExcelWBook.close();
+            System.out.println("Completed writing extracted rule");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong");
+        }
+
+
+    }
+    public void addHomeSection(int i ) throws Exception {
+        nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
+      //  EH = new ExcelHandler(Sheet, "Home Test Cases", 0, 0);
+
+
+        nimbisUserNavigation.clickHomeCover();
+        Thread.sleep(2000);
+        nimbisUserNavigation.clickAddNewItemBtn();
+
+        Thread.sleep(6000);
+        nimbisUserNavigation.changeFocus2();
+        nimbisPrestigeHome.enterHomeSumInsured("800000");
+        nimbisPrestigeHome.clickCoverTypeDropDown();
+        nimbisUserNavigation.selectOption("Full Cover");
+
+        nimbisPrestigeHome.clickTypeOfHomeDropDown();
+        nimbisUserNavigation.selectOption("Flat Above Ground");
+        Thread.sleep(1000);
+
+        // nimbisPrestigeHome.enterDescription("Home");
+        //Thread.sleep(1000);
+
+        if(EH.getCellValueSpecific(i,"Unoccupied for more than 90 days").equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickDaysUnoccupied90Days();
+        }
+        Thread.sleep(1000);
+        nimbisPrestigeHome.clickTypeOfWallConstructionDropDown();
+        Thread.sleep(1000);
+        nimbisUserNavigation.selectOption("Standard");
+
+        Thread.sleep(1000);
+        nimbisPrestigeHome.clickTypeOfRoofConstructionDropDown();
+        Thread.sleep(1000);
+        nimbisUserNavigation.selectOption("Standard");
+
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickLightningConductorSABS();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickFireRetardantSABS();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickSurgeProtectionSANS();
+        }
+
+
+        nimbisPrestigeHome.clickResidenceTypeDropDown();
+        nimbisUserNavigation.selectOption("Main Residence");
+
+        nimbisPrestigeHome.clickUseOfPremisesDropDown();
+        Thread.sleep(1000);
+        nimbisUserNavigation.selectOption("Residential only");
+        Thread.sleep(1000);
+        // elementFunctionality.scrollToElementBrowser(testB.findElement(By.xpath("")));
+
+
+        Thread.sleep(1000);
+
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickThatch15OfMainBuilding();
+        }
+
+        //nimbisPrestigeHome.clickIsFinanced();
+
+        nimbisPrestigeHome.clickNCB_DropDown();
+        Thread.sleep(1000);
+        nimbisUserNavigation.selectOption("0");
+
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickRenewableEnergyEquipment();
+        }
+
+
+        Thread.sleep(1000);
+        nimbisPrestigeHome.clickPreviousUninterruptedBuildingsInsurance("0");
+
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickIncreasedRiskBusinessType();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickPlotSmallHoldingOrFarm();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickCommune();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickWithin100mOfaWaterBody();
+        }
+
+        Thread.sleep(1000);
+
+        // elementFunctionality.scrollToElementBrowser(testB.findElement(By.xpath("//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7224']")));
+        // elementFunctionality.scrollByPercentage(30.0, "DOWN");
+
+
+
+
+
+
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickBurglarBarsOpeningWindows();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickAlarmLinkedToArmedResponse();
+        }
+
+
+        Thread.sleep(1000);
+        nimbisPrestigeHome.clickElectricFence_DropDown();
+        nimbisUserNavigation.selectOption("None");
+        Thread.sleep(1000);
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickTwentyFourHourSecurityGuard();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickAccessControlledArea();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickAllDoorsProtectedBySecurityGates();
+        }
+
+        Thread.sleep(1000);
+        nimbisPrestigeHome.clickPerimeterProtection_DropDown();
+        Thread.sleep(1000);
+        nimbisUserNavigation.selectOption("Wire fence");
+        Thread.sleep(1000);
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickHighSecurityEstateComplex();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickCCTVCamera();
+        }
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickLaserBeamsInGarden();
+        }
+
+        Thread.sleep(1000);
+
+
+        //  js.executeScript("window.scrollTo(20, document.body.scrollHeight);");
+        Thread.sleep(3000);
+        nimbisPrestigeHome.enterNumberOfClaimsLast12month("0");
+        nimbisPrestigeHome.enterNumberOfClaimsLast24month("0");
+        nimbisPrestigeHome.enterNumberOfClaimsLast36month("0");
+        Thread.sleep(1000);
+        Thread.sleep(1000);
+
+        nimbisPrestigeHome.enterAdditionalExcess_Txt("0");
+        Thread.sleep(1000);
+        nimbisPrestigeHome.clickBasicExcessDropDown();
+        Thread.sleep(1000);
+        nimbisUserNavigation.selectOption("5 000");
+        Thread.sleep(1000);
+
+
+
+        Thread.sleep(1000);
+        nimbisPrestigeHome.enterNoOfElectricGeyser("0");
+        Thread.sleep(1000);
+        nimbisPrestigeHome.enterNoOfGasGeysers("0");
+        Thread.sleep(1000);
+        nimbisPrestigeHome.enterNoOfHeatPumpGeysers("0");
+        Thread.sleep(1000);
+        nimbisPrestigeHome.enterNoOfSolarGeysers("0");
+        Thread.sleep(1000);
+
+
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickPowerSurge();
+            nimbisPrestigeHome.clickPowerSurgeSumInsuredDropDown();
+            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Power surge Sum Insured"));
+        }
+
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickGardenAndLandscapingExtendedCover();
+            nimbisPrestigeHome.clickGardenAndLandscapingSumInsuredDropDown();
+            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Garden and landscaping - extended cover Sum Insured"));
+        }
+        Thread.sleep(1000);
+        Thread.sleep(1000);
+        if("No".equalsIgnoreCase("Yes")){
+            nimbisPrestigeHome.clickSubsidenceLandslipOrGroundHeaveExtendedCove();
+        }
+
+        Thread.sleep(1000);
+        nimbisUserNavigation.clickSaveBtn();
+
+        nimbisUserNavigation.changeFocusToBrowser();
+
+    }
+
+
+
 
 
 }

@@ -35,6 +35,7 @@ public class Contents extends BaseTest{
     private ElementFunctionality elementFunctionality;
     private NIMBIS_Prestige_Home nimbisPrestigeHome;
     private NIMBIS_Prestige_Contents nimbisPrestigeContents;
+    private  NIMBIS_Prestige_Watercraft nimbisPrestigeWatercraft;
 
 
 
@@ -128,7 +129,7 @@ public void Login(String URL) throws InterruptedException {
 
     nimbisLogin.enterUsername("nathaniel.smith");
     nimbisLogin.clickContinueBtn();
-    nimbisLogin.enterPassword("9c)i[3m#080LsPA");
+    nimbisLogin.enterPassword("P@ssword82");
     nimbisLogin.clickSignInBtn();
     Thread.sleep(6000);
 }
@@ -205,9 +206,15 @@ public void Login(String URL) throws InterruptedException {
 
         nimbisPrestigeContents.clickIncreasedRiskBusinessType();
 
+        nimbisPrestigeContents.clickPreviousUninterruptedBuildingsInsurance("0");
+
         nimbisPrestigeContents.clickThatch15OfMainBuilding();
 
         nimbisPrestigeContents.clickRenewableEnergyEquipment();
+
+        nimbisPrestigeContents.clickUseOfAdjoiningLandDropDown();
+        nimbisUserNavigation.selectOptionWatercraft("Retail");
+
 
       //  nimbisPrestigeContents.enter
 
@@ -246,10 +253,10 @@ public void Login(String URL) throws InterruptedException {
       //  nimbisPrestigeContents.clickBasicExcessDropDown();
         //nimbisUserNavigation.selectOption("1 000");
 
-        nimbisPrestigeContents.clickBedAndBreakfast();
-        nimbisPrestigeContents.clickBusinessContentsExtendedCover();
-        nimbisPrestigeContents.clickMarqueeHire();
-        nimbisPrestigeContents.clickGardenAndOutdoorItemsExtendedCover();
+    //    nimbisPrestigeContents.clickBedAndBreakfast();
+      //  nimbisPrestigeContents.clickBusinessContentsExtendedCover();
+       // nimbisPrestigeContents.clickMarqueeHire();
+     //   nimbisPrestigeContents.clickGardenAndOutdoorItemsExtendedCover();
 
     }
 

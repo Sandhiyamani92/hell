@@ -1,8 +1,10 @@
 package com.sts.testautomation.steps;
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+import com.sts.testautomation.extentReports.ExtentTestManager;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
@@ -140,9 +142,11 @@ public class Watercraft_FieldValidation extends BaseTest {
         nimbisPrestigeMotor = new NIMBIS_Prestige_Motor(testB,Device);
         nimbisPrestigeWatercraft = new NIMBIS_Prestige_Watercraft(testB,Device);
 
-        EH = new ExcelHandler(Sheet, "Watercraft Test Cases", 0, 0);
+        EH = new ExcelHandler(Sheet, "Watercraft", 0, 0);
 
-        nimbisUserNavigation.enterSearchText("Vukani Shembe ");
+        for(int i = 1 ; i <= EH.numRows;i++){
+            try{
+        nimbisUserNavigation.enterSearchText("9609137884085 ");
         nimbisUserNavigation.clickSearchBtn();
 
         Thread.sleep(5000);
@@ -167,51 +171,66 @@ public class Watercraft_FieldValidation extends BaseTest {
         nimbisUserNavigation.changeFocus2();
         // ===== CRAFT MOTOR DETAILS =====
 
-        nimbisPrestigeWatercraft.enterNumberOfMotor(EH.getCellValueSpecific(1,"Number of Motors"));
-        nimbisPrestigeWatercraft.clickMotorMake();
-        nimbisUserNavigation.selectOptionWatercraft(EH.getCellValueSpecific(1,"Motor Make"));
+
+        nimbisPrestigeWatercraft.enterSumInsured(EH.getCellValueSpecific(i,"Sum Insured"));
+
+                Thread.sleep(1000);
+                captureTestCaseScreenshotInsuredDetails(i);
+                Thread.sleep(1000);
+
+        nimbisPrestigeWatercraft.enterNumberOfMotor(EH.getCellValueSpecific(i,"Number of Motors"));
+      //  nimbisPrestigeWatercraft.clickMotorMake();
+       // nimbisUserNavigation.selectOptionWatercraft(EH.getCellValueSpecific(i,"Motor Make"));
         // ===== FINANCE =====
-        nimbisPrestigeWatercraft.enterCreditShortfall(EH.getCellValueSpecific(1,"Credit Shortfall"));
+        nimbisPrestigeWatercraft.enterCreditShortfall(EH.getCellValueSpecific(i,"Credit Shortfall"));
         // ===== VESSEL =====
-        nimbisPrestigeWatercraft.enterCraftMakeAndModel(EH.getCellValueSpecific(1,"Craft Make and Model"));
-        nimbisPrestigeWatercraft.enterCraftName(EH.getCellValueSpecific(1,"Craft Name"));
-        if(EH.getCellValueSpecific(1,"Glitter Finish").equals("Yes")){
+        nimbisPrestigeWatercraft.enterCraftMakeAndModel(EH.getCellValueSpecific(i,"Craft Make and Model"));
+        nimbisPrestigeWatercraft.enterCraftName(EH.getCellValueSpecific(i,"Craft Name"));
+        if(EH.getCellValueSpecific(i,"Glitter Finish").equals("Yes")){
             nimbisPrestigeWatercraft.clickGlitterFinish();
         }
-        nimbisPrestigeWatercraft.enterYearOfManufacture(EH.getCellValueSpecific(1,"Year of manufacture"));
+        nimbisPrestigeWatercraft.enterYearOfManufacture(EH.getCellValueSpecific(i,"Year of manufacture"));
         nimbisPrestigeWatercraft.clickCraftType();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"Craft Type"));
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Craft Type"));
         nimbisPrestigeWatercraft.clickHullConstruction();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"Hull construction"));
-        nimbisPrestigeWatercraft.enterSumInsured(EH.getCellValueSpecific(1,"Sum Insured"));
-        nimbisPrestigeWatercraft.enterLengthOfVessel(EH.getCellValueSpecific(1,"Length of vessel"));
-        // ===== DISCLOSURES =====
-        if(EH.getCellValueSpecific(1,"Modifications").equals("Yes")){
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Hull construction"));
+        nimbisPrestigeWatercraft.enterLengthOfVessel(EH.getCellValueSpecific(i,"Length of vessel"));
+                Thread.sleep(1000);
+
+                captureTestCaseScreenshotVesselsDetails(i);
+                Thread.sleep(1000);
+
+                // ===== DISCLOSURES =====
+        if(EH.getCellValueSpecific(i,"Modifications").equals("Yes")){
             nimbisPrestigeWatercraft.clickModifications();
         }
         // ===== SITUATION =====
         nimbisPrestigeWatercraft.clickUseOfCraft();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"Use of craft"));
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Use of craft"));
         // ===== COVER OPTIONS =====
         nimbisPrestigeWatercraft.clickTypeOfCover();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"Type of cover"));
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of cover"));
 
         nimbisPrestigeWatercraft.clickWaterCraftLiability();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"Watercraft liability"));
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Watercraft liability"));
 
         nimbisPrestigeWatercraft.clickAreaOfUse();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"Area of use"));
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Area of use"));
 
         nimbisPrestigeWatercraft.clickStorageMethod();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1,"Storage method"));
+        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Storage method"));
 
-        if(EH.getCellValueSpecific(1,"Craft surf launched").equals("Yes")){
+        if(EH.getCellValueSpecific(i,"Craft surf launched").equals("Yes")){
             nimbisPrestigeWatercraft.clickCraftSurfLaunched();
         }
 
+                Thread.sleep(1000);
+                captureTestCaseScreenshotCoverDetails(i);
+                Thread.sleep(1000);
+
         //SPECIFIED ACCESSORIES
 
-        if (EH.getCellValueSpecific(1,"Specified Accessories").equals("Yes")){
+        if (EH.getCellValueSpecific(i,"Specified Accessories").equals("Yes")){
 
             Thread.sleep(1500);
             nimbisPrestigeMotor.clickAddSpecifiedAccessories();
@@ -228,9 +247,16 @@ public class Watercraft_FieldValidation extends BaseTest {
         nimbisUserNavigation.changeFocus4();
         nimbisPrestigeWatercraft.clickEngineType();
         nimbisUserNavigation.selectOption("Inboard");
+        nimbisPrestigeWatercraft.enterEngineManufacturer(EH.getCellValueSpecific(i,"Engine Year of Manufacture"));
+        nimbisPrestigeWatercraft.enterEngineHorsePower(EH.getCellValueSpecific(i,"Horse Power"));
+        nimbisPrestigeWatercraft.enterEngineSerialNumber(EH.getCellValueSpecific(i,"Engine Manufacture"));
+        nimbisPrestigeWatercraft.enterEngineYearOfManufacture(EH.getCellValueSpecific(i,"Serial Number"));
 
-        nimbisPrestigeWatercraft.enterEngineSumInsured(EH.getCellValueSpecific(1,"Engine Sum Insured"));
 
+        nimbisPrestigeWatercraft.enterEngineSumInsured(EH.getCellValueSpecific(i,"Engine Sum Insured"));
+        Thread.sleep(1000);
+        captureTestCaseScreenshotEngineDetails(i);
+        Thread.sleep(1000);
         nimbisUserNavigation.clickSaveBtn2();
         Thread.sleep(2000);
         elementFunctionality.switchOutOfBrowserFrame();
@@ -238,19 +264,34 @@ public class Watercraft_FieldValidation extends BaseTest {
         nimbisUserNavigation.changeFocus2();
 
 
-        Thread.sleep(1000);
-        nimbisUserNavigation.clickSaveBtn();
-        Thread.sleep(7000);
-        elementFunctionality.switchOutOfBrowserFrame();
-        Thread.sleep(3000);
-        nimbisUserNavigation.clickCalculatePremiumBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickSaveBtn();
+                Thread.sleep(7000);
+                elementFunctionality.switchOutOfBrowserFrame();
+                Thread.sleep(3000);
+                //   nimbisUserNavigation.clickCalculatePremiumBtn();
+                ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
+                System.err.println("TEST CASE " + i + " Passed");
 
+            }catch (Exception e) {
+                nimbisUserNavigation.changeFocusToBrowser();
+                System.out.println(e.toString());
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(3000);
+                System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE " + i + "Failed");
+                System.err.println("TEST CASE " + i + " Failed");
+            }
+        }
 
 
     }
 
-    public void captureTestCaseScreenshotRiskDetails(int i) {
-        String[] RatingInfoFields = new String[]{"VIN Number","Engine Number","Registration Number","Vintage motorcycle applicable","Performance enhancing modifications","Vehicle Code","Restricted Driver","Regular driver/rider driving convictions in the last 5 years","Regular driver retired"};
+    public void captureTestCaseScreenshotInsuredDetails(int i) {
+        String[] RatingInfoFields = new String[]{"Number of Motors"};
         for (String RatingInfoField : RatingInfoFields) {
             if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
                 elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValueSpecific(i, "Test objective") + ", Selected option : " + EH.getCellValueSpecific(i, RatingInfoField));
@@ -258,6 +299,36 @@ public class Watercraft_FieldValidation extends BaseTest {
             }
         }
     }
+    public void captureTestCaseScreenshotVesselsDetails(int i) {
+        String[] RatingInfoFields = new String[]{"Number of Motors","Motor Make","Craft Make and Model","Glitter Finish","Year of manufacture","Craft Type","Hull construction","Sum Insured","Length of vessel"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValueSpecific(i, "Test objective") + ", Selected option : " + EH.getCellValueSpecific(i, RatingInfoField));
+                break;
+            }
+        }
+    }
+
+    public void captureTestCaseScreenshotCoverDetails(int i) {
+        String[] RatingInfoFields = new String[]{"Modifications","Use of craft","Type of cover","Area of use","Storage method","Craft surf launched"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValueSpecific(i, "Test objective") + ", Selected option : " + EH.getCellValueSpecific(i, RatingInfoField));
+                break;
+            }
+        }
+    }
+
+    public void captureTestCaseScreenshotEngineDetails(int i) {
+        String[] RatingInfoFields = new String[]{"Engine Type","Engine Year of Manufacture","Horse Power","Engine Sum Insured","Engine Manufacture","Serial Number"};
+        for (String RatingInfoField : RatingInfoFields) {
+            if (EH.getCellValue(Integer.toString(i), "Test objective").equalsIgnoreCase(RatingInfoField)) {
+                elementFunctionality.captureScreenshotOnDevice("Field Name : " + EH.getCellValueSpecific(i, "Test objective") + ", Selected option : " + EH.getCellValueSpecific(i, RatingInfoField));
+                break;
+            }
+        }
+    }
+
 
 
 }
