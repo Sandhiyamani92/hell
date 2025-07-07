@@ -17,7 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-//import com.relevantcodes.extentreports.LogStatus;
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
@@ -50,9 +50,9 @@ public class ApplicationManager extends TestListener
 		this.Device = Device;
 		wait = new WebDriverWait(BrowserDriver,50);
 		verifyElement = new ElementFunctionality(BrowserDriver, Device);
-	
+
 	}
-	
+
 	public ApplicationManager(IOSDriver<MobileElement> IODriver, String Device)
 	{
 		this.IODriver = IODriver;
@@ -60,7 +60,7 @@ public class ApplicationManager extends TestListener
 		wait = new WebDriverWait(IODriver,50);
 		verifyElement = new ElementFunctionality(IODriver, Device);
 	}
-	
+
 	public ApplicationManager(AndroidDriver<MobileElement> AndroidDriver, String Device)
 	{
 		this.AndroidDriver = AndroidDriver;
@@ -68,63 +68,63 @@ public class ApplicationManager extends TestListener
 		wait = new WebDriverWait(AndroidDriver,50);
 		verifyElement = new ElementFunctionality(AndroidDriver, Device);
 	}
-	
+
 	public void notificationRefresh()
 	{
-		
+
 		int width = AndroidDriver.manage().window().getSize().getWidth();
 		int height = AndroidDriver.manage().window().getSize().getHeight();
 
 		Point topNav = new Point(width/2, 1);
 		Point bottomNav = new Point(width/2,50);
-		
+
 		Point extremeBottom = new Point(width/2, height-1);
-		
+
 		try
 		{
 
 			Thread.sleep(5000);
 			TouchAction action = new TouchAction(AndroidDriver);
 			action.press(PointOption.point(topNav)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(bottomNav)).release().perform();
-			
+
 			/*int result = verifyElement.verifyBrowserElementValue(AndroidDriver.findElement(By.id("com.android.systemui:id/notification_panel")), "Notification Panel");
-			
+
 			if(result==0)
 			{
 				TouchAction actionUp = new TouchAction(AndroidDriver);
 				action.press(PointOption.point(extremeBottom)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(topNav)).release().perform();
 			}*/
-			
+
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void iosLoginGesture()
 	{
-		
+
 		int width = IODriver.manage().window().getSize().getWidth();
 		int height = IODriver.manage().window().getSize().getHeight();
 
 		Point fingerOne = new Point(width/4, height/2);
 		Point fingerTwo = new Point((width/4)*3,height/2);
 		int counter = 4;
-		
-		
+
+
 		try
 		{
 
-		
+
 			while(counter != 0)
 			{
 				TouchAction firstFinger = new TouchAction(IODriver);
 				TouchAction secondFinger = new TouchAction(IODriver);
-				
+
 				firstFinger.press(PointOption.point(fingerOne)).release();
 				secondFinger.press(PointOption.point(fingerTwo)).release();
-				
+
 				MultiTouchAction tap = new MultiTouchAction(IODriver);
 				tap.add(firstFinger);
 				tap.add(secondFinger);
@@ -132,147 +132,147 @@ public class ApplicationManager extends TestListener
 				counter--;
 			}
 			IODriver.findElement(By.name("Test")).click();
-			
+
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void RewardsScrollGesture(WebElement RewardsDiv, String name)
 	{
 		verifyElement.verifyIOSElement(RewardsDiv, name);
 		int width = 0;
-		int height= 0; 
+		int height= 0;
 		int elementWidth = RewardsDiv.getSize().getWidth();
 		int elementHeight = RewardsDiv.getSize().getHeight();
 		TouchAction action = null;
-		
+
 		try
 		{
 			Thread.sleep(2000);
-			
+
 			if(IODriver != null)
 			{
 				width = IODriver.manage().window().getSize().getWidth();
 				height = IODriver.manage().window().getSize().getHeight();
 				action = new TouchAction(IODriver);
 			}
-			
+
 
 			Point Top = new Point((int)(width/2), (int) (height*0.3));
 			Point Bottom = new Point((int)(RewardsDiv.getLocation().getX()+(elementWidth/2)), (int) (RewardsDiv.getLocation().getY()+(elementHeight/2)));
-			
+
 			//System.out.println("I got the points");
-			
+
 			action.press(PointOption.point(Bottom)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(Top)).release().perform();
-	
+
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
-	
+
 	public void RewardsScrollGestureDown(WebElement RewardsDiv, String name)
 	{
 		verifyElement.verifyIOSElement(RewardsDiv, name);
 		int width = 0;
-		int height= 0; 
+		int height= 0;
 		int elementWidth = RewardsDiv.getSize().getWidth();
 		int elementHeight = RewardsDiv.getSize().getHeight();
 		TouchAction action = null;
-		
+
 		try
 		{
 			Thread.sleep(2000);
-			
+
 			if(IODriver != null)
 			{
 				width = IODriver.manage().window().getSize().getWidth();
 				height = IODriver.manage().window().getSize().getHeight();
 				action = new TouchAction(IODriver);
 			}
-			
+
 
 			Point Top = new Point((int)(width/2), (int) (height*0.085));
 			Point Bottom = new Point((int)(RewardsDiv.getLocation().getX()+(elementWidth/2)), (int) (RewardsDiv.getLocation().getY()+(elementHeight/2)));
-			
+
 			//System.out.println("I got the points");
-			
+
 			action.press(PointOption.point(Top)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(Bottom)).release().perform();
-	
+
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
-	
-	
+
+
 	public void VitalityActiveRewardsScrollUp()
 	{
 		int width = 0;
-		int height= 0; 
-		
+		int height= 0;
+
 		TouchAction action = null;
-		
+
 		try
 		{
 			Thread.sleep(2000);
-			
+
 			if(IODriver != null)
 			{
 				width = IODriver.manage().window().getSize().getWidth();
 				height = IODriver.manage().window().getSize().getHeight();
 				action = new TouchAction(IODriver);
 			}
-			
+
 
 			Point Top = new Point((int)(width/2), (int) (height*0.25));
 			Point Bottom = new Point((int)(width/2), (int) (int) (height*0.78));
-		
+
 			action.press(PointOption.point(Bottom)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(1000))).moveTo(PointOption.point(Top)).release().perform();
-	
+
 		}
 		catch(Exception e)
 		{
 			e.printStackTrace();
 		}
-		
-		
+
+
 	}
-	
-	
+
+
 	public void clickApplicationTask()
 	{
 		String Name = "Discovery task Tile";
 		char OSVersion;
 		int version = 0;
-		
+
 		try
 		{
 
-		
+
 			AndroidDriver.pressKey(new KeyEvent(AndroidKey.APP_SWITCH));
 			Thread.sleep(3000);
 			OSVersion = AndroidDriver.getCapabilities().getCapability("platformVersion").toString().charAt(0);
-			
+
 			version = Character.getNumericValue(OSVersion);
-			
-			switch (version) 
+
+			switch (version)
 			{
 				case 9:
 				{
 					WebElement element = AndroidDriver.findElement(By.xpath("//android.widget.FrameLayout[@content-desc='Discovery']/android.view.View"));
 					wait.until(ExpectedConditions.visibilityOf(element));
 					assertTrue(element.getSize().getWidth()>0);
-			
+
 					element.click();
 					System.out.println(Name+" was clicked on " + Device);
 					break;
@@ -282,18 +282,18 @@ public class ApplicationManager extends TestListener
 					WebElement element = AndroidDriver.findElement(By.xpath("//android.widget.TextView[@content-desc='Discovery']"));
 					wait.until(ExpectedConditions.visibilityOf(element));
 					assertTrue(element.getSize().getWidth()>0);
-			
+
 					element.click();
 					System.out.println(Name+" was clicked on " + Device);
 					break;
 				}
-				
+
 				case 7:
 				{
 					WebElement element = AndroidDriver.findElement(By.xpath("//android.widget.TextView[@content-desc='Discovery']"));
 					wait.until(ExpectedConditions.visibilityOf(element));
 					assertTrue(element.getSize().getWidth()>0);
-			
+
 					element.click();
 					System.out.println(Name+" was clicked on " + Device);
 					break;
@@ -303,46 +303,45 @@ public class ApplicationManager extends TestListener
 					WebElement element = AndroidDriver.findElement(By.xpath("//android.widget.FrameLayout[@content-desc='Discovery']/android.widget.ImageView"));
 					wait.until(ExpectedConditions.visibilityOf(element));
 					assertTrue(element.getSize().getWidth()>0);
-			
+
 					element.click();
 					System.out.println(Name+" was clicked on " + Device);
 					break;
 				}
-				
-			
 
-			default:
-				break;
+
+
+				default:
+					break;
 			}
-			
-	
-		
+
+
+
 		}
-		catch (InterruptedException e) 
+		catch (InterruptedException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			ExtentTestManager.getTest().fail(Name + " element could not be clicked on " + Device);
-
+			ExtentTestManager.getTest().log(LogStatus.FAIL, Name+" element could not be clicked on " + Device);
 		}
 		catch (Exception e)
 		{
-			
+
 			e.printStackTrace();
-		} 
-		
-		
+		}
+
+
 	}
-	
-	
-	
-	
+
+
+
+
 	public void refreshApplication(Node node)
 	{
-		
-		try 
+
+		try
 		{
-					
+
 			if(node instanceof AndroidNode)
 			{
 				AndroidDriver.runAppInBackground(Duration.ofSeconds(5));
@@ -354,9 +353,9 @@ public class ApplicationManager extends TestListener
 				/*IODriver.runAppInBackground(Duration.ofSeconds(10));
 				IODriver.startActivity(new Acti);*/
 			}
-			else 
+			else
 			{
-				
+
 			}
 		}
 		catch (Exception e)
@@ -364,13 +363,13 @@ public class ApplicationManager extends TestListener
 			e.getStackTrace();
 		}
 
-		
+
 	}
-	
+
 	public File getElementScreenShot(WebElement element, String name)
 	{
 		File screenshotLocation = null;
-		try 
+		try
 		{
 			wait.until(ExpectedConditions.visibilityOf(element));
 			assertTrue(element.getSize().getWidth()>0);
@@ -378,28 +377,28 @@ public class ApplicationManager extends TestListener
 			BufferedImage fullImage;
 			// Get the location of element on the page
 			Point elementPoint= element.getLocation();
-	
+
 			// Get width and height of the element
 			int elementWidth = element.getSize().getWidth();
 			int elementHeight = element.getSize().getHeight();
-			
-			
+
+
 			if(AndroidDriver != null)
 			{
 				fullScreenShot = ((TakesScreenshot)AndroidDriver).getScreenshotAs(OutputType.FILE);
-				
+
 			}
-			
+
 			else if(IODriver != null)
 			{
 				fullScreenShot = ((TakesScreenshot)IODriver).getScreenshotAs(OutputType.FILE);
 			}
-			
+
 			else
 			{
 				fullScreenShot = ((TakesScreenshot)BrowserDriver).getScreenshotAs(OutputType.FILE);
 			}
-			
+
 
 			fullImage = ImageIO.read(fullScreenShot);
 
@@ -418,15 +417,15 @@ public class ApplicationManager extends TestListener
 			ex.getStackTrace();
 			System.out.println("Unable to capture Screenshot of " + name + " on "+Device);
 		}
-		
+
 		return screenshotLocation;
-		
+
 	}
-	
+
 	public File getReducedElementScreenShot(WebElement element, double percentageRequired, String name)
 	{
 		File screenshotLocation = null;
-		try 
+		try
 		{
 			wait.until(ExpectedConditions.visibilityOf(element));
 			assertTrue(element.getSize().getWidth()>0);
@@ -434,40 +433,40 @@ public class ApplicationManager extends TestListener
 			BufferedImage fullImage;
 			// Get the location of element on the page
 			Point elementPoint= element.getLocation();
-	
+
 			// Get width and height of the element
 			int elementWidth = element.getSize().getWidth();
 			int elementHeight = element.getSize().getHeight();
-			
+
 			//Get the size of the new image
 			int reducedWidth = (int)(elementWidth*(percentageRequired/100));
 			int reducedHeight = (int)(elementHeight*(percentageRequired/100));
-			
+
 			//Get the distance from the starting point to the required size
 			int heightDifference = (int)((((100-percentageRequired)/100)*elementHeight)/2);
 			int widthDifference = (int)((((100-percentageRequired)/100)*elementWidth)/2);
-			
+
 			//Get the new X and Y starting Coordinates
 			int newXPoint = elementPoint.getX()+widthDifference;
 			int newYPoint = elementPoint.getY()+heightDifference;
-			
-			
+
+
 			if(AndroidDriver != null)
 			{
 				fullScreenShot = ((TakesScreenshot)AndroidDriver).getScreenshotAs(OutputType.FILE);
-				
+
 			}
-			
+
 			else if(IODriver != null)
 			{
 				fullScreenShot = ((TakesScreenshot)IODriver).getScreenshotAs(OutputType.FILE);
 			}
-			
+
 			else
 			{
 				fullScreenShot = ((TakesScreenshot)BrowserDriver).getScreenshotAs(OutputType.FILE);
 			}
-			
+
 
 			fullImage = ImageIO.read(fullScreenShot);
 
@@ -486,9 +485,9 @@ public class ApplicationManager extends TestListener
 			ex.getStackTrace();
 			System.out.println("Unable to capture Screenshot of " + name + " on "+Device);
 		}
-		
+
 		return screenshotLocation;
-		
+
 	}
-	
+
 }

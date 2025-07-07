@@ -146,7 +146,7 @@ public class Vintage extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB,Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
 
-        for(int i = 1 ; i < EH.numRows ; i ++){
+        for(int i = 1 ; i <= EH.numRows ; i ++){
             nimbisUserNavigation.enterSearchText("Vukani Shembe ");
             nimbisUserNavigation.clickSearchBtn();
 

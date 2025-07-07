@@ -149,9 +149,9 @@ public class Caravan extends BaseTest {
         url = URL;
 
 
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         nimbisUserNavigation.clickClientResultName();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         nimbisUserNavigation.clickAddNewQuote();
         nimbisUserNavigation.clickPrestigeV2_Chkbox();
         nimbisUserNavigation.clickNextBtn();
@@ -171,7 +171,7 @@ public class Caravan extends BaseTest {
                 Thread.sleep(2000);
                 nimbisUserNavigation.clickAddNewItemBtn();
 
-                Thread.sleep(6000);
+                Thread.sleep(3000);
                 nimbisUserNavigation.changeFocus2();
 
                 nimbisCaravn.enterCaravanValue(EH.getCellValueSpecific(i, "Caravan Value"));

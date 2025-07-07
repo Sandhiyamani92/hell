@@ -181,7 +181,7 @@ public class Trailer1 extends BaseTest {
     private void searchAndSelectClient() throws InterruptedException {
         logStep("Searching for client: Automation Automation");
 
-        nimbisUserNavigation.enterSearchText("Automation Automation");
+        nimbisUserNavigation.enterSearchText("Vukani Shembe");
         captureScreenshot("Search text entered");
 
         nimbisUserNavigation.clickSearchBtn();
@@ -221,7 +221,7 @@ public class Trailer1 extends BaseTest {
         int totalRows = excelHandler.NumberRows();
         logStep("Starting to process " + (totalRows - 1) + " trailer test cases");
 
-        for (int i = 1; i < 2; i++) {
+        for (int i = 1; i <= totalRows; i++) {
             try {
                 logStep("Starting test case " + i + " of " + (totalRows - 1));
                 processIndividualTrailerCase(i);

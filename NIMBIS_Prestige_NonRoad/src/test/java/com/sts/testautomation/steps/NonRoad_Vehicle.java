@@ -1,5 +1,6 @@
 package com.sts.testautomation.steps;
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
@@ -10,18 +11,11 @@ import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -108,7 +102,7 @@ public class NonRoad_Vehicle extends BaseTest {
             nimbisLogin.clickContinueBtn();
             nimbisLogin.enterPassword(EH.getCellValueSpecific(1, "Password"));
             nimbisLogin.clickSignInBtn();
-            Thread.sleep(6000);
+            Thread.sleep(4000);
 
             System.out.println("Login completed successfully");
 
@@ -166,7 +160,7 @@ public class NonRoad_Vehicle extends BaseTest {
                     nimbisUserNavigation.clickNonRoadVehicleCover();
                     Thread.sleep(2000);
                     nimbisUserNavigation.clickAddNewItemBtn();
-                    Thread.sleep(6000);
+                    Thread.sleep(3000);
                     nimbisUserNavigation.changeFocus2();
 
                     // Fill form with data from Excel
@@ -174,12 +168,11 @@ public class NonRoad_Vehicle extends BaseTest {
 
                     // Calculate premium
                     common.calculatePremium();
-                    Thread.sleep(3000);
+                    Thread.sleep(2000);
 
                     // Log success
-                    String path5 = captureScreenshotToFile(testB, "TestCase_" + i + ".png");
-                    ExtentTestManager.getTest().addScreenCaptureFromPath(path5);
-                   // ExtentTestManager.getTest().pass("TEST CASE " + i + " Passed");
+
+                    ExtentTestManager.getTest().log(LogStatus.PASS,"TEST CASE " + i + "Passed");
                     System.out.println("TEST CASE " + i + " Passed");
 
                 } catch (Exception e) {
@@ -192,7 +185,7 @@ public class NonRoad_Vehicle extends BaseTest {
                         System.err.println("Failed to close popup: " + popupException.getMessage());
                     }
 
-                    ExtentTestManager.getTest().fail("TEST CASE " + i + " Failed: " + e.getMessage());
+                    ExtentTestManager.getTest().log(LogStatus.FAIL,"TEST CASE " + i + "Failed");
                     System.err.println("TEST CASE " + i + " Failed");
 
                     // Continue with next test case
@@ -217,34 +210,29 @@ public class NonRoad_Vehicle extends BaseTest {
             // Sum Insured
             String sumInsured = EH.getCellValueSpecific(rowIndex, "Sum Insured");
             nimbisNonRoadVehicle.enternonroadValue(sumInsured);
-            String path = captureScreenshotToFile(testB, "sumInsured.png");
-            ExtentTestManager.getTest().addScreenCaptureFromPath(path);
+            elementFunctionality.captureScreenshotOnDevice("Sum insured");
             // Vehicle Type dropdown
             nimbisNonRoadVehicle.clickVehicleTypeDropDown();
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(rowIndex, "Vehicle Type"));
-            String path3 = captureScreenshotToFile(testB, "vehcileType.png");
-            ExtentTestManager.getTest().addScreenCaptureFromPath(path3);
+            elementFunctionality.captureScreenshotOnDevice("Vehicle type");
             // Vehicle details
             nimbisNonRoadVehicle.enternonroadMake(EH.getCellValueSpecific(rowIndex, "Make"));
             nimbisNonRoadVehicle.enternonroadModel(EH.getCellValueSpecific(rowIndex, "Model"));
             nimbisNonRoadVehicle.enternonroadYear(EH.getCellValueSpecific(rowIndex, "Year"));
             nimbisNonRoadVehicle.enternonroadRegisteredOwner(EH.getCellValueSpecific(rowIndex, "Registered Owner"));
-            String path1 = captureScreenshotToFile(testB, "Vehicle.png");
-            ExtentTestManager.getTest().addScreenCaptureFromPath(path1);
+            elementFunctionality.captureScreenshotOnDevice("Vehicle details");
             // Financing (if applicable)
             handleFinancing(rowIndex);
 
             // Basis of Settlement
             nimbisNonRoadVehicle.clickBasisOfSettlementDropDown();
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(rowIndex, "Basis of settlement"));
-            String path2 = captureScreenshotToFile(testB, "BaseOfSettlement.png");
-            ExtentTestManager.getTest().addScreenCaptureFromPath(path2);
+            elementFunctionality.captureScreenshotOnDevice("Basis of settlement");
             // Claims history
             fillClaimsHistory(rowIndex);
 
         } catch (Exception e) {
-            String path = captureScreenshotToFile(testB, "Failed.png");
-            ExtentTestManager.getTest().addScreenCaptureFromPath(path);
+            elementFunctionality.captureScreenshotOnDevice("Error in fillNonRoadVehicleForm");
             System.err.println("Error filling form for row " + rowIndex + ": " + e.getMessage());
             throw e;
         }
@@ -257,15 +245,13 @@ public class NonRoad_Vehicle extends BaseTest {
         try {
             String financed = EH.getCellValueSpecific(rowIndex, "Financed");
             if (financed != null && financed.equalsIgnoreCase("Yes")) {
-                String path = captureScreenshotToFile(testB, "Fiance.png");
-                ExtentTestManager.getTest().addScreenCaptureFromPath(path);
-                // nimbisNonRoadVehicle.clickFinanced();
-                // String financialInstitution = EH.getCellValueSpecific(rowIndex, "Financial Institution");
-                // nimbisNonRoadVehicle.enternonroadFinacialHouse(financialInstitution);
+                elementFunctionality.captureScreenshotOnDevice("finance");
+                 nimbisNonRoadVehicle.clickFinanced();
+                 String financialInstitution = EH.getCellValueSpecific(rowIndex, "Financial Institution");
+                 nimbisNonRoadVehicle.enternonroadFinacialHouse(financialInstitution);
             }
         } catch (Exception e) {
-            String path = captureScreenshotToFile(testB, "finance.png");
-            ExtentTestManager.getTest().addScreenCaptureFromPath(path);
+            elementFunctionality.captureScreenshotOnDevice(" Error in finance");
             System.err.println("Error handling financing: " + e.getMessage());
             // Don't throw, just log - this might be optional
         }
@@ -283,26 +269,13 @@ public class NonRoad_Vehicle extends BaseTest {
             nimbisNonRoadVehicle.enternonroadClaims012(claims12);
             nimbisNonRoadVehicle.enternonroadClaims324(claims24);
             nimbisNonRoadVehicle.enternonroadClaims2536(claims36);
-            String path = captureScreenshotToFile(testB, "claimed.png");
-            ExtentTestManager.getTest().addScreenCaptureFromPath(path);
+            elementFunctionality.captureScreenshotOnDevice("Claim history");
         } catch (Exception e) {
-            String path = captureScreenshotToFile(testB, "failedclaimed.png");
-            ExtentTestManager.getTest().addScreenCaptureFromPath(path);
+            elementFunctionality.captureScreenshotOnDevice("Error in Claim history");
             System.err.println("Error filling claims history: " + e.getMessage());
             throw e;
         }
     }
 
-    public static String captureScreenshotToFile(WebDriver driver, String fileName) {
-        File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        String path = System.getProperty("user.dir") + "/ExtentReports/screenshots/" + fileName;
-        try {
-            File dest = new File(path);
-            FileUtils.copyFile(src, dest);
-            return path;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+
 }

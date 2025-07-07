@@ -51,7 +51,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//input[@id='btnSearch']")
     private WebElement searchBtn ;
 
-    @FindBy(xpath = "//a[@id='ctl00_ContentPlaceHolder1_lstResults_ctl00_ctl04_hpHeader']")
+    @FindBy(xpath = "//a[text()='Vukani Shembe (9609137884085)']")
     private WebElement clientResultName ;
 
     @FindBy(xpath = "(//span[@class='rtbButton'])[2]")
@@ -75,7 +75,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//div[@id='alert1748804661282_message']")
     WebElement warningmsg;
 
-    @FindBy(xpath = "(//li//span[@title='Calculate Premium'])[1]")
+    @FindBy(xpath = "//span[text()='Calculate Coverage Premiums']")
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[1]")
@@ -345,8 +345,16 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public void clickLegalCostCover() {
+
+        if (verifyElement.verifyBrowserElementValue(legalCostCover, "Legal Cost Cover") == 0) {
+            verifyElement.clickElement(legalCostCover,"Legal Cost Cover");
+        }
+    }
+
     public void selectOption(String option){
-        WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(text(),'" + option +"')]"));;
+        WebElement item = BrowserDriver.findElement(By.xpath("//li[@class='rcbItem' and contains(normalize-space(.),'" + option +"')]"));;
+      //  WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(normalize-space(text()), '" + option +"')]"));;
    //     WebDriverWait wait = new WebDriverWait(BrowserDriver, 200);
      //   wait.until(ExpectedConditions.elementToBeClickable(item));
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)

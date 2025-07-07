@@ -4,7 +4,7 @@ import com.sts.testautomation.pages.web.NIMBIS_Prestige_Contents;
 import com.sts.testautomation.pages.web.NIMBIS_UserNavigation;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
-import org.openqa.selenium.By;
+import com.sts.testautomation.utilities.ElementFunctionality;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -22,6 +22,7 @@ public class common_functions1 {
     public String Device;
     public NIMBIS_Prestige_Contents contents;
     public NIMBIS_UserNavigation nimbisUserNavigation;
+    public ElementFunctionality elementFunctionality;
 
     public common_functions1(WebDriver browserDriver, String Device) {
         this.BrowserDriver = browserDriver;
@@ -35,7 +36,7 @@ public class common_functions1 {
     // ... (keep all your existing dropdown validation methods - they look good)
 
     public void calculatePremium() throws InterruptedException {
-        // Add null checks for safety
+        elementFunctionality = new ElementFunctionality(BrowserDriver, Device);
         if (nimbisUserNavigation == null) {
             nimbisUserNavigation = new NIMBIS_UserNavigation(BrowserDriver, Device);
         }
@@ -44,6 +45,7 @@ public class common_functions1 {
         Thread.sleep(500);
         nimbisUserNavigation.clickCalculatePremiumBtn();
         Thread.sleep(500);
+        elementFunctionality.captureScreenshotOnDevice("calculated Premium");
         nimbisUserNavigation.clickPopUpOkRateBtn();
         Thread.sleep(1000);
         nimbisUserNavigation.clickSaveBtn();

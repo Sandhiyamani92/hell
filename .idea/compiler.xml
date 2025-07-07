@@ -10,25 +10,18 @@
         <module name="NIMBIS_Prestige_Home" />
         <module name="NIMBIS_Prestige_Client" />
         <module name="NIMBIS_Prestige_Contents" />
-        <module name="NIMBIS_Prestige_Non_Road_Vehicle" />
         <module name="NIMBISSharedClasses" />
+        <module name="NIMBIS_Prestige_Legal_Cost" />
         <module name="NIMBIS_Prestige_Trailer" />
         <module name="NIMBIS_Prestige_NonRoad" />
         <module name="NIMBIS_Prestige_PersonalLiability" />
         <module name="NIMBIS_Prestige_Vintage" />
         <module name="NIMBIS_Prestige_Caravn" />
-        <module name="Module" />
         <module name="NIMBIS_Prestige_Cyber_Insurances" />
         <module name="NIMBIS_Prestige_Personal_Accident" />
         <module name="NIMBIS_Prestige_AssetsSpecified" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="NIMBIS_Prestige_LegalCost" target="1.7" />
-      <module name="NimbisSharedClasses" target="1.8" />
-      <module name="Sapiens" target="1.7" />
-      <module name="Tial_Buildings_Prestige" target="1.7" />
-      <module name="untitled" target="11" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="21" />
   </component>
 </project>
