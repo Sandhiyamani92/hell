@@ -60,7 +60,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//a[@class='rwPopupButton']")
     private WebElement popUpOkBtn ;
 
-    @FindBy(xpath = "//td[@class='rwWindowContent']//a//span[contains(text(),'OK')]")
+    @FindBy(xpath = "//span[text()='OK']")
     private WebElement popUpOkRateBtn ;
 
 
@@ -75,17 +75,22 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//div[@id='alert1748804661282_message']")
     WebElement warningmsg;
 
-    @FindBy(xpath = "//span[text()='Calculate Coverage Premiums']")
+    @FindBy(xpath = "/html/body/form/div[6]/div[3]/div[2]/div/div[4]/div[2]/div/ul/li[2]/span")
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[1]")
     WebElement saveBtn;
 
+
+
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement mainWindow;
 
     @FindBy(xpath = "//*[@id='ctl00_ContentPlaceHolder1_btnSave']")
-    WebElement premiumsaveBtn;
+    public WebElement premiumsaveBtn;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_btnOK']")
+    public WebElement premiumokBtn;
 
     @FindBy(xpath = "//*[@id='RadWindowWrapper_ctl00_GenericPopup']//span[@title='Close']")
     WebElement closebtn;
@@ -260,6 +265,12 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public void clickpremiumsokBtn(){
+        if (verifyElement.verifyBrowserElementValue(premiumokBtn, "ok") == 0) {
+            verifyElement.clickElement(premiumokBtn, "ok");
+        }
+    }
+
     public void clickOpenQuote() {
 
         if (verifyElement.verifyBrowserElementValue(openQuoteBtn, "Open Quote") == 0) {
@@ -406,5 +417,6 @@ public class NIMBIS_UserNavigation {
     }
 
 
-
+    public void premiumsaveBtn() {
+    }
 }

@@ -1,5 +1,6 @@
 package com.sts.testautomation.steps;
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
@@ -141,11 +142,11 @@ public class Trailer1 extends BaseTest {
             logStep("Processing trailer test cases");
             processTrailerTestCases();
 
-            ExtentTestManager.getTest().pass("Complete trailer quote process completed successfully");
+            ExtentTestManager.getTest().log( LogStatus.PASS, "Passed");
 
         } catch (Exception e) {
-            captureScreenshot("Trailer quote process failed");
-            ExtentTestManager.getTest().fail("Failed to complete trailer quote process: " + e.getMessage());
+            elementFunctionality.captureScreenshotOnDevice("failure");
+            ExtentTestManager.getTest().log(LogStatus.FAIL, "Failed");
             throw e;
         }
     }
@@ -157,22 +158,22 @@ public class Trailer1 extends BaseTest {
             ExcelHandler loginHandler = new ExcelHandler(Sheet, "LoginDetails", 0, 0);
 
             nimbisLogin.enterUsername(loginHandler.getCellValueSpecific(1, "Username"));
-            captureScreenshot("Username entered");
+            elementFunctionality.captureScreenshotOnDevice("Username");
 
             nimbisLogin.clickContinueBtn();
-            captureScreenshot("Continue button clicked");
+
 
             nimbisLogin.enterPassword(loginHandler.getCellValueSpecific(1, "Password"));
-            captureScreenshot("Password entered");
+            elementFunctionality.captureScreenshotOnDevice("password");
 
             nimbisLogin.clickSignInBtn();
             waitForPageLoad();
 
-            captureScreenshot("Login successful");
+            elementFunctionality.captureScreenshotOnDevice("Username");
             logStep("Login completed successfully");
 
         } catch (Exception e) {
-            captureScreenshot("Login failed");
+            elementFunctionality.captureScreenshotOnDevice("Username");
             logStep("Login failed: " + e.getMessage());
             throw e;
         }
@@ -182,15 +183,15 @@ public class Trailer1 extends BaseTest {
         logStep("Searching for client: Automation Automation");
 
         nimbisUserNavigation.enterSearchText("Vukani Shembe");
-        captureScreenshot("Search text entered");
+        elementFunctionality.captureScreenshotOnDevice("Username");
 
         nimbisUserNavigation.clickSearchBtn();
         waitForElement(5);
-        captureScreenshot("Search results displayed");
+
 
         nimbisUserNavigation.clickClientResultName();
         waitForElement(3);
-        captureScreenshot("Client selected");
+
 
         logStep("Client search and selection completed");
     }
@@ -199,20 +200,20 @@ public class Trailer1 extends BaseTest {
         logStep("Creating new quote");
 
         nimbisUserNavigation.clickAddNewQuote();
-        captureScreenshot("Add new quote clicked");
+
 
         nimbisUserNavigation.clickPrestigeV2_Chkbox();
-        captureScreenshot("Prestige V2 selected");
+
 
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickPopUpOkBtn();
-        captureScreenshot("Quote setup completed");
+
 
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickOpenQuote();
         waitForElement(2);
-        captureScreenshot("Quote opened");
+
 
         logStep("New quote created successfully");
     }
@@ -227,7 +228,7 @@ public class Trailer1 extends BaseTest {
                 processIndividualTrailerCase(i);
 
                 logStep("Test case " + i + " completed successfully");
-                captureScreenshot("Test case " + i + " - Success");
+                elementFunctionality.captureScreenshotOnDevice("Username");
 
             } catch (Exception e) {
                 handleTestCaseFailure(i, e);
@@ -248,7 +249,7 @@ public class Trailer1 extends BaseTest {
 
         waitForElement(3);
         nimbisUserNavigation.changeFocus2();
-        captureScreenshot("Trailer cover opened for case " + testCaseNumber);
+        elementFunctionality.captureScreenshotOnDevice("Username");
 
         // Fill trailer details
         fillTrailerDetails(testCaseNumber);
@@ -279,7 +280,7 @@ public class Trailer1 extends BaseTest {
         nimbisTrailer.enterFinancePeriod(excelHandler.getCellValueSpecific(testCaseNumber, "Period finance"));
         nimbisTrailer.enterTrailerSum(excelHandler.getCellValueSpecific(testCaseNumber, "Trailer Sum Insured"));
 
-        captureScreenshot("Trailer details filled - Case " + testCaseNumber);
+        elementFunctionality.captureScreenshotOnDevice("Username");
         logStep("Trailer details completed for case " + testCaseNumber);
     }
 
@@ -291,7 +292,7 @@ public class Trailer1 extends BaseTest {
         nimbisCaravn.enterCaravanYear(excelHandler.getCellValueSpecific(testCaseNumber, "Year"));
         nimbisCaravn.enterRegisterNumber(excelHandler.getCellValueSpecific(testCaseNumber, "Registration Number"));
 
-        captureScreenshot("Vehicle information filled - Case " + testCaseNumber);
+        elementFunctionality.captureScreenshotOnDevice("Username");
         logStep("Vehicle information completed for case " + testCaseNumber);
     }
 
@@ -305,7 +306,7 @@ public class Trailer1 extends BaseTest {
         nimbisTrailer.enterTrailerClaim2536Months(
                 excelHandler.getCellValueSpecific(testCaseNumber, "Number of Trailer claims in the last 25 - 36 months, excluding glass damage"));
 
-        captureScreenshot("Claims history filled - Case " + testCaseNumber);
+        elementFunctionality.captureScreenshotOnDevice("Username");
         logStep("Claims history completed for case " + testCaseNumber);
     }
 
@@ -321,7 +322,7 @@ public class Trailer1 extends BaseTest {
         nimbisTrailer.clickClassOfUseDropDown();
         nimbisUserNavigation.selectOption(excelHandler.getCellValueSpecific(testCaseNumber, "Type of cover"));
 
-        captureScreenshot("Cover options filled - Case " + testCaseNumber);
+        elementFunctionality.captureScreenshotOnDevice("Username");
         logStep("Cover options completed for case " + testCaseNumber);
     }
 
@@ -331,7 +332,7 @@ public class Trailer1 extends BaseTest {
         nimbisTrailer.clickTrailerExtension();
         nimbisTrailer.enterTrailerExtensionSum(excelHandler.getCellValueSpecific(testCaseNumber, "sum insured"));
 
-        captureScreenshot("Extensions added - Case " + testCaseNumber);
+        elementFunctionality.captureScreenshotOnDevice("Username");
         logStep("Extensions completed for case " + testCaseNumber);
     }
 
@@ -340,20 +341,20 @@ public class Trailer1 extends BaseTest {
 
         nimbisUserNavigation.clickSaveBtn();
         waitForElement(1);
-        captureScreenshot("Quote saved - Case " + testCaseNumber);
+
 
         nimbisUserNavigation.clickCalculatePremiumBtn();
         waitForElement(3);
-        captureScreenshot("Premium calculation started - Case " + testCaseNumber);
+
 
         nimbisUserNavigation.clickPopUpOkRateBtn();
         waitForElement(1);
-        captureScreenshot("Premium calculated - Case " + testCaseNumber);
+
 
         nimbisUserNavigation.clickSaveBtn();
         nimbisUserNavigation.changeFocusToBrowser();
         waitForElement(1);
-        captureScreenshot("Final save completed - Case " + testCaseNumber);
+
 
         logStep("Premium calculation and save completed for case " + testCaseNumber);
     }
@@ -368,7 +369,7 @@ public class Trailer1 extends BaseTest {
             waitForElement(1);
             nimbisUserNavigation.changeFocusToBrowser();
 
-            captureScreenshot("Test case " + testCaseNumber + " failed");
+
             logStep("Cleanup completed for failed test case " + testCaseNumber);
 
         } catch (Exception cleanupException) {
@@ -378,7 +379,7 @@ public class Trailer1 extends BaseTest {
 
     // Utility methods
     private void logStep(String stepDescription) {
-        ExtentTestManager.getTest().info(stepDescription);
+
         System.out.println(stepDescription);
     }
 
@@ -394,14 +395,6 @@ public class Trailer1 extends BaseTest {
         }
     }
 
-    private void captureScreenshot(String description) {
-        try {
-            String base64Screenshot = ((TakesScreenshot) testB).getScreenshotAs(OutputType.BASE64);
-            ExtentTestManager.getTest().info(description).addScreenCaptureFromBase64String(base64Screenshot);
-        } catch (Exception e) {
-            System.err.println("Failed to capture screenshot: " + e.getMessage());
-        }
-    }
 
     @AfterClass
     public void tearDown() {

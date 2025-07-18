@@ -5,37 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10bf6cf3-ded4-49bf-b5a9-1f32d01cac84" name="Changes" comment="&#10;TASK 162419-NIMBIS Pull request-Assests,Contents">
-      <change afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Contents.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Home.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/src/test/java/com/sts/testautomation/steps/CreateClient_NIMBIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/src/test/java/com/sts/testautomation/steps/CreateClient_NIMBIS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/target/test-classes/com/sts/testautomation/steps/CreateClient_NIMBIS.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/target/test-classes/com/sts/testautomation/steps/CreateClient_NIMBIS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/nimbisutilities/common_functions1.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/nimbisutilities/common_functions1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/src/test/java/com/sts/testautomation/steps/Assets_Specified_FieldValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/src/test/java/com/sts/testautomation/steps/Assets_Specified_FieldValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan_UnderWritingRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan_UnderWritingRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/src/test/java/com/sts/testautomation/steps/Cyber_Insurances.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/src/test/java/com/sts/testautomation/steps/Cyber_Insurances.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/src/test/java/com/sts/testautomation/steps/NonRoad_Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/src/test/java/com/sts/testautomation/steps/NonRoad_Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/src/test/java/com/sts/testautomation/steps/Trailer1.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/src/test/java/com/sts/testautomation/steps/Trailer1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/src/test/java/com/sts/testautomation/steps/Trailer_Underwriting_Rule.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/src/test/java/com/sts/testautomation/steps/Trailer_Underwriting_Rule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/testngWINDOWS.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data(1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2(1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2Copy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1) - Copy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1)2.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1r).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (h1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Motor Prestige V2 Underwriting Rules Test Data .xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test Data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test DataCopy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test DataCopy1.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields (1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields (2).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields2.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NIMBIS.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NIMBIS.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,64 +37,72 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="jdkForImporter" value="#JAVA_HOME" />
-        <option name="workspaceImportForciblyTurnedOn" value="true" />
-      </MavenImportingSettings>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
     </option>
-  </component>
-  <component name="MavenRunner">
-    <option name="jreName" value="#JAVA_HOME" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2vOMF3n4Ljp3qFAuAFBP2bUgrNT" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.NIMBIS [clean].executor": "Run",
-    "Maven.NIMBIS [compile].executor": "Run",
-    "Maven.NIMBIS [deploy].executor": "Run",
-    "Maven.NIMBIS [install].executor": "Run",
-    "Maven.NIMBIS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.NIMBISSharedClasses [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "Maven.NIMBIS_Prestige_Client [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Legal_Cost/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_PersonalLiability/testngWINDOWS.xml.executor": "Run",
-    "TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Trailer/testngWINDOWS.xml.executor": "Run",
-    "TestNG.Contents.Login.executor": "Run",
-    "TestNG.Contents.executor": "Run",
-    "git-widget-placeholder": "sandhiya__Finearts__frontend",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Legal_Cost",
-    "onboarding.tips.debug.path": "C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/src/main/java/NIMBIS/Main.java",
-    "project.structure.last.edited": "Problems",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.32988507",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.importing"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS [deploy].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBISSharedClasses [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.NIMBIS_Prestige_Client [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Cyber_Insurance/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Legal_Cost/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_PersonalLiability/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Trailer/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Trailer/testngWINDOWS.xml.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Caravan.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Contents.Login.executor&quot;: &quot;Run&quot;,
+    &quot;TestNG.Contents.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;sandhiya__Finearts__frontend&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Legal_Cost&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/src/main/java/NIMBIS/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.32988507&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\Module\NIMBIS_Prestige_Legal_Cost" />
@@ -128,12 +123,12 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn deploy" />
-      <command value="mvn clean" />
       <command value="mvn install" />
       <command value="mvn compile" />
+      <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml">
+  <component name="RunManager" selected="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="NIMBIS" />
       <method v="2">
@@ -143,16 +138,6 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="NIMBIS" />
       <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Legal_Cost/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="NIMBIS_Prestige_Legal_Cost" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/testngWINDOWS.xml" />
-      <option name="TEST_OBJECT" value="SUITE" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -167,7 +152,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_AssetsSpecified" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NIMBIS_Prestige_Cyber_Insurances" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
@@ -177,7 +172,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NIMBIS_Prestige_NonRoad" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
@@ -187,7 +182,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Trailer/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Trailer/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="NIMBIS_Prestige_Trailer" />
       <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/testngWINDOWS.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
@@ -199,13 +194,21 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" />
-        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" />
-        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Trailer/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml" />
-        <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/Module/NIMBIS_Prestige_Legal_Cost/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Trailer/testngWINDOWS.xml" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26927.53" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-IU-251.26927.53" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -218,8 +221,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1744011559410</updated>
+      <workItem from="1751918897300" duration="2527000" />
+      <workItem from="1751970689612" duration="4981000" />
+      <workItem from="1751981755495" duration="10220000" />
+      <workItem from="1752056834762" duration="3825000" />
+      <workItem from="1752088217698" duration="7545000" />
+      <workItem from="1752128677065" duration="4185000" />
+      <workItem from="1752346202156" duration="4939000" />
+      <workItem from="1752351803556" duration="16306000" />
+      <workItem from="1752823965420" duration="300000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -266,20 +281,15 @@
           <line>44</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents.java</url>
-          <line>310</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan.java</url>
-          <line>169</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="NONE" type="java-line">
           <url>file://$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Vintage.java</url>
           <line>52</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan_UnderWritingRule.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

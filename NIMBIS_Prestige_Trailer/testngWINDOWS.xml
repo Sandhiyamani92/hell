@@ -10,11 +10,11 @@
    <test name="Test on Chrome" preserve-order="false">
   <parameter name="Device" value="Chrome"/>
        <parameter name="URL" value="https://uat.nimbis.co.za/Public/Login.aspx"/>
-       <parameter name="NIMBIS" value="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>
+       <parameter name="NIMBIS" value="C:\Users\prave\IdeaProjects\qa-automation-nimbus\src\NIMBIS.xlsx"/>
 
 
        <classes>
-    <class name="com.sts.testautomation.steps.Trailer1"/>
+    <class name="com.sts.testautomation.steps.Trailer_Underwriting_Rule"/>
     </classes> 
   </test> 
  

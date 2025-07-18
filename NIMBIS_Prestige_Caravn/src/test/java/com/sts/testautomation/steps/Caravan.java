@@ -2,6 +2,7 @@ package com.sts.testautomation.steps;
 
 
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
@@ -203,7 +204,7 @@ public class Caravan extends BaseTest {
 
                 nimbisUserNavigation.changeFocusToBrowser();
                 Thread.sleep(3000);
-                ExtentTestManager.getTest().pass( "TEST CASE " + i + "Passed");
+                ExtentTestManager.getTest().log( LogStatus.PASS,"TEST CASE " + i + "Passed");
                 System.err.println("TEST CASE " + i + " Passed");
             } catch (Exception e) {
                 nimbisUserNavigation.changeFocusToBrowser();
@@ -214,7 +215,7 @@ public class Caravan extends BaseTest {
                 nimbisUserNavigation.changeFocusToBrowser();
                 Thread.sleep(3000);
                 System.out.println("Test Case  : " + i);
-                ExtentTestManager.getTest().fail( "TEST CASE " + i + "Failed");
+                ExtentTestManager.getTest().log(LogStatus.FAIL,"TEST CASE " + i + "Failed");
                 System.err.println("TEST CASE " + i + " Failed");
             }
         }

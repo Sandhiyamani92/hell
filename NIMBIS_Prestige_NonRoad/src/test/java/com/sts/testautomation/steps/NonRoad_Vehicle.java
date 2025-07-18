@@ -11,11 +11,20 @@ import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -63,8 +72,8 @@ public class NonRoad_Vehicle extends BaseTest {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
                             System.out.println("NIMBIS Test started on " + currentNode.getKey());
 
-                            WebDriverManager.edgedriver().setup();
-                            testB = new EdgeDriver();
+                            WebDriverManager.chromedriver().setup();
+                            testB = new ChromeDriver();
                             testB.get(URL);
                             testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                             testB.manage().window().maximize();
@@ -119,11 +128,6 @@ public class NonRoad_Vehicle extends BaseTest {
         try {
             url = URL;
 
-            // Verify WebDriver is still available
-            if (testB == null) {
-                throw new IllegalStateException("WebDriver not available");
-            }
-
             System.out.println("Initializing objects...");
 
             // Initialize Excel Handler first
@@ -150,7 +154,7 @@ public class NonRoad_Vehicle extends BaseTest {
             int totalRows = EH.numRows;
             System.out.println("Processing " + (totalRows - 1) + " test cases...");
 
-            for (int i = 1; i <= totalRows; i++) {
+            for (int i = 1; i <= 1; i++) {
                 try {
                     System.out.println("Processing test case " + i + "...");
 
@@ -158,16 +162,37 @@ public class NonRoad_Vehicle extends BaseTest {
                     nimbisUserNavigation.clickCoverBtn();
                     Thread.sleep(2000);
                     nimbisUserNavigation.clickNonRoadVehicleCover();
-                    Thread.sleep(2000);
+                    Thread.sleep(10000);
+                    System.out.println("add");
                     nimbisUserNavigation.clickAddNewItemBtn();
                     Thread.sleep(3000);
                     nimbisUserNavigation.changeFocus2();
 
                     // Fill form with data from Excel
-                    fillNonRoadVehicleForm(i);
-
+                    nimbisNonRoadVehicle.enternonroadValue(EH.getCellValueSpecific(i,"Sum Insured"));
+                    nimbisNonRoadVehicle.clickVehicleTypeDropDown();
+                    nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Vehicle Type"));
+                    nimbisNonRoadVehicle.enternonroadMake(EH.getCellValueSpecific(i, "Make"));
+                    nimbisNonRoadVehicle.enternonroadModel(EH.getCellValueSpecific(i, "Model"));
+                    nimbisNonRoadVehicle.enternonroadYear(EH.getCellValueSpecific(i, "Year"));
+                    nimbisNonRoadVehicle.enternonroadRegisteredOwner(EH.getCellValueSpecific(i, "Registered Owner"));
+                    elementFunctionality.captureScreenshotOnDevice("Vehicle details");
+                    nimbisNonRoadVehicle.enternonroadClaims012(EH.getCellValueSpecific(i, "Number of Non-road Vehicles claims in the last 12 months"));
+                    nimbisNonRoadVehicle.enternonroadClaims324(EH.getCellValueSpecific(i, "Number of Contents claims in the last 13 to 24 months"));
+                    nimbisNonRoadVehicle.enternonroadClaims2536( EH.getCellValueSpecific(i, "Number of Contents claims in the last 25 to 36 months"));
+                    elementFunctionality.captureScreenshotOnDevice("Claim history");
                     // Calculate premium
-                    common.calculatePremium();
+                    nimbisUserNavigation.clickSaveBtn();
+                    Thread.sleep(50000);
+                    // Try JavaScript click on any element containing "Calculate"
+
+                  nimbisUserNavigation.clickCalculatePremiumBtn();
+                    Thread.sleep(500);
+                    elementFunctionality.captureScreenshotOnDevice("calculated Premium");
+                    nimbisUserNavigation.clickPopUpOkRateBtn();
+                    Thread.sleep(1000);
+                    nimbisUserNavigation.clickSaveBtn();
+                    nimbisUserNavigation.changeFocusToBrowser();
                     Thread.sleep(2000);
 
                     // Log success
@@ -222,7 +247,7 @@ public class NonRoad_Vehicle extends BaseTest {
             nimbisNonRoadVehicle.enternonroadRegisteredOwner(EH.getCellValueSpecific(rowIndex, "Registered Owner"));
             elementFunctionality.captureScreenshotOnDevice("Vehicle details");
             // Financing (if applicable)
-            handleFinancing(rowIndex);
+          //  handleFinancing(rowIndex);
 
             // Basis of Settlement
             nimbisNonRoadVehicle.clickBasisOfSettlementDropDown();
@@ -243,13 +268,11 @@ public class NonRoad_Vehicle extends BaseTest {
      */
     private void handleFinancing(int rowIndex) throws Exception {
         try {
-            String financed = EH.getCellValueSpecific(rowIndex, "Financed");
-            if (financed != null && financed.equalsIgnoreCase("Yes")) {
-                elementFunctionality.captureScreenshotOnDevice("finance");
+
                  nimbisNonRoadVehicle.clickFinanced();
                  String financialInstitution = EH.getCellValueSpecific(rowIndex, "Financial Institution");
                  nimbisNonRoadVehicle.enternonroadFinacialHouse(financialInstitution);
-            }
+
         } catch (Exception e) {
             elementFunctionality.captureScreenshotOnDevice(" Error in finance");
             System.err.println("Error handling financing: " + e.getMessage());

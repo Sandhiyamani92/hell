@@ -283,35 +283,36 @@
 <dependency>
     <groupId>io.github.bonigarcia</groupId>
     <artifactId>webdrivermanager</artifactId>
-    <version>4.3.1</version>
-</dependency>
-  </dependencies>
+    <!--   <version>4.3.1</version>-->
+    <version>5.6.2</version>
+  </dependency>
+    </dependencies>
 
-    <properties>
-        <maven.compiler.source>22</maven.compiler.source>
-        <maven.compiler.target>22</maven.compiler.target>
-    </properties>
-
-  
-  <modules>
-	<module>NIMBISSharedClasses</module>
-
-      <module>Module</module>
-      <module>NIMBIS_Prestige_Client</module>
-      <module>NIMBIS_Prestige_AssetsSpecified</module>
-      <module>NIMBIS_Prestige_Home</module>
-      <module>NIMBIS_Prestige_Contents</module>
-      <module>NIMBIS_Prestige_Cyber_Insurances</module>
-      <module>NIMBIS_Prestige_Caravn</module>
-      <module>NIMBIS_Prestige_Trailer</module>
-      <module>NIMBIS_Prestige_Vintage</module>
-      <module>NIMBIS_Prestige_NonRoad</module>
-      <module>NIMBIS_Prestige_PersonalLiability</module>
-      <module>NIMBIS_Prestige_Personal_Accident</module>
-      <module>NIMBIS_Prestige_Legal_Cost</module>
-  </modules>
-
-    <description> </description>
+      <properties>
+          <maven.compiler.source>22</maven.compiler.source>
+          <maven.compiler.target>22</maven.compiler.target>
+      </properties>
 
 
-</project>
+    <modules>
+      <module>NIMBISSharedClasses</module>
+
+        <module>Module</module>
+        <module>NIMBIS_Prestige_Client</module>
+        <module>NIMBIS_Prestige_AssetsSpecified</module>
+        <module>NIMBIS_Prestige_Home</module>
+        <module>NIMBIS_Prestige_Contents</module>
+        <module>NIMBIS_Prestige_Cyber_Insurances</module>
+        <module>NIMBIS_Prestige_Caravn</module>
+        <module>NIMBIS_Prestige_Trailer</module>
+        <module>NIMBIS_Prestige_Vintage</module>
+        <module>NIMBIS_Prestige_NonRoad</module>
+        <module>NIMBIS_Prestige_PersonalLiability</module>
+        <module>NIMBIS_Prestige_Personal_Accident</module>
+        <module>NIMBIS_Prestige_Legal_Cost</module>
+    </modules>
+
+      <description> </description>
+
+
+  </project>

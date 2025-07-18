@@ -97,18 +97,18 @@ public class Cyber_Insurances extends BaseTest {
                             System.out.println("Tial Test started on " + currentNode.getKey());
 
 
-                            //WebDriverManager.edgedriver().setup();
-                         //   testB = new EdgeDriver();
-                         //   testB.get(URL);
-                          //  testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                         //   testB.manage().window().maximize();
-
                             WebDriverManager.edgedriver().setup();
-                              Map<String, Object> edgeOptionsMap = new HashMap<>();
-                              edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
-                              EdgeOptions options = new EdgeOptions();options.setCapability("ms:edgeOptions", edgeOptionsMap);
-                               testB = new EdgeDriver(options);
-                               testB.get(URL);
+                           testB = new EdgeDriver();
+                           testB.get(URL);
+                            testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                          testB.manage().window().maximize();
+
+                          //  WebDriverManager.edgedriver().setup();
+                           //   Map<String, Object> edgeOptionsMap = new HashMap<>();
+                            //  edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
+                           //   EdgeOptions options = new EdgeOptions();options.setCapability("ms:edgeOptions", edgeOptionsMap);
+                           //    testB = new EdgeDriver(options);
+                           //    testB.get(URL);
 
 
                         } catch (Exception e) {
