@@ -13,29 +13,39 @@
       <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="10bf6cf3-ded4-49bf-b5a9-1f32d01cac84" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/src/test/java/com/sts/testautomation/steps/Client_UWRuleTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Motor.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Prestige_Motor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/utilities/ElementFunctionality.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/utilities/ElementFunctionality.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/src/test/java/com/sts/testautomation/steps/CreateClient_NIMBIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/src/test/java/com/sts/testautomation/steps/CreateClient_NIMBIS.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/target/test-classes/com/sts/testautomation/steps/CreateClient_NIMBIS.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/target/test-classes/com/sts/testautomation/steps/CreateClient_NIMBIS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home_FieldValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/src/test/java/com/sts/testautomation/steps/Home_FieldValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Home/target/test-classes/com/sts/testautomation/steps/Home_FieldValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/target/test-classes/com/sts/testautomation/steps/Home_FieldValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/src/test/java/com/sts/testautomation/steps/Motor_FronEndValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/src/test/java/com/sts/testautomation/steps/Motor_FronEndValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/src/test/java/com/sts/testautomation/steps/Motor_UWRuleTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/src/test/java/com/sts/testautomation/steps/Motor_UWRuleTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/target/test-classes/com/sts/testautomation/steps/Motor_FronEndValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/target/test-classes/com/sts/testautomation/steps/Motor_FronEndValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/target/test-classes/com/sts/testautomation/steps/Motor_UWRuleTesting.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/target/test-classes/com/sts/testautomation/steps/Motor_UWRuleTesting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Motor/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/src/test/java/com/sts/testautomation/steps/Motorcycle_UWRuleTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/src/test/java/com/sts/testautomation/steps/Motorcycle_UWRuleTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/target/test-classes/com/sts/testautomation/steps/Motorcycle_UWRuleTesting.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/target/test-classes/com/sts/testautomation/steps/Motorcycle_UWRuleTesting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/src/test/java/com/sts/testautomation/steps/Watercraft.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/src/test/java/com/sts/testautomation/steps/Watercraft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/src/test/java/com/sts/testautomation/steps/Watercraft_UWRuleTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/src/test/java/com/sts/testautomation/steps/Watercraft_UWRuleTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/target/classes/NIMBIS/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/target/test-classes/com/sts/testautomation/steps/Watercraft.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/target/test-classes/com/sts/testautomation/steps/Watercraft_FieldValidation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/target/test-classes/com/sts/testautomation/steps/Watercraft_UWRuleTesting.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data(1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2(1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contents Prestige V2 Underwriting Rules Test Data2Copy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1) - Copy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1)2.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (1r).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontEnd Fields (h1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Motor Prestige V2 Underwriting Rules Test Data .xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test Data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test DataCopy.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial Prestige V2 Underwriting Rules Test DataCopy1.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields (1).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields (2).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tial_FrontEnd Fields2.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NIMBIS UWRules.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NIMBIS UWRules.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NIMBIS.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NIMBIS.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +98,34 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.32988507&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.NIMBIS [clean].executor": "Run",
+    "Maven.NIMBIS [install].executor": "Run",
+    "Maven.NIMBIS [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.NIMBIS [package].executor": "Run",
+    "Maven.NIMBISSharedClasses [clean].executor": "Run",
+    "Maven.NIMBISSharedClasses [install].executor": "Run",
+    "Maven.NIMBISSharedClasses [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "Maven.NIMBIS_Prestige_Client [org.apache.maven.plugins:maven-clean-plugin:3.2.0:clean].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Contents/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_FineArts/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Motor/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Motorcycle/testngWINDOWS.xml.executor": "Run",
+    "TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Watercraft/testngWINDOWS.xml.executor": "Run",
+    "TestNG.CreateClient_NIMBIS.CreateClient.executor": "Run",
+    "TestNG.Motor.Login.executor": "Run",
+    "git-widget-placeholder": "NathanielSmith__Branch",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/src",
+    "onboarding.tips.debug.path": "C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_FineArts/src/main/java/NIMBIS/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "configurable.group.build"
   }
 }</component>
   <component name="RecentsManager">
@@ -101,6 +139,11 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus" />
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\Module" />
+      <recent name="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\src" />
+      <recent name="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\src\test" />
+      <recent name="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_FineArts" />
+      <recent name="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Watercraft" />
+      <recent name="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Motorcycle" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sts.testautomation.steps" />
@@ -108,6 +151,14 @@
     </key>
   </component>
   <component name="RunManager" selected="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn package" />
+      <command value="mvn install" />
+      <command value="mvn clean" />
+    </option>
+  </component>
+  <component name="RunManager" selected="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Watercraft/testngWINDOWS.xml">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="NIMBIS" />
       <method v="2">
@@ -171,6 +222,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_Home" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Home/testngWINDOWS.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Motor/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_Motor" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Motor/testngWINDOWS.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Motorcycle/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_Motorcycle" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/testngWINDOWS.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Watercraft/testngWINDOWS.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="NIMBIS_Prestige_Watercraft" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/NIMBIS_Prestige_Watercraft/testngWINDOWS.xml" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml" />
@@ -178,6 +269,11 @@
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Watercraft/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Motorcycle/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Client/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Home/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/NathanielS/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Motor/testngWINDOWS.xml" />
       </list>
     </recent_temporary>
   </component>
@@ -246,6 +342,31 @@
           <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan.java</url>
           <line>169</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Motor/src/main/java/NIMBIS/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/src/main/java/NIMBIS/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/src/test/java/com/sts/testautomation/steps/Motorcycle.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_FineArts/src/main/java/NIMBIS/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/NIMBIS_Prestige_Motorcycle/src/test/java/com/sts/testautomation/steps/Motorcycle_UWRuleTesting.java</url>
+          <line>185</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

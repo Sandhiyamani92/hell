@@ -1,11 +1,16 @@
 package com.sts.testautomation.pages.web;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.sts.testautomation.utilities.ElementFunctionality;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class NIMBIS_UserNavigation {
 
@@ -36,10 +41,14 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//button[@class='rwzButton rwzNext']")
     private WebElement nextBtn ;
 
-    @FindBy(xpath = "//span[contains(text(),'Open Quote')]")
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_ItemToolBar']//li//span[contains(text(),'Open Quote')]")
     private WebElement openQuoteBtn ;
 
-    @FindBy(xpath = "//li//span[text()='Cover']")
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_ucCover_RiskGrid.ascx_userControl_lstItemsOnQuote_ctl00_ctl04_btnEdit']")
+    private WebElement editQuoteIcon ;
+
+
+    @FindBy(xpath = "//li//span[contains(text(),'Cover')]")
     private WebElement coverBtn ;
 
     @FindBy(xpath = "//li//span[contains(text(),'Add New Item')]")
@@ -51,7 +60,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//input[@id='btnSearch']")
     private WebElement searchBtn ;
 
-    @FindBy(xpath = "//a[@id='ctl00_ContentPlaceHolder1_lstResults_ctl00_ctl04_hpHeader']")
+    @FindBy(xpath = "//a[@id='ctl00_ContentPlaceHolder1_lstResults_ctl00_ctl06_hpHeader']")
     private WebElement clientResultName ;
 
     @FindBy(xpath = "(//span[@class='rtbButton'])[2]")
@@ -60,8 +69,45 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//a[@class='rwPopupButton']")
     private WebElement popUpOkBtn ;
 
+    @FindBy(xpath = "//td//a[@class='rwPopupButton']")
+    private WebElement OkBtn ;
+
     @FindBy(xpath = "//td[@class='rwWindowContent']//a//span[contains(text(),'OK')]")
     private WebElement popUpOkRateBtn ;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_btnOK']")
+    private WebElement OkBtnMesseagePopup ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Logs')]")
+    private WebElement logsTabBtn;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Premium Black Box')]")
+    private WebElement  premiumBlackBoxTabBtn;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_ucLogs_ucBlackboxLogs_BlackBoxLogList_ctl00_ctl04_ViewDetails']")
+    private WebElement  logsViewFirstDetails;
+    public  void clickOkBtnMesseagePopup(){
+        if (verifyElement.verifyBrowserElementValue(OkBtnMesseagePopup, "OkBtnMesseagePopup") == 0) {
+            verifyElement.clickElement(OkBtnMesseagePopup,"OkBtnMesseagePopup");
+        }
+    }
+    public  void clickLogsTabBtn(){
+        if (verifyElement.verifyBrowserElementValue(logsTabBtn, "logsTabBtn") == 0) {
+            verifyElement.clickElement(logsTabBtn,"logsTabBtn");
+        }
+    }
+    public  void clickPremiumBlackBoxTabBtn(){
+        if (verifyElement.verifyBrowserElementValue(premiumBlackBoxTabBtn, "premiumBlackBoxTabBtn") == 0) {
+            verifyElement.clickElement(premiumBlackBoxTabBtn,"premiumBlackBoxTabBtn");
+        }
+    }
+    public  void clickLogsViewFirstDetails(){
+        if (verifyElement.verifyBrowserElementValue(logsViewFirstDetails, "logsViewFirstDetails") == 0) {
+            verifyElement.clickElement(logsViewFirstDetails,"logsViewFirstDetails");
+        }
+    }
+
+
 
 
 
@@ -69,17 +115,74 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement collectionWindow2;
 
+
     @FindBy(xpath = "//iframe[@name='alert1748804661282']")
     WebElement warningFrame;
 
     @FindBy(xpath = "//div[@id='alert1748804661282_message']")
     WebElement warningmsg;
 
-    @FindBy(xpath = "(//li//span[@title='Calculate Premium'])[1]")
+    @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='GenericPopup']")
+    WebElement collectionWindow3;
+
+    @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectEngine']")
+    WebElement collectionWindow4;
+
+    @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectVehicle']")
+    WebElement vehicleIframe;
+
+    @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectPerson']")
+    WebElement driverIframe;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Calculate Coverage Premiums')]")
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[1]")
     WebElement saveBtn;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_btnSave']")
+    WebElement saveBtn2;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_btnSave']")
+    WebElement cancelBtn;
+
+    @FindBy(xpath = "//li//span[text()='Blackbox Log']")
+    WebElement blackBoxLogBtn;
+
+    @FindBy(xpath = "//div[@id='ContentPlaceHolder1_BlackBoxInput']//li//span[text()='Raw View']")
+    WebElement blackBoxRawViewIn;
+
+
+    @FindBy(xpath = "//div[@id='ContentPlaceHolder1_BlackBoxOutput']//li//span[text()='Raw View']")
+    WebElement blackBoxRawViewOut;
+
+
+    @FindBy(xpath = "//li//span[text()='BlackBox Input']")
+    WebElement blackBoxInput;
+
+
+    @FindBy(xpath = "//li//span[text()='BlackBox Output']")
+    WebElement blackBoxOutput;
+
+    public  void clickBlackBoxOutput(){
+        verifyElement.clickElement(blackBoxOutput,"blackBoxOutput");
+    }
+    public  void clickBlackBoxRawViewOut(){
+        verifyElement.clickElement(blackBoxRawViewOut,"blackBoxRawViewOut");
+    }
+    public  void clickBlackBoxInput(){
+        verifyElement.clickElement(blackBoxInput,"blackBoxRawViewOut");
+    }
+    public  void clickBlackBoxRawViewIn(){
+        verifyElement.clickElement(blackBoxRawViewIn,"blackBoxRawViewIn");
+    }
+
+
+
+
+
+    @FindBy(xpath = "//span[@class='rwCommandButton rwCloseButton']")
+    WebElement closeBtn;
 
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement mainWindow;
@@ -89,6 +192,13 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//*[@id='RadWindowWrapper_ctl00_GenericPopup']//span[@title='Close']")
     WebElement closebtn;
+    public  void clickCloseBtn(){
+        verifyElement.clickElement(closeBtn,"Close Button");
+    }
+
+    public  void clickCancelBtn(){
+        verifyElement.clickElement(cancelBtn,"cancelBtn");
+    }
 
 
     public void changeFocusToBrowser() {
@@ -125,6 +235,17 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//span[@class='rtsTxt' and contains(text(), 'Caravan')]")
     private WebElement caravanCover ;
+    @FindBy(xpath = "//li//span[contains(text(),'Motor Vehicle')]")
+    private WebElement motorCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Motorcycle')]")
+    private WebElement motorcycleCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Watercraft')]")
+    private WebElement watercraftCover ;
+
+    @FindBy(xpath = "//li//span[contains(text(),'Fine Arts')]")
+    private WebElement fineArtsCover ;
 
 
 
@@ -150,6 +271,12 @@ public class NIMBIS_UserNavigation {
             verifyElement.clickElement(prestigeV2_Chkbox,"Prestige V2");
         }
     }
+    public void clickEditQuoteIcon() {
+
+        if (verifyElement.verifyBrowserElementValue(editQuoteIcon, "Edit Quote Icon") == 0) {
+            verifyElement.clickElement(editQuoteIcon,"Edit Quote Icon");
+        }
+    }
     public void clickPolicyFrequency_DD() {
 
         if (verifyElement.verifyBrowserElementValue(policyFrequency_DD, "Policy Frequency") == 0) {
@@ -157,9 +284,16 @@ public class NIMBIS_UserNavigation {
         }
     }
     public void clickNextBtn() {
+        WebDriverWait wait = new WebDriverWait(BrowserDriver, 20);
+        wait.until(ExpectedConditions.elementToBeClickable(nextBtn));
+        ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].scrollIntoView(true);", nextBtn);
+        nextBtn.click();
+    }
 
-        if (verifyElement.verifyBrowserElementValue(nextBtn, "Next") == 0) {
-            verifyElement.clickElement(nextBtn,"Next");
+    public void clickOkBtn() {
+
+        if (verifyElement.verifyBrowserElementValue(OkBtn, "Ok") == 0) {
+            verifyElement.clickElement(OkBtn,"Ok");
         }
     }
 
@@ -200,6 +334,22 @@ public class NIMBIS_UserNavigation {
             verifyElement.clickElement(clientResultName, "Client Result Name");
         }
     }
+    public void clickClientResultName2(String idNum) throws InterruptedException {
+
+        WebElement item = BrowserDriver.findElement(By.xpath("//a[contains(text(),'"+idNum+"')]"));;
+        if(verifyElement.verifyBrowserElementValue(item, idNum) == 0)
+        {
+            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
+
+            verifyElement.clickElement(item, idNum);
+        }
+        else
+        {
+            System.err.println("Element"+ idNum+"couldnt be found " );
+        }
+
+    }
 
     public void clickAddNewQuote() {
 
@@ -216,11 +366,12 @@ public class NIMBIS_UserNavigation {
     }
 
     public void clickPopUpOkBtn() {
-
-        if (verifyElement.verifyBrowserElementValue(popUpOkBtn, "Pop Up Ok Btn") == 0) {
-            verifyElement.clickElement(popUpOkBtn, "Pop Up Ok Btn");
-        }
+        WebDriverWait wait = new WebDriverWait(BrowserDriver,20);
+        wait.until(ExpectedConditions.elementToBeClickable(popUpOkBtn));
+        ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].scrollIntoView(true);", popUpOkBtn);
+        popUpOkBtn.click();
     }
+
 
     public void clickCalculatePremiumBtn() {
 
@@ -242,10 +393,24 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public void clickSaveBtn2() {
+
+        if (verifyElement.verifyBrowserElementValue(saveBtn2, "Save") == 0) {
+            verifyElement.clickElement(saveBtn2, "Save");
+        }
+    }
+
     public void clickOpenQuote() {
 
         if (verifyElement.verifyBrowserElementValue(openQuoteBtn, "Open Quote") == 0) {
             verifyElement.clickElement(openQuoteBtn, "Open Quote");
+        }
+    }
+
+    public void clickBlackBoxLogBtn() {
+
+        if (verifyElement.verifyBrowserElementValue(blackBoxLogBtn, "blackBoxLogBtn") == 0) {
+            verifyElement.clickElement(blackBoxLogBtn, "blackBoxLogBtn");
         }
     }
 
@@ -316,8 +481,97 @@ public class NIMBIS_UserNavigation {
 
     public void selectOptionradiobox(String option){
         WebElement item = BrowserDriver.findElement(By.xpath("//label[contains(text(),'" + option +"')]"));;
+    public void clickMotorCover() {
+
+        if (verifyElement.verifyBrowserElementValue(motorCover, "Motor Vehicle Cover") == 0) {
+            verifyElement.clickElement(motorCover,"Motor Vehicle Cover");
+        }
+    }
+    public void clickMotorcycleCover() {
+
+        if (verifyElement.verifyBrowserElementValue(motorcycleCover, "Motorcycle Cover") == 0) {
+            verifyElement.clickElement(motorcycleCover,"Motorcycle Cover");
+        }
+    }
+    public void clickWatercraftCover() {
+
+        if (verifyElement.verifyBrowserElementValue(watercraftCover, "Watercraft Cover") == 0) {
+            verifyElement.clickElement(watercraftCover,"Watercraft Cover");
+        }
+    }
+
+    public void clickFineArtsCover() {
+        if (verifyElement.verifyBrowserElementValue(fineArtsCover, "Fine Arts Cover") == 0) {
+            verifyElement.clickElement(fineArtsCover,"Fine Arts Cover");
+        }
+    }
+
+
+    public void selectOption(String option) throws InterruptedException {
+        WebElement item = BrowserDriver.findElement(By.xpath("//li[text()= '"+option+"']"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
+           // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
+
+            verifyElement.clickElement(item, option);
+        }
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
+        }
+    }
+    public void selectAddress() throws InterruptedException {
+        WebElement item = BrowserDriver.findElement(By.xpath("(//ul[@class='racList'])[1]//li[1]"));;
+        if(verifyElement.verifyBrowserElementValue(item,"Address") == 0)
+        {
+            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
+
+            verifyElement.clickElement(item, "Address");
+        }
+        else
+        {
+            System.err.println("Element"+ "Address"+"couldnt be found " );
+        }
+    }
+
+    public void selectOptionRiskAddress(String option) throws InterruptedException {
+
+          if(option.equalsIgnoreCase("KZN")){
+              WebElement item = BrowserDriver.findElement(By.xpath("(//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_OvernightAddress_DropDown']//ul[@class='rcbList']/li)[2]"));;
+                item.click();
+          }
+          else if (option.equalsIgnoreCase("GP")){
+              WebElement item = BrowserDriver.findElement(By.xpath("(//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_OvernightAddress_DropDown']//ul[@class='rcbList']/li)[3]"));;
+                    item.click();
+          }
+
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
+        }
+    }
+    public void selectOption2(String option) throws InterruptedException {
+        WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(text(), '"+option+"'))]"));;
+        if(verifyElement.verifyBrowserElementValue(item, option) == 0)
+        {
+            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
+
+            verifyElement.clickElement(item, option);
+        }
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
+        }
+    }
+    public void selectOptionWatercraft(String option) throws InterruptedException {
+        WebElement item = BrowserDriver.findElement(By.xpath("//li//label[text()='"+option+"']//input"));;
+        if(verifyElement.verifyBrowserElementValue(item, option) == 0)
+        {
+            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
 
             verifyElement.clickElement(item, option);
         }
@@ -327,11 +581,13 @@ public class NIMBIS_UserNavigation {
         }
     }
     public void selectOptionExcess(String option){
-        WebElement item = BrowserDriver.findElement(By.xpath("//div[@class='rcbScroll rcbWidth']//ul[@class='rcbList']//li[contains(text(),'"+option+"')]"));;
+        WebElement item = BrowserDriver.findElement(By.xpath("//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_7215_DropDown']//ul//li[text()= '"+option+"']"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
+           // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
 
-            verifyElement.clickElement(item, option);
+           verifyElement.clickElement(item, option);
+
         }
         else
         {
@@ -348,8 +604,29 @@ public class NIMBIS_UserNavigation {
     public void changeWarningFrame() {
 
         verifyElement.switchToBrowserFrame(warningFrame,  "Switch focus to pop up frame");
+    }
+    public void changeFocus3() {
+
+        verifyElement.switchToBrowserFrame(collectionWindow3,  "Switch focus to pop up frame");
 
     }
+    public void changeFocus4() {
+
+        verifyElement.switchToBrowserFrame(collectionWindow4,  "Switch focus to pop up frame");
+
+    }
+    public void changeFocusVehicle() {
+
+        verifyElement.switchToBrowserFrame(vehicleIframe,  "Switch focus to pop up frame");
+
+    }
+
+    public void changeFocusDriver() {
+
+        verifyElement.switchToBrowserFrame(driverIframe,  "Switch focus to pop up frame");
+
+    }
+
 
 
 

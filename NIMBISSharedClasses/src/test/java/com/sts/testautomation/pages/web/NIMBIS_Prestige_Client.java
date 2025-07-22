@@ -33,6 +33,9 @@ public class NIMBIS_Prestige_Client {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_idtype_Input']")
     private WebElement identityType_DD ;
 
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_42_Input']")
+    private WebElement policyHolderType_DD ;
+
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_identification']")
     private WebElement identification_Txt ;
 
@@ -47,6 +50,8 @@ public class NIMBIS_Prestige_Client {
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_36']")
     private WebElement client_ITCPermission;
+
+
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_38']")
     private WebElement client_Sequestration;
@@ -63,9 +68,30 @@ public class NIMBIS_Prestige_Client {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_email']")
     private WebElement emailAddress_Txt;
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_employmentstatus_Input']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_52_Input']")
     private WebElement employmentStatus_DD;
 
+    //
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_dialmobile']")
+    private WebElement phoneNumber_Txt1;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_mobile']")
+    private WebElement phoneNumber_Txt2;
+
+    public void enterPhoneNumberTxt1(String lastName) {
+
+        if (verifyElement.verifyBrowserElementValue( phoneNumber_Txt1, "Phone Number (000)") == 0) {
+            verifyElement.sendKeys( phoneNumber_Txt1, "Phone Number (000)", lastName);
+        }
+    }
+
+    public void enterPhoneNumberTxt2(String lastName) {
+
+        if (verifyElement.verifyBrowserElementValue( phoneNumber_Txt2, "Phone Number (000000)") == 0) {
+            verifyElement.sendKeys( phoneNumber_Txt2, "Last Name", lastName);
+        }
+    }
 
 
 
@@ -142,6 +168,13 @@ public class NIMBIS_Prestige_Client {
 
         if (verifyElement.verifyBrowserElementValue(title_DD, "Title") == 0) {
             verifyElement.clickElement(title_DD,"Title");
+        }
+    }
+
+    public void clickPolicyHolderType() {
+
+        if (verifyElement.verifyBrowserElementValue(policyHolderType_DD, "Title") == 0) {
+            verifyElement.clickElement(policyHolderType_DD,"Title");
         }
     }
     public void clickMaritalStatus() {
