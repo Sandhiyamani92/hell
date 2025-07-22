@@ -140,15 +140,15 @@ public class Motor_FronEndValidation extends  BaseTest {
         nimbisPrestigeMotor = new NIMBIS_Prestige_Motor(testB, Device);
 
         EH = new ExcelHandler(Sheet, "Motor Test Cases", 0, 0);
-        for (int i = 42; i <= 157; i++) {
+        for (int i = 1; i <= 157; i++) {
             try {
                 Thread.sleep(2000);
 
-                nimbisUserNavigation.enterSearchText("Vukani Shembe ");
+                nimbisUserNavigation.enterSearchText(EH.getCellValueSpecific(i,"Driver ID"));
                 nimbisUserNavigation.clickSearchBtn();
 
                 Thread.sleep(5000);
-                nimbisUserNavigation.clickClientResultName();
+                nimbisUserNavigation.clickClientResultName2(EH.getCellValueSpecific(i,"Driver ID"));
                 Thread.sleep(5000);
                 nimbisUserNavigation.clickAddNewQuote();
                 Thread.sleep(1000);

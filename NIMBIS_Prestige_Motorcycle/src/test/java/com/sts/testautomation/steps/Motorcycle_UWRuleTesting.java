@@ -9,13 +9,20 @@ import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +36,8 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
     private NIMBIS_Prestige_Home nimbisPrestigeHome;
     private ExcelHandler EH;
     private String Sheet;
+    private static XSSFSheet ExcelWSheet;
+    private static XSSFWorkbook ExcelWBook;
 
     @Parameters({"URL", "Device","NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
@@ -141,12 +150,12 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
         nimbisPrestigeMotor = new NIMBIS_Prestige_Motor(testB,Device);
         nimbisPrestigeMotorcycle = new NIMBIS_Prestige_Motorcycle(testB,Device);
 
-        EH = new ExcelHandler(Sheet, "Motorcycle Test Cases", 0, 0);
+        EH = new ExcelHandler(Sheet, "Motorcycle", 0, 0);
 
 
-        for(int i = 1 ; i <= 1;i++){
+        for(int i = 3 ; i <= 4;i++){
             try{
-                nimbisUserNavigation.enterSearchText("Vukani Shembe ");
+                nimbisUserNavigation.enterSearchText("George Zwane");
                 nimbisUserNavigation.clickSearchBtn();
 
                 Thread.sleep(5000);
@@ -175,7 +184,7 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
 
                 Thread.sleep(6000);
                 nimbisUserNavigation.changeFocus2();
-                EH = new ExcelHandler(Sheet, "Motorcycle Test Cases", 0, 0);
+                EH = new ExcelHandler(Sheet, "Motorcycle", 0, 0);
 
                 // RISK DETAILS
 
@@ -191,7 +200,7 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
                 nimbisPrestigeMotor.clickVehicleResult1();
 
                 Thread.sleep(2000);
-                nimbisPrestigeMotor.enterVehicleValue("100 000");
+                nimbisPrestigeMotor.enterVehicleValue(EH.getCellValueSpecific(i,"Sum Insured"));
                 Thread.sleep(1000);
                 nimbisPrestigeMotor.clickSelectBtn();
 
@@ -340,7 +349,102 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
                 Thread.sleep(7000);
                 elementFunctionality.switchOutOfBrowserFrame();
                 Thread.sleep(3000);
-                  nimbisUserNavigation.clickCalculatePremiumBtn();
+                nimbisUserNavigation.clickCalculatePremiumBtn();
+                Thread.sleep(6000);
+                nimbisUserNavigation.changeFocus2();
+
+                List<WebElement> textAreas = testB.findElements(By.xpath("//td//div[@class='rwDialogText']"));
+                String messageToWrite = "No Message is Displayed"; // default
+
+                if (!textAreas.isEmpty()) {
+                    WebElement textArea = textAreas.get(0);
+
+                    if (textArea.isDisplayed()) {
+                        List<WebElement> listItems = textArea.findElements(By.tagName("li"));
+                        StringBuilder combinedText = new StringBuilder();
+
+                        for (WebElement item : listItems) {
+                            System.out.println(item.getText());
+                            combinedText.append(item.getText()).append(", ");
+                        }
+
+                        if (combinedText.length() > 0) {
+                            combinedText.setLength(combinedText.length() - 2); // remove last comma
+                            messageToWrite = combinedText.toString();
+                        }
+                        nimbisUserNavigation.clickOkBtn();
+                    }
+                }
+
+                write_Extracted_rule_to_Sheet(
+                        "C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx",
+                        "Motorcycle", i, 4, messageToWrite
+                );
+
+
+
+
+
+
+
+
+                //  nimbisUserNavigation.changeFocus2();
+
+                //   nimbisUserNavigation.clickSaveBtn2();
+
+                //     nimbisUserNavigation.clickOkBtnMesseagePopup();
+
+                //
+                Thread.sleep(3000);
+                nimbisUserNavigation.changeFocusToBrowser();
+
+                nimbisUserNavigation.clickCloseBtn();
+
+
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickLogsTabBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickPremiumBlackBoxTabBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickLogsViewFirstDetails();
+
+
+                Thread.sleep(1000);
+
+                nimbisUserNavigation.changeFocus2();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickBlackBoxInput();
+                Thread.sleep(1000);
+                String textIn =  testB.findElement(By.id("ContentPlaceHolder1_txtBBXMLInput")).getAttribute("value");
+                System.out.println(textIn);
+                write_Extracted_rule_to_Sheet("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx","Motorcycle",i ,5,textIn);
+
+
+                nimbisUserNavigation.clickBlackBoxRawViewIn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickBlackBoxOutput();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickBlackBoxRawViewOut();
+                Thread.sleep(1000);
+
+                String textOut =  testB.findElement(By.id("ContentPlaceHolder1_txtBBXMLOutput")).getAttribute("value");
+                System.out.println(textOut);
+                write_Extracted_rule_to_Sheet("C:\\Users\\NathanielS\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS UWRules.xlsx","Motorcycle",i ,6,textOut);
+
+
+
+
+
+                ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
+                System.err.println("TEST CASE " + i + " Passed");
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
 
             }catch (Exception e) {
                 nimbisUserNavigation.changeFocusToBrowser();
@@ -360,7 +464,7 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
 
     public void addHomeSection(int i ) throws Exception {
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB,Device);
-        EH = new ExcelHandler(Sheet, "Home Test Cases", 0, 0);
+      //  EH = new ExcelHandler(Sheet, "Home Test Cases", 0, 0);
 
 
         nimbisUserNavigation.clickHomeCover();
@@ -369,15 +473,15 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
 
         Thread.sleep(6000);
         nimbisUserNavigation.changeFocus2();
-        nimbisPrestigeHome.enterHomeSumInsured(EH.getCellValueSpecific(i,"Sum insured"));
+        nimbisPrestigeHome.enterHomeSumInsured("800000");
         nimbisPrestigeHome.clickCoverTypeDropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of Cover"));
+        nimbisUserNavigation.selectOption("Full Cover");
 
         nimbisPrestigeHome.clickTypeOfHomeDropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of Home"));
+        nimbisUserNavigation.selectOption("Flat Above Ground");
         Thread.sleep(1000);
 
-       // nimbisPrestigeHome.enterDescription("Home");
+        // nimbisPrestigeHome.enterDescription("Home");
         //Thread.sleep(1000);
 
         if(EH.getCellValueSpecific(i,"Unoccupied for more than 90 days").equalsIgnoreCase("Yes")){
@@ -386,37 +490,37 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
         Thread.sleep(1000);
         nimbisPrestigeHome.clickTypeOfWallConstructionDropDown();
         Thread.sleep(1000);
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of wall construction"));
+        nimbisUserNavigation.selectOption("Standard");
 
         Thread.sleep(1000);
         nimbisPrestigeHome.clickTypeOfRoofConstructionDropDown();
         Thread.sleep(1000);
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Type of roof construction"));
+        nimbisUserNavigation.selectOption("Standard");
 
-        if(EH.getCellValueSpecific(i,"Lightning Conductor (SABS)").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickLightningConductorSABS();
         }
-        if(EH.getCellValueSpecific(i,"Fire retardant (SABS)").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickFireRetardantSABS();
         }
-        if(EH.getCellValueSpecific(i,"Surge Protection (SANS)").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickSurgeProtectionSANS();
         }
 
 
         nimbisPrestigeHome.clickResidenceTypeDropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Residence Type"));
+        nimbisUserNavigation.selectOption("Main Residence");
 
         nimbisPrestigeHome.clickUseOfPremisesDropDown();
         Thread.sleep(1000);
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Use of premises"));
+        nimbisUserNavigation.selectOption("Residential only");
         Thread.sleep(1000);
         // elementFunctionality.scrollToElementBrowser(testB.findElement(By.xpath("")));
 
 
         Thread.sleep(1000);
 
-        if(EH.getCellValueSpecific(i,"Thatch or non-standard structure more than 15% of main building ").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickThatch15OfMainBuilding();
         }
 
@@ -424,26 +528,26 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
 
         nimbisPrestigeHome.clickNCB_DropDown();
         Thread.sleep(1000);
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"NCB"));
+        nimbisUserNavigation.selectOption("0");
 
-        if(EH.getCellValueSpecific(i,"Renewable energy equipment").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickRenewableEnergyEquipment();
         }
 
 
         Thread.sleep(1000);
-        nimbisPrestigeHome.clickPreviousUninterruptedBuildingsInsurance(EH.getCellValueSpecific(i,"Years of previous uninterrupted buildings insurance cover"));
+        nimbisPrestigeHome.clickPreviousUninterruptedBuildingsInsurance("0");
 
-        if(EH.getCellValueSpecific(i,"Increased risk business type").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickIncreasedRiskBusinessType();
         }
-        if(EH.getCellValueSpecific(i,"Plot, smallholding or farm").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickPlotSmallHoldingOrFarm();
         }
-        if(EH.getCellValueSpecific(i,"Commune)").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickCommune();
         }
-        if(EH.getCellValueSpecific(i,"Within 100m of a water body").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickWithin100mOfaWaterBody();
         }
 
@@ -457,40 +561,40 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
 
 
 
-        if(EH.getCellValueSpecific(i,"Burglar bars on all opening windows").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickBurglarBarsOpeningWindows();
         }
-        if(EH.getCellValueSpecific(i,"Alarm linked to armed response").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickAlarmLinkedToArmedResponse();
         }
 
 
         Thread.sleep(1000);
         nimbisPrestigeHome.clickElectricFence_DropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Electric Fence"));
+        nimbisUserNavigation.selectOption("None");
         Thread.sleep(1000);
-        if(EH.getCellValueSpecific(i,"24 hour security guard").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickTwentyFourHourSecurityGuard();
         }
-        if(EH.getCellValueSpecific(i,"Access controlled area").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickAccessControlledArea();
         }
-        if(EH.getCellValueSpecific(i,"All doors protected by security gates").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickAllDoorsProtectedBySecurityGates();
         }
 
         Thread.sleep(1000);
         nimbisPrestigeHome.clickPerimeterProtection_DropDown();
         Thread.sleep(1000);
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Perimeter protection"));
+        nimbisUserNavigation.selectOption("Wire fence");
         Thread.sleep(1000);
-        if(EH.getCellValueSpecific(i,"High-security estate/complex").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickHighSecurityEstateComplex();
         }
-        if(EH.getCellValueSpecific(i,"CCTV camera").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickCCTVCamera();
         }
-        if(EH.getCellValueSpecific(i,"Laser beams in garden").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickLaserBeamsInGarden();
         }
 
@@ -499,9 +603,9 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
 
         //  js.executeScript("window.scrollTo(20, document.body.scrollHeight);");
         Thread.sleep(3000);
-        nimbisPrestigeHome.enterNumberOfClaimsLast12month(EH.getCellValueSpecific(i,"Number of Building claims in the last 12 months, excluding geyser damage"));
-        nimbisPrestigeHome.enterNumberOfClaimsLast24month(EH.getCellValueSpecific(i,"Number of Buildings claims in the last 25 to 36 months, excluding geyser damage"));
-        nimbisPrestigeHome.enterNumberOfClaimsLast36month(EH.getCellValueSpecific(i,"Number of Building claims in the last 13 to 24 months, excluding geyser damage"));
+        nimbisPrestigeHome.enterNumberOfClaimsLast12month("0");
+        nimbisPrestigeHome.enterNumberOfClaimsLast24month("0");
+        nimbisPrestigeHome.enterNumberOfClaimsLast36month("0");
         Thread.sleep(1000);
         Thread.sleep(1000);
 
@@ -509,36 +613,36 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
         Thread.sleep(1000);
         nimbisPrestigeHome.clickBasicExcessDropDown();
         Thread.sleep(1000);
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Basic Excess"));
+        nimbisUserNavigation.selectOption("5 000");
         Thread.sleep(1000);
 
 
 
         Thread.sleep(1000);
-        nimbisPrestigeHome.enterNoOfElectricGeyser(EH.getCellValueSpecific(i,"No. of electric geysers"));
+        nimbisPrestigeHome.enterNoOfElectricGeyser("0");
         Thread.sleep(1000);
-        nimbisPrestigeHome.enterNoOfGasGeysers(EH.getCellValueSpecific(i,"No. of heat pump geysers"));
+        nimbisPrestigeHome.enterNoOfGasGeysers("0");
         Thread.sleep(1000);
-        nimbisPrestigeHome.enterNoOfHeatPumpGeysers(EH.getCellValueSpecific(i,"No. of gas geysers"));
+        nimbisPrestigeHome.enterNoOfHeatPumpGeysers("0");
         Thread.sleep(1000);
-        nimbisPrestigeHome.enterNoOfSolarGeysers(EH.getCellValueSpecific(i,"No. of solar geysers"));
+        nimbisPrestigeHome.enterNoOfSolarGeysers("0");
         Thread.sleep(1000);
 
 
-        if(EH.getCellValueSpecific(i,"Power surge").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickPowerSurge();
             nimbisPrestigeHome.clickPowerSurgeSumInsuredDropDown();
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Power surge Sum Insured"));
         }
 
-        if(EH.getCellValueSpecific(i,"Garden and landscaping - extended cover").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickGardenAndLandscapingExtendedCover();
             nimbisPrestigeHome.clickGardenAndLandscapingSumInsuredDropDown();
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i,"Garden and landscaping - extended cover Sum Insured"));
         }
         Thread.sleep(1000);
         Thread.sleep(1000);
-        if(EH.getCellValueSpecific(i,"Subsidence, landslip or ground heave - extended cover").equalsIgnoreCase("Yes")){
+        if("No".equalsIgnoreCase("Yes")){
             nimbisPrestigeHome.clickSubsidenceLandslipOrGroundHeaveExtendedCove();
         }
 
@@ -546,7 +650,41 @@ public class Motorcycle_UWRuleTesting extends BaseTest {
         nimbisUserNavigation.clickSaveBtn();
 
         nimbisUserNavigation.changeFocusToBrowser();
+    }
+    public void write_Extracted_rule_to_Sheet(String FilePath, String SheetName, int rowNum, int colNum, String element) throws Exception {
+
+        try {
+
+
+            FileInputStream ExcelFile = new FileInputStream(FilePath);
+
+            // Access the required test data sheet
+
+            ExcelWBook = new XSSFWorkbook(ExcelFile);
+
+            ExcelWSheet = ExcelWBook.getSheet(SheetName);
+
+            int numRows = ExcelWSheet.getLastRowNum() + 1;
+
+            ExcelWSheet.getRow(rowNum).createCell(colNum).setCellValue(element);
+
+            ExcelWBook.write(new FileOutputStream(FilePath));
+
+            FileOutputStream fileOut = new FileOutputStream(FilePath);
+            ExcelWBook.write(fileOut);
+            fileOut.close();
+            ExcelWBook.close();
+            System.out.println("Completed writing extracted rule");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong");
+        }
+
 
     }
+
+
 
 }

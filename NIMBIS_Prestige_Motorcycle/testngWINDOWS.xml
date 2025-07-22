@@ -11,11 +11,11 @@
   <parameter name="Device" value="Chrome"/>
       <parameter name="URL" value="https://uat.nimbis.co.za/"/>
 <!--       <parameter name="URL" value="https://dev.robin.nimbis.co.za"/>-->
-       <parameter name="NIMBIS" value="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>
+       <parameter name="NIMBIS" value="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\src\NIMBIS UWRules.xlsx"/>
 
 
        <classes>
-    <class name="com.sts.testautomation.steps.Motorcycle_FrontEndValidation"/>
+    <class name="com.sts.testautomation.steps.Motorcycle_UWRuleTesting"/>
     </classes> 
   </test> 
  

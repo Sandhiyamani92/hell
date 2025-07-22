@@ -173,11 +173,14 @@ public class Watercraft extends BaseTest {
         nimbisUserNavigation.changeFocus2();
         // ===== CRAFT MOTOR DETAILS =====
 
+      //  nimbisPrestigeWatercraft.enterSumInsured(EH.getCellValueSpecific();
+
+
         nimbisPrestigeWatercraft.enterNumberOfMotor("1");
-        nimbisPrestigeWatercraft.clickMotorMake();
-        nimbisUserNavigation.selectOptionWatercraft("Honda");
+      //  nimbisPrestigeWatercraft.clickMotorMake();
+        //nimbisUserNavigation.selectOptionWatercraft("Honda");
         // ===== FINANCE =====
-        nimbisPrestigeWatercraft.enterCreditShortfall("50");
+        nimbisPrestigeWatercraft.enterCreditShortfall("0.00");
         // ===== VESSEL =====
         nimbisPrestigeWatercraft.enterCraftMakeAndModel("MAKEMODEL");
         nimbisPrestigeWatercraft.enterCraftName("UNITEDSTAND");
@@ -189,7 +192,7 @@ public class Watercraft extends BaseTest {
         nimbisUserNavigation.selectOption("Canoe");
         nimbisPrestigeWatercraft.clickHullConstruction();
         nimbisUserNavigation.selectOption("Wood");
-        nimbisPrestigeWatercraft.enterSumInsured("1");
+        nimbisPrestigeWatercraft.enterSumInsured("10000000");
         nimbisPrestigeWatercraft.enterLengthOfVessel("10");
         // ===== DISCLOSURES =====
         if("Yes".equals("Yes")){

@@ -16,6 +16,7 @@ import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -23,6 +24,10 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.remote.CapabilityType;
+
 
 public class Home_FieldValidation extends BaseTest {
     private NIMBIS_Login nimbisLogin;
@@ -89,6 +94,17 @@ public class Home_FieldValidation extends BaseTest {
 
 
                             WebDriverManager.edgedriver().setup();
+                            // Set Edge options
+
+                            EdgeOptions options = new EdgeOptions();
+                          //  options.setCapability("ms:edgeOptions", new java.util.HashMap<String, Object>() {{
+                             //   put("args", new String[]{"--headless", "--disable-gpu", "--window-size=1920,1080"});
+                         //   }});
+
+
+
+                            // Initialize driver with options
+                          //  WebDriver driver = new EdgeDriver(options);
                             testB = new EdgeDriver();
                             testB.get(URL);
                             testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

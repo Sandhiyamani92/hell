@@ -177,7 +177,7 @@ private ExcelHandler EH;
             nimbisPrestigeClient.clickEmploymentStatusDropDown();
             nimbisUserNavigation.selectOption("Work for an employer");
 
-            nimbisPrestigeClient.enterIdentificationNumber("0401018622084");
+            nimbisPrestigeClient.enterIdentificationNumber("0405064216089");
           //  JavascriptExecutor js = (JavascriptExecutor) testB;
             //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
 
@@ -202,14 +202,16 @@ private ExcelHandler EH;
 
             nimbisUserNavigation.clickNextBtn();
             Thread.sleep(3000);
-          //  nimbisPrestigeClient.enterPostalCode("Lenasia");
-        //    nimbisUserNavigation.selectOption("Lenasia");
+            nimbisPrestigeClient.enterPostalCode("Lenasia");
+            Thread.sleep(2000);
+            nimbisUserNavigation.selectAddress() ;
 
             nimbisPrestigeClient.enterStreet("Protea Street");
             nimbisPrestigeClient.enterBuilding("13567");
 
             nimbisUserNavigation.clickNextBtn();
 
+            nimbisUserNavigation.clickOpenQuote();
 
 
 

@@ -15,6 +15,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -22,6 +23,8 @@ import org.testng.annotations.Test;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -93,12 +96,24 @@ public class Watercraft_UWRuleTesting extends BaseTest {
 
 
 
+//                            WebDriverManager.edgedriver().setup();
+//                            Map<String, Object> edgeOptionsMap = new HashMap<>();edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
+//                            EdgeOptions options = new EdgeOptions();
+//                            options.setCapability("ms:edgeOptions", edgeOptionsMap);
+//                            testB = new EdgeDriver(options);
 
-                            WebDriverManager.edgedriver().setup();
-                            testB = new EdgeDriver();
+                         //  WebDriverManager.edgedriver().setup();
+                            System.setProperty("webdriver.edge.driver",
+                                    "C:\\Users\\NathanielS\\Documents\\edgedriver_win64\\msedgedriver.exe");
+                            System.out.println("Creation of driver");
+                            EdgeOptions options = new EdgeOptions();
+                            Map<String, Object> edgeOptionsMap = new HashMap<>();
+                            edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
+                            options.setCapability("ms:edgeOptions", edgeOptionsMap);
+                            testB = new EdgeDriver(options);
                             testB.get(URL);
                             testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                            testB.manage().window().maximize();
+                           // testB.manage().window().maximize();
 
 
                         } catch (Exception e) {
@@ -154,9 +169,9 @@ public class Watercraft_UWRuleTesting extends BaseTest {
 
         EH = new ExcelHandler(Sheet, "Watercraft", 0, 0);
 
-        for(int i = 1 ; i <= 1;i++){
+        for(int i = 10 ; i <= 10;i++){
             try{
-                nimbisUserNavigation.enterSearchText("9609137884085 ");
+                nimbisUserNavigation.enterSearchText("George Zwane");
                 nimbisUserNavigation.clickSearchBtn();
 
                 Thread.sleep(5000);

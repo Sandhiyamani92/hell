@@ -240,7 +240,7 @@ public class ElementFunctionality extends TestListener
 	{
 		try
 		{
-			//wait.until(ExpectedConditions.visibilityOf(element));
+		//	wait.until(ExpectedConditions.visibilityOf(element));
 			wait.until(ExpectedConditions.elementToBeClickable(element));
 			assertTrue(element.getSize().getWidth()>0);
 			//Thread.sleep(3000);

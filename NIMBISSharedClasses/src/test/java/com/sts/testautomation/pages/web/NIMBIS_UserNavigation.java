@@ -41,7 +41,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//button[@class='rwzButton rwzNext']")
     private WebElement nextBtn ;
 
-    @FindBy(xpath = "//span[contains(text(),'Open Quote')]")
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_ItemToolBar']//li//span[contains(text(),'Open Quote')]")
     private WebElement openQuoteBtn ;
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_ucCover_RiskGrid.ascx_userControl_lstItemsOnQuote_ctl00_ctl04_btnEdit']")
@@ -265,7 +265,7 @@ public class NIMBIS_UserNavigation {
         }
     }
     public void clickNextBtn() {
-        WebDriverWait wait = new WebDriverWait(BrowserDriver, 10);
+        WebDriverWait wait = new WebDriverWait(BrowserDriver, 20);
         wait.until(ExpectedConditions.elementToBeClickable(nextBtn));
         ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].scrollIntoView(true);", nextBtn);
         nextBtn.click();
@@ -309,6 +309,22 @@ public class NIMBIS_UserNavigation {
             verifyElement.clickElement(clientResultName, "Client Result Name");
         }
     }
+    public void clickClientResultName2(String idNum) throws InterruptedException {
+
+        WebElement item = BrowserDriver.findElement(By.xpath("//a[contains(text(),'"+idNum+"')]"));;
+        if(verifyElement.verifyBrowserElementValue(item, idNum) == 0)
+        {
+            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
+
+            verifyElement.clickElement(item, idNum);
+        }
+        else
+        {
+            System.err.println("Element"+ idNum+"couldnt be found " );
+        }
+
+    }
 
     public void clickAddNewQuote() {
 
@@ -325,7 +341,7 @@ public class NIMBIS_UserNavigation {
     }
 
     public void clickPopUpOkBtn() {
-        WebDriverWait wait = new WebDriverWait(BrowserDriver,10);
+        WebDriverWait wait = new WebDriverWait(BrowserDriver,20);
         wait.until(ExpectedConditions.elementToBeClickable(popUpOkBtn));
         ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].scrollIntoView(true);", popUpOkBtn);
         popUpOkBtn.click();
@@ -427,6 +443,37 @@ public class NIMBIS_UserNavigation {
 
             verifyElement.clickElement(item, option);
         }
+        else
+        {
+            System.err.println("Element"+ option+"couldnt be found " );
+        }
+    }
+    public void selectAddress() throws InterruptedException {
+        WebElement item = BrowserDriver.findElement(By.xpath("(//ul[@class='racList'])[1]//li[1]"));;
+        if(verifyElement.verifyBrowserElementValue(item,"Address") == 0)
+        {
+            // ((JavascriptExecutor) BrowserDriver).executeScript("arguments[0].click();", item);
+            Thread.sleep(1500);
+
+            verifyElement.clickElement(item, "Address");
+        }
+        else
+        {
+            System.err.println("Element"+ "Address"+"couldnt be found " );
+        }
+    }
+
+    public void selectOptionRiskAddress(String option) throws InterruptedException {
+
+          if(option.equalsIgnoreCase("KZN")){
+              WebElement item = BrowserDriver.findElement(By.xpath("(//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_OvernightAddress_DropDown']//ul[@class='rcbList']/li)[2]"));;
+                item.click();
+          }
+          else if (option.equalsIgnoreCase("GP")){
+              WebElement item = BrowserDriver.findElement(By.xpath("(//div[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_OvernightAddress_DropDown']//ul[@class='rcbList']/li)[3]"));;
+                    item.click();
+          }
+
         else
         {
             System.err.println("Element"+ option+"couldnt be found " );

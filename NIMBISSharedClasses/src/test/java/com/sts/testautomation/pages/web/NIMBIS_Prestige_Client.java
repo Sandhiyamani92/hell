@@ -51,6 +51,8 @@ public class NIMBIS_Prestige_Client {
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_36']")
     private WebElement client_ITCPermission;
 
+
+
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_NonStandard_38']")
     private WebElement client_Sequestration;
 

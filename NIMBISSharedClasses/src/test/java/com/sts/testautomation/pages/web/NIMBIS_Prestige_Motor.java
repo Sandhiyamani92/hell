@@ -43,6 +43,11 @@ public class NIMBIS_Prestige_Motor {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_10596_Input']")
     private WebElement vehicleCode_DD ;
 
+    //VEHICLE DETAILS
+
+
+    @FindBy(xpath = "//div[@id='ctl00_ContentPlaceHolder1_ucVehicleLookup_lstYOM']")
+    private WebElement carYear_DD ;
 
 
     // SECURITY
@@ -61,8 +66,11 @@ public class NIMBIS_Prestige_Motor {
 
     // OVERNIGHT PARKING
 
-    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_OvernightParking_Input']")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_NonStandard_11119_Input']")
     private WebElement overnightParking_DD ;
+
+    @FindBy(xpath = "//button[@class='rcbActionButton']//span[@id='ctl00_ContentPlaceHolder1_DynamicQuestions1_OvernightAddress_Arrow']")
+    private WebElement riskAddress_DD ;
 
     // COVER DETAILS
 
@@ -149,6 +157,13 @@ public class NIMBIS_Prestige_Motor {
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_dtLicenseDate_dateInput']")
     private WebElement licenseDate ;
 
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_identification']")
+    private WebElement driverID ;
+
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_DynamicQuestionsPerson_dateofbirth_dateInput']")
+    private WebElement driverDOB ;
+
+
 
     // SPECIFIED ACCESSORIES
 
@@ -158,7 +173,7 @@ public class NIMBIS_Prestige_Motor {
     @FindBy(xpath = "(//tr[@class='rgEditRow']//td//div[@class='RadComboBox RadComboBox_Default']//input)[1]")
     private WebElement specifiedAccessoriesName ;
 
-    @FindBy(xpath = "(//tr[@class='rgEditRow']//td//div[@class='RadInput RadInput_Default']//input)[1]")
+    @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_UserControlAddExtra6818_ExtrasList_ctl00_ctl02_ctl02_RNTB_OptionValue']")
     private WebElement specifiedAccessoriesValue ;
 
     @FindBy(xpath = "//tr[@class='rgEditRow']//input[@title='Insert']")
@@ -289,11 +304,25 @@ public class NIMBIS_Prestige_Motor {
         }
     }
 
+    // VEHICLE CODE METHODS
+
+    public void clickCarYearOfManufacturerDropDown(){
+        if (verifyElement.verifyBrowserElementValue(carYear_DD, "Car Year Of Manufacturer") == 0){
+            verifyElement.clickElement(carYear_DD,"Car Year Of Manufacturer");
+        }
+    }
+
     // OVERNIGHT PARKING METHODS
 
     public void clickOvernightParkingDropDown(){
         if (verifyElement.verifyBrowserElementValue(overnightParking_DD, "Overnight Parking") == 0){
             verifyElement.clickElement(overnightParking_DD,"Overnight Parking");
+        }
+    }
+
+    public void clickRiskAddressDropDown(){
+        if (verifyElement.verifyBrowserElementValue(riskAddress_DD, "Risk Address") == 0){
+            verifyElement.clickElement(riskAddress_DD,"Risk Address");
         }
     }
 
@@ -428,6 +457,18 @@ public class NIMBIS_Prestige_Motor {
         }
     }
 
+    public void enterDriverIdentification(String number){
+        if (verifyElement.verifyBrowserElementValue(driverID, "Driver Identification") == 0){
+            verifyElement.sendKeys(driverID,"Driver Identification",number);
+        }
+    }
+
+    public void enterDriverDOB(String number){
+        if (verifyElement.verifyBrowserElementValue(driverDOB, "Driver DOB") == 0){
+            verifyElement.sendKeys(driverDOB,"Driver DOB",number);
+        }
+    }
+
     //  SPECIFIED ACCESSORIES METHODS
 
     public void clickAddSpecifiedAccessories(){
@@ -443,7 +484,8 @@ public class NIMBIS_Prestige_Motor {
     public void enterSpecifiedAccessoriesValue(String number){
         if (verifyElement.verifyBrowserElementValue(specifiedAccessoriesValue, "Specified Accessories Value") == 0){
           //  verifyElement.sendKeysWithClear(specifiedAccessoriesValue,"Specified Accessories Value",number);
-            verifyElement.sendKeys(specifiedAccessoriesValue,"Specified Accessories Value",number);
+          //  verifyElement.sendKeys(specifiedAccessoriesValue,"Specified Accessories Value",number);
+            verifyElement.sendKeys2(specifiedAccessoriesValue,"Specified Accessories Value",number);
         }
     }
     public void clickSaveSpecifiedAccessories(){
