@@ -94,21 +94,23 @@ public class Cyber_Insurances extends BaseTest {
                     else if (currentNode.getValue() instanceof BrowserNode) {
                         try {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
-                            System.out.println("Tial Test started on " + currentNode.getKey());
+                          System.out.println("NIMBI Test started on " + currentNode.getKey());
 
-
-                            WebDriverManager.edgedriver().setup();
+                           System.setProperty("webdriver.edge.driver",
+                                   "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
+                         System.out.println("Creation of driver");
+                         WebDriverManager.edgedriver().setup();
                            testB = new EdgeDriver();
-                           testB.get(URL);
-                            testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                          testB.manage().window().maximize();
+                         testB.get(URL);
+                           testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                         testB.manage().window().maximize();
 
-                          //  WebDriverManager.edgedriver().setup();
-                           //   Map<String, Object> edgeOptionsMap = new HashMap<>();
-                            //  edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
-                           //   EdgeOptions options = new EdgeOptions();options.setCapability("ms:edgeOptions", edgeOptionsMap);
-                           //    testB = new EdgeDriver(options);
-                           //    testB.get(URL);
+                        //   WebDriverManager.edgedriver().setup();
+                         //  Map<String, Object> edgeOptionsMap = new HashMap<>();
+                          //   edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
+                           //  EdgeOptions options = new EdgeOptions();options.setCapability("ms:edgeOptions", edgeOptionsMap);
+                             //  testB = new EdgeDriver(options);
+                             // testB.get(URL);
 
 
                         } catch (Exception e) {
@@ -163,7 +165,7 @@ public class Cyber_Insurances extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB, Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
         nimbisCyberInsurance = new NIMBIS_Cyber_Insurance(testB, Device);
-        commonFunctions=new common_functions1(testB,Device);
+        commonFunctions=new common_functions1(testB,Device,Sheet);
 
             nimbisUserNavigation.enterSearchText("Vukani Shembe ");
             nimbisUserNavigation.clickSearchBtn();

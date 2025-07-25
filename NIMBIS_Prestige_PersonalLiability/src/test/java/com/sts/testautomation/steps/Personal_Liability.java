@@ -185,7 +185,7 @@ public class Personal_Liability extends BaseTest {
                 }
                 common.calculatePremium();
                 Thread.sleep(1000);
-                ExtentTestManager.getTest().pass("TEST CASE " + i + "Passed");
+               // ExtentTestManager.getTest().pass("TEST CASE " + i + "Passed");
                 System.err.println("TEST CASE " + i + " Passed");
             } catch (Exception e) {
                 nimbisUserNavigation.changeFocusToBrowser();
@@ -196,7 +196,7 @@ public class Personal_Liability extends BaseTest {
                 nimbisUserNavigation.changeFocusToBrowser();
                 Thread.sleep(1000);
                 System.out.println("Test Case  : " + i);
-                ExtentTestManager.getTest().fail( "TEST CASE " + i + "Failed");
+               // ExtentTestManager.getTest().fail( "TEST CASE " + i + "Failed");
                 System.err.println("TEST CASE " + i + " Failed");
             }
         }

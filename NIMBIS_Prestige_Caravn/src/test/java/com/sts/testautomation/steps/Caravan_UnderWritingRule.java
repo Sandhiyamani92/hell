@@ -138,7 +138,7 @@ public class Caravan_UnderWritingRule extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB, Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
         nimbisPrestigeContents = new NIMBIS_Prestige_Contents(testB, Device);
-        common_functions1=new common_functions1(testB,Device);
+        common_functions1=new common_functions1(testB,Device,Sheet);
         searchClient();
 
     }

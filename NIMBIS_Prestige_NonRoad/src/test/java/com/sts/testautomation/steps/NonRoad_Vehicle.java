@@ -142,7 +142,7 @@ public class NonRoad_Vehicle extends BaseTest {
             nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
             nimbisPrestigeContents = new NIMBIS_Prestige_Contents(testB, Device);
             nimbisNonRoadVehicle = new NIMBIS_NonRoad_Vehicle(testB, Device);
-            common = new common_functions1(testB, Device);
+            common = new common_functions1(testB, Device,Sheet);
 
             System.out.println("All objects initialized successfully");
 

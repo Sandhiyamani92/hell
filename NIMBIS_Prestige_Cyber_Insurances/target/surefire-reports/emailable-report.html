@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="7">Hollard Automation Testing on Windows Controller</th></tr>
+<tr><td><a href="#t0">Test on Chrome</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">149 758</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Hollard Automation Testing on Windows Controller</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test on Chrome &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.sts.testautomation.steps.Cyber_Insurances</td><td><a href="#m0">CreateClient</a></td><td rowspan="1">1752832147710</td><td rowspan="1">136002</td></tr><tr><th colspan="4">Test on Chrome &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.sts.testautomation.steps.Cyber_Insurances</td><td><a href="#m1">Login</a></td><td rowspan="1">1752832140813</td><td rowspan="1">6895</td></tr></tbody>
+</table>
+<h2>Test on Chrome</h2><h3 id="m0">com.sts.testautomation.steps.Cyber_Insurances#CreateClient</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>https://uat.nimbis.co.za/</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element &lt;span class=&quot;rtbText&quot;&gt;...&lt;/span&gt; is not clickable at point (719, 164). Other element would receive the click: &lt;span unselectable=&quot;on&quot; class=&quot;rwTitle&quot;&gt;...&lt;/span&gt;
+  (Session info: MicrosoftEdge=138.0.3351.77)
+Build info: version: &apos;3.13.0&apos;, revision: &apos;2f0d292&apos;, time: &apos;2018-06-25T15:24:21.231Z&apos;
+System info: host: &apos;HSSHIALMVM15&apos;, ip: &apos;172.19.116.226&apos;, os.name: &apos;Windows Server 2022&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;24&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 138.0.3351.77, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:55107}, msedge: {msedgedriverVersion: 138.0.3351.95 (b095f7295f46..., userDataDir: C:\Users\SANDHI~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2a29f9443bf7565a014bb01cfb39a48
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+	at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy9.click(Unknown Source)
+	at com.sts.testautomation.utilities.ElementFunctionality.clickElement(ElementFunctionality.java:245)
+	at com.sts.testautomation.pages.web.NIMBIS_UserNavigation.clickAddNewItemBtn(NIMBIS_UserNavigation.java:203)
+	at com.sts.testautomation.steps.Cyber_Insurances.CreateClient(Cyber_Insurances.java:189)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+... Removed 19 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.sts.testautomation.steps.Cyber_Insurances#Login</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>https://uat.nimbis.co.za/</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

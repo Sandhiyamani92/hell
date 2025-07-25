@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="15" parallel="tests" name="Failed suite [Hollard Automation Testing on Windows Controller]" guice-stage="DEVELOPMENT" verbose="0">
+  <listeners>
+    <listener class-name="com.sts.testautomation.listeners.TestListener"/>
+    <listener class-name="com.sts.testautomation.listeners.AnnotationTransformer"/>
+  </listeners>
+  <test thread-count="15" parallel="tests" name="Test on Chrome(failed)" verbose="0">
+    <parameter name="Device" value="Chrome"/>
+    <parameter name="NIMBIS" value="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>
+    <parameter name="URL" value="https://uat.nimbis.co.za/"/>
+    <classes>
+      <class name="com.sts.testautomation.steps.Cyber_Insurances">
+        <methods>
+          <include name="setupTest"/>
+          <include name="CreateClient" invocation-numbers="0"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.sts.testautomation.steps.Cyber_Insurances -->
+    </classes>
+  </test> <!-- Test on Chrome(failed) -->
+</suite> <!-- Failed suite [Hollard Automation Testing on Windows Controller] -->

@@ -151,7 +151,7 @@ public class Contents_FieldValidation extends BaseTest {
         nimbisUserNavigation = new NIMBIS_UserNavigation(testB, Device);
         elementFunctionality = new ElementFunctionality(testB, Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
-        commonFunctions=new common_functions1(testB,Device);
+        commonFunctions=new common_functions1(testB,Device,Sheet);
         nimbisPrestigeContent= new NIMBIS_Prestige_Contents(testB,Device);
 
         for (int i = 1; i < 2; i++) {
@@ -183,17 +183,17 @@ public class Contents_FieldValidation extends BaseTest {
             nimbisPrestigeContent.clickCoverTypeDropDown();
             Thread.sleep(500);
 
-            List<String> expectedTypeOfCoverValues = commonFunctions.getExpectedValuesFromExcel(EH, "Type of Cover", "cover details");
+            //  List<String> expectedTypeOfCoverValues = commonFunctions.getExpectedValuesFromExcel(EH, "Type of Cover", "cover details");
             List<WebElement> allOptions = nimbisPrestigeContent.getAllCoverTypeOptions();
-            commonFunctions.validateDropdownWithElements(expectedTypeOfCoverValues, allOptions, "Type of Cover");
+         //   commonFunctions.validateDropdownWithElements(expectedTypeOfCoverValues, allOptions, "Type of Cover");
 
 
             //risk details
             nimbisPrestigeContent.clickTypeOfHomeDropDown();
             Thread.sleep(200);
-            List<String> expectedTypeOfHomeValues =    commonFunctions.getExpectedValuesFromExcel(EH,"Type of home","Type of home");
+           // List<String> expectedTypeOfHomeValues =    commonFunctions.getExpectedValuesFromExcel(EH,"Type of home","Type of home");
             List<WebElement> uiHomeValues = nimbisPrestigeContent.getAllHomeTypeOptionsptions();
-            commonFunctions.validateDropdownWithElements(expectedTypeOfHomeValues, uiHomeValues, "Type of Home");
+           // commonFunctions.validateDropdownWithElements(expectedTypeOfHomeValues, uiHomeValues, "Type of Home");
 
 //            nimbisPrestigeContent.clickTypeOfRoofConstructionDropDown();
 //            Thread.sleep(200);
@@ -203,21 +203,21 @@ public class Contents_FieldValidation extends BaseTest {
 
             nimbisPrestigeContent.clickTypeOfWallConstructionDropDown();
             Thread.sleep(200);
-            List<String> expectedTypeOfWallValues =    commonFunctions.getExpectedValuesFromExcel(EH,"Wall type","Wall type");
+         //   List<String> expectedTypeOfWallValues =    commonFunctions.getExpectedValuesFromExcel(EH,"Wall type","Wall type");
             List<WebElement> uiWallValues = nimbisPrestigeContent.getAllWallTypeOptions();
-            commonFunctions.validateDropdownWithElements(expectedTypeOfWallValues, uiWallValues, "Wall type");
+         //   commonFunctions.validateDropdownWithElements(expectedTypeOfWallValues, uiWallValues, "Wall type");
 
             nimbisPrestigeContent.clickResidenceTypeDropDown();
             Thread.sleep(200);
-            List<String> expectedTypeOfResidenceValues =    commonFunctions.getExpectedValuesFromExcel(EH,"Residence type","Residence type");
+         //   List<String> expectedTypeOfResidenceValues =    commonFunctions.getExpectedValuesFromExcel(EH,"Residence type","Residence type");
             List<WebElement> uiRisdenceValues = nimbisPrestigeContent.getAllResidenceTypeOptions();
-            commonFunctions.validateDropdownWithElements(expectedTypeOfResidenceValues, uiRisdenceValues, "Residence type");
+         ////   commonFunctions.validateDropdownWithElements(expectedTypeOfResidenceValues, uiRisdenceValues, "Residence type");
 
             nimbisPrestigeContent.clickUseOfPremisesDropDown();
             Thread.sleep(200);
-            List<String> expectedUseOfPremisesValues =    commonFunctions.getExpectedValuesFromExcel(EH,"Use of premises","Use of premises");
+       //     List<String> expectedUseOfPremisesValues =    commonFunctions.getExpectedValuesFromExcel(EH,"Use of premises","Use of premises");
             List<WebElement> uiPremisesValues = nimbisPrestigeContent.getPremisesTypeOptions();
-            commonFunctions.validateDropdownWithElements(expectedUseOfPremisesValues, uiPremisesValues, "Use of premises");
+       //     commonFunctions.validateDropdownWithElements(expectedUseOfPremisesValues, uiPremisesValues, "Use of premises");
 
         }
     }

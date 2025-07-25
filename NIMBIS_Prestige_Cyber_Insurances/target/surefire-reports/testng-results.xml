@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-07-18T09:48:54Z" name="Hollard Automation Testing on Windows Controller" finished-at="2025-07-18T09:51:23Z" duration-ms="149758">
+    <groups>
+    </groups>
+    <test started-at="2025-07-18T09:48:54Z" name="Test on Chrome" finished-at="2025-07-18T09:51:23Z" duration-ms="149758">
+      <class name="com.sts.testautomation.steps.Cyber_Insurances">
+        <test-method is-config="true" signature="setup()[pri:0, instance:com.sts.testautomation.steps.Cyber_Insurances@15bb6bea]" started-at="2025-07-18T09:48:54Z" name="setup" description="Initialize Grid" finished-at="2025-07-18T09:48:54Z" duration-ms="70" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method is-config="true" signature="setupTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.sts.testautomation.steps.Cyber_Insurances@15bb6bea]" started-at="2025-07-18T09:48:54Z" name="setupTest" description="Instantiate Grid" finished-at="2025-07-18T09:49:00Z" duration-ms="6573" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://uat.nimbis.co.za/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Chrome]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupTest -->
+        <test-method signature="Login(java.lang.String)[pri:0, instance:com.sts.testautomation.steps.Cyber_Insurances@15bb6bea]" started-at="2025-07-18T09:49:00Z" name="Login" description="Logging in to NIMBIS" finished-at="2025-07-18T09:49:07Z" duration-ms="6895" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://uat.nimbis.co.za/]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Login -->
+        <test-method signature="CreateClient(java.lang.String)[pri:1, instance:com.sts.testautomation.steps.Cyber_Insurances@15bb6bea]" started-at="2025-07-18T09:49:07Z" name="CreateClient" description="Add Cyber Insurance Section" finished-at="2025-07-18T09:51:23Z" duration-ms="136002" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[https://uat.nimbis.co.za/]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.ElementClickInterceptedException">
+            <message>
+              <![CDATA[element click intercepted: Element <span class="rtbText">...</span> is not clickable at point (719, 164). Other element would receive the click: <span unselectable="on" class="rwTitle">...</span>
+  (Session info: MicrosoftEdge=138.0.3351.77)
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'HSSHIALMVM15', ip: '172.19.116.226', os.name: 'Windows Server 2022', os.arch: 'amd64', os.version: '10.0', java.version: '24'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 138.0.3351.77, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:55107}, msedge: {msedgedriverVersion: 138.0.3351.95 (b095f7295f46..., userDataDir: C:\Users\SANDHI~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2a29f9443bf7565a014bb01cfb39a48]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span class="rtbText">...</span> is not clickable at point (719, 164). Other element would receive the click: <span unselectable="on" class="rwTitle">...</span>
+  (Session info: MicrosoftEdge=138.0.3351.77)
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'HSSHIALMVM15', ip: '172.19.116.226', os.name: 'Windows Server 2022', os.arch: 'amd64', os.version: '10.0', java.version: '24'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 138.0.3351.77, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:55107}, msedge: {msedgedriverVersion: 138.0.3351.95 (b095f7295f46..., userDataDir: C:\Users\SANDHI~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2a29f9443bf7565a014bb01cfb39a48
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy9.click(Unknown Source)
+at com.sts.testautomation.utilities.ElementFunctionality.clickElement(ElementFunctionality.java:245)
+at com.sts.testautomation.pages.web.NIMBIS_UserNavigation.clickAddNewItemBtn(NIMBIS_UserNavigation.java:203)
+at com.sts.testautomation.steps.Cyber_Insurances.CreateClient(Cyber_Insurances.java:189)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.access$000(SuiteRunner.java:40)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:489)
+at org.testng.internal.thread.ThreadUtil$1.call(ThreadUtil.java:52)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:328)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1095)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:619)
+at java.base/java.lang.Thread.run(Thread.java:1447)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CreateClient -->
+      </class> <!-- com.sts.testautomation.steps.Cyber_Insurances -->
+    </test> <!-- Test on Chrome -->
+  </suite> <!-- Hollard Automation Testing on Windows Controller -->
+</testng-results>

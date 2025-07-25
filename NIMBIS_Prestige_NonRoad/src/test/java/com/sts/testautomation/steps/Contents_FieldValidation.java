@@ -151,7 +151,7 @@ public class Contents_FieldValidation extends BaseTest {
         nimbisUserNavigation = new NIMBIS_UserNavigation(testB, Device);
         elementFunctionality = new ElementFunctionality(testB, Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
-        commonFunctions=new common_functions1(testB,Device);
+        commonFunctions=new common_functions1(testB,Device,Sheet);
         nimbisPrestigeContent= new NIMBIS_Prestige_Contents(testB,Device);
 
         for (int i = 1; i < 2; i++) {
