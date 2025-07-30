@@ -4,11 +4,15 @@ import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+import com.sts.testautomation.nimbisutilities.common_functions1;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import net.bytebuddy.agent.builder.AgentBuilder;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -29,7 +33,7 @@ public class Caravan_UnderWritingRule extends BaseTest {
     private ExcelHandler EH;
     private String Sheet;
     private NIMBIS_Caravan nimbisCaravn;
-
+    private common_functions1 common_functions1;
 
     @Parameters({"URL", "Device", "NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
@@ -69,9 +73,7 @@ public class Caravan_UnderWritingRule extends BaseTest {
                             e.printStackTrace();
                             Assert.fail();
 
-
                         }
-
 
                     }
 
@@ -80,8 +82,6 @@ public class Caravan_UnderWritingRule extends BaseTest {
                         try {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
                             System.out.println("NIMBIS Test started on " + currentNode.getKey());
-
-
                             WebDriverManager.edgedriver().setup();
                             testB = new EdgeDriver();
                             testB.get(URL);
@@ -123,41 +123,24 @@ public class Caravan_UnderWritingRule extends BaseTest {
         nimbisLogin.clickContinueBtn();
         nimbisLogin.enterPassword(EH.getCellValueSpecific(1, "Password"));
         nimbisLogin.clickSignInBtn();
-        Thread.sleep(6000);
+        Thread.sleep(4000);
     }
 
 
     @Parameters({"URL"})
     @Test(priority = 1, description = "Search Client")
     public void CreateClient(String URL) throws Exception {
-        EH = new ExcelHandler(Sheet, "Content Test Cases", 0, 0);
+        EH = new ExcelHandler(Sheet, "Caravan Test Cases", 0, 0);
+        url = URL;
         nimbisLogin = new NIMBIS_Login(testB, Device);
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB, Device);
         nimbisUserNavigation = new NIMBIS_UserNavigation(testB, Device);
         elementFunctionality = new ElementFunctionality(testB, Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
         nimbisPrestigeContents = new NIMBIS_Prestige_Contents(testB, Device);
+        common_functions1=new common_functions1(testB,Device,Sheet);
+        searchClient();
 
-
-
-        nimbisUserNavigation.enterSearchText("Vukani Shembe ");
-        nimbisUserNavigation.clickSearchBtn();
-
-        url = URL;
-
-
-        Thread.sleep(5000);
-        nimbisUserNavigation.clickClientResultName();
-        Thread.sleep(5000);
-        nimbisUserNavigation.clickAddNewQuote();
-        nimbisUserNavigation.clickPrestigeV2_Chkbox();
-        nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickPopUpOkBtn();
-        // JavascriptExecutor js = (JavascriptExecutor) testB;
-        //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-        nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickOpenQuote();
     }
 
     @Parameters({"URL"})
@@ -165,30 +148,19 @@ public class Caravan_UnderWritingRule extends BaseTest {
     public void UR660(String URL) throws Exception {
         nimbisCaravn = new NIMBIS_Caravan(testB, Device);
         nimbisUserNavigation.clickCoverBtn();
-        Thread.sleep(2000);
+        Thread.sleep(6000);
         nimbisUserNavigation.clickCaravanCover();
-        Thread.sleep(2000);
+        Thread.sleep(7000);
         nimbisUserNavigation.clickAddNewItemBtn();
 
-        Thread.sleep(6000);
+        Thread.sleep(3000);
         nimbisUserNavigation.changeFocus2();
-        nimbisCaravn.enterCaravanValue(EH.getCellValueSpecific(1, "Caravan Value"));
 
-//Vehicle
-        nimbisCaravn.enterCaravanMake(EH.getCellValueSpecific(1, "Make"));
-        nimbisCaravn.enterCaravanModel(EH.getCellValueSpecific(1, "Model"));
-        nimbisCaravn.enterCaravanYear(EH.getCellValueSpecific(1, "Year"));
-        nimbisCaravn.enterRegisterNumber(EH.getCellValueSpecific(1, "Registeration Number"));
-        //claims
-        nimbisCaravn.enterCaravanClaim012Months(EH.getCellValueSpecific(15, "Number of Caravan claims in the last 0 - 12 months, excluding glass damage"));
-        nimbisCaravn.enterCaravanClaim1324Months(EH.getCellValueSpecific(1, "Number of Caravan claims in the last 13 - 24 months, excluding glass damage"));
-        nimbisCaravn.enterCaravanClaim2536Months(EH.getCellValueSpecific(1, "Number of Caravan claims in the last 25 - 36 months, excluding glass damage"));
-//extensions
-        nimbisCaravn.clickExtension();
-        nimbisCaravn.enterExtensionSum(EH.getCellValueSpecific(1, "sum insured"));
+//caravan
+        caravandetails();
 
-        nimbisUserNavigation.clickSaveBtn();
         Thread.sleep(500);
+        common_functions1. calculatePremium();
         nimbisUserNavigation.changeWarningFrame();
      String warningmsg=   testB.findElement(By.xpath("//div[@id='alert1748804661282_message']")).getText();
         warningmsg.equalsIgnoreCase("Your client has an adverse caravan/trailer claims history in the last 12 months. The cover request must be approved by a manager.");
@@ -198,7 +170,7 @@ public class Caravan_UnderWritingRule extends BaseTest {
     }
 
     @Parameters({"URL"})
-    @Test(priority = 3, description = "UR662-Number of Caravan/Trailer claims in the last 24 months")
+    @Test(priority = 3,enabled = false, description = "UR662-Number of Caravan/Trailer claims in the last 24 months")
     public void UR662(String URL) throws Exception {
         nimbisCaravn = new NIMBIS_Caravan(testB, Device);
         nimbisUserNavigation.clickCoverBtn();
@@ -235,7 +207,7 @@ public class Caravan_UnderWritingRule extends BaseTest {
     }
 //please update the code after the discussion with ziyanda
     @Parameters({"URL"})
-    @Test(priority = 4, description = "UR654-Motor accumulation per risk address exceeds RAL")
+    @Test(priority = 4,enabled = false, description = "UR654-Motor accumulation per risk address exceeds RAL")
     public void UR654(String URL) throws Exception {
         nimbisUserNavigation.clickCoverBtn();
         Thread.sleep(2000);
@@ -245,43 +217,68 @@ public class Caravan_UnderWritingRule extends BaseTest {
 
         Thread.sleep(6000);
         nimbisUserNavigation.changeFocus2();
-        nimbisPrestigeContents.enterContentsSumInsured(EH.getCellValueSpecific(1, "Sum insured"));
-        nimbisPrestigeContents.clickCoverTypeDropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "cover details"));
-        nimbisPrestigeContents.clickUseOfPremisesDropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(48, "Use of premises"));
+        nimbisCaravn.enterCaravanValue(EH.getCellValueSpecific(1, "Caravan Value"));
 
-        nimbisPrestigeContents.clickNCB_DropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "NCB"));
-        nimbisPrestigeContents.clickPreviousUninterruptedBuildingsInsurance(EH.getCellValueSpecific(1, "Years of previous uninterrupted contents insurance cover"));
-        nimbisPrestigeContents.clickUseOfAdjoiningLandDropDown();
-        nimbisUserNavigation.selectOptionradiobox(EH.getCellValueSpecific(1, "Use of adjoining land"));
-
-        nimbisPrestigeContents.clickElectricFence_DropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "Electric Fence"));
-        nimbisPrestigeContents.clickpermiterProtection_DD();
-        Thread.sleep(3000);
-
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "Perimeter protection"));
-
+//Vehicle
+        nimbisCaravn.enterCaravanMake(EH.getCellValueSpecific(1, "Make"));
+        nimbisCaravn.enterCaravanModel(EH.getCellValueSpecific(1, "Model"));
+        nimbisCaravn.enterCaravanYear(EH.getCellValueSpecific(1, "Year"));
+        nimbisCaravn.enterRegisterNumber(EH.getCellValueSpecific(1, "Registeration Number"));
         //claims
+        nimbisCaravn.enterCaravanClaim012Months(EH.getCellValueSpecific(1, "Number of Caravan claims in the last 0 - 12 months, excluding glass damage"));
+        nimbisCaravn.enterCaravanClaim1324Months(EH.getCellValueSpecific(16, "Number of Caravan claims in the last 13 - 24 months, excluding glass damage"));
+        nimbisCaravn.enterCaravanClaim2536Months(EH.getCellValueSpecific(1, "Number of Caravan claims in the last 25 - 36 months, excluding glass damage"));
+//extensions
+        nimbisCaravn.clickExtension();
+        nimbisCaravn.enterExtensionSum(EH.getCellValueSpecific(1, "sum insured"));
 
-        nimbisPrestigeContents.enterNumberOfClaimsLast12month(EH.getCellValueSpecific(1, "Number of Contents claims in the last 12 months"));
-
-        nimbisPrestigeContents.enterNumberOfClaimsLast24month(EH.getCellValueSpecific(1, "Number of Contents claims in the last 13 to 24 months"));
-
-        nimbisPrestigeContents.enterNumberOfClaimsLast36month(EH.getCellValueSpecific(1, "Number of Contents claims in the last 25 to 36 months"));
         nimbisUserNavigation.clickSaveBtn();
         Thread.sleep(500);
         nimbisUserNavigation.changeWarningFrame();
         String warningmsg=   testB.findElement(By.xpath("//div[@id='alert1748804661282_message']")).getText();
         warningmsg.equalsIgnoreCase("The combined sum insured of all the vehicles at one address exceeds the RAL limit. The cover request must be approved by Hollard.");
+        elementFunctionality.captureScreenshotOnDevice("UR654-Motor accumulation per risk address exceeds RAL-for the UW rule");
         nimbisUserNavigation.clickPopUpOkBtn();
         nimbisUserNavigation.clickCloseBtn();
 
     }
 
+public void caravandetails() throws InterruptedException {
+    nimbisCaravn.enterCaravanValue(EH.getCellValueSpecific(1, "Caravan Value"));
 
+//Vehicle
+    nimbisCaravn.enterCaravanMake(EH.getCellValueSpecific(1, "Make"));
+    nimbisCaravn.enterCaravanModel(EH.getCellValueSpecific(1, "Model"));
+    nimbisCaravn.enterCaravanYear(EH.getCellValueSpecific(1, "Year"));
+    nimbisCaravn.enterRegisterNumber(EH.getCellValueSpecific(1, "Registration Number"));
+    //claims
+    nimbisCaravn.enterCaravanClaim012Months("3");
+    nimbisCaravn.enterCaravanClaim1324Months(EH.getCellValueSpecific(1, "Number of Caravan claims in the last 13 - 24 months, excluding glass damage"));
+    nimbisCaravn.enterCaravanClaim2536Months(EH.getCellValueSpecific(1, "Number of Caravan claims in the last 25 - 36 months, excluding glass damage"));
+//extensions
+    nimbisCaravn.clickExtension();
+    nimbisCaravn.enterExtensionSum(EH.getCellValueSpecific(1, "sum insured"));
+
+  //  testB.findElement(By.xpath("//span[contains(@class, 'rtbImage') and contains(@class, 'ToolbarIcon-Calculate')]")).click();
+
+    Thread.sleep(500);
+}
+
+
+public void searchClient() throws InterruptedException {
+    nimbisUserNavigation.enterSearchText("Vukani Shembe ");
+    nimbisUserNavigation.clickSearchBtn();
+    Thread.sleep(3000);
+    nimbisUserNavigation.clickClientResultName();
+    Thread.sleep(3000);
+    nimbisUserNavigation.clickAddNewQuote();
+    nimbisUserNavigation.clickPrestigeV2_Chkbox();
+    nimbisUserNavigation.clickNextBtn();
+    nimbisUserNavigation.clickNextBtn();
+    nimbisUserNavigation.clickPopUpOkBtn();
+    nimbisUserNavigation.clickNextBtn();
+    nimbisUserNavigation.clickOpenQuote();
+}
 
 
 

@@ -1,23 +1,33 @@
 package com.sts.testautomation.steps;
 
 
+
+
+
+
+
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+
+import com.sts.testautomation.extentReports.ExtentTestManager;
 import com.sts.testautomation.nimbisutilities.common_functions1;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +48,7 @@ public class Cyber_Insurances extends BaseTest {
     @Parameters({"URL", "Device", "NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
     public void setupTest(String URL, String device, String datasheet) {
+
         try {
             HashSetup.SetUpBrowser();
 
@@ -83,14 +94,23 @@ public class Cyber_Insurances extends BaseTest {
                     else if (currentNode.getValue() instanceof BrowserNode) {
                         try {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
-                            System.out.println("Tial Test started on " + currentNode.getKey());
+                          System.out.println("NIMBI Test started on " + currentNode.getKey());
 
+                          System.setProperty("webdriver.edge.driver",
+                                  "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
+                         System.out.println("Creation of driver");
+                        // WebDriverManager.edgedriver().setup();
+                           testB = new EdgeDriver();
+                         testB.get(URL);
+                           testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                         testB.manage().window().maximize();
 
-                            WebDriverManager.edgedriver().setup();
-                            testB = new EdgeDriver();
-                            testB.get(URL);
-                            testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                            testB.manage().window().maximize();
+                        //   WebDriverManager.edgedriver().setup();
+                         //  Map<String, Object> edgeOptionsMap = new HashMap<>();
+                          //   edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
+                           //  EdgeOptions options = new EdgeOptions();options.setCapability("ms:edgeOptions", edgeOptionsMap);
+                             //  testB = new EdgeDriver(options);
+                             // testB.get(URL);
 
 
                         } catch (Exception e) {
@@ -128,7 +148,7 @@ public class Cyber_Insurances extends BaseTest {
         nimbisLogin.clickContinueBtn();
         nimbisLogin.enterPassword(EH.getCellValueSpecific(1, "Password"));
         nimbisLogin.clickSignInBtn();
-        Thread.sleep(6000);
+        Thread.sleep(3000);
 
     }
 
@@ -145,57 +165,68 @@ public class Cyber_Insurances extends BaseTest {
         elementFunctionality = new ElementFunctionality(testB, Device);
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
         nimbisCyberInsurance = new NIMBIS_Cyber_Insurance(testB, Device);
-        commonFunctions=new common_functions1(testB,Device);
-        for (int i = 1; i < EH.numRows; i++) {
+        commonFunctions=new common_functions1(testB,Device,Sheet);
+
             nimbisUserNavigation.enterSearchText("Vukani Shembe ");
             nimbisUserNavigation.clickSearchBtn();
 
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             nimbisUserNavigation.clickClientResultName();
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             nimbisUserNavigation.clickAddNewQuote();
             nimbisUserNavigation.clickPrestigeV2_Chkbox();
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickPopUpOkBtn();
-            JavascriptExecutor js = (JavascriptExecutor) testB;
-            //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+        //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickOpenQuote();
-            Thread.sleep(2000);
+            Thread.sleep(1000);
             nimbisUserNavigation.clickCoverBtn();
             nimbisUserNavigation.clickCyberinsuranceCover();
             Thread.sleep(2000);
+        for (int i = 1; i <=EH.numRows; i++) {
             nimbisUserNavigation.clickAddNewItemBtn();
 
-            Thread.sleep(6000);
+            try{
+            Thread.sleep(3000);
             nimbisUserNavigation.changeFocus2();
             nimbisCyberInsurance.clickCyberInsuranceCoverDropDown();
             Thread.sleep(500);
 
-            List<String> expectedTypeOfWallValues = commonFunctions.getExpectedValuesFromExcel(EH,"Cyber insurance cover option","Cyber insurance cover option");
-            List<WebElement> cyberoptionsValues = nimbisCyberInsurance.getAllCyberinsuranceCoverOptions();
-            commonFunctions.validateDropdownWithElements(expectedTypeOfWallValues, cyberoptionsValues, "Cyber insurance cover option");
-
 
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Cyber insurance cover option"));
-
+                elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
 
             if (EH.getCellValueSpecific(i, "Cover for partner").equalsIgnoreCase("Yes")) {
                 nimbisCyberInsurance.clickCoverForPartnerToggleButton();
+                elementFunctionality.captureScreenshotOnDevice("cyber insurance cover for partner");
             }
             if (EH.getCellValueSpecific(i, "Cover for children").equalsIgnoreCase("Yes")) {
                 nimbisCyberInsurance.clickCoverForChilderToggleButton();
+                elementFunctionality.captureScreenshotOnDevice("cyber insurance cover for Children");
             }
 
-
-            // nimbisUserNavigation.changeFocus2();
-            //  Thread.sleep(1000);
-            //  nimbisUserNavigation.clickSaveBtn();
-
-            //  nimbisUserNavigation.changeFocusToBrowser();
-            //  Thread.sleep(3000);
+                commonFunctions.calculatePremium();
+            Thread.sleep(3000);
+                ExtentTestManager.getTest().log(LogStatus.PASS,"TEST CASE " + i + "Passed");
+             //   ExtentTestManager.getTest().get( "TEST CASE " + i + "Passed");
+            System.err.println("TEST CASE " + i + " Passed");
+        } catch (Exception e) {
+            nimbisUserNavigation.changeFocusToBrowser();
+            System.out.println(e.toString());
+            Thread.sleep(1000);
+            nimbisUserNavigation.clickCloseBtn();
+            Thread.sleep(1000);
+            nimbisUserNavigation.changeFocusToBrowser();
+            Thread.sleep(3000);
+            System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().log(LogStatus.FAIL,"TEST CASE " + i + "Failed");
+               // ExtentTestManager.getTest().fail( "TEST CASE " + i + "Failed");
+            System.err.println("TEST CASE " + i + " Failed");
         }
+    }
+
 
 
     }

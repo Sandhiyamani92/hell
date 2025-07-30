@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 151.956 s <<< FAILURE! - in TestSuite
+CreateClient(com.sts.testautomation.steps.Cyber_Insurances)  Time elapsed: 135.511 s  <<< FAILURE!
+org.openqa.selenium.ElementClickInterceptedException: 
+element click intercepted: Element <span class="rtbText">...</span> is not clickable at point (719, 164). Other element would receive the click: <span unselectable="on" class="rwTitle">...</span>
+  (Session info: MicrosoftEdge=138.0.3351.77)
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'HSSHIALMVM15', ip: '172.19.116.226', os.name: 'Windows Server 2022', os.arch: 'amd64', os.version: '10.0', java.version: '24'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 138.0.3351.77, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:55107}, msedge: {msedgedriverVersion: 138.0.3351.95 (b095f7295f46..., userDataDir: C:\Users\SANDHI~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2a29f9443bf7565a014bb01cfb39a48
+	at com.sts.testautomation.steps.Cyber_Insurances.CreateClient(Cyber_Insurances.java:189)
+

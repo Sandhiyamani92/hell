@@ -6,39 +6,40 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import com.relevantcodes.extentreports.ExtentReports;
 
-
-public class ExtentManager 
+public class ExtentManager
 {
-	static Map extentTestMap = new HashMap();
-	private static ExtentReports extent;
-	 
+    static Map extentTestMap = new HashMap();
+    private static ExtentReports extent;
+
     public synchronized static ExtentReports getReporter()
     {
-    	if(extent == null)
+        if(extent == null)
         {
             //Set HTML reporting file location
             String workingDir = System.getProperty("user.dir");
             SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH.mm.ss");
-        	Date date = new Date();
-        	
+            Date date = new Date();
+
             String fileName = "TestCase_136_Extent "+formatter.format(date)+".html";
-            
+
             String operSys = System.getProperty("os.name").toLowerCase();
-            if (operSys.contains("win")) 
+            if (operSys.contains("win"))
             {
-            	 extent = new ExtentReports(workingDir+"\\ExtentReports\\"+fileName, true);
-            } 
-            else if (operSys.contains("nix") || operSys.contains("nux")|| operSys.contains("aix")) 
+                extent = new ExtentReports(workingDir+"\\ExtentReports\\"+fileName, true);
+            }
+            else if (operSys.contains("nix") || operSys.contains("nux")|| operSys.contains("aix"))
             {
-                
-            } 
-            else if (operSys.contains("mac")) 
+
+            }
+            else if (operSys.contains("mac"))
             {
-            	 extent = new ExtentReports(workingDir+"/ExtentReports/"+fileName, true);
+                extent = new ExtentReports(workingDir+"/ExtentReports/"+fileName, true);
             }
         }
-        return extent;	
+        return extent;
     }
 }
+

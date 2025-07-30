@@ -13,7 +13,13 @@
        <parameter name="NIMBIS" value="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>
 
   <classes>
-    <class name="com.sts.testautomation.steps.Contents"/>
+    <class name="com.sts.testautomation.steps.Contents2"/>
+      <class name="com.sts.testautomation.steps.Contents"/>
+      <class name="com.sts.testautomation.steps.Contents3"/>
+      <class name="com.sts.testautomation.steps.Contents4"/>
+      <class name="com.sts.testautomation.steps.Contents5"/>
+      <class name="com.sts.testautomation.steps.Contents6"/>
+      <class name="com.sts.testautomation.steps.Contents7"/>
     </classes> 
   </test>
 

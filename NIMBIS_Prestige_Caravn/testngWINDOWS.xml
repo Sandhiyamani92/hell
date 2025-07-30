@@ -9,12 +9,12 @@
   
    <test name="Test on Chrome" preserve-order="false">
   <parameter name="Device" value="Chrome"/>
-       <parameter name="URL" value="https://dev.robin.nimbis.co.za"/>
-       <parameter name="NIMBIS" value="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>
+       <parameter name="URL" value="https://uat.nimbis.co.za"/>
+       <parameter name="NIMBIS" value="C:\Users\prave\IdeaProjects\qa-automation-nimbus\src\NIMBIS.xlsx"/>
 
 
        <classes>
-    <class name="com.sts.testautomation.steps.Caravan"/>
+    <class name="com.sts.testautomation.steps.Caravan_UnderWritingRule"/>
     </classes> 
   </test> 
  
