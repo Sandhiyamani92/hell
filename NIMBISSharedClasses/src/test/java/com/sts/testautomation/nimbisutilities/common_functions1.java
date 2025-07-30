@@ -42,11 +42,13 @@ public class common_functions1 {
 
     // ... (keep all your existing dropdown validation methods - they look good)
 
+
+
     public void calculatePremium() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(BrowserDriver, 20);
         nimbisUserNavigation.clickSaveBtn();
-        Thread.sleep(15000);
+        Thread.sleep(10000);
         System.out.println("after save");
         try {
             JavascriptExecutor js = (JavascriptExecutor) BrowserDriver;
@@ -112,63 +114,16 @@ public class common_functions1 {
             System.out.println("Method 8 failed");
         }
 
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         nimbisUserNavigation.changeFocus2();
         nimbisUserNavigation.clickpremiumsaveBtn();
         Thread.sleep(4000);
        // nimbisUserNavigation.changeFocus2();
-        try {
-            // Method 1: Find OK button in iframe
-            WebElement okButton = wait.until(ExpectedConditions.elementToBeClickable(
-                    By.xpath("//input[@value='OK'] | //button[text()='OK'] | //span[text()='OK'] | //a[text()='OK']")
-            ));
-            okButton.click();
-            System.out.println("OK button clicked in iframe - Method 1");
+        Thread.sleep(2000);
+        nimbisUserNavigation.changeFocusToBrowser();
 
-        } catch (Exception e1) {
-            System.out.println("Method 1 failed, trying Method 2");
+        nimbisUserNavigation.clickCloseBtn();
 
-            try {
-                // Method 2: JavaScript click in iframe
-                JavascriptExecutor jsInFrame = (JavascriptExecutor) BrowserDriver;
-                jsInFrame.executeScript(
-                        "var okElements = document.querySelectorAll('input, button, span, a');" +
-                                "for(var i = 0; i < okElements.length; i++) {" +
-                                "  var elem = okElements[i];" +
-                                "  if(elem.value === 'OK' || elem.textContent.trim() === 'OK') {" +
-                                "    elem.click();" +
-                                "    console.log('Clicked OK element:', elem);" +
-                                "    break;" +
-                                "  }" +
-                                "}"
-                );
-                System.out.println("OK button clicked in iframe - Method 2");
-
-            } catch (Exception e2) {
-                System.out.println("Method 2 failed, trying Method 3");
-
-                try {
-                    // Method 3: Try common button selectors
-                    WebElement button = BrowserDriver.findElement(
-                            By.cssSelector("input[type='button'], input[type='submit'], button")
-                    );
-                    button.click();
-                    System.out.println("Button clicked in iframe - Method 3");
-
-                } catch (Exception e3) {
-                    System.out.println("Method 3 failed, trying Method 4");
-
-                    // Method 4: Send ENTER key in iframe
-                    try {
-                        Actions actions = new Actions(BrowserDriver);
-                        actions.sendKeys(Keys.ENTER).build().perform();
-                        System.out.println("ENTER key sent in iframe - Method 4");
-                    } catch (Exception e4) {
-                        System.out.println("All methods in iframe failed");
-                    }
-                }
-            }
-        }
         nimbisUserNavigation.changeFocusToBrowser();
     }
 
@@ -213,39 +168,11 @@ public class common_functions1 {
 
     // Additional utility methods for better reusability
 
-    /**
-     * Generic method to fill form fields based on Excel data
-     */
-    public void fillFormField(String fieldType, String value, int rowIndex) {
-        try {
-            switch (fieldType.toLowerCase()) {
-                case "sum insured":
-                case "value":
-                    // Handle sum insured fields
-                    break;
-                case "vehicle type":
-                    // Handle dropdown selections
-                    break;
-                // Add more cases as needed
-            }
-        } catch (Exception e) {
-            System.err.println("Error filling field " + fieldType + ": " + e.getMessage());
-        }
-    }
 
     /**
      * Generic method to handle conditional checkbox/button clicks
      */
-    public void handleConditionalClick(String excelValue, WebElement element, String fieldName) {
-        try {
-            if (excelValue != null && excelValue.equalsIgnoreCase("Yes")) {
-                elementFunctionality.clickElement(element, fieldName);
-                System.out.println("Clicked: " + fieldName);
-            }
-        } catch (Exception e) {
-            System.err.println("Error handling conditional click for " + fieldName + ": " + e.getMessage());
-        }
-    }
+
 
     /**
      * Generic method to handle dropdown selections

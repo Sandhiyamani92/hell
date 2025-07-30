@@ -1,22 +1,36 @@
-# Maven
-# Build your Java project and run tests with Apache Maven.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+parameters:
+  - name: VersionNumber
+    type: string
+    default: '1.0.0'
+  - name: JavaVersion
+    type: string
+    default: '21'
+  - name: goal
+    type: string
+    default: 'install'
 
 trigger:
-- Nathiel_Smith_Branch
+  branches:
+    include:
+      - '*' #Build all branches. You typically don't want to change this
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: 'windows-latest'
 
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+#Don't change this
+resources:
+  repositories:
+    - repository: devops
+      type: git
+      name: devops
+      ref: master
+
+jobs:
+  - template: templates/maven/jobs.yml@devops
+    parameters:
+      poms: ['qa-automation-nimbus/pom.xml','qa-automation-nimbus/NIMBISSharedClasses/pom.xml']
+      JavaVersion: ${{ parameters.JavaVersion }}
+      goal: ${{ parameters.goal }}
+      #publishPatterns: ['settings.xml']
+      publishPath: 'qa-automation-nimbus'
+      #additionalPublishPaths: ['qa-automation-nimbus/pom.xml','qa-automation-nimbus/NIMBISSharedClasses/pom.xml']

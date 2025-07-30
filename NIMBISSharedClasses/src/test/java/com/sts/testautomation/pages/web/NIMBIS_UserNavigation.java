@@ -63,6 +63,8 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//span[text()='OK']")
     private WebElement popUpOkRateBtn ;
 
+    @FindBy(xpath = "//span[@class='rwCommandButton rwCloseButton']")
+    WebElement closeBtn;
 
 
 
@@ -75,13 +77,14 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//div[@id='alert1748804661282_message']")
     WebElement warningmsg;
 
-    @FindBy(xpath = "/html/body/form/div[6]/div[3]/div[2]/div/div[4]/div[2]/div/ul/li[2]/span")
+    @FindBy(xpath = "//span[text()='Calculate Coverage Premiums']")
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[1]")
     WebElement saveBtn;
 
-
+    @FindBy(xpath = "//td//a[@class='rwPopupButton']")
+    private WebElement OkBtn ;
 
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
     WebElement mainWindow;
@@ -109,8 +112,15 @@ public class NIMBIS_UserNavigation {
         verifyElement.switchToBrowserFrame(alertWindow,  "Switch focus to pop up frame");
 
     }
+    public  void clickClosepopBtn(){
+        verifyElement.clickElement(closeBtn,"Close Button");
+    }
+    public void clickOkBtn() {
 
-
+        if (verifyElement.verifyBrowserElementValue(OkBtn, "Ok") == 0) {
+            verifyElement.clickElement(OkBtn,"Ok");
+        }
+    }
 
     // RISK COVERS
     @FindBy(xpath = "//li//span[contains(text(),'Assets Specified')]")

@@ -39,7 +39,7 @@ public class NonRoad_Vehicle extends BaseTest {
     private NIMBIS_NonRoad_Vehicle nimbisNonRoadVehicle;
     private ExcelHandler EH;
     private String Sheet;
-    private common_functions1 common;
+    private common_functions1 commonFunctions;
 
     @Parameters({"URL", "Device", "NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
@@ -71,9 +71,11 @@ public class NonRoad_Vehicle extends BaseTest {
                         try {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
                             System.out.println("NIMBIS Test started on " + currentNode.getKey());
-
-                            WebDriverManager.chromedriver().setup();
-                            testB = new ChromeDriver();
+                            System.setProperty("webdriver.edge.driver",
+                                    "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
+                            System.out.println("Creation of driver");
+                            // WebDriverManager.chromedriver().setup();
+                            testB = new EdgeDriver();
                             testB.get(URL);
                             testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
                             testB.manage().window().maximize();
@@ -125,7 +127,7 @@ public class NonRoad_Vehicle extends BaseTest {
     @Parameters({"URL"})
     @Test(priority = 1, description = "Search Client and Process Non-Road Vehicle")
     public void CreateClient(String URL) throws Exception {
-        try {
+
             url = URL;
 
             System.out.println("Initializing objects...");
@@ -142,19 +144,19 @@ public class NonRoad_Vehicle extends BaseTest {
             nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
             nimbisPrestigeContents = new NIMBIS_Prestige_Contents(testB, Device);
             nimbisNonRoadVehicle = new NIMBIS_NonRoad_Vehicle(testB, Device);
-            common = new common_functions1(testB, Device,Sheet);
+            commonFunctions = new common_functions1(testB, Device, Sheet);
 
             System.out.println("All objects initialized successfully");
 
             // Search client and open quote
-            common.searchClientandopenQuote();
+            commonFunctions.searchClientandopenQuote();
             System.out.println("Client search and quote opening completed");
 
             // Process test cases
             int totalRows = EH.numRows;
             System.out.println("Processing " + (totalRows - 1) + " test cases...");
 
-            for (int i = 1; i <= 1; i++) {
+            for (int i = 1; i <= EH.numRows; i++) {
                 try {
                     System.out.println("Processing test case " + i + "...");
 
@@ -169,7 +171,7 @@ public class NonRoad_Vehicle extends BaseTest {
                     nimbisUserNavigation.changeFocus2();
 
                     // Fill form with data from Excel
-                    nimbisNonRoadVehicle.enternonroadValue(EH.getCellValueSpecific(i,"Sum Insured"));
+                    nimbisNonRoadVehicle.enternonroadValue(EH.getCellValueSpecific(i, "Sum Insured"));
                     nimbisNonRoadVehicle.clickVehicleTypeDropDown();
                     nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Vehicle Type"));
                     nimbisNonRoadVehicle.enternonroadMake(EH.getCellValueSpecific(i, "Make"));
@@ -179,126 +181,33 @@ public class NonRoad_Vehicle extends BaseTest {
                     elementFunctionality.captureScreenshotOnDevice("Vehicle details");
                     nimbisNonRoadVehicle.enternonroadClaims012(EH.getCellValueSpecific(i, "Number of Non-road Vehicles claims in the last 12 months"));
                     nimbisNonRoadVehicle.enternonroadClaims324(EH.getCellValueSpecific(i, "Number of Contents claims in the last 13 to 24 months"));
-                    nimbisNonRoadVehicle.enternonroadClaims2536( EH.getCellValueSpecific(i, "Number of Contents claims in the last 25 to 36 months"));
+                    nimbisNonRoadVehicle.enternonroadClaims2536(EH.getCellValueSpecific(i, "Number of Contents claims in the last 25 to 36 months"));
                     elementFunctionality.captureScreenshotOnDevice("Claim history");
                     // Calculate premium
-                    nimbisUserNavigation.clickSaveBtn();
-                    Thread.sleep(50000);
-                    // Try JavaScript click on any element containing "Calculate"
-
-                  nimbisUserNavigation.clickCalculatePremiumBtn();
-                    Thread.sleep(500);
-                    elementFunctionality.captureScreenshotOnDevice("calculated Premium");
-                    nimbisUserNavigation.clickPopUpOkRateBtn();
-                    Thread.sleep(1000);
-                    nimbisUserNavigation.clickSaveBtn();
-                    nimbisUserNavigation.changeFocusToBrowser();
-                    Thread.sleep(2000);
-
+                    commonFunctions.calculatePremium();
+                    Thread.sleep(3000);
                     // Log success
 
-                    ExtentTestManager.getTest().log(LogStatus.PASS,"TEST CASE " + i + "Passed");
+                    ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
                     System.out.println("TEST CASE " + i + " Passed");
 
                 } catch (Exception e) {
-                    System.err.println("Error in Test Case " + i + ": " + e.getMessage());
-                    e.printStackTrace();
-
-                    try {
-                        common.closepopup();
-                    } catch (Exception popupException) {
-                        System.err.println("Failed to close popup: " + popupException.getMessage());
-                    }
-
-                    ExtentTestManager.getTest().log(LogStatus.FAIL,"TEST CASE " + i + "Failed");
+                    nimbisUserNavigation.changeFocusToBrowser();
+                    System.out.println(e.toString());
+                    Thread.sleep(1000);
+                    nimbisUserNavigation.clickCloseBtn();
+                    Thread.sleep(1000);
+                    nimbisUserNavigation.changeFocusToBrowser();
+                    Thread.sleep(3000);
+                    System.out.println("Test Case  : " + i);
+                    ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE " + i + "Failed");
+                    // ExtentTestManager.getTest().fail( "TEST CASE " + i + "Failed");
                     System.err.println("TEST CASE " + i + " Failed");
-
-                    // Continue with next test case
-                    continue;
                 }
             }
 
-            System.out.println("All test cases completed");
 
-        } catch (Exception e) {
-            System.err.println("CreateClient method failed: " + e.getMessage());
-            e.printStackTrace();
-            throw e;
         }
+
+
     }
-
-    /**
-     * Helper method to fill Non-Road Vehicle form
-     */
-    private void fillNonRoadVehicleForm(int rowIndex) throws Exception {
-        try {
-            // Sum Insured
-            String sumInsured = EH.getCellValueSpecific(rowIndex, "Sum Insured");
-            nimbisNonRoadVehicle.enternonroadValue(sumInsured);
-            elementFunctionality.captureScreenshotOnDevice("Sum insured");
-            // Vehicle Type dropdown
-            nimbisNonRoadVehicle.clickVehicleTypeDropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(rowIndex, "Vehicle Type"));
-            elementFunctionality.captureScreenshotOnDevice("Vehicle type");
-            // Vehicle details
-            nimbisNonRoadVehicle.enternonroadMake(EH.getCellValueSpecific(rowIndex, "Make"));
-            nimbisNonRoadVehicle.enternonroadModel(EH.getCellValueSpecific(rowIndex, "Model"));
-            nimbisNonRoadVehicle.enternonroadYear(EH.getCellValueSpecific(rowIndex, "Year"));
-            nimbisNonRoadVehicle.enternonroadRegisteredOwner(EH.getCellValueSpecific(rowIndex, "Registered Owner"));
-            elementFunctionality.captureScreenshotOnDevice("Vehicle details");
-            // Financing (if applicable)
-          //  handleFinancing(rowIndex);
-
-            // Basis of Settlement
-            nimbisNonRoadVehicle.clickBasisOfSettlementDropDown();
-            nimbisUserNavigation.selectOption(EH.getCellValueSpecific(rowIndex, "Basis of settlement"));
-            elementFunctionality.captureScreenshotOnDevice("Basis of settlement");
-            // Claims history
-            fillClaimsHistory(rowIndex);
-
-        } catch (Exception e) {
-            elementFunctionality.captureScreenshotOnDevice("Error in fillNonRoadVehicleForm");
-            System.err.println("Error filling form for row " + rowIndex + ": " + e.getMessage());
-            throw e;
-        }
-    }
-
-    /**
-     * Handle financing section
-     */
-    private void handleFinancing(int rowIndex) throws Exception {
-        try {
-
-                 nimbisNonRoadVehicle.clickFinanced();
-                 String financialInstitution = EH.getCellValueSpecific(rowIndex, "Financial Institution");
-                 nimbisNonRoadVehicle.enternonroadFinacialHouse(financialInstitution);
-
-        } catch (Exception e) {
-            elementFunctionality.captureScreenshotOnDevice(" Error in finance");
-            System.err.println("Error handling financing: " + e.getMessage());
-            // Don't throw, just log - this might be optional
-        }
-    }
-
-    /**
-     * Fill claims history section
-     */
-    private void fillClaimsHistory(int rowIndex) throws Exception {
-        try {
-            String claims12 = EH.getCellValueSpecific(rowIndex, "Number of Non-road Vehicles claims in the last 12 months");
-            String claims24 = EH.getCellValueSpecific(rowIndex, "Number of Contents claims in the last 13 to 24 months");
-            String claims36 = EH.getCellValueSpecific(rowIndex, "Number of Contents claims in the last 25 to 36 months");
-
-            nimbisNonRoadVehicle.enternonroadClaims012(claims12);
-            nimbisNonRoadVehicle.enternonroadClaims324(claims24);
-            nimbisNonRoadVehicle.enternonroadClaims2536(claims36);
-            elementFunctionality.captureScreenshotOnDevice("Claim history");
-        } catch (Exception e) {
-            elementFunctionality.captureScreenshotOnDevice("Error in Claim history");
-            System.err.println("Error filling claims history: " + e.getMessage());
-            throw e;
-        }
-    }
-
-
-}

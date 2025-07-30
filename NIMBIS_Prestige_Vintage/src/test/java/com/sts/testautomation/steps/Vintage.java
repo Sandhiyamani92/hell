@@ -89,7 +89,7 @@ public class Vintage extends BaseTest {
                             System.setProperty("webdriver.edge.driver",
                                     "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
                             System.out.println("Creation of driver");
-                            WebDriverManager.edgedriver().setup();
+                        //    WebDriverManager.edgedriver().setup();
                             testB = new EdgeDriver();
                             testB.get(URL);
                             testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -166,13 +166,14 @@ public class Vintage extends BaseTest {
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickOpenQuote();
         Thread.sleep(2000);
-        nimbisUserNavigation.clickCoverBtn();
-        Thread.sleep(2000);
-        nimbisUserNavigation.clickVintageCover();
-        Thread.sleep(2000);
-        for (int i = 1; i <= EH.numRows; i++) {
+        commonFunctions.contentsection();
 
+        for (int i = 1; i <= 48; i++) {
 
+            nimbisUserNavigation.clickCoverBtn();
+            Thread.sleep(2000);
+            nimbisUserNavigation.clickVintageCover();
+            Thread.sleep(4000);
             nimbisUserNavigation.clickAddNewItemBtn();
 
             Thread.sleep(6000);
@@ -188,6 +189,7 @@ public class Vintage extends BaseTest {
                 if (EH.getCellValueSpecific(i, "Performance enhancing modifications").equalsIgnoreCase("Yes")) {
                     nimbisVintage.clickPerformanceModification();
                 }
+                elementFunctionality.captureScreenshotOnDevice("sum insured");
                 nimbisVintage.enterModel(EH.getCellValueSpecific(i, "Model"));
                 nimbisVintage.entervin(EH.getCellValueSpecific(i, "Vin"));
                 nimbisVintage.enterRegisterationNum(EH.getCellValueSpecific(i, "Registration Number"));
@@ -196,31 +198,38 @@ public class Vintage extends BaseTest {
                 nimbisVintage.enterengineNum(EH.getCellValueSpecific(i, "Engine Number"));
                 nimbisVintage.clickVehicle_Code_DD();
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Vehicle Code"));
+                elementFunctionality.captureScreenshotOnDevice("vintage details");
 //claims
                 nimbisVintage.enterClaims12(EH.getCellValueSpecific(i, "Regular Driver number of claims in the last 12 months, excluding glass damage"));
                 nimbisVintage.enterClaims13_24(EH.getCellValueSpecific(i, "Regular Driver number of claims in the last 13 - 24 months, excluding glass damage"));
                 nimbisVintage.enterClaims25_36(EH.getCellValueSpecific(i, "Regular Driver number of claims in the last 25 - 36 months, excluding glass damage"));
+                elementFunctionality.captureScreenshotOnDevice("claim details");
                 //driver
                 nimbisVintage.clickAllowed_driver_DD();
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Allowed Drivers"));
+                elementFunctionality.captureScreenshotOnDevice("Allowed driver");
 //situation
                 nimbisVintage.clickParking_Overnight_DD();
+                Thread.sleep(1000);
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Parking Overnight"));
+                elementFunctionality.captureScreenshotOnDevice("parking overnight");
 //cover options
                 nimbisVintage.clickClass_Of_uset_DD();
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Class of Use"));
-
+                elementFunctionality.captureScreenshotOnDevice("class of use");
 
                 if (EH.getCellValueSpecific(i, "Supported business").equalsIgnoreCase("Yes")) {
                     nimbisVintage.clickSupportedBusiness();
                 }
-
+                elementFunctionality.captureScreenshotOnDevice("supported business");
                 nimbisVintage.clickCoverType_DD();
+                Thread.sleep(3000);
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Cover Type"));
-
+                elementFunctionality.captureScreenshotOnDevice("cover type");
                 nimbisVintage.clickRestricted_Driver_DD();
+                Thread.sleep(1000);
                 nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Restricted Driver"));
-
+                elementFunctionality.captureScreenshotOnDevice("pRestricted driver");
                 commonFunctions.calculatePremium();
                 Thread.sleep(3000);
                 ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");

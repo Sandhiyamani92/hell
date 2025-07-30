@@ -96,10 +96,10 @@ public class Cyber_Insurances extends BaseTest {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
                           System.out.println("NIMBI Test started on " + currentNode.getKey());
 
-                           System.setProperty("webdriver.edge.driver",
-                                   "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
+                          System.setProperty("webdriver.edge.driver",
+                                  "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
                          System.out.println("Creation of driver");
-                         WebDriverManager.edgedriver().setup();
+                        // WebDriverManager.edgedriver().setup();
                            testB = new EdgeDriver();
                          testB.get(URL);
                            testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

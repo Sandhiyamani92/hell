@@ -30,7 +30,7 @@ public class NonRoad_UnderWritingRule extends BaseTest {
     private NIMBIS_NonRoad_Vehicle nimbisNonRoadVehicle;
     private ExcelHandler EH;
     private String Sheet;
-    private common_functions1 common;
+    private common_functions1 commonFunctions;
 
 
     @Parameters({"URL", "Device", "NIMBIS"})
@@ -139,12 +139,15 @@ public class NonRoad_UnderWritingRule extends BaseTest {
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(testB, Device);
         nimbisPrestigeContents = new NIMBIS_Prestige_Contents(testB, Device);
         nimbisNonRoadVehicle= new NIMBIS_NonRoad_Vehicle(testB,Device);
+        commonFunctions = new common_functions1(testB, Device, Sheet);
         url = URL;
-        common.searchClientandopenQuote();
+        commonFunctions.searchClientandopenQuote();
         // JavascriptExecutor js = (JavascriptExecutor) testB;
         //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickOpenQuote();
+        Thread.sleep(2000);
+        commonFunctions.contentsection();
     }
 
     @Parameters({"URL"})
@@ -173,13 +176,12 @@ public class NonRoad_UnderWritingRule extends BaseTest {
 
         nimbisNonRoadVehicle.enternonroadRegisteredOwner(EH.getCellValueSpecific(1, "Registered Owner"));
 
-        nimbisNonRoadVehicle.clickBasisOfSettlementDropDown();
-        nimbisUserNavigation.selectOption(EH.getCellValueSpecific(1, "Basis of settlement"));
+
 
 
         //claims
 
-        nimbisNonRoadVehicle.enternonroadClaims012(EH.getCellValueSpecific(1, "Number of Non-road Vehicles claims in the last 12 months"));
+        nimbisNonRoadVehicle.enternonroadClaims012("2");
 
         nimbisNonRoadVehicle.enternonroadClaims324(EH.getCellValueSpecific(1, "Number of Contents claims in the last 13 to 24 months"));
 

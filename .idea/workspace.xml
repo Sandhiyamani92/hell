@@ -5,44 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10bf6cf3-ded4-49bf-b5a9-1f32d01cac84" name="Changes" comment="&#10;TASK 162419-NIMBIS Pull request-Assests,Contents">
-      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Vintage/testngWINDOWS.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/NIMBIS_Prestige_Vintage-0.0.1-SNAPSHOT-tests.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/NIMBIS_Prestige_Vintage-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/classes/NIMBIS/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/test-classes/com/sts/testautomation/steps/Home_FieldValidation.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/test-classes/com/sts/testautomation/steps/Vintage.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/testngWINDOWS.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/src/test/java/com/sts/testautomation/steps/Legal_cost.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/src/test/java/com/sts/testautomation/steps/Legal_cost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Module/NIMBIS_Prestige_Legal_Cost/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Vintage.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_Vintage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_AssetsSpecified/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan_UnderWritingRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Caravn/src/test/java/com/sts/testautomation/steps/Caravan_UnderWritingRule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents3.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents4.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents5.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents6.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents7.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents_FieldValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Contents/src/test/java/com/sts/testautomation/steps/Contents_FieldValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/nimbisutilities/common_functions1.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/nimbisutilities/common_functions1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBISSharedClasses/src/test/java/com/sts/testautomation/pages/web/NIMBIS_UserNavigation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/src/test/java/com/sts/testautomation/steps/Cyber_Insurances.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/src/test/java/com/sts/testautomation/steps/Cyber_Insurances.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Home/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Home/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/src/test/java/com/sts/testautomation/steps/Contents_FieldValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/src/test/java/com/sts/testautomation/steps/Contents_FieldValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/target/test-classes/com/sts/testautomation/steps/Cyber_Insurances.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurances/target/test-classes/com/sts/testautomation/steps/Cyber_Insurances.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/NIMBIS_Prestige_Non_Road_Vehicle-0.0.1-SNAPSHOT-tests.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/NIMBIS_Prestige_Non_Road_Vehicle-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_Cost/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/BaseOfSettlement.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/Failed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/Fiance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/TestCase_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/Vehicle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/claimed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/sumInsured.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/ExtentReports/screenshots/vehcileType.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/src/test/java/com/sts/testautomation/steps/NonRoad_UnderWritingRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/src/test/java/com/sts/testautomation/steps/NonRoad_UnderWritingRule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/src/test/java/com/sts/testautomation/steps/NonRoad_Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/src/test/java/com/sts/testautomation/steps/NonRoad_Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_PersonalLiability/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_PersonalLiability/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_PersonalLiability/src/test/java/com/sts/testautomation/steps/Contents_FieldValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_PersonalLiability/src/test/java/com/sts/testautomation/steps/Contents_FieldValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_PersonalLiability/src/test/java/com/sts/testautomation/steps/Personal_Liability.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_PersonalLiability/src/test/java/com/sts/testautomation/steps/Personal_Liability.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Personal_Accident/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Personal_Accident/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Personal_Accident/src/test/java/com/sts/testautomation/steps/Personal_accident.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Personal_Accident/src/test/java/com/sts/testautomation/steps/Personal_accident.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Trailer/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Vintage/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Vintage/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/target/test-classes/com/sts/testautomation/steps/NonRoad_UnderWritingRule.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/target/test-classes/com/sts/testautomation/steps/NonRoad_UnderWritingRule.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/target/test-classes/com/sts/testautomation/steps/NonRoad_Vehicle.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/target/test-classes/com/sts/testautomation/steps/NonRoad_Vehicle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Vintage/src/test/java/com/sts/testautomation/steps/Vintage.java" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Vintage/src/test/java/com/sts/testautomation/steps/Vintage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NIMBIS_Prestige_Vintage/target/test-classes/com/sts/testautomation/steps/Vintage.class" beforeDir="false" afterPath="$PROJECT_DIR$/NIMBIS_Prestige_Vintage/target/test-classes/com/sts/testautomation/steps/Vintage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/azure-pipelines.yml" beforeDir="false" afterPath="$PROJECT_DIR$/azure-pipelines.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NIMBIS.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/NIMBIS.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,9 +125,10 @@
     "TestNG.Caravan.executor": "Run",
     "TestNG.Contents.Login.executor": "Run",
     "TestNG.Contents.executor": "Run",
+    "TestNG.NonRoad_Vehicle.CreateClient.executor": "Run",
     "git-widget-placeholder": "sandhiya__Finearts__frontend",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Vintage",
+    "last_opened_file_path": "C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Legal_cost",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -127,11 +144,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Legal_cost" />
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Vintage" />
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\Module\NIMBIS_Prestige_Legal_Cost" />
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_NonRoad" />
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Personal_Accident" />
-      <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\NIMBIS_Prestige_Trailer\src\test\java\com\sts\testautomation\steps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus" />
@@ -150,7 +167,7 @@
       <command value="mvn install" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml">
+  <component name="RunManager" selected="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="NIMBIS" />
       <method v="2">
@@ -216,11 +233,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Vintage/testngWINDOWS.xml" />
+        <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_Cyber_Insurances/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_AssetsSpecified/testngWINDOWS.xml" />
         <item itemvalue="TestNG.C:/Users/SandhiyaM/Documents/GitHub/qa-automation-nimbus/NIMBIS_Prestige_Caravn/testngWINDOWS.xml" />
-        <item itemvalue="TestNG.C:/Users/prave/IdeaProjects/qa-automation-nimbus/NIMBIS_Prestige_NonRoad/testngWINDOWS.xml" />
       </list>
     </recent_temporary>
   </component>
