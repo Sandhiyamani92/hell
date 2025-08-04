@@ -12,7 +12,9 @@ parameters:
 trigger:
   branches:
     include:
-      - '*' #Build all branches. You typically don't want to change this
+      - '*' #Build all branches.You typically don't want to change this
+    exclude:
+      - 'main'
 
 pool:
   vmImage: 'windows-latest'
