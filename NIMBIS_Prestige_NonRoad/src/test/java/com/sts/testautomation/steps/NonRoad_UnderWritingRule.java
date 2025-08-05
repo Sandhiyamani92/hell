@@ -1,9 +1,11 @@
 package com.sts.testautomation.steps;
 
+import com.relevantcodes.extentreports.LogStatus;
 import com.sts.testautomation.deviceConfig.AndroidNode;
 import com.sts.testautomation.deviceConfig.BrowserNode;
 import com.sts.testautomation.deviceConfig.IOSNode;
 import com.sts.testautomation.deviceConfig.Node;
+import com.sts.testautomation.extentReports.ExtentTestManager;
 import com.sts.testautomation.nimbisutilities.common_functions1;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
@@ -81,9 +83,11 @@ public class NonRoad_UnderWritingRule extends BaseTest {
                         try {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
                             System.out.println("NIMBIS Test started on " + currentNode.getKey());
+                            System.setProperty("webdriver.edge.driver",
+                                    "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
+                            System.out.println("Creation of driver");
 
-
-                            WebDriverManager.edgedriver().setup();
+                           // WebDriverManager.edgedriver().setup();
                             testB = new EdgeDriver();
                             testB.get(URL);
                             testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -131,7 +135,7 @@ public class NonRoad_UnderWritingRule extends BaseTest {
     @Parameters({"URL"})
     @Test(priority = 1, description = "Search Client")
     public void CreateClient(String URL) throws Exception {
-        EH = new ExcelHandler(Sheet, "NonRoad Test Cases", 0, 0);
+        EH = new ExcelHandler(Sheet, "Non road", 0, 0);
         nimbisLogin = new NIMBIS_Login(testB, Device);
         nimbisPrestigeClient = new NIMBIS_Prestige_Client(testB, Device);
         nimbisUserNavigation = new NIMBIS_UserNavigation(testB, Device);
@@ -144,23 +148,72 @@ public class NonRoad_UnderWritingRule extends BaseTest {
         commonFunctions.searchClientandopenQuote();
         // JavascriptExecutor js = (JavascriptExecutor) testB;
         //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-        nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickOpenQuote();
+        nimbisUserNavigation.clickCoverBtn();
         Thread.sleep(2000);
         commonFunctions.contentsection();
+        int totalRows = EH.numRows;
+        System.out.println("Processing " + (totalRows - 1) + " test cases...");
+        nimbisUserNavigation.clickCoverBtn();
+        Thread.sleep(4000);
+        nimbisUserNavigation.clickNonRoadVehicleCover();
+        Thread.sleep(3000);
+        System.out.println("add");
+        nimbisUserNavigation.clickAddNewItemBtn();
+        Thread.sleep(3000);
+        nimbisUserNavigation.changeFocus2();
+        for (int i = 1; i <= EH.numRows; i++)
+        {
+            try {
+                if (i > 1) {
+                    nimbisUserNavigation.clickCoverBtn();
+                    Thread.sleep(4000);
+                    nimbisUserNavigation.clickNonRoadVehicleCover();
+                    nimbisUserNavigation.clickeditnonroaddetails();
+                    nimbisUserNavigation.changeFocus2();
+                }
+
+                // Fill form with data from Excel
+                nimbisNonRoadVehicle.enternonroadValue(EH.getCellValueSpecific(i, "Sum Insured"));
+                nimbisNonRoadVehicle.clickVehicleTypeDropDown();
+                nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Vehicle Type"));
+                nimbisNonRoadVehicle.enternonroadMake(EH.getCellValueSpecific(i, "Make"));
+                nimbisNonRoadVehicle.enternonroadModel(EH.getCellValueSpecific(i, "Model"));
+                nimbisNonRoadVehicle.enternonroadYear(EH.getCellValueSpecific(i, "Year of manufacture"));
+                nimbisNonRoadVehicle.enternonroadRegisteredOwner(EH.getCellValueSpecific(i, "Registered Owner"));
+                elementFunctionality.captureScreenshotOnDevice("Vehicle details");
+                nimbisNonRoadVehicle.enternonroadClaims012(EH.getCellValueSpecific(i, "Number of Non-road Vehicles claims in the last 12 months"));
+                nimbisNonRoadVehicle.enternonroadClaims324(EH.getCellValueSpecific(i, "Number of Non-road Vehicles claims in the last 13 to 24 months"));
+                nimbisNonRoadVehicle.enternonroadClaims2536(EH.getCellValueSpecific(i, "Number of Non-road Vehicles claims in the last 25 to 36 months"));
+                elementFunctionality.captureScreenshotOnDevice("Claim history");
+                // Calculate premium
+                commonFunctions.UW_calculatePremium("Non road",i);
+                ExtentTestManager.getTest().log(LogStatus.PASS, "TEST CASE " + i + "Passed");
+                System.err.println("TEST CASE " + i + " Passed");
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+            }catch (Exception e) {
+                nimbisUserNavigation.changeFocusToBrowser();
+                System.out.println(e.toString());
+                Thread.sleep(1000);
+                nimbisUserNavigation.clickCloseBtn();
+                Thread.sleep(1000);
+                nimbisUserNavigation.changeFocusToBrowser();
+                Thread.sleep(3000);
+                System.out.println("Test Case  : " + i);
+                ExtentTestManager.getTest().log(LogStatus.FAIL, "TEST CASE " + i + "Failed");
+                System.err.println("TEST CASE " + i + " Failed");
+            }
+        }
     }
 
     @Parameters({"URL"})
-    @Test(priority = 2, description = "UR663-Number of Non-road vehicle claims in the last 12 months")
+    @Test(enabled=false,priority = 2, description = "UR663-Number of Non-road vehicle claims in the last 12 months")
     public void UWRule(String URL) throws Exception {
-        nimbisUserNavigation.clickCoverBtn();
-        Thread.sleep(2000);
-        nimbisUserNavigation.clickNonRoadVehicleCover();
-        Thread.sleep(2000);
-        nimbisUserNavigation.clickAddNewItemBtn();
 
-        Thread.sleep(6000);
-        nimbisUserNavigation.changeFocus2();
         nimbisNonRoadVehicle.enternonroadValue(EH.getCellValueSpecific(1, "Sum Insured"));
         //nimbisPrestigeContents.enterContentsSumInsured("10000");
 
@@ -198,7 +251,7 @@ public class NonRoad_UnderWritingRule extends BaseTest {
     }
 
     @Parameters({"URL"})
-    @Test(priority = 3, description = "UR614-Wall construction is Asbestos")
+    @Test(enabled=false,priority = 3, description = "UR614-Wall construction is Asbestos")
     public void UR614(String URL) throws Exception {
         nimbisUserNavigation.clickCoverBtn();
         Thread.sleep(2000);
@@ -245,7 +298,7 @@ public class NonRoad_UnderWritingRule extends BaseTest {
     }
 
     @Parameters({"URL"})
-    @Test(priority = 4, description = "UR622-Building use of premises residential and business")
+    @Test(enabled=false,priority = 4, description = "UR622-Building use of premises residential and business")
     public void UR622(String URL) throws Exception {
         nimbisUserNavigation.clickCoverBtn();
         Thread.sleep(2000);
@@ -292,7 +345,7 @@ public class NonRoad_UnderWritingRule extends BaseTest {
     }
 
     @Parameters({"URL"})
-    @Test(priority = 5, description = "UR627-Contents at Home which is a holiday home and no main residence on the same policy")
+    @Test(enabled=false,priority = 5, description = "UR627-Contents at Home which is a holiday home and no main residence on the same policy")
     public void UR627(String URL) throws Exception {
         nimbisUserNavigation.clickCoverBtn();
         Thread.sleep(2000);
@@ -339,7 +392,7 @@ public class NonRoad_UnderWritingRule extends BaseTest {
     }
 
     @Parameters({"URL"})
-    @Test(priority = 6, description = "UR628-Contents at Home which is not a holiday home and is unoccupied for more than 90 days per year")
+    @Test(enabled=false,priority = 6, description = "UR628-Contents at Home which is not a holiday home and is unoccupied for more than 90 days per year")
     public void UR628(String URL) throws Exception {
         nimbisUserNavigation.clickCoverBtn();
         Thread.sleep(2000);

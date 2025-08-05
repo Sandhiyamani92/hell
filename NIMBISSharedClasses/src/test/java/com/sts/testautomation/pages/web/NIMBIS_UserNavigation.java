@@ -32,7 +32,7 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//a[contains(text(),'Add a new Quote')]")
     private WebElement addNewQuote_DD ;
 
-    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i1']//input")
+    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i3']//input")
     private WebElement prestigeV2_Chkbox ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_cmbPolicyFrequency_Input']")
@@ -60,11 +60,13 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//input[@id='btnSearch']")
     private WebElement searchBtn ;
 
+    @FindBy(xpath = "//iframe[@name='GenericPopup']")
+    WebElement collectionWindow2;
 
-    @FindBy(xpath = "//a[@id='ctl00_ContentPlaceHolder1_lstResults_ctl00_ctl06_hpHeader']")
+  //  @FindBy(xpath = "//a[@id='ctl00_ContentPlaceHolder1_lstResults_ctl00_ctl06_hpHeader']")
 
-    @FindBy(xpath = "//a[text()='Vukani Shembe (9609137884085)']")
-
+  //
+  @FindBy(xpath = "//a[text()='Vukani Shembe (9609137884085)']")
     private WebElement clientResultName ;
 
     @FindBy(xpath = "(//span[@class='rtbButton'])[2]")
@@ -77,10 +79,9 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//td//a[@class='rwPopupButton']")
     private WebElement OkBtn ;
 
-    @FindBy(xpath = "//td[@class='rwWindowContent']//a//span[contains(text(),'OK')]")
+   /// @FindBy(xpath = "//td[@class='rwWindowContent']//a//span[contains(text(),'OK')]")
 
-    @FindBy(xpath = "//span[text()='OK']")
-
+   // @FindBy(xpath = "//span[text()='OK']")
     private WebElement popUpOkRateBtn ;
 
 
@@ -95,6 +96,10 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_ucLogs_ucBlackboxLogs_BlackBoxLogList_ctl00_ctl04_ViewDetails']")
     private WebElement  logsViewFirstDetails;
+
+    @FindBy(xpath = "//button[@id='ctl00_ContentPlaceHolder1_ucCover_RiskGrid.ascx_userControl_lstItemsOnQuote_ctl00_ctl04_btnEdit']")
+    private WebElement  editNonroad;
+
     public  void clickOkBtnMesseagePopup(){
         if (verifyElement.verifyBrowserElementValue(OkBtnMesseagePopup, "OkBtnMesseagePopup") == 0) {
             verifyElement.clickElement(OkBtnMesseagePopup,"OkBtnMesseagePopup");
@@ -116,6 +121,12 @@ public class NIMBIS_UserNavigation {
         }
     }
 
+    public  void clickeditnonroaddetails(){
+        if (verifyElement.verifyBrowserElementValue(editNonroad, "Edit non road") == 0) {
+            verifyElement.clickElement(editNonroad,"Edit non road");
+        }
+    }
+
     @FindBy(xpath = "//span[@class='rwCommandButton rwCloseButton']")
     WebElement closeBtn;
 
@@ -124,8 +135,7 @@ public class NIMBIS_UserNavigation {
 
 
 
-    @FindBy(xpath = "//iframe[@name='GenericPopup']")
-    WebElement collectionWindow2;
+
 
 
     @FindBy(xpath = "//iframe[@name='alert1748804661282']")
@@ -147,10 +157,9 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//form[@id='formPopup']//iframe[@name='SelectPerson']")
     WebElement driverIframe;
 
-    @FindBy(xpath = "//li//span[contains(text(),'Calculate Coverage Premiums')]")
+  //  @FindBy(xpath = "//li//span[contains(text(),'Calculate Coverage Premiums')]")
 
     @FindBy(xpath = "//span[text()='Calculate Coverage Premiums']")
-
     WebElement calculatePremiumBtn;
 
     @FindBy(xpath = "(//*[@id='ctl00_ContentPlaceHolder1_SectionToolbar']//span[@title='Add item to quote'])[1]")
@@ -198,11 +207,11 @@ public class NIMBIS_UserNavigation {
 
 
 
-    @FindBy(xpath = "//span[@class='rwCommandButton rwCloseButton']")
-    WebElement closeBtn;
+ //   @FindBy(xpath = "//span[@class='rwCommandButton rwCloseButton']")
+ //   WebElement closeBtn;
 
-    @FindBy(xpath = "//td//a[@class='rwPopupButton']")
-    private WebElement OkBtn ;
+//   / @FindBy(xpath = "//td//a[@class='rwPopupButton']")
+//    private WebElement OkBtn ;
 
 
     @FindBy(xpath = "//iframe[@name='GenericPopup']")
@@ -216,9 +225,8 @@ public class NIMBIS_UserNavigation {
 
     @FindBy(xpath = "//*[@id='RadWindowWrapper_ctl00_GenericPopup']//span[@title='Close']")
     WebElement closebtn;
-    public  void clickCloseBtn(){
-        verifyElement.clickElement(closeBtn,"Close Button");
-    }
+
+
 
     public  void clickCancelBtn(){
         verifyElement.clickElement(cancelBtn,"cancelBtn");
@@ -342,12 +350,7 @@ public class NIMBIS_UserNavigation {
         nextBtn.click();
     }
 
-    public void clickOkBtn() {
 
-        if (verifyElement.verifyBrowserElementValue(OkBtn, "Ok") == 0) {
-            verifyElement.clickElement(OkBtn,"Ok");
-        }
-    }
 
     public void clickCloseBtn(){
         if (verifyElement.verifyBrowserElementValue(closebtn, "Close button") == 0) {
@@ -560,10 +563,8 @@ public class NIMBIS_UserNavigation {
     }
 
     public void selectOption(String option){
-        WebElement item = BrowserDriver.findElement(By.xpath("//li[@class='rcbItem' and contains(normalize-space(.),'" + option +"')]"));;
-      //  WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(normalize-space(text()), '" + option +"')]"));;
-   //     WebDriverWait wait = new WebDriverWait(BrowserDriver, 200);
-     //   wait.until(ExpectedConditions.elementToBeClickable(item));
+        WebElement item = BrowserDriver.findElement(By.xpath("//li[contains(normalize-space(.),'" + option +"')]"));;
+
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
 
@@ -575,9 +576,11 @@ public class NIMBIS_UserNavigation {
         }
     }
 
-    public void selectOptionradiobox(String option){
-        WebElement item = BrowserDriver.findElement(By.xpath("//label[contains(text(),'" + option +"')]"));;
-    public void clickMotorCover() {
+    public void selectOptionradiobox(String option) {
+        WebElement item = BrowserDriver.findElement(By.xpath("//label[contains(text(),'" + option + "')]"));
+        item.click();
+    }//label[contains(text(),'Farms')]
+        public void clickMotorCover() {
 
         if (verifyElement.verifyBrowserElementValue(motorCover, "Motor Vehicle Cover") == 0) {
             verifyElement.clickElement(motorCover,"Motor Vehicle Cover");
@@ -603,7 +606,7 @@ public class NIMBIS_UserNavigation {
     }
 
 
-    public void selectOption(String option) throws InterruptedException {
+   /* public void selectOption(String option) throws InterruptedException {
         WebElement item = BrowserDriver.findElement(By.xpath("//li[text()= '"+option+"']"));;
         if(verifyElement.verifyBrowserElementValue(item, option) == 0)
         {
@@ -616,7 +619,7 @@ public class NIMBIS_UserNavigation {
         {
             System.err.println("Element"+ option+"couldnt be found " );
         }
-    }
+    }*/
     public void selectAddress() throws InterruptedException {
         WebElement item = BrowserDriver.findElement(By.xpath("(//ul[@class='racList'])[1]//li[1]"));;
         if(verifyElement.verifyBrowserElementValue(item,"Address") == 0)
