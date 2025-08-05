@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurance/NIMBIS_Prestige_Cyber_Insurance.iml" filepath="$PROJECT_DIR$/NIMBIS_Prestige_Cyber_Insurance/NIMBIS_Prestige_Cyber_Insurance.iml" />
-      <module fileurl="file://$PROJECT_DIR$/NIMBIS_Prestige_Legal_cost/NIMBIS_Prestige_Legal_cost.iml" filepath="$PROJECT_DIR$/NIMBIS_Prestige_Legal_cost/NIMBIS_Prestige_Legal_cost.iml" />
       <module fileurl="file://$PROJECT_DIR$/Tial_Home_Prestige/Tial_Home_Prestige.iml" filepath="$PROJECT_DIR$/Tial_Home_Prestige/Tial_Home_Prestige.iml" />
     </modules>
   </component>

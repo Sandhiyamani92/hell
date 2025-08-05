@@ -6,6 +6,9 @@ import com.sts.testautomation.pages.web.NIMBIS_UserNavigation;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
 import com.sts.testautomation.utilities.ElementFunctionality;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.tools.ant.util.KeepAliveOutputStream;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -13,6 +16,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -29,7 +34,10 @@ public class common_functions1 {
     private String Sheet;
     private NIMBIS_Prestige_Home nimbisPrestigeHome;
     private NIMBIS_Prestige_Contents nimbisPrestigeContents;
-
+    private ExcelHandler EH;
+    private static final String EXCEL_FILE_PATH_front = "C:\\Users\\SandhiyaM\\Documents\\GitHub\\qa-automation-nimbus\\src\\NIMBIS.xlsx";
+    private static XSSFSheet ExcelWSheet;
+    private static XSSFWorkbook ExcelWBook;
     public common_functions1(WebDriver browserDriver, String Device, String sheet) {
         this.BrowserDriver = browserDriver;
         this.Device = Device;
@@ -43,7 +51,85 @@ public class common_functions1 {
     // ... (keep all your existing dropdown validation methods - they look good)
 
 
+public void UW_calculatePremium(String SheetName, int rowNum) throws Exception {
+    nimbisUserNavigation.clickSaveBtn();
+    Thread.sleep(7000);
+    elementFunctionality.switchOutOfBrowserFrame();
+    Thread.sleep(3000);
+    nimbisUserNavigation.clickCalculatePremiumBtn();
+    Thread.sleep(6000);
+    nimbisUserNavigation.changeFocus2();
+    elementFunctionality.captureScreenshotOnDevice("Msg");
+    List<WebElement> textAreas = BrowserDriver.findElements(By.xpath("//td//div[@class='rwDialogText']"));
+    String messageToWrite = "No Message is Displayed"; // default
 
+    if (!textAreas.isEmpty()) {
+        WebElement textArea = textAreas.get(0);
+
+        if (textArea.isDisplayed()) {
+            List<WebElement> listItems = textArea.findElements(By.tagName("li"));
+            StringBuilder combinedText = new StringBuilder();
+
+            for (WebElement item : listItems) {
+                System.out.println(item.getText());
+                combinedText.append(item.getText()).append(", ");
+            }
+
+            if (combinedText.length() > 0) {
+                combinedText.setLength(combinedText.length() - 2); // remove last comma
+                messageToWrite = combinedText.toString();
+            }
+            nimbisUserNavigation.clickOkBtn();
+        }
+    }
+
+    write_Extracted_rule_to_Sheet(
+            "C:\\Users\\SandhiyaM\\Documents\\GitHub\\qa-automation-nimbus\\src\\UW.xlsx",SheetName,rowNum , 4, messageToWrite
+    );
+
+    nimbisUserNavigation.clickpremiumsaveBtn();
+
+    //
+    Thread.sleep(3000);
+
+    nimbisUserNavigation.changeFocusToBrowser();
+
+    nimbisUserNavigation.clickCloseBtn();
+
+
+    Thread.sleep(1000);
+    nimbisUserNavigation.changeFocusToBrowser();
+    Thread.sleep(1000);
+    nimbisUserNavigation.clickLogsTabBtn();
+    Thread.sleep(1000);
+    nimbisUserNavigation.clickPremiumBlackBoxTabBtn();
+    Thread.sleep(1000);
+    nimbisUserNavigation.clickLogsViewFirstDetails();
+
+
+    Thread.sleep(1000);
+
+    nimbisUserNavigation.changeFocus2();
+    Thread.sleep(1000);
+    nimbisUserNavigation.clickBlackBoxInput();
+    Thread.sleep(1000);
+    String textIn =  BrowserDriver.findElement(By.id("ContentPlaceHolder1_txtBBXMLInput")).getAttribute("value");
+    System.out.println(textIn);
+    write_Extracted_rule_to_Sheet("C:\\Users\\SandhiyaM\\Documents\\GitHub\\qa-automation-nimbus\\src\\UW.xlsx",SheetName,rowNum ,5,textIn);
+
+
+    nimbisUserNavigation.clickBlackBoxRawViewIn();
+    Thread.sleep(1000);
+    nimbisUserNavigation.clickBlackBoxOutput();
+    Thread.sleep(1000);
+    nimbisUserNavigation.clickBlackBoxRawViewOut();
+    Thread.sleep(1000);
+
+    String textOut =  BrowserDriver.findElement(By.id("ContentPlaceHolder1_txtBBXMLOutput")).getAttribute("value");
+    System.out.println(textOut);
+    write_Extracted_rule_to_Sheet("C:\\Users\\SandhiyaM\\Documents\\GitHub\\qa-automation-nimbus\\src\\UW.xlsx",SheetName,rowNum ,6,textOut);
+
+}
     public void calculatePremium() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(BrowserDriver, 20);
@@ -147,7 +233,7 @@ public class common_functions1 {
         nimbisUserNavigation.clickPrestigeV2_Chkbox();
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickNextBtn();
-        nimbisUserNavigation.clickPopUpOkBtn();
+       // nimbisUserNavigation.clickPopUpOkBtn();
         nimbisUserNavigation.clickNextBtn();
         nimbisUserNavigation.clickOpenQuote();
         Thread.sleep(2000);
@@ -193,7 +279,7 @@ public class common_functions1 {
     public void contentsection() throws Exception {
         nimbisPrestigeHome = new NIMBIS_Prestige_Home(BrowserDriver, Device);
         nimbisPrestigeContents = new NIMBIS_Prestige_Contents(BrowserDriver, Device);
-        EH1 = new ExcelHandler(Sheet, "Content Test Cases", 0, 0);
+        EH1 = new ExcelHandler(EXCEL_FILE_PATH_front, "Content Test Cases", 0, 0);
         nimbisUserNavigation.clickCoverBtn();
         Thread.sleep(2000);
         nimbisUserNavigation.clickContentsCover();
@@ -217,11 +303,13 @@ public class common_functions1 {
 
         nimbisPrestigeContents.clickNCB_DropDown();
         nimbisUserNavigation.selectOption(EH1.getCellValueSpecific(1, "NCB"));
-
+        Thread.sleep(4000);
+     System.out.println("ncb");
         //add prvious uninterupted,commune,adjoining land
         nimbisPrestigeContents.clickPreviousUninterruptedBuildingsInsurance(EH1.getCellValueSpecific(1, "Years of previous uninterrupted contents insurance cover"));
 
         nimbisPrestigeContents.clickUseOfAdjoiningLandDropDown();
+        Thread.sleep(1000);
         nimbisUserNavigation.selectOptionradiobox(EH1.getCellValueSpecific(1, "Use of adjoining land"));
         //  nimbisPrestigeContents.enter
 
@@ -254,14 +342,47 @@ public class common_functions1 {
 
         //claims
 
-        nimbisPrestigeContents.enterNumberOfClaimsLast12month(EH1.getCellValueSpecific(1, "Number of Contents claims in the last 12 months"));
+        nimbisPrestigeContents.enterNumberOfClaimsLast12month("0");
 
-        nimbisPrestigeContents.enterNumberOfClaimsLast24month(EH1.getCellValueSpecific(1, "Number of Contents claims in the last 13 to 24 months"));
+        nimbisPrestigeContents.enterNumberOfClaimsLast24month("0");
 
-        nimbisPrestigeContents.enterNumberOfClaimsLast36month(EH1.getCellValueSpecific(1, "Number of Contents claims in the last 25 to 36 months"));
+        nimbisPrestigeContents.enterNumberOfClaimsLast36month("0");
         calculatePremium();
     }
 
+    public void write_Extracted_rule_to_Sheet(String FilePath, String SheetName, int rowNum, int colNum, String element) throws Exception {
+
+        try {
+
+
+            FileInputStream ExcelFile = new FileInputStream(FilePath);
+
+            // Access the required test data sheet
+
+            ExcelWBook = new XSSFWorkbook(ExcelFile);
+
+            ExcelWSheet = ExcelWBook.getSheet(SheetName);
+
+            int numRows = ExcelWSheet.getLastRowNum() + 1;
+
+            ExcelWSheet.getRow(rowNum).createCell(colNum).setCellValue(element);
+
+            ExcelWBook.write(new FileOutputStream(FilePath));
+
+            FileOutputStream fileOut = new FileOutputStream(FilePath);
+            ExcelWBook.write(fileOut);
+            fileOut.close();
+            ExcelWBook.close();
+            System.out.println("Completed writing extracted rule");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Something went wrong");
+        }
+
+
+    }
 
     // Keep all your existing dropdown validation methods here...
     // (I'm not including them to keep the response concise, but keep all the dropdown validation methods)
