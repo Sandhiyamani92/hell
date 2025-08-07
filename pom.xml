@@ -304,7 +304,7 @@
     <modules>
       <module>NIMBISSharedClasses</module>
 
-        <module>Module</module>
+        <!--<module>Module</module>-->
         <module>NIMBIS_Prestige_Client</module>
         <module>NIMBIS_Prestige_AssetsSpecified</module>
         <module>NIMBIS_Prestige_Home</module>
