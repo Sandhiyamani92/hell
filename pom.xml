@@ -18,8 +18,8 @@
 	      </activation>
 	      
 	       <properties>
-		<jre.level>1.8</jre.level>
-		<jdk.level>1.8</jdk.level>
+		<jre.level>21</jre.level>
+		<jdk.level>21</jdk.level>
 
 
 
@@ -276,8 +276,8 @@
 <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
-    <version>1.18.12</version>
-    <scope>provided</scope>
+    <version>1.18.38</version>
+    <!--<scope>provided</scope>-->
 </dependency>
  <dependency>
     <groupId>org.im4java</groupId>
