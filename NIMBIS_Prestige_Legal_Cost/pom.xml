@@ -7,7 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>NIMBIS_Prestige_Vintage</artifactId>
+    <artifactId>NIMBIS_Prestige_Legal_Cost</artifactId>
     <packaging>jar</packaging>
 
     <name>NIMBIS_Prestige_Vintage</name>
