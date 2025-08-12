@@ -347,7 +347,9 @@ public void UW_calculatePremium(String SheetName, int rowNum) throws Exception {
         nimbisPrestigeContents.enterNumberOfClaimsLast24month("0");
 
         nimbisPrestigeContents.enterNumberOfClaimsLast36month("0");
-        calculatePremium();
+        nimbisUserNavigation.clickSaveBtn();
+       // calculatePremium();
+        nimbisUserNavigation.changeFocusToBrowser();
     }
 
     public void write_Extracted_rule_to_Sheet(String FilePath, String SheetName, int rowNum, int colNum, String element) throws Exception {

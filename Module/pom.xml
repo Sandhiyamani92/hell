@@ -12,7 +12,7 @@
     <artifactId>Module</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>NIMBIS_Prestige_Legal_Cost</module>
+        <module>Module</module>
     </modules>
 
     <properties>

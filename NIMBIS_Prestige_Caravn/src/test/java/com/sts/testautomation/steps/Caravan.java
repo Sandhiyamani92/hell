@@ -21,6 +21,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -36,17 +37,21 @@ public class Caravan extends BaseTest {
     private ExcelHandler EH;
     private String Sheet;
 
-
+    String projectPath = System.getProperty("user.dir");
+    File currentDir = new File(projectPath);
+    File parentDir = currentDir.getParentFile();
+    String basePath = parentDir.getAbsolutePath();
+    String excelPath = basePath + File.separator + "src" + File.separator + "NIMBIS.xlsx";
     @Parameters({"URL", "Device", "NIMBIS"})
     @BeforeClass(description = "Instantiate Grid")
-    public void setupTest(String URL, String device, String datasheet) {
+    public void setupTest(String URL, String device) {
         try {
             HashSetup.SetUpBrowser();
 
             System.out.println("Instantiating Nodes");
             url = URL;
             Device = device;
-            Sheet = datasheet;
+            Sheet = excelPath;
 
             for (Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet()) {
                 if (currentNode.getKey().equals(Device)) {
@@ -85,9 +90,17 @@ public class Caravan extends BaseTest {
                         try {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
                             System.out.println("NIMBIS Test started on " + currentNode.getKey());
+                            String projectPath = System.getProperty("user.dir");
+                            File currentDir = new File(projectPath);
+                            File parentDir = currentDir.getParentFile();
+                            String basePath = parentDir.getAbsolutePath();
+                            System.out.println("Base path: " + basePath);
+                            String relativePath = "Browser" + File.separator + "edgedriver_win64" + File.separator + "msedgedriver.exe";
+                            String driverPath = basePath + File.separator + relativePath;
 
+                            System.setProperty("webdriver.edge.driver", driverPath);
 
-                            WebDriverManager.edgedriver().setup();
+                           // WebDriverManager.edgedriver().setup();
                             testB = new EdgeDriver();
                             testB.get(URL);
                             testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

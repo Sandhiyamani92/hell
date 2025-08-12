@@ -17,21 +17,20 @@ import com.sts.testautomation.nimbisutilities.common_functions1;
 import com.sts.testautomation.pages.web.*;
 import com.sts.testautomation.utilities.ElementFunctionality;
 import com.sts.testautomation.utilities.ExcelHandler;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import java.util.concurrent.TimeUnit;
 
 public class Cyber_Insurances extends BaseTest {
     private NIMBIS_Login nimbisLogin;
@@ -44,18 +43,24 @@ public class Cyber_Insurances extends BaseTest {
     private ExcelHandler EH;
     private String Sheet;
 
+    String projectPath = System.getProperty("user.dir");
+    File currentDir = new File(projectPath);
+    File parentDir = currentDir.getParentFile();
+    String basePath = parentDir.getAbsolutePath();
+    String excelPath = basePath + File.separator + "src" + File.separator + "NIMBIS.xlsx";
 
-    @Parameters({"URL", "Device", "NIMBIS"})
+    @Parameters({"URL", "Device"})
     @BeforeClass(description = "Instantiate Grid")
-    public void setupTest(String URL, String device, String datasheet) {
+    public void setupTest(String URL, String device) {
 
         try {
+            System.out.println(excelPath);
             HashSetup.SetUpBrowser();
 
             System.out.println("Instantiating Nodes");
             url = URL;
             Device = device;
-            Sheet = datasheet;
+            Sheet = excelPath;
 
             //Loop runs through all the Nodes in the Grid and performs the tests on them
             for (Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet()) {
@@ -96,21 +101,46 @@ public class Cyber_Insurances extends BaseTest {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
                           System.out.println("NIMBI Test started on " + currentNode.getKey());
 
-                          System.setProperty("webdriver.edge.driver",
-                                  "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
-                         System.out.println("Creation of driver");
-                        // WebDriverManager.edgedriver().setup();
-                           testB = new EdgeDriver();
-                         testB.get(URL);
-                           testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-                         testB.manage().window().maximize();
+                        /* System.setProperty("webdriver.edge.driver",
+                               "C:\\Users\\SandhiyaM\\Documents\\edgedriver_win64\\msedgedriver.exe");
+                        System.out.println("Creation of driver");*/
 
-                        //   WebDriverManager.edgedriver().setup();
-                         //  Map<String, Object> edgeOptionsMap = new HashMap<>();
-                          //   edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
-                           //  EdgeOptions options = new EdgeOptions();options.setCapability("ms:edgeOptions", edgeOptionsMap);
-                             //  testB = new EdgeDriver(options);
-                             // testB.get(URL);
+                            String projectPath = System.getProperty("user.dir");
+                            File currentDir = new File(projectPath);
+                            File parentDir = currentDir.getParentFile();
+                            String basePath = parentDir.getAbsolutePath();
+                            System.out.println("Base path: " + basePath);
+                            String relativePath = "Browser" + File.separator + "edgedriver_win64" + File.separator + "msedgedriver.exe";
+                            String driverPath = basePath + File.separator + relativePath;
+
+                            System.setProperty("webdriver.edge.driver", driverPath);
+                      //   WebDriverManager.edgedriver().setup();
+                        /* testB = new EdgeDriver();
+                      testB.get(URL);
+                         testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+                         testB.manage().window().maximize();*/
+
+                       //   WebDriverManager.edgedriver().setup();
+                         Map<String, Object> edgeOptionsMap = new HashMap<>();
+                           edgeOptionsMap.put("args", Arrays.asList("--headless", "--disable-gpu", "--window-size=1920,1080"));
+                            EdgeOptions options = new EdgeOptions();options.setCapability("ms:edgeOptions", edgeOptionsMap);
+                              testB = new EdgeDriver(options);
+                            testB.get(URL);
+
+
+                          /*  Map<String, Object> edgeOptionsMap = new HashMap<>();
+                            edgeOptionsMap.put("args", Arrays.asList(
+                                    "--headless",
+                                    "--disable-gpu",
+                                    "--window-size=1920,1080",
+                                    "--no-sandbox",
+                                    "--disable-dev-shm-usage"
+                            ));
+
+                            EdgeOptions options = new EdgeOptions();
+                            options.setCapability("ms:edgeOptions", edgeOptionsMap);
+                            testB = new EdgeDriver(options);
+                            testB.get(URL);*/
 
 
                         } catch (Exception e) {
@@ -174,27 +204,43 @@ public class Cyber_Insurances extends BaseTest {
             nimbisUserNavigation.clickClientResultName();
             Thread.sleep(3000);
             nimbisUserNavigation.clickAddNewQuote();
-            nimbisUserNavigation.clickPrestigeV2_Chkbox();
+        Thread.sleep(3000);
+        elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
+        WebElement prestigeV2Checkbox = testB.findElement(
+                By.xpath("//label[contains(text(), 'Hollard Prestige Portfolio - V2')]//input[@type='checkbox']")
+        );
+
+// Use JavaScript to click
+        JavascriptExecutor js = (JavascriptExecutor) testB;
+        js.executeScript("arguments[0].click();", prestigeV2Checkbox);
+           // nimbisUserNavigation.clickPrestigeV2_Chkbox();
+        elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickNextBtn();
-            nimbisUserNavigation.clickPopUpOkBtn();
+           // nimbisUserNavigation.clickPopUpOkBtn();
         //js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
             nimbisUserNavigation.clickNextBtn();
             nimbisUserNavigation.clickOpenQuote();
             Thread.sleep(1000);
-            nimbisUserNavigation.clickCoverBtn();
+       // commonFunctions.contentsection();
+          nimbisUserNavigation.clickCoverBtn();
+        elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
+        Thread.sleep(1000);
             nimbisUserNavigation.clickCyberinsuranceCover();
             Thread.sleep(2000);
-        for (int i = 1; i <=EH.numRows; i++) {
+        for (int i = 1; i <EH.numRows; i++) {
+            Thread.sleep(2000);
+            elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
             nimbisUserNavigation.clickAddNewItemBtn();
 
             try{
             Thread.sleep(3000);
             nimbisUserNavigation.changeFocus2();
+                elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
             nimbisCyberInsurance.clickCyberInsuranceCoverDropDown();
-            Thread.sleep(500);
+            Thread.sleep(1000);
 
-
+                elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
             nimbisUserNavigation.selectOption(EH.getCellValueSpecific(i, "Cyber insurance cover option"));
                 elementFunctionality.captureScreenshotOnDevice("cyber insurance cover option");
 
@@ -206,9 +252,10 @@ public class Cyber_Insurances extends BaseTest {
                 nimbisCyberInsurance.clickCoverForChilderToggleButton();
                 elementFunctionality.captureScreenshotOnDevice("cyber insurance cover for Children");
             }
-
-                commonFunctions.calculatePremium();
-            Thread.sleep(3000);
+                nimbisUserNavigation.clickSaveBtn();
+                nimbisUserNavigation.changeFocusToBrowser();
+             // commonFunctions.calculatePremium();
+            Thread.sleep(2000);
                 ExtentTestManager.getTest().log(LogStatus.PASS,"TEST CASE " + i + "Passed");
              //   ExtentTestManager.getTest().get( "TEST CASE " + i + "Passed");
             System.err.println("TEST CASE " + i + " Passed");
@@ -239,6 +286,34 @@ public class Cyber_Insurances extends BaseTest {
                 break;
             }
         }
+    }
+
+    private static String getExcelFilePath() {
+        String projectPath = System.getProperty("user.dir");
+        String excelPath = projectPath + File.separator + "NIMBIS_Prestige_Cyber_Insurances" +
+                File.separator + "src" + File.separator + "test" +
+                File.separator + "resources" + File.separator + "NIMBIS.xlsx";
+
+        // Check if file exists, if not try alternative paths
+        File excelFile = new File(excelPath);
+        if (!excelFile.exists()) {
+            // Try relative path from current module
+            excelPath = "src" + File.separator + "test" + File.separator + "resources" + File.separator + "NIMBIS.xlsx";
+            excelFile = new File(excelPath);
+
+            if (!excelFile.exists()) {
+                // Try absolute path as last resort
+                excelPath = "C:" + File.separator + "Users" + File.separator + "SandhiyaM" +
+                        File.separator + "Documents" + File.separator + "GitHub" +
+                        File.separator + "qa-automation-nimbus" + File.separator +
+                        "NIMBIS_Prestige_Cyber_Insurances" + File.separator + "src" +
+                        File.separator + "test" + File.separator + "resources" +
+                        File.separator + "NIMBIS.xlsx";
+            }
+        }
+
+        System.out.println("Excel file path: " + excelPath);
+        return excelPath;
     }
 }
 

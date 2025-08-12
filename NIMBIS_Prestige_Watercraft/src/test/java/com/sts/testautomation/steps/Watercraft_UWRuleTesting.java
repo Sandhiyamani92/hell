@@ -21,6 +21,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
@@ -103,8 +104,16 @@ public class Watercraft_UWRuleTesting extends BaseTest {
 //                            testB = new EdgeDriver(options);
 
                          //  WebDriverManager.edgedriver().setup();
-                            System.setProperty("webdriver.edge.driver",
-                                    "C:\\Users\\NathanielS\\Documents\\edgedriver_win64\\msedgedriver.exe");
+                            String projectPath = System.getProperty("user.dir");
+                            File currentDir = new File(projectPath);
+                            File parentDir = currentDir.getParentFile();
+                            String basePath = parentDir.getAbsolutePath();
+                            System.out.println("Base path: " + basePath);
+                            String relativePath = "Browser" + File.separator + "edgedriver_win64" + File.separator + "msedgedriver.exe";
+                            String driverPath = basePath + File.separator + relativePath;
+
+                            System.setProperty("webdriver.edge.driver", driverPath);
+
                             System.out.println("Creation of driver");
                             EdgeOptions options = new EdgeOptions();
                             Map<String, Object> edgeOptionsMap = new HashMap<>();
