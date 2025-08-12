@@ -13,6 +13,7 @@
       <class name="com.sts.testautomation.steps.Cyber_Insurances">
         <methods>
           <include name="setupTest"/>
+          <include name="Login" invocation-numbers="0"/>
           <include name="CreateClient" invocation-numbers="0"/>
           <include name="setup"/>
         </methods>

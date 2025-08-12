@@ -12,7 +12,7 @@
 <!--       <parameter name="URL" value="https://core.nimbis.co.za/"/>-->
        <parameter name="URL" value="https://uat.nimbis.co.za/"/>
 <!--       <parameter name="NIMBIS" value="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\src\NIMBIS.xlsx"/>-->
-       <parameter name="NIMBIS" value="C:\Users\NathanielS\Documents\GitHub\qa-automation-nimbus\src\NIMBIS UWRules.xlsx"/>
+       <parameter name="NIMBIS" value="C:\Users\SandhiyaM\Documents\GitHub\qa-automation-nimbus\src\NIMBIS UWRules.xlsx"/>
 
 
        <classes>

@@ -32,7 +32,9 @@ public class NIMBIS_UserNavigation {
     @FindBy(xpath = "//a[contains(text(),'Add a new Quote')]")
     private WebElement addNewQuote_DD ;
 
-    @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i3']//input")
+   // @FindBy(xpath = "//li[@id='ctl00_ContentPlaceHolder1_BrokerProductList_i3']//input")
+   // private WebElement prestigeV2_Chkbox ;
+    @FindBy(xpath = "/html/body/form/div[6]/div[3]/div[2]/div/div[6]/div[2]/div/div[2]/table/tbody/tr[1]/td/div/div/ul/li[4]//input")
     private WebElement prestigeV2_Chkbox ;
 
     @FindBy(xpath = "//input[@id='ctl00_ContentPlaceHolder1_cmbPolicyFrequency_Input']")

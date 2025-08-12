@@ -18,6 +18,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -32,17 +33,21 @@ public class Personal_accident extends BaseTest {
     private NIMBIS_Personal_Accident personal_accident;
     private common_functions1 common;
 
+    String projectPath = System.getProperty("user.dir");
+    File currentDir = new File(projectPath);
+    File parentDir = currentDir.getParentFile();
+    String basePath = parentDir.getAbsolutePath();
+    String excelPath = basePath + File.separator + "src" + File.separator + "NIMBIS.xlsx";
 
-
-    @Parameters({"URL", "Device", "NIMBIS"})
+    @Parameters({"URL", "Device"})
     @BeforeClass(description = "Instantiate Grid")
-    public void setupTest(String URL, String device, String datasheet) {
+    public void setupTest(String URL, String device) {
         try {
             HashSetup.SetUpBrowser();
             System.out.println("Instantiating Nodes");
             url = URL;
             Device = device;
-            Sheet = datasheet;
+            Sheet = excelPath;
 
             //Loop runs through all the Nodes in the Grid and performs the tests on them
             for (Map.Entry<String, Node> currentNode : SeleniumGrid.entrySet()) {
@@ -73,8 +78,17 @@ public class Personal_accident extends BaseTest {
                     else if (currentNode.getValue() instanceof BrowserNode) {
                         try {
                             BrowserNode bNode = ((BrowserNode) currentNode.getValue());
-                            System.out.println("Tial Test started on " + currentNode.getKey());
-                            WebDriverManager.edgedriver().setup();
+                            System.out.println("NIMBIS Test started on " + currentNode.getKey());
+                            String projectPath = System.getProperty("user.dir");
+                            File currentDir = new File(projectPath);
+                            File parentDir = currentDir.getParentFile();
+                            String basePath = parentDir.getAbsolutePath();
+                            System.out.println("Base path: " + basePath);
+                            String relativePath = "Browser" + File.separator + "edgedriver_win64" + File.separator + "msedgedriver.exe";
+                            String driverPath = basePath + File.separator + relativePath;
+
+                            System.setProperty("webdriver.edge.driver", driverPath);
+                           // WebDriverManager.edgedriver().setup();
                             testB = new EdgeDriver();
                             testB.get(URL);
                             testB.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

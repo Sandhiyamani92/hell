@@ -1,0 +1,90 @@
+# Created at 2025-08-08T13:57:19.897
+TestSet has not finished before stream error has appeared >> initializing exit by non-null configuration: DEFAULT
+java.io.EOFException
+	at java.base/java.io.DataInputStream.readFully(DataInputStream.java:215)
+	at java.base/java.io.DataInputStream.readInt(DataInputStream.java:390)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.base/java.lang.Thread.run(Thread.java:1447)
+
+
+# Created at 2025-08-08T13:57:22.241
+Unexpected IOException with stream: Mega
+
+
+# Created at 2025-08-08T13:57:22.263
+Unexpected IOException with stream: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//li[@class='rcbItem' and contains(normalize-space(.),'Mega')]"}
+  (Session info: MicrosoftEdge=138.0.3351.77)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'HSSHIALMVM15', ip: '172.19.116.226', os.name: 'Windows Server 2022', os.arch: 'amd64', os.version: '10.0', java.version: '24'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 138.0.3351.77, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:52538}, msedge: {msedgedriverVersion: 138.0.3351.95 (b095f7295f46..., userDataDir: C:\Users\SANDHI~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b86a440df970d71cfd9eb9416b2d76b3
+*** Element info: {Using=xpath, value=//li[@class='rcbItem' and contains(normalize-space(.),'Mega')]}
+
+
+# Created at 2025-08-08T13:57:23.443
+Unexpected IOException with stream: Close button was clicked on Chrome
+
+
+# Created at 2025-08-08T13:57:27.459
+Unexpected IOException with stream: Test Case  : 5
+
+
+# Created at 2025-08-08T13:57:27.467
+Unexpected IOException with stream: TEST CASE 5 Failed
+
+
+# Created at 2025-08-08T13:57:30.450
+Unexpected IOException with stream: Add New Item was clicked on Chrome
+
+
+# Created at 2025-08-08T13:57:33.508
+Unexpected IOException with stream: Switch focus to pop up frame displayed on Chrome
+
+
+# Created at 2025-08-08T13:57:33.586
+Unexpected IOException with stream: Successfully switched to Switch focus to pop up frame
+
+
+# Created at 2025-08-08T13:57:54.486
+Unexpected IOException with stream: Giga
+
+
+# Created at 2025-08-08T13:57:54.525
+Unexpected IOException with stream: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//li[@class='rcbItem' and contains(normalize-space(.),'Giga')]"}
+  (Session info: MicrosoftEdge=138.0.3351.77)
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.13.0', revision: '2f0d292', time: '2018-06-25T15:24:21.231Z'
+System info: host: 'HSSHIALMVM15', ip: '172.19.116.226', os.name: 'Windows Server 2022', os.arch: 'amd64', os.version: '10.0', java.version: '24'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 138.0.3351.77, fedcm:accounts: true, javascriptEnabled: true, ms:edgeOptions: {debuggerAddress: localhost:52538}, msedge: {msedgedriverVersion: 138.0.3351.95 (b095f7295f46..., userDataDir: C:\Users\SANDHI~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b86a440df970d71cfd9eb9416b2d76b3
+*** Element info: {Using=xpath, value=//li[@class='rcbItem' and contains(normalize-space(.),'Giga')]}
+
+
+# Created at 2025-08-08T13:57:56.583
+Unexpected IOException with stream: Close button was clicked on Chrome
+
+
+# Created at 2025-08-08T13:58:00.607
+Unexpected IOException with stream: Test Case  : 6
+
+
+# Created at 2025-08-08T13:58:00.685
+Unexpected IOException with stream: TEST CASE 6 Failed
+
+
+# Created at 2025-08-08T13:58:07.801
+Unexpected IOException with stream: Add New Item was clicked on Chrome
+
+
+# Created at 2025-08-08T13:58:11.297
+Unexpected IOException with stream: Switch focus to pop up frame displayed on Chrome
+
+
+# Created at 2025-08-08T13:58:11.360
+Unexpected IOException with stream: Successfully switched to Switch focus to pop up frame
+
+
