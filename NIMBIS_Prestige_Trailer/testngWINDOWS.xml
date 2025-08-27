@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Hollard Automation Testing on Windows Controller" parallel="tests" thread-count="15" verbose="5">
   <listeners>
-        <listener class-name="com.sts.testautomation.listeners.TestListener"/>
-        <listener class-name="com.sts.testautomation.listeners.AnnotationTransformer"/>
+        <listener class-name="NIMBIS_SharedClasses.listeners.TestListener"/>
+        <listener class-name="NIMBIS_SharedClasses.listeners.AnnotationTransformer"/>
     </listeners>
   
   
@@ -14,7 +14,7 @@
 
 
        <classes>
-    <class name="com.sts.testautomation.steps.Trailer_Underwriting_Rule"/>
+    <class name="NIMBIS_Prestige_Trailer.Trailer_Underwriting_Rule"/>
     </classes> 
   </test> 
  
